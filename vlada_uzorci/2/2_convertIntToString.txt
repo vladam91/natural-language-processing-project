@@ -1,0 +1,13 @@
+/**
+* Funkcija koja se koristi da bi 
+* celobrojnu vrednost broja konvertovali u string.
+* 
+* @param $broj
+*
+*/
+
+public function convertIntToString($broj){
+    $str = (string) $broj;
+    $str = "$int";     
+    echo $str;
+}

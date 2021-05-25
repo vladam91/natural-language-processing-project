@@ -1,0 +1,21 @@
+/**
+*  Pretvori niz u json. Ovakav niz prosledi json service za lep ispis.
+*
+*/
+
+public function printDataToJsonPretty(){
+   
+    $data = [
+        'item1' => 1,
+        'item2' => 2,
+        'item3' => 3,
+        'item4' => 4,
+    ];
+
+    $data = json_encode($data);
+
+    $csv = $this->jsonService->prettyFormat($data);
+
+    return $csv;
+
+}

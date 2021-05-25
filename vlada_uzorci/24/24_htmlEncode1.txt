@@ -1,0 +1,11 @@
+/**
+* Html enkodovanje stringa koji predstavlja link.
+*
+*/
+
+public function htmlEncode1(){
+
+   $str = '<a href="https://www.nanointeractive.com">Go www.nanointeractive.com</a>';
+   echo htmlentities($str);
+
+}

@@ -1,0 +1,19 @@
+/**
+*  Dohvata iz baze niz kategorija. Mapira kategorije u json i vraca korisniku string.
+* @returns string
+*/
+
+function mapJson3()
+{
+
+    $this->categories = $this->categoriesServices->fetchAllCategories();
+
+    $jsonEncodedMap = null;
+  
+    if(is_array($this->categories){
+        $jsonEncodedMap = json_encode($this->categories);
+    }
+
+    return $jsonEncodedMap;
+}
+  

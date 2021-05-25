@@ -1,0 +1,11 @@
+/**
+* Html enkodovanje stringa koji predstavlja dugme.
+*
+*/
+
+public function htmlEncode2(){
+
+   $str = '<button>Click me!</button>;
+   echo htmlentities($str);
+
+}

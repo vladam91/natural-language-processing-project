@@ -1,0 +1,10 @@
+/**
+*Uzmi izvrsnu putanju.
+*
+* @param $product
+*/
+
+public static function execPath3($product): void
+{
+    ProductRepository::incrementViewCount($product);
+}

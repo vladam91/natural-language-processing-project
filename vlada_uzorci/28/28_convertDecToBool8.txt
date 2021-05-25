@@ -1,0 +1,10 @@
+/**
+* Konvertovanje broja u boolean tip podataka.
+*
+* @param $newProduct
+*/
+
+public static function convertDecToBool8($newProduct): void
+{
+   ProductRepository::addNewProduct($newProduct);
+}

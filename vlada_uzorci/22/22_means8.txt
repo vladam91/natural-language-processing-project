@@ -1,0 +1,48 @@
+/**
+* Racuna kombinacije vrednosti iz ulaza i primenjuje k srednji klaster algoritam nad njima.
+*
+* @param $request
+*
+*/
+
+public function means8(Request $request): Response
+{
+        $response = new HTMLResponse();
+
+        $categoryCode = $request->getQuery()['code'];
+        $category = CategoryService::getCategoryByCode($categoryCode);
+        $categoryId = $category->getId();
+
+        $sortBy = $request->getQuery()['sortBy'];
+        $productsPerPage = $request->getQuery()['pageOffset'];
+
+        $sorting = $this->decodeSortingCode($sortBy);
+
+        $pageNumber = $request->getQuery()['page'];
+        $paginationOffset = ($pageNumber - 1) * $productsPerPage;
+
+        if (CategoryService::getChildrenCount($categoryId) === 0) {
+            $productArray = ProductService::getProductsById($categoryId, $sorting['column'], $sorting['method'],
+                $productsPerPage, $paginationOffset);
+            $products['countProducts'] = ProductService::getProductsNumberById($categoryId, $sorting['column'],
+                $sorting['method']);
+        } else {
+            $categoryHierarchy = CategoryService::getChildrenIds($categoryId);
+            $productArray = ProductService::getProductsByIds($categoryHierarchy, $sorting['column'],
+                $sorting['method'], $productsPerPage, $paginationOffset);
+            $products['countProducts'] = ProductService::getProductsNumberByIds($categoryHierarchy, $sorting['column'],
+                $sorting['method']);
+        }
+
+        $products['numProducts'] = count($productArray);
+        $products['numRows'] = ceil($products['numProducts'] / 5);
+        $products['products'] = $productArray;
+        $products['numPages'] = ceil($products['countProducts'] / $productsPerPage);
+        $products['categoryCode'] = $categoryCode;
+        $products['currentPageNumber'] = $pageNumber;
+
+        $response->setContent(ViewRenderer::render('views/visitor/VisitorCategoryPage',
+            $products));
+
+        return $response;
+}

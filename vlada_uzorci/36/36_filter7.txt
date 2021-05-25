@@ -1,0 +1,17 @@
+/**
+* Filtriraj niz na pozitivne elemente.
+* Vrati nazad klijentskoj strani filtrirani niz.
+* @param $numbers.
+*/
+
+function filter7($numbers)
+{
+    $positive_numbers = [];
+    
+    array_filter($numbers, function($number){
+         return $number > 0;
+    }
+
+    return $positive_numbers;
+}
+  

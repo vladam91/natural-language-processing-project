@@ -1,0 +1,16 @@
+/**
+*  Negativna binomijalna raspodela.
+*  @param $par1
+*  @param $par2
+*  @param $par3
+*  @param $which
+*
+*/
+
+public function negative_binomial($par1 , $par2 , $par3 , $which ){
+
+    $result = stats_cdf_negative_binomial($par1,$par2,$par3,$which);
+
+    return $result;
+
+}

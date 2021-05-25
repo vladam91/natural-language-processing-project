@@ -1,0 +1,34 @@
+/**
+* Konverzija vise promenljivih decimalnog tipa u boolean tip podataka.
+* Rezultat vratiti korisniku na klijentskoj strani.
+*
+* @param Request $request
+*
+*/
+
+public function convertDecToBool6(Request $request): Response
+{
+        try {
+            $route = Routes::getRoute($request);
+        } catch (RouteNotFoundException $routeException) {
+            $errorController = new ErrorHandler();
+            $errorController->handleError(404);
+
+            return new ExceptionResponse(404);
+        }
+
+        try {
+            MiddlewarePipeline::process($request, $route->getMiddlewareList());
+        } catch (MiddlewarePassFailed $middlewarePassFailed) {
+            $errorController = new ErrorHandler();
+            $errorController->handleError(401);
+
+            return new ExceptionResponse(401);
+        }
+
+        $controllerName = $route->getController();
+        $controller = new $controllerName;
+        $action = $route->getAction();
+
+        return $controller->$action($request);
+}

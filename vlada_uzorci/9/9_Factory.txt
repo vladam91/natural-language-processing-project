@@ -1,0 +1,16 @@
+/**
+* Klasa fabrika u kojoj se dodaju novi proizvodi u radni direktorijum.
+*/
+
+class Factory(){
+
+     $path = '/var/html/public';
+     chdir($path);
+     
+
+     public function getProduct(){
+         return new Product();
+     }
+   
+  
+}

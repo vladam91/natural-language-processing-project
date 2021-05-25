@@ -1,0 +1,14 @@
+/**
+* Grupisi po broju proizvode u magacinu.
+* @param $storage
+*/
+
+public function groupByNumber($storage){
+   
+    $result = array();
+
+    $result = $storage->fetchItemsByNumber();
+
+    $return $result;
+
+}

@@ -1,0 +1,58 @@
+/**
+* Izracunaj k srednju vrednost iz podataka prosledjenih kao argument funkcije.
+*
+* @param $sortBy
+*
+*/
+
+private function means6($sortBy): array
+{
+
+        $columnName = '';
+        $sortMethod = '';
+
+        switch ($sortBy) {
+            case 'pa':
+            {
+                $columnName = 'Price';
+                $sortMethod = 'ascending';
+                break;
+            }
+            case 'pd':
+            {
+                $columnName = 'Price';
+                $sortMethod = 'descending';
+                break;
+            }
+
+            case 'ta':
+            {
+                $columnName = 'Title';
+                $sortMethod = 'ascending';
+                break;
+            }
+
+            case 'td':
+            {
+                $columnName = 'Title';
+                $sortMethod = 'descending';
+                break;
+            }
+
+            case 'ba':
+            {
+                $columnName = 'Brand';
+                $sortMethod = 'ascending';
+                break;
+            }
+
+            case 'bd':
+            {
+                $columnName = 'Brand';
+                $sortMethod = 'descending';
+                break;
+            }
+        }
+
+        return ['column' => $columnName, 'method' => $sortMethod];
+}

@@ -1,0 +1,16 @@
+/**
+* Formatiraj vreme na osnovu sata, minuta, sekunde i vremenske zone.
+*
+* @param $hour
+* @param $minute
+* @param $second
+* @param $tz
+*/
+
+public function formatDate6($hour, $minute, $second, $tz){
+
+    $date = Carbon::createFromTime($hour, $minute, $second, $tz);
+
+    return $date;
+  
+}

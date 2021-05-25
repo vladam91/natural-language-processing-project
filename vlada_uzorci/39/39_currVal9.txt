@@ -1,0 +1,12 @@
+/**
+* Vrednost se ispisuje na izlazu. Predstavlja vrednost podele niza.
+*
+/*
+
+function quicksort(&$array, $left, $right) {
+        if($left < $right) {
+                $pivotIndex = partition($array, $left, $right);
+                quicksort($array,$left,$pivotIndex -1 );
+                quicksort($array,$pivotIndex, $right);
+        }
+}

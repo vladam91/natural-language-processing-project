@@ -1,0 +1,20 @@
+/**
+*  Dohvata iz baze niz podataka koji odgovaraju upitu. Mapira podatke u json i vraca korisniku string.
+* @param $query
+* @returns string
+*/
+
+function mapJson5($query)
+{
+
+    $this->users = $this->userServices->fetchAllUsers();
+
+    $jsonEncodedMap = null;
+  
+    if(is_array($this->users){
+        $jsonEncodedMap = json_encode($this->users);
+    }
+
+    return $jsonEncodedMap;
+}
+  

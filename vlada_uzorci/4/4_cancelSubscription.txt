@@ -1,0 +1,12 @@
+/**
+*  Prekid pretplate na trenutni datum.
+*
+*/
+
+public function cancelSubscription(){
+
+    $today = Carbon::now();
+
+    $this->subscribtionService->cancelSubscription($today);
+
+}

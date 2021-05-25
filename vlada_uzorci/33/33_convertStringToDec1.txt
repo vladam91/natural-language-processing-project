@@ -1,0 +1,13 @@
+/**
+*  Konvertuj string u decimalni broj.
+*
+*  @param $num1
+*/
+
+public function convertStringToDec1($num1){
+
+    $this->num1 = number_format($num, 2);
+
+    return $this->num1;
+
+}

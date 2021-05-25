@@ -1,0 +1,10 @@
+/**
+* Dohvata sve besplatne postove tj. njihov html sadrzaj i vraca nazad korisniku sajta.
+*
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getInnerHtml6(){
+        $posts = TextPost::where('type', 'free')->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+}

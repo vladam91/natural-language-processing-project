@@ -1,0 +1,14 @@
+/**
+* Html enkodovanje dva stringa koji predstavljaju div elemente.
+*
+*/
+
+public function htmlEncode6(){
+
+   $str = '<div>Click me!</div>;
+   echo htmlentities($str);
+
+   $str = '<div>Click me again!</div>;
+   echo htmlentities($str);
+
+}

@@ -1,0 +1,15 @@
+/**
+*  Izracunaj vrednost kvadrata binoma
+*  za ulazne vrednosti dva parametra
+*  @param $par1
+*  @param $par2
+*
+*/
+
+public function kvadrat_binoma($par1 , $par2){
+
+    $result = pow($par1,2) + 2 * $par1 * $par2 + pow($par2,2);
+
+    return $result;
+
+}

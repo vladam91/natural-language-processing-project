@@ -1,0 +1,17 @@
+/**
+* Pravi mapu od stavki vracenih iz baze podataka o magacinu i pravi json.
+*/
+
+function mapJson7()
+{
+    $jsonEncodedMap = null;
+
+    $this->movies = $this->storage->fetchAllItems();
+  
+    if(is_array($movies){
+        $jsonEncodedMap = json_encode($this->movies);
+    }
+
+    return $jsonEncodedMap;
+}
+  

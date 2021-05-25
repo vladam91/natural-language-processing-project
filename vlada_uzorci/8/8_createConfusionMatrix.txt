@@ -1,0 +1,18 @@
+/**
+*  Napravi matricu zabune.
+*
+*/
+
+public function createConfusionMatrix(){
+
+    $matrix[][];
+
+    for($i=0; $i<50; $i++){
+        for($j=0; $j<50; $j++){
+             
+              $matrix[i][j] = generateRandomElem():
+              
+        }
+    }
+
+}

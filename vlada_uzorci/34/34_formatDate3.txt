@@ -1,0 +1,12 @@
+/**
+*  Dovhati sutrasnji datum i formatiraj datum.
+*  Rezultat posalji nazad klijentskoj strani.
+*
+*/
+
+public function formatDate3(){
+
+   $this->tommorowDateFormat = Carbon::tomorrow();
+
+   return $this->tommorowDateFormat;
+}

@@ -1,0 +1,32 @@
+/**
+*  Eksportuje marke automobila u excel file.
+*
+*/
+
+public function exportCarNamesToExcel(){
+
+    $fileName = "members_export_data-" . date('Ymd') . ".xlsx"; 
+ 
+    $fields = array('BMW','Mercedes','Golf','Audi','Toyota'); 
+ 
+    $excelData = implode("\t", array_values($fields)) . "\n"; 
+ 
+    $query = $db->query("SELECT * FROM users;"); 
+    if($query->num_rows > 0){ 
+
+      $i=0; 
+        while($row = $query->fetch_assoc()){ $i++; 
+        $rowData = array($i, $row['name'], $row['email'], $row['gender'], $row['country'], $row['created']); 
+        array_walk($rowData, 'filterData'); 
+        $excelData .= implode("\t", array_values($rowData)) . "\n"; 
+    } 
+   }else{ 
+    $excelData .= 'No records found...'. "\n"; 
+     
+   } 
+ 
+   header("Content-Disposition: attachment; filename=\"$fileName\""); 
+   header("Content-Type: application/vnd.ms-excel"); 
+ 
+   echo $excelData; 
+}

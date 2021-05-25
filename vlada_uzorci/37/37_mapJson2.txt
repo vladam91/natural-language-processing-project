@@ -1,0 +1,23 @@
+/**
+*  Mapu pretvara u json i salje nazad korisniku.
+* @returns string
+*/
+
+function mapJson2()
+{
+
+    $ranges = [
+       "lowest" => "1-15",
+       "middle" => "16-30",   
+       "highest" => "31-45",
+    ];
+
+    $jsonEncodedMap = null;
+  
+    if(is_array($ranges){
+        $jsonEncodedMap = json_encode($jsonEncodeMap);
+    }
+
+    return $jsonEncodedMap;
+}
+  

@@ -1,0 +1,16 @@
+/**
+* Formatiraj datum na osnovu godine, meseca, dana i vremenske zone.
+*
+* @param $year
+* @param $month
+* @param $day
+* @param tz
+*/
+
+public function formatDate5($year, $month, $day, $tz){
+
+    $date = Carbon::createFromDate($year, $month, $day, $tz);
+
+    return $date;
+  
+}

@@ -1,0 +1,15 @@
+/**
+*  Prima http klijent zahtev kao post metod sa json u telu metode.
+*
+*/
+
+public function render($request,$args): string
+{
+        $json = $request->getBody();
+
+        $data = json_decode($json):
+
+        $data['args'] = $args;
+
+        return json_encode($data);
+}

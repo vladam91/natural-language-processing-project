@@ -1,0 +1,32 @@
+/**
+*  Spaja tri sortirane liste stringova.
+*  @param $lista1
+*  @param $lista2
+*  @parma $lista3
+*/
+
+public function spajaDveListeStringova($lista1, $lista2,$lista3){
+    
+     $lista1 = sort($lista1);
+
+     $lista2 = sort($lista2);
+
+     $lista3 = sort($lista3);
+
+     $listaAll = [];
+
+     foreach($Lista1 as $list1){
+         listaAll[] = $List1;
+     }
+
+     foreach($Lista2 as $list2){
+         listaAll[] = $List2;
+     }
+
+     foreach($Lista3 as $list3){
+         listaAll[] = $List3;
+     }
+
+     return $listaAll;
+
+}

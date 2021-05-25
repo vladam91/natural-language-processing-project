@@ -1,0 +1,13 @@
+/**
+* Napravi novi folder u random direktorijumu.
+* @param $path
+*/
+
+public function changeWorkingDirectory($path){
+
+
+     $current = $getcwd();
+
+     mkdir($current . '/new_folder');
+  
+}

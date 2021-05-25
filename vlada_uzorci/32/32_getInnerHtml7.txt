@@ -1,0 +1,10 @@
+/**
+* Dohvata sve placene postove tj. vraca njihiv html.
+*
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getAllPaidPosts(){
+        $posts = TextPost::where('type', 'paid')->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+}

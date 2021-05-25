@@ -1,0 +1,21 @@
+/**
+* Vrati nazad iz niza procitane vrednosti algoritama.
+*/
+
+public function arrayRead7(){
+   
+     $bstAlgs = [
+         "insert",
+         "delete",
+         "find",
+         "preorder",
+         "inorder",
+         "postorder"
+     ];
+
+     $algs = array_sort($bstAlgs, "ASC");
+
+
+     return $algs;
+
+}

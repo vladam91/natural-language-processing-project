@@ -1,0 +1,17 @@
+/**
+* http zahtev post json i obrada.
+*
+/*
+
+public function httpJson7($request): string
+{
+        $title = $this->titleTemplate->getTemplateString();
+        $request->getJsonAsString():
+
+        return <<<HTML
+        <div class="page">
+            $renderedTitle
+            <article>{{ content }}</article>
+        </div>
+        HTML;
+}

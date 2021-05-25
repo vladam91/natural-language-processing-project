@@ -1,0 +1,11 @@
+/**
+* Startovanje tajmera.
+*
+*/
+
+public function time6()
+{
+        if ($this->app->environment() == 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
+}

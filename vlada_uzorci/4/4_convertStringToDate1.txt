@@ -1,0 +1,11 @@
+/**
+*  Konverzija string u datum.
+*  @param $input
+*/
+
+public function convertStringToDate1($input){
+ 
+   $input = '06/10/2011 19:00:02';
+   $date = strtotime($input);
+   echo date('d/M/Y h:i:s', $date);
+}

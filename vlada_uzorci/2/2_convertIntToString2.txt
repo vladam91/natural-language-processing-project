@@ -1,0 +1,21 @@
+/**
+* Funkcija koja se koristi da bi se 
+* tri celobrojne vrednosti konvertovale
+* u stringove i zatim nadovezale.
+* 
+* @param $broj1
+* @param $broj2
+* @param $broj3
+*
+*/
+
+public function convertIntToString2($broj1, $broj2, $broj3){
+
+    $str = (string) $broj1;
+    
+    $str += (string) $broj2;
+
+    $str += (string) $broj3;
+    
+    echo $str;
+}

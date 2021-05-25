@@ -1,0 +1,17 @@
+/**
+* Cuvaj listu u fajl.
+* @param $lista
+*/
+
+public function saveListToFile($lista){
+ 
+   $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+   $txt = json_encode(
+       $lista;
+   );
+   fwrite($myfile, $txt);
+   $txt = "Jane Doe\n";
+   fwrite($myfile, $txt);
+   fclose($myfile);
+ 
+}

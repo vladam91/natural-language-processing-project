@@ -1,0 +1,18 @@
+/**
+* Pravi mapu od filmova vracenih iz baze podataka i pravi json.
+* Rezultat se vrati klijentskoj strani za prikaz.
+*/
+
+function mapJson6()
+{
+    $jsonEncodedMap = null;
+
+    $this->movies = $this->movieServies->fetchAllMovies();
+  
+    if(is_array($movies){
+        $jsonEncodedMap = json_encode($this->movies);
+    }
+
+    return $jsonEncodedMap;
+}
+  

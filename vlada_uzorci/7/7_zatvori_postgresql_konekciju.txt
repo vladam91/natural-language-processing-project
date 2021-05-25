@@ -1,0 +1,13 @@
+/**
+*  Zatvori postgresql konekciju.
+*
+*/
+
+public function zatvori_postgresql_konekciju(){
+    // Closing connection
+    pg_close($dbconn);
+}
+
+
+
+

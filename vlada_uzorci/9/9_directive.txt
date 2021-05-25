@@ -1,0 +1,12 @@
+/**
+* Postavi radni direktorijum preko dirname direktive.
+* @param $path
+*/
+
+public function setWorkingDirectory($path){
+
+     chdir(dirname(__FILE__));
+ 
+     echo getcwd() . "\n";
+  
+}

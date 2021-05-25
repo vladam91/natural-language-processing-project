@@ -1,0 +1,9 @@
+/**
+*  Napravi postgresql konekciju.
+*
+*/
+
+public function makePostgresqlConnection(){
+   $dbconn = pg_connect("host=localhost dbname=publishing user=www password=foo")
+    or die('Could not connect: ' . pg_last_error());
+}

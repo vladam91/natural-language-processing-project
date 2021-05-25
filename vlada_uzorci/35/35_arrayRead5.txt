@@ -1,0 +1,24 @@
+/**
+* Procitaj vrednosti plata radnika iz niza i vrati nazad rezultat.
+*/
+
+public function arrayRead5(){
+ 
+         $salaries = array("employee1" => 2500, "employee2" => 2000, "employee3" => 200);
+         
+         echo "Salary of employee1 is ". $salaries['employee1'] . "<br />";
+         echo "Salary of employee2 is ".  $salaries['employee2']. "<br />";
+         echo "Salary of employee3 is ".  $salaries['employee3']. "<br />";
+         
+         /* Second method to create array. */
+         $salaries['employee1'] = "high";
+         $salaries['employee2'] = "medium";
+         $salaries['employee3'] = "low";
+         
+         echo "Salary of employee1 is ". $salaries['employee1'] . "<br />";
+         echo "Salary of employee2 is ".  $salaries['employee2']. "<br />";
+         echo "Salary of employee3 is ".  $salaries['employee3']. "<br />";
+
+         return $salaries;
+
+}

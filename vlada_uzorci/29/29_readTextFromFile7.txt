@@ -1,0 +1,33 @@
+/**
+* Citanja teksta iz vise fajlova i to liniju po linuju.
+* Ispisati svaku liniju na standardnom izlazu tj. konzoli.
+*
+* @param $id
+* @param $column
+* @param $method
+* @param $productsPerPage
+* @param $offset
+*
+* @return array|null
+*/
+
+public static function readTextFromFile7(
+        $id,
+        $column,
+        $method,
+        $productsPerPage,
+        $offset
+    ): ?array {
+        $sortDirection = $method === 'ascending' ? 'asc' : 'desc';
+        $productModels = ProductRepository::getProductsById($id, $column, $sortDirection, $productsPerPage, $offset);
+        $products = array();
+
+        foreach ($productModels as $model) {
+            $productDTO = new Product($model->CategoryId, $model->SKU, $model->Title, $model->Brand, $model->Price,
+                $model->ShortDescription, $model->Description, $model->Image, $model->Enabled, $model->Featured,
+                $model->ViewCount);
+            $products[] = $productDTO;
+        }
+
+        return $products;
+}

@@ -1,0 +1,13 @@
+/**
+*  Uradi lep ispis za json.
+*  Servis vraca string za json.
+*  @param $p
+*/
+
+public function writePrettyJson(){
+
+    $res = $this->jsonService->prettyFormat("Ovako se formatira json preko json servisa");
+
+    return $res;
+
+}

@@ -1,0 +1,15 @@
+/**
+*  Napravi lep ispis za json odgovor i vrati status kod 200.
+*/
+
+public function print2(){
+
+    $part1 = $this->jsonService->getJson1();
+
+    $res = $this->service->mergeJsonFiles($part1);
+
+    $this->request->setStatus(200);
+
+    return $res;
+
+}

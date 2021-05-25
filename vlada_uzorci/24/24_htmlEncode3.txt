@@ -1,0 +1,11 @@
+/**
+* Html enkodovanje stringa koji predstavlja radio dugme.
+*
+*/
+
+public function htmlEncode3(){
+
+   $str = '<RadioButton>Click me!</RadioButton>;
+   echo htmlentities($str);
+
+}

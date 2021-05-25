@@ -1,0 +1,17 @@
+/**
+*  Funkcija prima kao argument string koji predstavlja decimalni broj.
+*  Prosledjuje ih servisu i proizvodi rezultat.
+*
+*  @param $num1
+*/
+
+public function convertStringToDec10($num1){
+
+    $this->num1 = (float) $num1;
+
+    $result = $this->service->countMatches($num1);
+    $result->sortByDesc();
+
+    return $result;
+
+}

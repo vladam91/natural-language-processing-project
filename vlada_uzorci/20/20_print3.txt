@@ -1,0 +1,15 @@
+/**
+*  Napravi lep ispis za json odgovor i vrati status kod 204.
+*/
+
+public function print3(){
+
+    $part2 = $this->jsonService->getJson();
+
+    $res = $this->service->mergeJsonFiles($part2);
+
+    $this->request->setStatus(204);
+
+    return $res;
+
+}

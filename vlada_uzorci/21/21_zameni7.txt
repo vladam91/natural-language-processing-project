@@ -1,0 +1,21 @@
+/**
+* Zameni stringove u fajlu novim strinovima.
+*
+* Zatim vrati odgovor klijentskoj strani.
+*/
+
+public function getPage(Request $request): Response
+    {
+        $response = new HTMLResponse();
+
+        $listOfProducts = ProductService::getPage($request->getQuery()['pageId']);
+
+        $products = array();
+        $products['listOfProducts'] = $listOfProducts;
+        $products['numOfProducts'] = ProductService::getNumberOfProducts();
+
+        $response->setContent(ViewRenderer::render('views/snippets/admin/products/ListAllProducts',
+            $products));
+
+        return $response;
+}

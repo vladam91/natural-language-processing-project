@@ -1,0 +1,30 @@
+/**
+* Procitaj ocene ucenika iz niza za citanje ocena i posalji nazad rezultat.
+*/
+
+public function arrayRead6(){
+ 
+         $marks = array( 
+            "student1" => array (
+               "physics" => 35,
+               "maths" => 30,	
+               "chemistry" => 39
+            ),
+            
+            "student2" => array (
+               "physics" => 30,
+               "maths" => 32,
+               "chemistry" => 29
+            ),
+            
+            "student3" => array (
+               "physics" => 31,
+               "maths" => 22,
+               "chemistry" => 39
+            )
+         );
+
+
+     return $marks;
+
+}

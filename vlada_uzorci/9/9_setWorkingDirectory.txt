@@ -1,0 +1,12 @@
+/**
+* Postavi radni direktorijum na novi url.
+* @param $path
+*/
+
+public function setWorkingDirectory($path){
+
+     chdir($path);
+ 
+     echo getcwd() . "\n";
+  
+}

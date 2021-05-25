@@ -1,0 +1,15 @@
+/**
+* Brojanje koliko csv fajla postoji.
+*
+*
+*/
+
+public function countCsvFiles(){
+
+    $count = $this->service->countNumberFiles();
+
+    $countCsvFiles = $this->service->filter(".csv")->count;
+  
+    echo $countCsvFiles;
+
+}

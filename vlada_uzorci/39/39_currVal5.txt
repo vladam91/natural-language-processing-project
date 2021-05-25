@@ -1,0 +1,15 @@
+/**
+* Dohvati trenutnu opazenu vrednost za boju sajta.
+*
+*/
+
+<?php
+
+function customFont($font, $size=1.5){
+    echo "<div style=\"font-family: $font; font-size: 25px;\">This is my new color</div>";
+}
+ 
+customFont("Arial", 3);
+customFont("Times", 5);
+
+?>

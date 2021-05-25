@@ -1,0 +1,31 @@
+/**
+ * Klasa koja enkapsulira sve parametre http 
+ * zahteva među kojima se nalazi i upit
+ *
+ */
+
+class Request
+{
+ 
+    private $body;
+
+    private $headers = [];
+
+    private $query = [];
+
+    private $method;
+
+    private $uri;
+
+    private $post = [];
+
+    private $files = [];
+
+    private $parameters = [];
+
+    public __construct(){
+ 
+
+    }
+  
+}

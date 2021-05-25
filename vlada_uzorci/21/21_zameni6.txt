@@ -1,0 +1,38 @@
+/**
+* Zameni dva fajla ukoliko im  se imena razlikuju u
+* dva ili vise karaktera. Zatim vrati nazad odgovor.
+*
+*/
+
+public function zameni6(Request $request): Response
+{
+        $sku = $request->getPost()['SKU'];
+
+        if (ProductService::getProductBySKU($sku) !== null) {
+
+            $imageName = $_FILES['fileToUpload']['tmp_name'];
+            list($width, $height) = getimagesize($imageName);
+
+            $ratio = $height / $width;
+
+            if (($ratio < (4 / 3) || $ratio > (16 / 9)) || $width < 600) {
+
+                $product = ProductService::getProductBySKU($sku);
+                ProductService::deleteProduct($product);
+
+                return new JSONResponse([
+                    'success' => false,
+                    'message' => 'ERROR: Upload image requirements not met.'
+                ]);
+            }
+
+            $target_dir = __DIR__ . '/../../public/assets/Images/';
+            $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
+            move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file);
+            ProductService::updateProductImageBySKU($sku, $target_file);
+
+            return new JSONResponse(['success' => true, 'message' => 'Image uploaded successfully.']);
+        }
+
+        return new JSONResponse(['success' => false, 'message' => 'Image not uploaded successfully.']);
+}

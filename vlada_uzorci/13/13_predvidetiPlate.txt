@@ -1,0 +1,11 @@
+/**
+* Predvideti plate zaposlenih za 3 godine koristeci linearnu regresiju.
+*/
+
+public function predvidetiPlate(){
+
+    $payments = $this->linearRegModel->predict();
+
+    return $payments;
+
+}

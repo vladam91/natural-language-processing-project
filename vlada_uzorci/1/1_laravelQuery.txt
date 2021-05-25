@@ -1,0 +1,14 @@
+/**
+*  Ispisuje na izlazu upit koji je prosleđen kao
+*  deo URL-a.
+*
+*/
+
+public function laravelGetQuery(){
+
+   $name = $request->query('name');
+
+   $serviceQuery = service->get($name);
+
+   echo $name;
+}

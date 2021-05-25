@@ -1,0 +1,20 @@
+/**
+*  Iscrtaj tacke i prikazi ih na dijagramu rasejanja.
+*
+*/
+
+public function scatterFirstSet(){
+    
+   $dataPoints = array(
+	array("x"=> 111.5, "y"=> 68),
+	array("x"=> 112, "y"=> 70),
+	array("x"=> 113, "y"=> 61),
+	array("x"=> 128, "y"=> 65),
+	array("x"=> 132, "y"=> 66.5),
+	array("x"=> 151, "y"=> 71)
+   );
+
+   $result = $this->drawPlot($dataPoints);
+
+   return $result; 
+}

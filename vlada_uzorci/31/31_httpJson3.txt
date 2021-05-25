@@ -1,0 +1,16 @@
+/**
+* Obrada json post zahteva.
+*
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function httpJson3()
+    {
+        if(Auth::user()->can('create', VideoPost::class))
+        {
+            $cats = Category::all();
+            return view("video.form", ['cats' => $cats]);
+        }
+
+        return redirect()->back();
+}

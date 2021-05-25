@@ -1,0 +1,19 @@
+/**
+* Parsiraj binari fajl u klasu C.
+*
+*/
+
+public function parseBin4(){
+  $grants_array = array();
+		foreach($this->Module->get_all_permissions()->result() as $permission)
+		{
+			$grants = array();
+			$grant = $this->input->post('grant_'.$permission->permission_id) != NULL ? $this->input->post('grant_'.$permission->permission_id) : '';
+			if($grant == $permission->permission_id)
+			{
+				$grants['permission_id'] = $permission->permission_id;
+				$grants['menu_group'] = $this->input->post('menu_group_'.$permission->permission_id) != NULL ? $this->input->post('menu_group_'.$permission->permission_id) : '--';
+				$grants_array[] = $grants;
+			}
+		}
+}

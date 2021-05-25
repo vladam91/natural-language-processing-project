@@ -1,0 +1,10 @@
+/**
+* Procitaj binarni sadrzaj fajla.
+*
+* @param $productsToDelete
+*/
+    
+public static function readTextFromFile3($productsToDelete): void
+{
+    ProductRepository::deleteSelectedProducts($productsToDelete);
+}

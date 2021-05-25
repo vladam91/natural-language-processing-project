@@ -1,0 +1,38 @@
+/**
+*  Parsiraj binarni fajl u klasu A.
+*
+*/
+
+public function parseBin2($employee_id = -1)
+{
+		$person_info = $this->Employee->get_info($employee_id);
+		foreach(get_object_vars($person_info) as $property => $value)
+		{
+			$person_info->$property = $this->xss_clean($value);
+		}
+		$data['person_info'] = $person_info;
+
+		$modules = array();
+		foreach($this->Module->get_all_modules()->result() as $module)
+		{
+			$module->module_id = $this->xss_clean($module->module_id);
+			$module->grant = $this->xss_clean($this->Employee->has_grant($module->module_id, $person_info->person_id));
+			$module->menu_group = $this->xss_clean($this->Employee->get_menu_group($module->module_id, $person_info->person_id));
+
+			$modules[] = $module;
+		}
+		$data['all_modules'] = $modules;
+
+		$permissions = array();
+		foreach($this->Module->get_all_subpermissions()->result() as $permission)
+		{
+			$permission->module_id = $this->xss_clean($permission->module_id);
+			$permission->permission_id = str_replace(' ', '_', $this->xss_clean($permission->permission_id));
+			$permission->grant = $this->xss_clean($this->Employee->has_grant($permission->permission_id, $person_info->person_id));
+
+			$permissions[] = $permission;
+		}
+		$data['all_subpermissions'] = $permissions;
+
+		$this->load->view('employees/form', $data);
+	}

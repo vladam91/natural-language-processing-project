@@ -1,0 +1,22 @@
+/**
+*  Vrati front timu niz kordinata dobijenih spajanjem dva niza koordinata za prikaz na dijagramu rasejanja
+*  u sortiranom redosledu elemenata koordinata.
+*
+*/
+
+public function scatterThirdSet(){
+    
+   $dataPoints1 = [];
+
+   $points1 = $this->coordinatesService->fetch3DPairs();
+
+   $dataPoints[] = $points;
+
+   $dataPoints2 = [];
+
+   $points2 = $this->coordinatesService->fetch2DPairs();
+
+   $dataPoints[] = $points2;
+
+   return array_sort($dataPoints, "ASC");
+}

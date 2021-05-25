@@ -1,0 +1,23 @@
+/**
+* Mapiraj rute kontrolera za video sadrzaj u json.
+*
+*/
+
+<?php
+
+
+Route::get('/createvideo','AutorController@getVideoForm');
+Route::post('/create-videopost','AutorController@uploadVideo');
+Route::get('/video-tutorials', 'VideoTutorialsController@getVideoTutorials');
+Route::get('/video-post/{post}', 'VideoTutorialsController@getvideoPost');
+Route::get('/video-posts/type/free', 'VideoTutorialsController@getAllFreePosts');
+Route::get('/video-posts/type/paid', 'VideoTutorialsController@getAllPaidPosts');
+Route::get('/video-posts/cat/{category}', 'VideoTutorialsController@getPostsByCategory');
+Route::get('/video-posts/delete/{post}', 'VideoTutorialsController@deleteVideoPost');
+Route::get('/video-posts/user/{user}', 'VideoTutorialsController@getAllPostsByUser');
+Route::post('/video-posts/create/comment/{post}', 'VideoTutorialsController@createComment');
+Route::post('/video-posts/search/', 'VideoTutorialsController@searchPosts');
+Route::get('/video-post-comment/delete/{comment}', 'VideoTutorialsController@deleteVideoPostComment');
+
+
+?>

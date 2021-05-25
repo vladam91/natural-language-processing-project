@@ -1,0 +1,19 @@
+/**
+* Funkcija koja pretrazuje postove na osnovu naslova, tipa, opisa, tela...
+* Kao odgovor korisniku vraca unutrasnji html za svaki post.
+*
+* @param Request $request
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getInnerHtml9(Request $request){
+
+        $this->validate($request,
+            [
+                'search' => 'required|min:3|max:120'
+            ]
+        );
+
+        $posts = TextPost::search($request->search)->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+}

@@ -1,0 +1,23 @@
+/**
+* Dohvati izvrsnu putanju i pozovi njeno izvrsavanje sa ulaznim parametrom.
+*
+* @param $searchParam
+*
+* @return array
+*/
+
+public static function execPath2($searchParam): array
+{
+        $productDTOs = array();
+        $productsModels = ProductRepository::searchProducts($searchParam);
+        foreach ($productsModels as $productModel) {
+            $productDTO = new Product($productModel->CategoryId, $productModel->SKU, $productModel->Title,
+                $productModel->Brand, $productModel->Price,
+                $productModel->ShortDescription, $productModel->Description, $productModel->Image,
+                $productModel->Enabled, $productModel->Featured,
+                $productModel->ViewCount);
+            $productDTOs[] = $productDTO;
+        }
+
+        return $productDTOs;
+}

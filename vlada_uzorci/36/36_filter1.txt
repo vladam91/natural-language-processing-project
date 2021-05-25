@@ -1,0 +1,19 @@
+/**
+* Filtriranje niza na parne elemente.
+* @param $arr
+*/
+
+function filter1($arr)
+{
+
+    array_filter($array, function() => {
+        if($array%2==0)
+          return TRUE;
+        else 
+          return FALSE; 
+    });
+
+    return $arr;
+
+}
+  

@@ -1,0 +1,17 @@
+/**
+*  Klasa Tajmer. Koristi se za merenja vremena kao i kada je potrebno
+*  izracunati proteklo vreme izmedju dva preseka.
+*
+*/
+
+class time5 {
+    private $time = null;
+    public function __construct() {
+        $this->time = time();
+        echo 'Working - please wait..<br/>';
+    }
+
+    public function __destruct() {
+        echo '<br/>Job finished in '.(time()-$this->time).' seconds.';
+    }
+}

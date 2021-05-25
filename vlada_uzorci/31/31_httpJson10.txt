@@ -1,0 +1,14 @@
+/**
+* Obrada get http klijent zahteva.
+*/
+
+public function where($request)
+{
+        $query = $request->getQuery();
+
+        $user = $this->service->getClientById($query);
+
+        $user->getCredentials():
+
+        return $user;
+}

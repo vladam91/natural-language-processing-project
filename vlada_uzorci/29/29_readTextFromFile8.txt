@@ -1,0 +1,16 @@
+/**
+* Obrada fajlova i dalje prosledjivanje.
+*
+* @param $ids
+* @param $column
+* @param $method
+*
+* @return array
+*/
+
+public static function readTextFromFile8(array $ids, string $column, string $method): int
+{
+    $sortDirection = $method === 'ascending' ? 'asc' : 'desc';
+
+    return ProductRepository::getProductsNumberByIds($ids, $column, $sortDirection);
+}

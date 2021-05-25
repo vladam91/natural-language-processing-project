@@ -1,0 +1,20 @@
+/**
+* Dohvati trenutnu ip adresu korisnika.
+*
+*/
+
+public function getIp2()
+	{
+		$item_kits_to_delete = $this->xss_clean($this->input->post('ids'));
+
+		if($this->Item_kit->delete_list($item_kits_to_delete))
+		{
+			echo json_encode(array('success' => TRUE,
+								'message' => $this->lang->line('item_kits_successful_deleted').' '.count($item_kits_to_delete).' '.$this->lang->line('item_kits_one_or_multiple')));
+		}
+		else
+		{
+			echo json_encode(array('success' => FALSE,
+								'message' => $this->lang->line('item_kits_cannot_be_deleted')));
+		}
+}

@@ -1,0 +1,14 @@
+/**
+* Za posmatrani deo grada, predvideti cenu nekretnina u naredne 2 godine
+* koristeci model linarne regresije.
+*
+* @param $nazivDelaGrada
+*/
+
+public function predvidetiCenuNekretnine($nazivDelaGrada){
+
+    $cost = $this->linearRegModel->predict($nazivDelaGrada);
+
+    return $cost;
+
+}

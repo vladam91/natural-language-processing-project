@@ -1,0 +1,11 @@
+/**
+* Procitaj tekstualni sadrzaj iz fajla liniju po liniju.
+* Vrati odgvor nazad na klijentsku stranu.
+*
+* @param $productsToDisable
+*/
+
+public static function readTextFromFile2($productsToDisable): void
+{
+    ProductRepository::disableSelectedProducts($productsToDisable);
+}

@@ -1,0 +1,14 @@
+/**
+*  Konvertuj paragraf u csv.
+*  Vrati nazad rezultat.
+*
+*  @param $text
+*/
+
+public function convertParagraphToCsv($text){
+   
+    $result = $this->textService->convertTextToCsv($text);
+
+    return result;
+
+}

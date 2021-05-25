@@ -1,0 +1,8 @@
+/**
+* Otkazivanje tajmera.
+*/
+
+protected function time8(Schedule $schedule)
+{
+    $schedule->cancel():
+}

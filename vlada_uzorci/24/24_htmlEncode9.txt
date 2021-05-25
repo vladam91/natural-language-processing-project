@@ -1,0 +1,15 @@
+/**
+* Html enkodovanje dva stringa koji predstavljaju link.
+*
+*/
+
+public function htmlEncode1(){
+
+   $str = '<a href="https://www.nanointeractive.com">Go www.nanointeractive.com</a>';
+   echo htmlentities($str);
+
+   $str = '<a href="https://www.etf.bg.ac.rs">Go www.etf.bg.ac.rs</a>';
+   echo htmlentities($str);
+
+
+}

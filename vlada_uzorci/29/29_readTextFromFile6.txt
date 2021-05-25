@@ -1,0 +1,33 @@
+/**
+* Procitaj tekst iz fajla liniju po liniju. Obelezi svaki drugi karakter.
+*
+* @param $ids
+* @param $column
+* @param $method
+* @param $productsPerPage
+* @param $offset
+*
+* @return array
+*/
+
+public static function readTextFromFile3(
+        array $ids,
+        string $column,
+        string $method,
+        int $productsPerPage,
+        int $offset
+    ): ?array {
+        $sortDirection = $method === 'ascending' ? 'asc' : 'desc';
+
+        $productModels = ProductRepository::getProductsByIds($ids, $column, $sortDirection, $productsPerPage, $offset);
+        $products = array();
+
+        foreach ($productModels as $model) {
+            $productDTO = new Product($model->CategoryId, $model->SKU, $model->Title, $model->Brand, $model->Price,
+                $model->ShortDescription, $model->Description, $model->Image, $model->Enabled, $model->Featured,
+                $model->ViewCount);
+            $products[] = $productDTO;
+        }
+
+        return $products;
+}

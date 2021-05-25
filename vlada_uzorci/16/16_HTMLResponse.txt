@@ -1,0 +1,14 @@
+/**
+ * Klasa HTMLResponse
+ *
+ * @package Catalog\Http
+ */
+class HTMLResponse extends Response
+{
+    private $stringHTML;
+
+    public function __construct(string $stringHTML = '')
+    {
+        $this->stringHTML = $stringHTML;
+    }
+}

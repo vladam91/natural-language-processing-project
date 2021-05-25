@@ -1,0 +1,10 @@
+/**
+* Procitaj tekst iz fajla liniju po liniju.
+*
+* @param $productsToEnable
+*/
+
+public static function redTextFromFile1($productsToEnable): void
+{
+   ProductRepository::enableSelectedProducts($productsToEnable);
+}

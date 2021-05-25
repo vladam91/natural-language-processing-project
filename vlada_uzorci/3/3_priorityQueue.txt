@@ -1,0 +1,26 @@
+/**
+*  Ispis svih elemenata prioritetnog reda.
+*
+*/
+
+public function priortyQueue(){
+
+   $pq = new SplPriorityQueue();
+
+   $pq->insert('A', 3);
+   $pq->insert('B', 6);
+   $pq->insert('C', 1);
+   $pq->insert('D', 2);
+
+   echo "count ->" . $pq->count() . PHP_EOL;
+
+   $pq->setExtractFlags(SplPriorityQueue::EXTR_BOTH);
+
+   $pq->top();
+
+   while ($pq->valid()) {
+     print_r($pq->current());
+     echo PHP_EOL;
+     $pq->next();
+  }
+}

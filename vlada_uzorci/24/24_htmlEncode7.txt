@@ -1,0 +1,9 @@
+/**
+*  enkoduj string promenljivu kao <b> html tag.
+*
+*/
+
+public function htmlEncode(){
+    $str = "This is some <b>bold</b> text.";
+    echo htmlspecialchars($str);
+}

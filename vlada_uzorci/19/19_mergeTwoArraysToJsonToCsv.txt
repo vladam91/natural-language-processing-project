@@ -1,0 +1,17 @@
+/**
+*  Spoji dva ulazna niza.
+*  Napravi json fajlove. Konvertuj json u csv.
+*  Vrati nazad csv fajl.
+*  @param $json1
+*  @param $json2
+*/
+
+public function mergeTwoArraysToJsonToCsv($a1,$a2){
+
+    $merged = array_merge($a1,$a2);
+
+    $res = $this->service->makeCsvFromJson($merged);
+
+    return $res;
+
+}

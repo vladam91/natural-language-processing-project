@@ -1,0 +1,12 @@
+/**
+*  Dovhati danasnji datum i formatiraj datum.
+*  Rezultat posalji nazad klijentskoj strani.
+*
+*/
+
+public function formatDate1(){
+
+   $this->currentDateFormat = Carbon::now();
+
+   return $this->currentDateFormat;
+}

@@ -1,0 +1,14 @@
+/**
+*  Dovhati danasnji datum i oduzmi pet dana. Formatiraj datum.
+*  Rezultat posalji nazad klijentskoj strani.
+*
+*/
+
+public function formatDate9(){
+
+   $this->currentDateFormat = Carbon::now();
+
+   $this->currentDateFormat->subDays(5);
+
+   return $this->currentDateFormat;
+}

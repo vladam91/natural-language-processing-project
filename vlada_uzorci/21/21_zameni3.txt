@@ -1,0 +1,13 @@
+/**
+* Vrati nazad fajl.
+*
+* @return Response
+*/
+
+public function zameni3: Response
+{
+        $response = new HTMLResponse();
+        $response->setContent(ViewRenderer::render('views/admin/AdminProductPage'));
+
+        return $response;
+}

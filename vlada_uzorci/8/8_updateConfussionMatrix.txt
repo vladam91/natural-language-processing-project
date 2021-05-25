@@ -1,0 +1,11 @@
+/**
+*  Dopuni matricu zabune.
+*  @param $i
+*  @param $j
+*  @param $value
+*/
+
+public function createConfusionMatrix($i,$j,$value){
+  
+    $this->confussionMatrix[$i][$j] = $value;
+}

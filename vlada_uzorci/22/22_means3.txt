@@ -1,0 +1,23 @@
+/**
+* Obradi k podataka i vrati srednju vrednost.
+*/
+
+public function means3(Request $request): Response
+{
+        if (!ProductValidator::validateProduct($request->getQuery()['sku'], $request->getQuery()['title'],
+            $request->getQuery()['brand'], $request->getQuery()['price'], $request->getQuery()['shortDescription'],
+            $request->getQuery()['description'])) {
+            return new JSONResponse(['message' => ProductValidator::getErrorMessage()]);
+        }
+
+        $productCategory = CategoryService::getCategoryByCode($request->getQuery()['category']);
+        $productDTO = new Product($productCategory->getId(), $request->getQuery()['sku'], $request->getQuery()['title'],
+            $request->getQuery()['brand'], $request->getQuery()['price'], $request->getQuery()['shortDescription'],
+            $request->getQuery()['description'], ' ', $request->getQuery()['enabled'], $request->getQuery()['featured'],
+            0);
+        $productDTO->setId($request->getQuery()['idProduct']);
+        ProductService::editProduct($productDTO);
+
+        return new JSONResponse(['message' => 'Product edited.']);
+}
+

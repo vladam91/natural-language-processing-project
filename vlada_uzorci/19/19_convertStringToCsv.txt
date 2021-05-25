@@ -1,0 +1,14 @@
+/**
+*  Konvertuj string u csv.
+*  Vrati nazad rezultat.
+*
+*  @param $text
+*/
+
+public function convertStringToCsv(){
+   
+    $result = $this->textService->convertTextToCsv("This is our string");
+
+    return result;
+
+}

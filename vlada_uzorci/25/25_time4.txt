@@ -1,0 +1,8 @@
+/**
+* Onemoguci tajmer da reaguje na vreme.
+*
+*/
+
+public function time4(){
+    Event::delTimer();
+}

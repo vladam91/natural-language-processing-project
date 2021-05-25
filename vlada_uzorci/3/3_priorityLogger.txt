@@ -1,0 +1,7 @@
+/**
+*  Klasa PriorityLogger nasleđuje prioritetni red.
+*/
+
+class PriorityLogger extends SplPriorityQueue implements PriorityLoggerInterface {
+   
+}

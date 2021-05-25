@@ -1,0 +1,21 @@
+/**
+* Nadji maksimalni element u nizu. Vrati nazad maksimalni element.
+* @param $numbers.
+*/
+
+function filter10($numbers)
+{
+    $max = $numbers[0];
+    
+    for($i=0;$i<0;$i++){
+       
+        if($numbers[i] > $max)
+            {
+                 $max = $numbers[i];
+            }        
+   
+    }
+
+    return max;
+}
+  

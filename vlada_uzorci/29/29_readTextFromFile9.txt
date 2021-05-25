@@ -1,0 +1,16 @@
+/**
+* Citanje tekstualnoj sadrzaja fajolva liniju po liniju i njihovo procesuiranje.
+*
+* @param $id
+* @param $column
+* @param $method
+*
+* @return int
+*/
+
+public static function readTextFromFile9($id, $column,  $method): int
+    {
+        $sortDirection = $method === 'ascending' ? 'asc' : 'desc';
+
+        return ProductRepository::getProductsNumberById($id, $column, $sortDirection);
+}

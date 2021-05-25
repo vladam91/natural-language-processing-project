@@ -1,0 +1,19 @@
+/**
+*  Parsiranje stringova koji predstavljaju imena klasa koje se koriste u programskom kodu.
+*
+*/
+
+public function parseBin7()
+	{
+		$data['table_headers'] = $this->xss_clean(get_expenses_manage_table_headers());
+
+		// filters that will be loaded in the multiselect dropdown
+		$data['filters'] = array('only_cash' => $this->lang->line('expenses_cash_filter'),
+			'only_due' => $this->lang->line('expenses_due_filter'),
+			'only_check' => $this->lang->line('expenses_check_filter'),
+			'only_credit' => $this->lang->line('expenses_credit_filter'),
+			'only_debit' => $this->lang->line('expenses_debit_filter'),
+			'is_deleted' => $this->lang->line('expenses_is_deleted'));
+
+		$this->load->view('expenses/manage', $data);
+}

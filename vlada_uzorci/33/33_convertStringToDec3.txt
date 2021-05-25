@@ -1,0 +1,20 @@
+/**
+*  Konvertuj tri stringa u decimalni broj i saberi ih.
+*  Vrati nazad klijentskoj strani rezultat sabiranja.
+*
+*  @param $num1
+*  @param $num2
+*  @param $num3
+*/
+
+public function convertStringToDec3($num1, $num2, $num3){
+
+    $this->num1 = number_format($num, 2);
+    $this->num2 = number_format($num, 2);
+    $this->num3 = $number_format($num, 2);
+
+    $result = $this->num1 + $this->num2 + $this->num3;
+
+    return $result;
+
+}

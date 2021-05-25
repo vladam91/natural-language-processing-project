@@ -1,0 +1,49 @@
+/**
+*  Obradi ulazne podatke iz zahteva i nakon toga uradi
+*  k  srednje klaster i vrati nazad
+*  odgovor.
+*
+*/
+
+public function means2(Request $request): Response
+    {
+        $response = new HTMLResponse();
+
+        $allCategories = CategoryService::getAllCategories();
+        $categories = array();
+        foreach ($allCategories as $category) {
+            $categoryTemp = CategoryService::getCategoryByCode($category->getCode());
+
+            if ($categoryTemp->getParentId() === -1) {
+                $parentTitle = 'Root';
+            } else {
+                $categoryParent = CategoryService::getCategoryById($categoryTemp->getParentId());
+                $parentTitle = $categoryParent->getTitle();
+            }
+            $categoryBean = new SelectCategoryBean($category->getTitle(), $category->getCode(), $parentTitle);
+            $categories[] = $categoryBean;
+        }
+
+        $productDTO = ProductService::getProductBySKU($request->getParameters()[0]);
+
+        $categoryDTO = CategoryService::getCategoryById($productDTO->getCategoryId());
+
+        $imageCompletePath = $productDTO->getImage();
+
+        $imagePathPieces = explode('/', $imageCompletePath);
+        $numPieces = count($imagePathPieces);
+
+        $imageName = $imagePathPieces[$numPieces - 1];
+
+        $productData = array(
+            'category' => $categories,
+            'productInfo' => $productDTO,
+            'imagePath' => '/assets/Images/' . $imageName,
+            'myCategoryCode' => $categoryDTO->getCode(),
+            'idProductIdHidden' => $productDTO->getId()
+        );
+
+        $response->setContent(ViewRenderer::render('views/admin/AdminEditProduct', $productData));
+
+        return $response;
+    }

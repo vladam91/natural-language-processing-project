@@ -1,0 +1,17 @@
+/**
+* Vraca klijentskoj strani sortirani niz samo za citanje.
+*/
+
+public function arrayRead2(){
+ 
+    $parts = [
+         'part1' => 'factory',
+         'part2' => 'decorator',
+         'part3' => 'singleton',
+         'part4' => 'composition'
+    ];
+ 
+    array_sort($parts, "DESC");
+
+    return $parts;
+}

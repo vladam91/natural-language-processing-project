@@ -1,0 +1,18 @@
+/**
+*  Konvertuj dva stringa u decimalni broj i saberi ih.
+*  Vrati nazad klijentskoj strani rezultat sabiranja.
+*
+*  @param $num1
+*  @param $num2
+*/
+
+public function convertStringToDec1($num1, $num2){
+
+    $this->num1 = number_format($num, 2);
+    $this->num2 = number_format($num, 2);
+
+    $result = $this->num1 + $this->num2;
+
+    return $result;
+
+}

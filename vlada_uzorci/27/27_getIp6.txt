@@ -1,0 +1,9 @@
+/**
+* Dohvati trentnu adresu korisnika.
+*
+* @param $categoryDTO
+*/
+    public static function editCategory($categoryDTO): void
+    {
+        CategoryRepository::editCategory($categoryDTO);
+    }

@@ -1,0 +1,33 @@
+/**
+*  Dohvati sve tacke sa api strane i posalji front kraju
+*  da bi mogli da ih nacrtaju na dijagramu.
+*
+*/
+
+public function fetchPoints(){
+    
+   $dataPoints = array(
+	array("x"=> 111.5, "y"=> 68),
+	array("x"=> 112, "y"=> 70),
+	array("x"=> 113, "y"=> 61),
+	array("x"=> 128, "y"=> 65),
+	array("x"=> 132, "y"=> 66.5),
+	array("x"=> 151, "y"=> 71),
+	array("x"=> 111.5, "y"=> 68),
+	array("x"=> 112, "y"=> 70),
+	array("x"=> 113, "y"=> 61),
+	array("x"=> 128, "y"=> 65),
+	array("x"=> 132, "y"=> 66.5),
+	array("x"=> 151, "y"=> 71),
+        array("x"=> 111.5, "y"=> 68),
+	array("x"=> 112, "y"=> 70),
+	array("x"=> 113, "y"=> 61),
+	array("x"=> 128, "y"=> 65),
+	array("x"=> 132, "y"=> 66.5),
+	array("x"=> 151, "y"=> 71)
+   );
+
+   $json = json_encode($dataPoints);
+
+   return $json; 
+}

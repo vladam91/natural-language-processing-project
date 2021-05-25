@@ -1,0 +1,21 @@
+/**
+* Cuvaj listu u vise fajlova.
+* @param $lista
+*/
+
+public function saveListToFile($lista){
+ 
+   $myfile1 = fopen("newfile.txt", "w") or die("Unable to open file!");
+   $myfile2 = fopen("newfile.txt", "w") or die("Unable to open file!"); 
+
+   $txt = json_encode(
+       $lista;
+   );
+
+   fwrite($myfile1, $txt);
+   fwrite($myfile2, $txt);
+
+   fclose($myfile1);
+   fclose($myfile2); 
+
+}

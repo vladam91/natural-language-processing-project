@@ -1,0 +1,20 @@
+/**
+* Uzmi izvrsnu putanju i vrati je nazad klijentskoj strani.
+*
+* @param $searchParam
+*
+* @return int
+*/
+
+public static function execPath1($searchParam): int
+{
+        if ($searchParam->categoryInfo['code'] !== 'any') {
+            $id = CategoryService::getCategoryByCode($searchParam->categoryInfo['code'])->getId();
+            $children = CategoryService::getChildrenIds($id);
+            $searchParam->categoryInfo = $children;
+        } else {
+            $searchParam->categoryInfo = array();
+        }
+
+        return ProductRepository::countNumberProducts($searchParam);
+}

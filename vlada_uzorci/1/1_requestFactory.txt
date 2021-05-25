@@ -1,0 +1,33 @@
+/**
+ * Svrha ove klase je da enkapsulira sve parametre jednog
+ * http zahteva među kojima su fajlovi, telo zahteva,
+ * upit itd
+ *
+ */
+
+class RequestFactory
+{
+
+    public static function makeNewRequest(): Request
+    {
+        $request = new Request();
+
+        $request->setPost($_POST);
+        $request->setFiles($_FILES);
+
+        $request->setBody(file_get_contents('php://input'));
+
+        $request->setHeaders(HeaderLoader::getallheaders());
+
+        $queryArray = self::getQueryParameters();
+        $request->setQuery($queryArray);
+
+        $uri = self::getUri();
+        $request->setUri($uri);
+
+        $request->setMethod($_SERVER['REQUEST_METHOD']);
+
+        return $request;
+    }
+
+}

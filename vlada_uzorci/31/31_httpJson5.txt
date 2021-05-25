@@ -1,0 +1,16 @@
+/**
+* Funckija koja prima json post zahtev i radi obradu.
+*
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getTextForm()
+{
+        if(Auth::user()->can('create', TextPost::class))
+        {
+            $cats = Category::all();
+            return view("text.form", ['cats' => $cats]);
+        }
+
+        return redirect()->back();
+}

@@ -1,0 +1,18 @@
+/**
+* Promeni radni direktorijum na novi url prosleden kao parametar.
+* @param $path
+*/
+
+public function changeWorkingDirectory($path){
+
+
+     $current = $getcwd();
+
+     echo getcwd() . "\n";
+
+
+     chdir($path);
+ 
+     echo getcwd() . "\n";
+  
+}

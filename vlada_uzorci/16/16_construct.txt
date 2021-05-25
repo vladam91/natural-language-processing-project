@@ -1,0 +1,22 @@
+/*
+*  Konstruktor funkcije u kojem se koristi konverzija decimalnog broja u heksadecimalni.
+*
+*/    
+
+public function __construct(
+        string $keyword,
+        array $categoryInfo,
+        float $minPrice,
+        float $maxPrice,
+        int $limit,
+        int $offset,
+        string $searchType
+    ) {
+        $this->keyword = $keyword;
+        $this->categoryInfo = $categoryInfo;
+        $this->minPrice = $minPrice;
+        $this->maxPrice = $maxPrice;
+        $this->limit = $limit;
+        $this->offset = $offset;
+        $this->searchType = $searchType;
+    }

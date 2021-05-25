@@ -1,0 +1,19 @@
+/**
+*  Uzmi unutrasnji html programski kod fajla ispisi na ekranu.
+*
+*/
+
+<?php 
+$dom= new DOMDocument(); 
+$dom->preserveWhiteSpace = false;
+$dom->formatOutput       = true;
+$dom->load($html_string); 
+
+$domTables = $dom->getElementsByTagName("table"); 
+
+// Iterate over DOMNodeList (Implements Traversable)
+foreach ($domTables as $table) 
+{ 
+    echo DOMinnerHTML($table); 
+} 
+?> 

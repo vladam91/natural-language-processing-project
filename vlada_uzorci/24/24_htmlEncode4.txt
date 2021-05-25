@@ -1,0 +1,14 @@
+/**
+* Html enkodovanje dva stringa koji predstavlja linkove.
+*
+*/
+
+public function htmlEncode4(){
+
+   $str = '<a>Click me!</a>;
+   echo htmlentities($str);
+
+   $str = '<a>Click me again!</a>;
+   echo htmlentities($str);
+
+}

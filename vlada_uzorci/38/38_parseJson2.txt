@@ -1,0 +1,21 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i ubaci u bazu novu kategoriju.
+*  Vrati nazad klijentu uspesnost operacije.
+*
+*/
+
+public function parseJson2($request){
+
+     $body = $request->getBody();
+
+     $parsedCategory = json_decode($body, true);
+
+     $i = $this->serviceCategory->insert($parseCategory);
+
+     if($i > 0){
+          return "New category added");
+     }
+
+     return "error occured";
+}

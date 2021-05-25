@@ -1,0 +1,10 @@
+/**
+*  Obrisi matricu zabune.
+*
+*/
+
+public function deleteConfusionMatrix(){
+
+    $matrix[][] = null;
+
+}

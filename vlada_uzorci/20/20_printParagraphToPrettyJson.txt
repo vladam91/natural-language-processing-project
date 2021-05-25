@@ -1,0 +1,16 @@
+/**
+*  Za ulazni tekst napravi lep json ispis.
+*  Vrati nazad rezultat.
+*
+*  @param $text
+*/
+
+public function printParagraphToPrettyJson($text){
+
+    $text = json_encode($test);
+   
+    $result = $this->textService->prettyFormat($text);
+
+    return result;
+
+}

@@ -1,0 +1,16 @@
+/**
+* Filtriranje niza po parnosti indeksa. Vrati nazad filtirani niz.
+* @param $numbers.
+*/
+
+function filter1($numbers)
+{
+
+   $even_indexed_numbers = array_filter($numbers, function($index) {
+        return $index % 2 === 0;
+   }, ARRAY_FILTER_USE_KEY);
+
+    return $numbers;
+
+}
+  

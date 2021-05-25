@@ -1,0 +1,16 @@
+/**
+* Uzmi unutrasnji html i dohvati iz baze podatke
+* koje mu odgovaraju.
+*/
+
+public function getInnerHtml3($request): string
+    {
+        $query = $this->request->getQuery();
+        $sql = $query->reqeuest_>getBody();
+        if (!empty($query->where)) {
+            $sql .= " WHERE " . implode(' AND ', $query->where);
+        }
+
+        $sql .= ";";
+        return $sql;
+}

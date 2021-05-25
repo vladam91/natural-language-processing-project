@@ -1,0 +1,12 @@
+/**
+* Prikazuje sve postove koji pripadaju jednom korisniku. Vraca se nazad
+* unutrasnji html za svaki post.
+*
+* @param User $user
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getAllPostsByUser(User $user){
+        $posts = $user->textPosts()->paginate(10);
+        return view('text.list', ['posts' => $posts]);
+}

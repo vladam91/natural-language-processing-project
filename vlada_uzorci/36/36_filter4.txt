@@ -1,0 +1,25 @@
+/**
+* Filtriraj niz na neparne brojeve, zatim ih saberi i vrati nazad njihov zbir.
+* @param $numbers.
+* @return $sum
+*/
+
+function filter4($numbers)
+{
+    $odd_numbers = [];
+    
+    foreach ($numbers as $number) {
+	if ($number % 2 === 1) {
+		$odd_numbers[] = $number;
+	}
+    }
+
+    $sum = 0;
+
+    forEach($odd_numbers as $oddNum){
+       $sum += $oddNum;
+    }
+
+    return sum;
+}
+  

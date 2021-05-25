@@ -1,0 +1,25 @@
+/**
+*  Vraca pogled koji sadrzi u sebi upit.
+*
+*/
+
+public function viewQuery($upit) {
+
+    $data = [
+        $cart1 => $cartItem1,
+        $cart2 => $cartItem2,
+    ];
+
+    $data2 = [
+        $cart1 => $cartItem1,
+        $cart2 => $cartItem2,
+        $cart3 => $cartItem1,
+        $cart4 => $cartItem2,
+        $cart5 => $cartItem1,
+        $cart6 => $cartItem2,
+    ];
+
+    service->do($data1,$data2);
+
+    return view('cart')->with('id', $upit);
+});

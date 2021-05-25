@@ -1,0 +1,12 @@
+/*
+*  Podesiti minimalnu i maksimalnu cenu.
+*
+*/    
+
+public function __setMinMax(
+        float $minPrice,
+        float $maxPrice,
+    ) {
+        $this->minPrice = $minPrice;
+        $this->maxPrice = $maxPrice;
+    }

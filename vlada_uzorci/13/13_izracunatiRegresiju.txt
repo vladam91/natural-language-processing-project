@@ -1,0 +1,11 @@
+/**
+* Izracunati regresiju.
+*
+* @param $data
+*/
+
+public function izracunatiRegresiju($data){
+  
+    return regression($data);
+
+}

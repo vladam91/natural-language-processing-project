@@ -1,0 +1,13 @@
+/**
+*  Konvertuj ulazni json fajl u csv.
+*  Vrati nazad csv fajl.
+*  @param $json
+*/
+
+public function convertInputJsonToCsv($json){
+
+    $res = $this->jsonService->convertToCsv($json);
+
+    return $res;
+
+}

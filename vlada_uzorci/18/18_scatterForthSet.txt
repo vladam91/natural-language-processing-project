@@ -1,0 +1,16 @@
+/**
+*  Vrati front timu niz kordinata za prikaz na dijagramu rasejanja
+*  u sortiranom redosledu elemenata koordinata.
+*
+*/
+
+public function scatterForthSet(){
+    
+   $dataPoints = [];
+
+   $points = $this->coordinatesService->fetch3DPairs();
+
+   $dataPoints[] = $points;
+
+   return array_sort($dataPoints, "ASC");
+}

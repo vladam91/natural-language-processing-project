@@ -1,0 +1,14 @@
+/**
+* Uzmi izvrsnu putanju I razbi je na delove.
+*
+* @param VideoPost $post
+* @return \Illuminate\Http\RedirectResponse
+*/
+
+public function execPath10(VideoPost $post){
+        if(Auth::user()->can('delete', $post))
+        {
+            $post->delete();
+        }
+        return redirect()->back();
+}

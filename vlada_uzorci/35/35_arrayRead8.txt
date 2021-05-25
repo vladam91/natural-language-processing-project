@@ -1,0 +1,15 @@
+/**
+* Ispisi na standardnom izlazu vrednosti elemenata procitanih iz niza samo za citanje.
+* @param $niz
+*/
+
+public function arrayRead8($niz){
+   
+     foreach($niz as $elem){
+          
+         echo '<td>';
+         echo $elem->value();
+         echo '</td>';
+
+     }
+}

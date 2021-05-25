@@ -1,0 +1,25 @@
+/**
+*  Vrati nazad proizvod koji je predstavljen json stringom.
+*
+*/
+
+public function parseJson8($request){
+
+
+       $productId = $request->getId();
+
+       try{
+           $this->validate($id);
+       } catch(Exception $e){
+           return "Validation exception occured" . $id . " for product is not valid";
+       }
+
+       $product = $this->productService->getProductById($id);
+       
+       $json = json_encode($product);
+ 
+       return $json;
+       
+
+}
+       

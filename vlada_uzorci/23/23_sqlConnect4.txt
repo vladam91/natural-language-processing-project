@@ -1,0 +1,18 @@
+/**
+*  Konektuj se sa sqlom i obrisi podatak iz baze.
+*
+*/
+
+public function sqlConnect4(){
+   
+ $sql = "DELETE FROM TableName WHERE name = 'user2'";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
+}

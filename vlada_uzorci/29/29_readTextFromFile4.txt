@@ -1,0 +1,21 @@
+/**
+* Citaj tekstualni sadrzaj iz jednog ili vise fajlova.
+* Citati liniju po liniju.
+* Poslati nazad klijentskoj strani.
+*
+* @return array
+*/
+
+public static function readTextFromFile4(): array
+{
+        $productsDTO = array();
+        $productModels = ProductRepository::getFeaturedProducts();
+        foreach ($productModels as $model) {
+            $productDTO = new Product($model->CategoryId, $model->SKU, $model->Title, $model->Brand, $model->Price,
+                $model->ShortDescription, $model->Description, $model->Image, $model->Enabled, $model->Featured,
+                $model->ViewCount);
+            $productsDTO[] = $productDTO;
+        }
+
+        return $productsDTO;
+}

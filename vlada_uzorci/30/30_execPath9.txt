@@ -1,0 +1,14 @@
+/**
+* Funkcija koja sluzi da se dohvati putanja fajla.
+*
+* @param VideoPostComment $comment
+* @return \Illuminate\Http\RedirectResponse
+*/
+
+public function deleteVideoPostComment(VideoPostComment $comment){
+        if(Auth::user()->can('delete', $comment))
+        {
+            $comment->delete();
+        }
+        return redirect()->back();
+}

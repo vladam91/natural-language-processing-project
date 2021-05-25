@@ -1,0 +1,21 @@
+/**
+* Izracunaj proteklo vreme izmedju dva preseka koristeci tajmer.
+*
+*/
+
+public function time2(){
+
+   $time_pre = microtime(true);
+   call();
+   $time_post = microtime(true);
+   $exec_time1 = $time_post - $time_pre;
+
+   $time_pre = microtime(true);
+   call();
+   $time_post = microtime(true);
+   $exec_time2 = $time_post - $time_pre;
+
+
+   echo $exec_time2 - $exec_time1;
+
+}

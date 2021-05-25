@@ -1,0 +1,29 @@
+/**
+* Vrati nazad zamenjene vrednosti u fajlu.
+*
+* @return Response
+*/
+
+public function zameni4(): Response
+{
+
+        $response = new HTMLResponse();
+
+        $allCategories = CategoryService::getAllCategories();
+        $categories = array();
+        foreach ($allCategories as $category) {
+            $categoryTemp = CategoryService::getCategoryByCode($category->getCode());
+
+            if ($categoryTemp->getParentId() === -1) {
+                $parentTitle = 'Root';
+            } else {
+                $categoryParent = CategoryService::getCategoryById($categoryTemp->getParentId());
+                $parentTitle = $categoryParent->getTitle();
+            }
+            $categoryBean = new SelectCategoryBean($category->getTitle(), $category->getCode(), $parentTitle);
+            $categories[] = $categoryBean;
+        }
+        $response->setContent(ViewRenderer::render('views/admin/AdminCreateProduct', $categories));
+
+        return $response;
+}

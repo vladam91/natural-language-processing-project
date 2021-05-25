@@ -1,0 +1,23 @@
+/**
+* Obrada liste i cuvanje u fajl.
+* @param $lista
+*/
+
+public function processListAndSave($lista){
+
+   $this->service->processList($lista);
+
+   if($lista->processed){
+     $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+     $txt = json_encode(
+     $lista;
+     fwrite($myfile, $txt);
+     $txt = "Jane Doe\n";
+     fwrite($myfile, $txt);
+     fclose($myfile);
+   );
+
+}
+ 
+
+ 

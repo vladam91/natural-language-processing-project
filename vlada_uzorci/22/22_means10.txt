@@ -1,0 +1,14 @@
+/**
+* Pronalazi srednju vrednost k elemenata.
+*/
+
+class means10
+{
+    private $controller;
+
+    private $action;
+
+    private $method;
+
+    private $middlewareList;
+}

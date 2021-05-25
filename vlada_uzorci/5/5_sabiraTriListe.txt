@@ -1,0 +1,16 @@
+/**
+*  Sabira tri liste stringova i vraca rezultat.
+*  @param $lista1
+*  @Param $lista2
+*  @Param $lista3
+*/
+
+public function sabiradveListe($lista1, $lista2,$lista3){
+    
+     $lista1 = $lista1 + $lista2;
+
+     $lista1 = $lista1 + $lista3;
+
+     return $lista1;
+
+}

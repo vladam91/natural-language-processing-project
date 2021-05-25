@@ -1,0 +1,9 @@
+/**
+*  Dohvati trenutnu opazenu vrednost za sabiranje dva broja.
+*
+*/
+
+function divideNumbers($a, $b){
+    return $a * $b
+}
+ 

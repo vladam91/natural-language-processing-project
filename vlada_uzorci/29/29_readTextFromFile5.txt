@@ -1,0 +1,23 @@
+/**
+* Procitaj sadrzaj fajla i obradi ga.
+* Poslati nazad klijentskoj strani rezultat.
+*
+* @param $categoryCode
+*
+* @return array
+*/
+
+public static function readTextFromFile5($categoryCode): array
+{
+        $productModels = ProductRepository::getProductsByCategoryCode($categoryCode);
+        $productsDTO = array();
+
+        foreach ($productModels as $model) {
+            $productDTO = new Product($model->CategoryId, $model->SKU, $model->Title, $model->Brand, $model->Price,
+                $model->ShortDescription, $model->Description, $model->Image, $model->Enabled, $model->Featured,
+                $model->ViewCount);
+            $productsDTO[] = $productDTO;
+        }
+
+        return $productsDTO;
+}

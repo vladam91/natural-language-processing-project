@@ -1,0 +1,27 @@
+/**
+* Renderuj niz na laravel pogledu i prikazi klijentu.
+* @param $niz
+*/
+
+public function arrayRead10()
+{
+  
+  $persons = [
+      [
+      "id" => 33,
+      "name" => "Vladimir"
+      ],
+      [
+      "id" => 34,
+      "name => "Dusan"
+      ],
+      [
+      "id" => 35,
+      "name" => "Lena"
+      ]
+
+  ];
+
+
+  return view('users')->with('users', $persons); 
+}

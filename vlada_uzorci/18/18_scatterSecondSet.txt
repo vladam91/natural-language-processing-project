@@ -1,0 +1,16 @@
+/**
+*  Iscrtaj tacke i prikazi ih na dijagramu rasejanja u dobijenom redosledu.
+*
+*/
+
+public function scatterSecondSet(){
+    
+   $dataPoints = array(
+	array("x"=> 111.5, "y"=> 68),
+	array("x"=> 112, "y"=> 70),
+   );
+
+   $result = $this->drawPlot($dataPoints);
+
+   return $result; 
+}

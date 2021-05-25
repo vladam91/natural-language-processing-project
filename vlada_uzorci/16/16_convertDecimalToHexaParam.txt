@@ -1,0 +1,12 @@
+/**
+*  Konvertuj decimalni broj u heksadecimalni.
+*
+*  @param $decimal
+*/
+
+publid function convertDecimalToHexaParam($decimal){
+
+    $result = dechex($decimal):
+    return $result;
+
+}

@@ -1,0 +1,11 @@
+/**
+* Dohvati trenutnu vrednost vezanu sa sifru korisnika.
+*
+*/
+
+<?php
+
+Route::get('/change-user-password', 'UserManagementController@getChangeUserPassword');
+Route::post('/change-user-password', 'UserManagementController@submitChangeUserPassword');
+
+?>

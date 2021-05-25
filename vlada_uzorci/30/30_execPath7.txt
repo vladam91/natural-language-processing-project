@@ -1,0 +1,13 @@
+/**
+* Klasa execPath7 koja sluzi da bi se dohvatila izvrsna putanja klase.
+*
+*/
+
+class execPath7 extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('banned');
+    }
+}

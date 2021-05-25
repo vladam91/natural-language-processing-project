@@ -1,0 +1,14 @@
+/**
+* Cuvaj listu u mongodb bazi podataka.
+* @param $lista
+*/
+
+public function saveList($lista){
+ 
+   $txt = json_encode(
+       $lista;
+   );
+
+   $service->saveMongoData($txt);
+
+}

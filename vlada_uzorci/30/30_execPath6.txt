@@ -1,0 +1,10 @@
+/**
+* Nadji putanju klase i ispisi je na standardnom izlazu.
+*/
+
+public static function execPath6()
+{
+      $t = StatisticsRepository::incrementHomepageCount();
+      $t->printData();
+      echo $t;
+}

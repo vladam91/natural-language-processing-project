@@ -1,0 +1,10 @@
+/**
+* Zaloguj ip adresu.
+*
+* @param $categoryDTO
+*/
+
+public static function addCategory($categoryDTO): void
+{
+       CategoryRepository::addCategory($categoryDTO);
+}

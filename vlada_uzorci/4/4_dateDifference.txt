@@ -1,0 +1,16 @@
+/**
+*  Racunanje razlike dva datuma.
+*  @param $datum1
+*  @param $datum2
+*/
+
+public function dateDifference($datum1, $datum2){
+
+   $datum1 = strtotime($datum1);
+   $datum2 = strtotime($datum2);
+ 
+   $interval = date_diff($datum1, $datum2);
+  
+   echo $interval;
+
+}

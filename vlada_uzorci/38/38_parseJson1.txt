@@ -1,0 +1,21 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i ubaci u bazu novi proizvod.
+*  Vrati nazad klijentu uspesnost operacije.
+*
+*/
+
+public function parseJson1($request){
+
+     $body = $request->getBody();
+
+     $parsedProduct = json_decode($body, true);
+
+     $i = $this->serviceProduct->insert($parseProduct);
+
+     if($i > 0){
+          return "New product added");
+     }
+
+     return "error occured";
+}

@@ -1,0 +1,19 @@
+/**
+*  Dohvata iz baze niz proizvoda. Mapira proizvode u json i vraca korisniku string.
+* @returns string
+*/
+
+function mapJson4()
+{
+
+    $this->products = $this->productsServices->fetchAllProducts();
+
+    $jsonEncodedMap = null;
+  
+    if(is_array($this->products){
+        $jsonEncodedMap = json_encode($this->products);
+    }
+
+    return $jsonEncodedMap;
+}
+  

@@ -1,0 +1,10 @@
+/**
+*  Ruta za dohvatanje trenutno stanja za pristup korisnika sajtu.
+*
+*/
+
+<?php
+
+Route::get('/banned', 'ErrorController@getBanned');
+
+?>

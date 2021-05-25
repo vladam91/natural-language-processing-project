@@ -1,0 +1,17 @@
+/**
+*  Konvertuj dva ulazna json fajla u csv.
+*  Vrati nazad csv fajl.
+*  @param $json1
+*  @param $json2
+*/
+
+public function convertTwoJsonsToCsv($json1,$json2){
+
+    $part1 = $this->jsonService->convertToCsv($json1);
+    $part2 = $this->jsonService->convertToCsv($json2); 
+ 
+    $res = $this->service->mergeJsonFiles($part1,$part2);
+
+    return $res;
+
+}

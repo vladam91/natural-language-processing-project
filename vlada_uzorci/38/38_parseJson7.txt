@@ -1,0 +1,25 @@
+/**
+*  Vrati nazad korisnika koji je predstavljen json stringom.
+*
+*/
+
+public function parseJson7($request){
+
+
+       $id = $request->getId();
+
+       try{
+           $this->validate($id);
+       } catch(Exception $e){
+           return "Validation exception occured" . $id . " is not valid";
+       }
+
+       $user = $this->userService->getUserById($id);
+       
+       $json = json_encode($user);
+ 
+       return $json;
+       
+
+}
+       

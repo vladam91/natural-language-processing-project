@@ -1,0 +1,18 @@
+/**
+*  Obrisi podatke iz sql baze podataka.
+*
+*/
+
+public function sqlConnect4(){
+   
+ $sql = "DELETE FROM USERS WHERE name = 'user5'";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
+}

@@ -1,0 +1,11 @@
+/*
+*  Sabrati dva heksadecimalna broja
+*
+*/    
+
+public function saberiDvaHexaBroja(
+        $b1,
+        $b2
+    ) {
+        return $b1 + $b2;
+    }

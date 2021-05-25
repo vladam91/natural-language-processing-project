@@ -1,0 +1,13 @@
+/**
+* Dohvati izvrsnu putanju klasa i pozovi njeno izvrsavanje.
+*
+* @return int
+*/
+
+public static function execPath4(): int
+{
+        $statisticsModel = StatisticsRepository::getHomepageOpeningCount();
+        $statisticsDTO = new Statistics($statisticsModel->Id, $statisticsModel->HomeViewCount);
+
+        return $statisticsDTO->getHomeViewCount();
+}

@@ -1,0 +1,13 @@
+/**
+* Formatiraj datum prvog dana nove godine.
+* Vrati nazad formatirani datum.
+*
+*/
+
+public function formatDate4(){
+
+   //Use carbon functionality to generate first day of new year.
+   $this->newYearFormat = new Carbon('first day of January 2022');
+
+   return $this->newYearFormat;
+}

@@ -1,0 +1,13 @@
+/**
+* Izracunaj proteklo vreme koristeci tajmer.
+*
+*/
+
+public function time1(){
+
+   $time_pre = microtime(true);
+   call();
+   $time_post = microtime(true);
+   $exec_time = $time_post - $time_pre;
+
+}

@@ -1,0 +1,15 @@
+/**
+*  Dovhati danasnji datum i dodaj mesec dana radi produzavanje pretplate na sadrzaj.
+*
+*/
+
+public function formatDate10(){
+
+   $this->currentDateFormat = Carbon::now();
+
+   $this->currentDateFormat->subDays(30);
+
+   $sub = $this->subscriptionService->prolongSubscribtion($this->currentDateFormat);
+
+   return $sub;
+}

@@ -1,0 +1,49 @@
+/**
+* Klasa za k srednji klaster. Koristi se kada je potrebno
+* izracunati k srednju vrednost za neki ulazni skup.
+*
+*/
+
+class means7 extends FrontController
+{
+    public function index(Request $request): Response
+    {
+        $response = new HTMLResponse();
+
+        $categoriesInfo = array();
+
+        $categoriesDTO = CategoryService::getAllCategories();
+
+        foreach ($categoriesDTO as $categoryDTO) {
+            $parentId = $categoryDTO->getParentId();
+            if ($parentId === -1) {
+                $parentTitle = 'Root';
+            } else {
+                $parentCategory = CategoryService::getCategoryById($parentId);
+                $parentTitle = $parentCategory->getTitle();
+            }
+            $bean = new SearchCategoryBean($categoryDTO->getCode(), $categoryDTO->getTitle(), $parentTitle);
+            $categoriesInfo[] = $bean;
+        }
+
+        $numCategoriesBean = count($categoriesInfo);
+
+        $minPrice = !isset($request->getQuery()['minPrice']) ? '' : (float)$request->getQuery()['minPrice'];
+        $maxPrice = !isset($request->getQuery()['maxPrice']) ? '' : (float)$request->getQuery()['maxPrice'];
+
+        $renderingInformation = array(
+            'categories' => $categoriesInfo,
+            'numCategoriesBean' => $numCategoriesBean,
+            'keyword' => $request->getQuery()['keyword'],
+            'numPages' => 1,
+            'currentPageNumber' => 1,
+            'min' => $minPrice,
+            'max' => $maxPrice
+        );
+
+        (isset($request->getQuery()['selectCategory'])) ? ($renderingInformation['selectCategory'] = ($request->getQuery()['selectCategory'])) : ($renderingInformation['selectCategory'] = 'any');
+
+        $response->setContent(ViewRenderer::render('views/visitor/SearchPage', $renderingInformation));
+
+        return $response;
+}

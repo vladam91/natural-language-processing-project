@@ -1,0 +1,11 @@
+/**
+* Vraca nazad pogled koji sadrzi unutrasnji html.
+*
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getInnerHtml5()
+{
+        $posts = TextPost::paginate(10);
+        return view('text.list', ['posts' => $posts]);
+}

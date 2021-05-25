@@ -1,0 +1,32 @@
+/**
+*  Konvertuj dva json stringova u csv.
+*  Vrati nazad csv fajl.
+*
+*/
+
+public function convertTwoJsonsToCsv(){
+   
+    $data1 = [
+        'item1' => 1,
+        'item2' => 2,
+        'item3' => 3,
+        'item4' => 4,
+    ];
+
+    $data2 = [
+        'item1' => 5,
+        'item2' => 6,
+        'item3' => 7,
+        'item4' => 8,
+    ];
+
+    $data1 = json_encode($data1);
+    $data2 = json_encode($data2);
+
+    $data = $this->merge($data1,$data2);
+
+    $csv = $this->jsonService->convertToCsv($data);
+
+    return $csv;
+
+}

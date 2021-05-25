@@ -1,0 +1,14 @@
+/**
+* Grupisi po imenu proizvode u magacinu.
+* @param $storage
+*/
+
+public function groupByName($storage){
+   
+    $result = array();
+
+    $result = $storage->fetchItemsByName();
+
+    $return $result;
+
+}

@@ -1,0 +1,23 @@
+/**
+* Konvertovanje decimalnog broja u boolean.
+* @param  $offset
+*
+*/
+
+public static function getPage($offset): ?array
+{
+        $listOfProducts = ProductRepository::getPage($offset);
+        $listOfProductsDTO = array();
+        foreach ($listOfProducts as $product) {
+            $productDTO = new Product($product->CategoryId, $product->SKU, $product->Title, $product->Brand,
+                $product->Price, $product->ShortDescription, $product->Description, $product->Image, $product->Enabled,
+                $product->Featured, $product->ViewCount);
+
+            $productCategory = CategoryService::getCategoryById($product->CategoryId);
+            $productDTO->setCategoryName($productCategory->getTitle());
+
+            $listOfProductsDTO[] = $productDTO;
+        }
+
+        return $listOfProductsDTO;
+}

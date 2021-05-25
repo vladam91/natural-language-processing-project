@@ -1,0 +1,28 @@
+/**
+*  Konektuj se sa sqlom i odradi upis dva podataka u bazu.
+*
+*/
+
+public function sqlConnect5(){
+   
+ $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+ $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John1', 'Doe1', 'john1@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
+}

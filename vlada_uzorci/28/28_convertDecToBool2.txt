@@ -1,0 +1,13 @@
+/**
+* Izvrsiti konvertovanje decimalnih brojeva u boolean.
+* Vratiti rezultat klijentskoj strani.
+*
+*/
+
+public static function getCategoryById():
+{
+        $category = CategoryRepository::getCategoryById($categoryId);
+
+        return new CategoryDTO($category->ParentId, $category->Code, $category->Title, $category->Description,
+            $category->Id);
+}

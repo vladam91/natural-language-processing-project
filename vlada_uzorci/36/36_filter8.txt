@@ -1,0 +1,17 @@
+/**
+* Filtriraj niz na negativne elemente.
+* Vrati nazad klijentskoj strani filtrirani niz.
+* @param $numbers.
+*/
+
+function filter8($numbers)
+{
+    $negative_numbers = [];
+    
+    array_filter($numbers, function($number){
+         return $number < 0;
+    }
+
+    return $negative_numbers;
+}
+  

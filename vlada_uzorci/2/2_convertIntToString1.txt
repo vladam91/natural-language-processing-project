@@ -1,0 +1,18 @@
+/**
+* Funkcija koja se koristi da bi se 
+* dve celobrojne vrednosti konvertovale
+* u stringove i zatim nadovezale jedna na drugu.
+* 
+* @param $broj1
+* @param $broj2
+*
+*/
+
+public function convertIntToString1($broj1, $broj2){
+
+    $str = (string) $broj1;
+    
+    $str += (string) $broj2;
+    
+    echo $str;
+}

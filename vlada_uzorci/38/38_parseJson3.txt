@@ -1,0 +1,21 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i ubaci u bazu novog korisnika.
+*  Vrati nazad klijentu uspesnost operacije.
+*
+*/
+
+public function parseJson3($request){
+
+     $body = $request->getBody();
+
+     $parsedUser = json_decode($body, true);
+
+     $i = $this->serviceCategory->insert($parsedUser);
+
+     if($i > 0){
+          return "New user added");
+     }
+
+     return "error occured";
+}

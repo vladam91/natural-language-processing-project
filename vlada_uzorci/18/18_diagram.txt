@@ -1,0 +1,13 @@
+/**
+*  Skupljanje tacaka sa prikaz na dijagramu.
+*
+*/
+
+public function diagram(){
+    
+   $dataPoints = [];
+
+   $points = $this->coordinatesService->fetchPairs();
+
+   return $points;
+}

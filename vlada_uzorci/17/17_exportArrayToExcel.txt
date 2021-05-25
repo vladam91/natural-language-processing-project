@@ -1,0 +1,20 @@
+/**
+* Eksportuj niz u excel.
+* @param $arr
+*/
+
+public function exportArrayToExcel($arr){
+   
+    $fileName = "codexworld_export_data-" . date('Ymd') . ".xlsx"; 
+ 
+    header("Content-Disposition: attachment; filename=\"$fileName\""); 
+    header("Content-Type: application/vnd.ms-excel"); 
+ 
+   $flag = false; 
+   foreach($data as $row) { 
+    if(!$flag) { 
+        $flag = true; 
+    } 
+    array_walk($row, 'filterData'); 
+
+}

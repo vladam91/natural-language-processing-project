@@ -1,0 +1,13 @@
+/**
+*  Sortira listu automobila i vraca ih nazad.
+*
+*/
+
+public function sortListCars(){
+    
+     $cars = array("Volvo", "BMW", "Toyota");
+     $cars = sort($cars);
+
+     return $cars;
+
+}

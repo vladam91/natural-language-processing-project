@@ -1,0 +1,15 @@
+/**
+* Klasa Product koja sluzi da bi se modelovao proizvod u bazi podataka. 
+*/
+
+class Product extends Model
+{
+    public $timestamps = false;
+    protected $table = 'product';
+
+    public function category(): HasOne
+    {
+        return $this->belongsTo('Catalog\Data\Models\Category');
+    }
+
+}

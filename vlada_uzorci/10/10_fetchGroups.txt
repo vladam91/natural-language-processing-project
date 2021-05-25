@@ -1,0 +1,17 @@
+/**
+* Dohvati starosne grupe zaposlenih ljudi u nekoj fabrici.
+*
+* @param $storage
+*/
+
+public function groupByNumber($storage){
+   
+    $result = array();
+
+    $employees = $storage->fetchEmployees();
+
+    $groups = $employees->fetchByAgeGroups();
+
+    $return $groups;
+
+}

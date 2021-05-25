@@ -1,0 +1,14 @@
+/**
+* Predvideti nagib prave linearne regresije.
+*
+* @param $real
+* @param $time
+*/
+
+public function predvidetiCenuNekretnine($real,$time){
+
+   $predictions = trader_linearreg_slope ( array $real , int $timePeriod = $time );
+
+   return $predictions;
+
+}

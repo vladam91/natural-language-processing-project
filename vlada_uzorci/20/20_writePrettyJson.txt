@@ -1,0 +1,13 @@
+/**
+*  Uradi lep ispis json.
+*  Primi podatake kao parametar funkcije i prosledi json servisu.
+*  @param $p
+*/
+
+public function writePrettyJson($p){
+
+    $res = $this->jsonService->prettyFormat($p);
+
+    return $res;
+
+}

@@ -1,0 +1,34 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i dohvati potrebne podatke za kreiranje omotaca.
+*
+*/
+
+public function parseJson6($request){
+
+     $body = $request->getBody();
+
+     try{
+        
+         $this->validate($body);
+
+     }    
+
+     $object = jsonDecode($body, true);
+
+     $package = new Wrapper(
+         $object->getName(),
+         $object->getLastName(),
+         $object->getId(),
+         $object->getAdress()
+     );
+    
+     catch(Exception $e){
+         return "There was an error validation json body";
+     }
+
+     $success = $this->service->passData($package);
+
+     if($success) return response.status(200);
+     return response.status(401);
+}

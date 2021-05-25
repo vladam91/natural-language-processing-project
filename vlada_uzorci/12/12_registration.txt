@@ -1,0 +1,28 @@
+/**
+*  Registraciona funkcija koja sluzi da se korisnik
+*  ubaci u bazu podataka i da se nad njegovom
+*  sifrom radi enkripcija.
+*
+*/
+
+public function registration(){
+   
+    if(isset($_POST["register"]))  
+    {  
+      if(empty($_POST["username"]) || empty($_POST["password"]))  
+      {  
+           echo '<script>alert("Both Fields are required")</script>';  
+      }  
+      else  
+      {  
+           $username = mysqli_real_escape_string($connect, $_POST["username"]);  
+           $password = mysqli_real_escape_string($connect, $_POST["password"]);  
+           $password = password_hash($password, PASSWORD_DEFAULT);  
+           $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";  
+           if(mysqli_query($connect, $query))  
+           {  
+                echo '<script>alert("Registration Done")</script>';  
+      }  
+    
+
+}

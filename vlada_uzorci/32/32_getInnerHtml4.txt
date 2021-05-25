@@ -1,0 +1,12 @@
+/**
+*  Prikazi unutrasnji html sa strane.
+*/
+
+public function getInnerHtml4(int $start, int $offset)
+{
+        parent::limit($start, $offset);
+
+        $this->query->limit = " LIMIT " . $start . " OFFSET " . $offset;
+
+        return $this;
+}

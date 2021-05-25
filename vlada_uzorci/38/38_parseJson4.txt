@@ -1,0 +1,21 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i ubaci u bazu novu stavku.
+*  Vrati nazad klijentu uspesnost operacije.
+*
+*/
+
+public function parseJson4($request){
+
+     $body = $request->getBody();
+
+     $parsedItem = json_decode($body, true);
+
+     $i = $this->serviceStorage->insert($parsedItem);
+
+     if($i > 0){
+          return "New item added");
+     }
+
+     return "error occured";
+}

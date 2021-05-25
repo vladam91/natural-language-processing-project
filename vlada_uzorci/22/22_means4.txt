@@ -1,0 +1,25 @@
+/**
+* Vrati srednju vrednost za k brojeva.
+*/
+
+public function means4(Request $request): Response
+{
+        $response = new HTMLResponse();
+
+        $product = ProductService::getProductBySKU($request->getParameters()[1]);
+
+        if ($product === null) {
+            $response->setContent('Product does not exist');
+
+            return $response;
+        }
+
+        $response->setContent(ViewRenderer::render('views/visitor/SelectedProductInformation',
+            [$product]));
+
+        $product->setViewCount($product->getViewCount() + 1);
+
+        ProductService::incrementViewCount($product);
+
+        return $response;
+}

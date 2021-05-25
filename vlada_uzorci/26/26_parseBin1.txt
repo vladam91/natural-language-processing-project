@@ -1,0 +1,11 @@
+/**
+* Parsiraj binarni fajl u odredjenu klasu.
+*
+*/
+
+public function parseBin1()
+{ 
+   $suggestions = $this->xss_clean($this->Employee->get_search_suggestions($this->input->post('term')));
+
+   echo json_encode($suggestions);
+}

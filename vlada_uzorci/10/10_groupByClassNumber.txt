@@ -1,0 +1,16 @@
+/**
+* Grupisi studente po broju odeljenja.
+* @param $storage
+*/
+
+public function groupByClassNumber($storage){
+   
+    $students = array();
+
+    $students = $storage->fetchStudents();
+
+    $result = $students->groupByClassNumber();
+
+    $return $result;
+
+}

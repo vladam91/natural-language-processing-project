@@ -1,0 +1,13 @@
+/**
+* Zameni 2 broja u fajlu.
+*
+*/
+
+public function zameni1(): Response
+{
+        $response = new HTMLResponse();
+
+        $response->setContent(ViewRenderer::render('views/admin/AdminLoginPage'));
+
+        return $response;
+}

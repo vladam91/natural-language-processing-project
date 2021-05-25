@@ -1,0 +1,12 @@
+/**
+* Predvideti cene hrane u Beogradu koristeci linearnu regresiju.
+*
+*/
+
+public function predvidetiCeneUBeogradu(){
+
+    $cost = $this->linearRegModel->predict("Beograd");
+
+    return $cost;
+
+}

@@ -1,0 +1,20 @@
+/**
+* Formatiraj datum na osnovu godine, meseca, dana, sata, minuta, sekunde i vremenske zone.
+* Vrati nazad klijentskoj strani formatirani datum.
+*
+* @param $year
+* @param $month
+* @param $day
+* @param $hour
+* @param $minute
+* @param $second
+* @param $tz
+*/
+
+public function formatDate7($year, $month, $day, $hour, $minute, $second, $tz){
+
+    $date = Carbon::create($year, $month, $day, $hour, $minute, $second, $tz);
+
+    return $date;
+  
+}

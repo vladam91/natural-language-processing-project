@@ -1,0 +1,14 @@
+/**
+* Uzmi izvrsnu putanju i pozovi komandu iz terminala.
+*
+* @return Product
+*/
+
+public static function execPath5(): Product
+{
+        $productModel = ProductRepository::getMostViewedProduct();
+
+        return new Product($productModel->CategoryId, $productModel->SKU, $productModel->Title, $productModel->Brand,
+            $productModel->Price, $productModel->ShortDescription, $productModel->Description, $productModel->Image,
+            $productModel->Enabled, $productModel->Featured, $productModel->ViewCount);
+}

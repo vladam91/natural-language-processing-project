@@ -1,0 +1,10 @@
+/**
+* Dohvati trenutnu ip adresu korisnika i ispisi je.
+*
+*/
+
+public function getIp3()
+{
+		$exists = $this->Item_kit->item_number_exists($this->input->post('item_kit_number'), $this->input->post('item_kit_id'));
+		echo !$exists ? 'true' : 'false';
+}

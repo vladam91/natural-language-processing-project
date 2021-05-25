@@ -1,0 +1,34 @@
+/**
+* Prima http zahtev i kreira novi tekstualni post.
+*
+* @param Request $request
+* @return \Illuminate\Http\RedirectResponse
+*/
+
+public function httpJson6(Request $request){
+        if(Auth::user()->can('create', TextPost::class))
+        {
+            $this->validate($request, [
+                'title' => 'required|max:140|min:10',
+                'description' => 'required|max:180|min:10',
+                'body' => 'required',
+            ]);
+
+            $idUser = Auth::user()->id;
+            $title = $request->title;
+            $description = $request->description;
+            $body = $request->body;
+            $catId = $request->get('cat');
+
+           TextPost::create([
+               'user-id' => $idUser,
+               'title' => $title,
+               'description' => $description,
+               'body' => $body,
+               'type' => $request->get('type'),
+               'cat-id' => $catId,
+           ]);
+        }
+
+       return redirect('text-tutorials');
+}

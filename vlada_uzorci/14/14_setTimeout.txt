@@ -1,0 +1,8 @@
+/**
+*  Setuje tajmout za socket na ordedjeni broj sekundi.
+*
+*/
+
+public function setTimeout($stream, $seconds, $microseconds){
+   stream_set_timeout ( resource $stream , int $seconds , int $microseconds = 0 ) : bool
+}

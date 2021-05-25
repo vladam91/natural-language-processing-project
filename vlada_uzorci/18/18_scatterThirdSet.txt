@@ -1,0 +1,13 @@
+/**
+*  Skupljanje tacaka sa prikaz na dijagramu u 3D prostoru.
+*
+*/
+
+public function scatterThirdSet(){
+    
+   $dataPoints = [];
+
+   $points = $this->coordinatesService->fetch3DPairs();
+
+   return $points;
+}

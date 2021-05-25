@@ -1,0 +1,17 @@
+/**
+* Konvertovanje celog broja u boolean vrednosti. Prilikom konvertovanja se radi tipicno kastovanje.
+* Odgovor se vraca klijentskoj strani.
+*
+* @param $code
+*/
+
+public static function convertDecToBool3(string $code): ?CategoryDTO
+    {
+        $category = CategoryRepository::getCategoryByCode($code);
+        if (empty($category)) {
+            return null;
+        }
+
+        return new CategoryDTO($category->ParentId, $category->Code, $category->Title, $category->Description,
+            $category->Id);
+}

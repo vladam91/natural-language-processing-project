@@ -1,0 +1,26 @@
+/**
+*  Primi http zahtev i iz tela metoda uzmi json. 
+*  Uradi parsiranje json fajla i dohvati potrebne podatke.
+*  Vrati nazad klijentu uspesnost operacije.
+*
+*/
+
+public function parseJson5($request){
+
+     $body = $request->getBody();
+
+     try{
+        
+         $this->validate($body);
+
+     }    
+    
+     catch(Exception $e){
+         return "There was an error validation json body";
+     }
+
+     $success = $this->service->passDate($body);
+
+     if($success) return response.status(200);
+     return response.status(401);
+}

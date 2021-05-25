@@ -1,0 +1,13 @@
+/**
+*  Funkcija koja dodaje 30 dana na trenutni datum zbog subskripcije.
+*
+*/
+
+public function subscribe(){
+
+    $current = Carbon::now();
+    $trialExpires = $current->addDays(30);
+
+    $this->subscribtionService-process($trialExpires);
+
+}

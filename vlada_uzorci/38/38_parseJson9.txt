@@ -1,0 +1,25 @@
+/**
+*  Vrati nazad kategoriju koja je predstavljena json stringom.
+*
+*/
+
+public function parseJson9($request){
+
+
+       $categoryId = $request->getId();
+
+       try{
+           $this->validate($id);
+       } catch(Exception $e){
+           return "Validation exception occured" . $id . " for category is not valid";
+       }
+
+       $category = $this->categoryService->getCategoryById($id);
+       
+       $json = json_encode($category);
+ 
+       return $json;
+       
+
+}
+       

@@ -1,0 +1,12 @@
+/**
+*   Parsiranje fajlova.
+*
+*/
+
+public function parseBin8()
+{
+		$expense_info = $this->Expense->get_info($row_id);
+		$data_row = $this->xss_clean(get_expenses_data_row($expense_info));
+
+		echo json_encode($data_row);
+}

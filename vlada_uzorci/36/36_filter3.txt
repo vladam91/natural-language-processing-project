@@ -1,0 +1,14 @@
+/**
+* Filtriranje niza po neparnim brojevima i ispis na standardnom izlazu.
+* @param $numbers.
+*/
+
+function filter1($numbers)
+{
+    foreach ($numbers as $number) {
+	if ($number % 2 === 1) {
+		$odd_numbers[] = $number;
+	}
+    }
+}
+  

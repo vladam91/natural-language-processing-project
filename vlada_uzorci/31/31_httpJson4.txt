@@ -1,0 +1,36 @@
+/**
+* Prima se http klijent json post zahtev i obraduje upload videa.
+*
+* @param Request $request
+* @return \Illuminate\Http\RedirectResponse
+*/
+
+public function httpJson4(Request $request){
+        if(Auth::user()->can('create', VideoPost::class))
+        {
+            $this->validate($request, [
+                'title' => 'required|max:140|min:10',
+                'description' => 'required|max:180|min:10',
+                'video' => 'required',
+            ]);
+
+            $idUser = Auth::user()->id;
+            $title = $request->title;
+            $description = $request->description;
+            $url = $request->video->store('videos');
+            //$video = $request->file('video') ;
+            //$url = '\public\Videos\\'.$idUser.time().'.mp4';
+            $catId = $request->get('cat');
+
+            VideoPost::create([
+                'user-id' => $idUser,
+                'title' => $title,
+                'description' => $description,
+                'url' => $url,
+                'type' => $request->get('type'),
+                'cat-id' => $catId,
+            ]);
+        }
+
+        return redirect('video-tutorials');
+}

@@ -1,0 +1,12 @@
+/**
+*  Dovhati jucerasnji datum i formatiraj datum.
+*  Rezultat posalji nazad klijentskoj strani.
+*
+*/
+
+public function formatDate2(){
+
+   $this->yesterdayDateFormat = Carbon::yesterday();
+
+   return $this->yesterdayDateFormat;
+}

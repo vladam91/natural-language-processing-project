@@ -1,0 +1,14 @@
+/**
+*  Za string promenljivu uradi lep json ispis.
+*  Vrati nazad rezultat.
+*
+*  @param $text
+*/
+
+public function stringPrettyJson(){
+   
+    $result = $this->jsonService->jsonPrettyPrint("This is our string");
+
+    return result;
+
+}

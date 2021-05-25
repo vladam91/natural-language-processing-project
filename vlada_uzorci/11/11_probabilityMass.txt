@@ -1,0 +1,15 @@
+/**
+*  Izracunati masu verovatnoce za x ukoliko se prati binomijalna raspodela.
+*  @param $x
+*  @param $n
+*  @param $pi
+*
+*/
+
+public function probabilityMass($x , $n , $pi){
+
+    $result = stats_dens_pmf_binomial($x, $n, $pi);
+
+    return $result;
+
+}

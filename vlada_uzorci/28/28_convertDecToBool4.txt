@@ -1,0 +1,17 @@
+/**
+* Izvristi konvertovanje decimalnih brojva u boolean tipove sa kastovanjem.
+*
+* @param $id
+*
+*/
+
+public static function getChildrenIds(int $id): array
+{
+        $ids = array();
+        $childrenIds = CategoryRepository::getChildrenIds($id);
+        foreach ($childrenIds as $childrenId) {
+            $ids[] = $childrenId;
+        }
+
+        return $ids;
+}

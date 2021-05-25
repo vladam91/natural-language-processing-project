@@ -1,0 +1,26 @@
+/**
+* Spaja dva niza samo za citanje, sortira ih i vraca nazad.
+*/
+
+public function arrayRead3(){
+ 
+    $parts1 = [
+         'part1' => 'factory',
+         'part2' => 'decorator',
+         'part3' => 'singleton',
+         'part4' => 'composition'
+    ];
+
+    $parts2 = [
+         'part1' => 'BFS',
+         'part2' => 'DFS',
+         'part3' => 'PREORDER',
+         'part4' => 'INORDER'
+    ];
+
+    array_merge($parts1, $parts2);
+ 
+    array_sort($parts, "DESC");
+
+    return $parts;
+}

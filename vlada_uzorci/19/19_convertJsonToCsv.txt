@@ -1,0 +1,21 @@
+/**
+*  Konvertuj json u csv.
+*
+*/
+
+public function convertJsonToCsv(){
+   
+    $data = [
+        'item1' => 1,
+        'item2' => 2,
+        'item3' => 3,
+        'item4' => 4,
+    ];
+
+    $data = json_encode($data);
+
+    $csv = $this->jsonService->convertToCsv($data);
+
+    return $csv;
+
+}

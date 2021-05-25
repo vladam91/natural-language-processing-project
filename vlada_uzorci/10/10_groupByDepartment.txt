@@ -1,0 +1,14 @@
+/**
+* Grupisi radnike po odeljenju u kome rade.
+* @param $storage
+*/
+
+public function groupByNumber($storage){
+   
+    $result = array();
+
+    $result = $storage->fetchEmployeesByDepartment();
+
+    $return $result;
+
+}

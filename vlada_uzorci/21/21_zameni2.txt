@@ -1,0 +1,30 @@
+/**
+*  Zameni vrednosti u fajlu.
+*  Zameni pozicije slicnih vrednosti u fajlu.
+*
+*/
+
+public function zameni2(Request $request): Response
+    {
+        $username = $request->getPost()['user'];
+        $password = $request->getPost()['pass'];
+
+        if (!isset($username, $password)) {
+            return $this->renderLoginForm();
+        }
+
+        $keepLogged = $request->getPost()['checkboxLoggedIn'];
+        $flagMakeCookie = isset($keepLogged);
+
+        $logInSuccessful = LoginService::login($username, $password, $flagMakeCookie);
+        if ($logInSuccessful === true) {
+            $redirect = new DashboardController();
+
+            return $redirect->index();
+        }
+
+        Session::endSession();
+        CookieManagement::removeCookie('cookieAdmin');
+
+        return $this->renderLoginForm();
+    }

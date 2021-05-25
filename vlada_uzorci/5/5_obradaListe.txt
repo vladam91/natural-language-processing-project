@@ -1,0 +1,12 @@
+/**
+*  Ispisuje listu stringova
+*  @param $lista
+*/
+
+public function obradaListe($lista){
+    
+    foreach($lista as $elem){
+         echo $elem;
+    }
+
+}

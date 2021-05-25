@@ -1,0 +1,8 @@
+/**
+*  Soketi recv timeout.
+*
+*/
+
+public function timeout(){
+   socket_set_option($sock,SOL_SOCKET,SO_RCVTIMEO,array("sec"=>1,"usec"=>0));
+}

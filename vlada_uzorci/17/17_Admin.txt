@@ -1,0 +1,10 @@
+/**
+ * Klasa Admin koja sluzi da prestavlja korisnika aplikacije sa maksimalnim pristupom resursima.
+ *
+ */
+
+class Admin extends Model
+{
+    protected $table = 'admin';
+    public $timestamps = false;
+}

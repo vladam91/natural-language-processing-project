@@ -1,0 +1,14 @@
+/**
+* Html enkodovanje dva stringa koji predstavlja dugmice.
+*
+*/
+
+public function htmlEncode5(){
+
+   $str = '<button>Click me!</button>;
+   echo htmlentities($str);
+
+   $str = '<buttton>Click me again!</button>;
+   echo htmlentities($str);
+
+}

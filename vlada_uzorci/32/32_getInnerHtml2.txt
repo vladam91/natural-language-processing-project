@@ -1,0 +1,16 @@
+/**
+*  U okviru unutrasnjeg html fajla ispisi tabelu
+*
+*/
+
+<?php 
+
+$dom= new DOMDocument(); 
+
+$domTables = $dom->getElementsByTagName("table"); 
+
+foreach ($domTables as $table) 
+{ 
+    echo DOMinnerHTML($table); 
+} 
+?> 

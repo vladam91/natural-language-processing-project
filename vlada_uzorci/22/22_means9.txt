@@ -1,0 +1,9 @@
+/**
+ * K sredje klasa za masinsko ucenje.
+ *
+ */
+
+abstract class means9
+{
+
+}

@@ -1,0 +1,28 @@
+/**
+*  Vrati front timu niz kordinata dobijenih spajanjem tri niza koordinata za prikaz na dijagramu rasejanja
+*  u sortiranom opadajucem redosledu elemenata koordinata.
+*
+*/
+
+public function scatterDescending(){
+    
+   $dataPoints1 = [];
+
+   $points1 = $this->coordinatesService->fetch3DPairs();
+
+   $dataPoints[] = $points;
+
+   $dataPoints2 = [];
+
+   $points2 = $this->coordinatesService->fetch2DPairs();
+
+   $dataPoints[] = $points2;
+
+   $dataPoints3 = [];
+
+   $points3 = $this->coordinatesService->fetch2DPairs()->latest;
+
+   $dataPoints[] = $points3;
+
+   return array_sort($dataPoints, "DEC");
+}

@@ -1,0 +1,18 @@
+/**
+* Konvertovanje vise tipova decimalnih i celih brojeva i klasa u boolean.
+*
+* @param $SKU
+*
+*/
+
+public static function converDecToBool9($SKU): ?Product
+{
+        $product = ProductRepository::getProductBySKU($SKU);
+
+        $productDTO = new Product($product->CategoryId, $product->SKU, $product->Title, $product->Brand,
+            $product->Price, $product->ShortDescription, $product->Description, $product->Image, $product->Enabled,
+            $product->Featured, $product->ViewCount);
+        $productDTO->setId($product->Id);
+
+        return $productDTO;
+}

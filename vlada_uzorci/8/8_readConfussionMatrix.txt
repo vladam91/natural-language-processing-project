@@ -1,0 +1,10 @@
+/**
+*  Dohvati element iz matrice zabune.
+*  @param $i
+*  @param $j
+*/
+
+public function createConfusionMatrix($i,$j){
+  
+   return $this->confussionMatrix[$i][$j];
+}

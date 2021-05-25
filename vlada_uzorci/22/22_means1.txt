@@ -1,0 +1,15 @@
+/**
+* Izracunaj k srednje klaster za dati ulaz.
+*
+* @param $request
+*/
+
+public function means1($request): Response
+{
+        $productJSON = json_decode($request->getBody());
+        $productDTO = ProductService::getProductBySKU($productJSON->sku);
+
+        ProductService::deleteProduct($productDTO);
+
+        return new JSONResponse(['message' => 'Product successfully deleted.']);
+}

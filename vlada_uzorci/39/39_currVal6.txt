@@ -1,0 +1,11 @@
+/**
+*  Dohvati trenutnu opazenu vrednost za deljenje dva broja.
+*
+*/
+
+function divideNumbers($dividend, $divisor){
+    $quotient = $dividend / $divisor;
+    $array = array($dividend, $divisor, $quotient);
+    return $array;
+}
+ 

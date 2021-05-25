@@ -1,0 +1,8 @@
+/**
+* Rasporediti tajmer za izracunavanje proteklog vremena.
+*/
+ 
+protected function time7(Schedule $schedule)
+{
+    $schedule->command('inspire')->hourly();
+}

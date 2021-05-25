@@ -1,0 +1,25 @@
+/**
+*  Vrati nazad stavku koja je predstavljena json stringom.
+*
+*/
+
+public function parseJson10($request){
+
+
+       $itemId = $request->getId();
+
+       try{
+           $this->validate($id);
+       } catch(Exception $e){
+           return "Validation exception occured" . $id . " for item is not valid";
+       }
+
+       $item = $this->storageService->getItemById($id);
+       
+       $json = json_encode($item);
+ 
+       return $json;
+       
+
+}
+       

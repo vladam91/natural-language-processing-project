@@ -1,0 +1,15 @@
+/**
+*  Napravi lep ispis za json odgovor i vrati status kod 401 zato sto fajl zahteva autorizaciju.
+*/
+
+public function print5(){
+
+    $part2 = $this->jsonService->getJson();
+
+    if($part2 === NULL)
+
+    $this->request->setStatus(401);
+
+    return $res;
+
+}

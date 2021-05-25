@@ -1,0 +1,18 @@
+/**
+*  Funkcija koja koristi prioritetni red
+*  da bi našla koji mime formati su preferirani.
+*/
+
+public function preferedMimeType(){
+
+   $queue = new \SplPriorityQueue();
+   foreach (preg_split('#,\s*#', $_SERVER['HTTP_ACCEPT']) as $accept) {
+      $split = preg_split('#;\s*q=#', $accept, 2);
+      $queue->insert($split[0], isset($split[1]) ? (float)$split[1] : 1.0);
+   }
+
+   foreach ($queue as $mime) {
+    echo $mime, PHP_EOL;
+   }
+
+}

@@ -1,0 +1,34 @@
+/**
+     * Inicijalizira konekciju ka adresi i ceka na odgovor timeout sekundi.
+     *
+     *
+     * @param string $address either of IPv4:port, hostname:port, [IPv6]:port, unix-path
+     * @param float  $timeout maximum time to wait (in seconds)
+*/
+
+    public function connectTimeout($address, $timeout)
+    {
+        $this->setBlocking(false);
+
+        try {
+
+            $this->connect($address);
+
+            return $this;
+
+        } catch (Exception $e) {
+
+            if ($e->getCode() !== SOCKET_EINPROGRESS && $e->getCode() !== SOCKET_EWOULDBLOCK) {
+                throw $e;
+            }
+
+            if ($this->selectWrite($timeout) === false) {
+                throw new Exception('Timed out while waiting for connection', SOCKET_ETIMEDOUT);
+            }
+
+
+            $this->assertAlive();
+
+            return $this;
+        }
+    }

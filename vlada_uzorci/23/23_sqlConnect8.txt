@@ -1,0 +1,15 @@
+/**
+* Rad sa mysql bazom. Ispis podataka na izlazu.
+*
+*/
+
+public function sqlConnect8(){
+
+   $rand1=rand();
+   $rand2=rand(15,25);
+   $rand3=rand(-150,300);
+   echo "Random number without a range : ". $rand1 . "<br />";
+   echo "Random number between 15 to 25  is " . $rand2 . "<br />";
+   echo "Random number between -150 to 300  is " . $rand3 . "<br />";
+
+}

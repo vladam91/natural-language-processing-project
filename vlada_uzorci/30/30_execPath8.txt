@@ -1,0 +1,14 @@
+/**
+* Dohvati izvrsnu putanju svih potrebnih klasa i ispisi u konzoli.
+*
+* @param VideoPost $post
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function execPath8(VideoPost $post){
+        if(Auth::user()->can('view', $post)) {
+            $comments = $post->comments;
+            return view('video.post', ['post' => $post, 'comments' => $comments]);
+        }
+        return redirect('subscription');
+}

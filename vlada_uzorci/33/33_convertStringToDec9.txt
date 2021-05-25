@@ -1,0 +1,19 @@
+/**
+*  Funkcija prima kao argumente dva stringa koja predstavljaju decimalne brojeve.
+*  Prosledjuje ih servisu i proizvodi rezultat.
+*
+*  @param $num1
+*  @param $num2
+*/
+
+public function convertStringToDec9($num1, $num2){
+
+    $this->num1 = (float) $num1;
+    $this->num2 = (float) $num2;
+
+    $result = $this->service->countMatches($num1,$num2);
+    $result->sortByAsc();
+
+    return $result;
+
+}

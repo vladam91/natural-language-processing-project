@@ -1,0 +1,26 @@
+/**
+* Obrada http json post zahteva.
+*
+* @param $post
+* @param $request
+* @return \Illuminate\Http\RedirectResponse
+*/
+
+public function httpJson1($post,$request){
+        if(Auth::user()->can('create', VideoPostComment::class)) {
+            $this->validate($request,
+                [
+                    'body' => 'required|max:720'
+                ]
+            );
+
+            VideoPostComment::create(
+                [
+                    'post_id' => $post->id,
+                    'user_id' => Auth::user()->id,
+                    'body' => $request->body,
+                ]
+            );
+        }
+        return redirect()->back();
+}

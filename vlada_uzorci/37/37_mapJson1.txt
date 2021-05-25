@@ -1,0 +1,17 @@
+/**
+* Kao parametar prima niz tj. mapu. Zatim mapu konvertuje u json.
+* Rezultat se vrati klijentskoj strani za prikaz.
+* @param $map
+*/
+
+function mapJson1($map)
+{
+    $jsonEncodedMap = null;
+  
+    if(is_array($map){
+        $jsonEncodedMap = json_encode($jsonEncodeMap);
+    }
+
+    return $jsonEncodedMap;
+}
+  

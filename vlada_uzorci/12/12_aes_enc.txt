@@ -1,0 +1,16 @@
+/**
+*  Za tri ulazna parametra funckije
+*  zastiti njihovu konkatenaciju sa aes enkripcijom.
+*  @param $par1
+*  @param $par2
+*  @param $par3
+*  @param $key
+*/
+
+public function aes_enc($par1 , $par2, $par3, $key){
+
+    $data = $par1 . $par2 . $par3;
+ 
+    return aes_encrypt($data,$key);
+
+}

@@ -1,0 +1,14 @@
+/**
+* Konverzija stringa.
+*
+*/
+
+function intCodeRandom($length = 8)
+        {
+          $intMin = (10 ** $length) / 10; // 100...
+          $intMax = (10 ** $length) - 1;  // 999...
+
+          $codeRandom = mt_rand($intMin, $intMax);
+
+          return $codeRandom;
+}

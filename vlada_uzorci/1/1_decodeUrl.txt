@@ -1,0 +1,13 @@
+/**
+* Vraca upit parametar iz url http zahteva.
+*
+*/
+
+protected static function getQueryParameters(): array
+    {
+        $queryString = $_SERVER['QUERY_STRING'];
+        $queryArray = array();
+        parse_str($queryString, $queryArray);
+
+        return $queryArray;
+}

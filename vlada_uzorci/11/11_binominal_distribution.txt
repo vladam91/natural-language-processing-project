@@ -1,0 +1,17 @@
+/**
+*  Izracunaj vrednost jednog parametra binomijalne raspodele
+*  ukoliko su ostali parametri prisutni.
+*  @param $par1
+*  @param $par2
+*  @param $par3
+*  @param $which
+*
+*/
+
+public function calculateOneParamByOther($par1 , $par2 , $par3 , $which ){
+
+    $result = stats_cdf_binomial($par1,$par2,$par3,$which);
+
+    return $result;
+
+}

@@ -1,0 +1,11 @@
+/**
+*  Dohvati trenutnu adresu korisnika u poslednjih 5 minuta.
+*
+/*
+
+public function getIp9(){
+        $category = CategoryRepository::getCategoryById($categoryId);
+
+        return new CategoryDTO($category->ParentId, $category->Code, $category->Title, $category->Description,
+            $category->Id);
+}

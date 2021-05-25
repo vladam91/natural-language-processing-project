@@ -1,0 +1,21 @@
+/**
+* 
+* Konvertuj decimalni broj u boolean.
+*
+*/
+
+public static function convertDecToBool1()
+{
+        $categories = CategoryRepository::getAllCategories();
+        if (!empty($categories)) {
+            $categoriesDTO = array();
+            foreach ($categories as $category) {
+                $categoriesDTO[] = new CategoryDTO($category->ParentId, $category->Code, $category->Title,
+                    $category->Description, $category->Id);
+            }
+
+            return $categoriesDTO;
+        }
+
+        return null;
+}

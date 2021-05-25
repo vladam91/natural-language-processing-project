@@ -1,0 +1,12 @@
+/**
+*  Sortira listu stringova.
+*  @param $lista
+*/
+
+public function sortListCars($lista){
+    
+     $cars = sort($lista);
+
+     return $cars;
+
+}

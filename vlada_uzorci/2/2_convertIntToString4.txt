@@ -1,0 +1,19 @@
+/**
+*  Funkcija koja od dve celobroje vrednosti
+*  pravi stringove i zatim ih nadovezuje i ispisuje na izlazu.
+*
+*/
+
+public function convertIntToString4(){
+
+    $broj1 = 1;
+    $broj2 = 2;
+
+    $s1 = strtoval($broj1);
+    $s2 = strtoval($broj2);
+
+    $s3 = $s1 . $s1;
+
+    echo $s3;
+
+}

@@ -1,0 +1,14 @@
+/**
+*  Dovhati danasnji datum i dodaj dva dana. Formatiraj datum.
+*  Rezultat posalji nazad klijentskoj strani.
+*
+*/
+
+public function formatDate8(){
+
+   $this->currentDateFormat = Carbon::now();
+
+   $this->currentDateFormat->addDays(2);
+
+   return $this->currentDateFormat;
+}

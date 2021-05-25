@@ -1,0 +1,18 @@
+/**
+*  Konektuj se sa sqlom i obrisi bazu.
+*
+*/
+
+public function sqlConnect3(){
+   
+ $sql = "DROP * DROM databasename";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
+}

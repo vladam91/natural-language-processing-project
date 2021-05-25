@@ -1,0 +1,14 @@
+/**
+* Korisniku prikazuje besplatan post. Vraca renderovan html nazad.
+*
+* @param TextPost $post
+* @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+*/
+
+public function getInnerHtml10(TextPost $post){
+        if(Auth::user()->can('view', $post)) {
+            $comments = $post->comments;
+            return view('text.post', ['post' => $post, 'comments' => $comments]);
+        }
+        return redirect('subscription');
+}

@@ -1,0 +1,23 @@
+/**
+* Citanje fajla.
+*
+* @param $searchParam
+*
+* @return array
+*/
+
+public static function readTextFromFile10(
+        $searchParam
+    ): array {
+
+        if ($searchParam->categoryInfo['code'] !== 'any') {
+            $id = CategoryService::getCategoryByCode($searchParam->categoryInfo['code'])->getId();
+            $children = CategoryService::getChildrenIds($id);
+            $children[] = $id;
+            $searchParam->categoryInfo = $children;
+        } else {
+            $searchParam->categoryInfo = array();
+        }
+
+        return $searchParam->searchType === 'relevance' ? self::searchRelevance($searchParam) : array();
+}

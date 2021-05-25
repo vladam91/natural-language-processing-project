@@ -1,0 +1,26 @@
+/**
+*  Generisate random elemente za proizvoljnu matricu i ispisati ih na standardnom izlazu.
+*
+*/
+
+public function commonMatrix(){
+
+    $matrix[][];
+
+    for($i=0; $i<50; $i++){
+        for($j=0; $j<50; $j++){
+             
+              $matrix[i][j] = generateRandomElem():
+              
+        }
+    }
+
+    for($i=0; $i<50; $i++){
+        for($j=0; $j<50; $j++){
+             
+             echo $matrix[i][j];
+              
+        }
+    }
+
+}

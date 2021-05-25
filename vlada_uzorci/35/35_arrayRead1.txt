@@ -1,0 +1,21 @@
+/**
+*  Funckija prima kao parametar niz samo za citanje.
+*  Nakon formiranja novog niza, vraca nazad rezultat klijentskoj strani.
+*  @param $niz
+*/
+
+public function arrayRead1($niz){
+ 
+    $vegetables = $niz['vegetables'];
+
+    $dinner = $niz['dinner'];
+
+    $computers = $niz['computers'];
+
+    array_sort($vegatables, "ASC");
+    array_sort($dinner, "ASC");
+    array_sort($computers, "ASC");
+
+
+    return array_merge($vegetables, $dinner, $computers);
+}
