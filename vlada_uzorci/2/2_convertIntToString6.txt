@@ -1,0 +1,19 @@
+/**
+* Pretvaranje celih brojeva.
+*
+*/
+
+public static function printCategories()
+{
+        foreach (AdminController::$kategorije as $k)
+        {
+            echo "<div class='item'>" . $k->get_name() . " [Br. oglasa: " . sizeof($k->get_ads()) . "]<div class='count'>";
+            foreach ($k->get_mods() as $m) echo $m . ";";
+            echo "<form  class='glyphicon glyphicon-edit edite promeni' aria-hidden='true' style='display: inline;' onclick='Menjanje(this, 0)'>";//forma za edit
+            echo  csrf_field() . "<input type='hidden' name='skriveniid' value='" .$k->get_id() . "' /><button type='submit' style='display: none;'></button>
+                    </form>
+                    <form  action='admin/RemoveKat' method='POST' class='glyphicon glyphicon-remove editx promeni' aria-hidden='true' style='display: none;' onclick='submituj(this)'>";//forma za brisanje
+            echo csrf_field() . "<input type='hidden' name='skriveniid' value='" .$k->get_id() . "'/><button type='submit' style='display: none;'></button>
+                    </form></div></div>";
+        }
+}

@@ -1,0 +1,31 @@
+/**
+* Uradi obradu konverzije celobrojnog broja u string.
+*
+*/
+
+public static function load()
+    {
+        AdminController::$kategorije = array();
+        AdminController::$moderatori = array();
+
+        $lista_kategorija = DB::SELECT('SELECT * FROM category');
+        $lista_moderatora = DB::SELECT('SELECT u.username, m.id FROM users AS u, moderator AS m WHERE u.id = m.id');
+
+        foreach ($lista_moderatora as $m)
+        {
+            $cats = array();
+            $cat_list = DB::SELECT('SELECT DISTINCT c.name FROM category AS c, moderator AS m, assigned AS a WHERE a.category_id = c.category_id AND a.moderator_id = ' . $m->id);
+            foreach ($cat_list as $c) array_push($cats, $c->name);
+            array_push(AdminController::$moderatori, new Moderator($m->id, $m->username, $cats));
+        }
+
+        foreach ($lista_kategorija as $k)
+        {
+            $mods = array();
+            $mod_list = DB::SELECT('SELECT DISTINCT u.username FROM category AS c, moderator AS m, assigned AS a, users AS u WHERE a.moderator_id = m.id AND u.id = m.id AND a.category_id = ' . $k->category_id);
+            $ads = DB::SELECT('SELECT DISTINCT a.advert_id FROM advertisment AS a, belongs_to AS b, category AS c WHERE a.advert_id = b.advert_id AND b.category_id = ' . $k->category_id);
+            foreach ($mod_list as $m) array_push($mods, $m->username);
+            array_push(AdminController::$kategorije, new Kategorija($k->category_id, $k->name, $mods, $ads));
+        }
+ 
+}

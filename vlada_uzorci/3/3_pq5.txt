@@ -1,0 +1,26 @@
+/**
+*  Obraditi podataka po prioritetima.
+*
+*/
+
+public function sendcontact(Request $request)
+    {
+
+        $title = $request->input('subject');
+        $content = $request->input('message');
+        $name =  $request->input('name');
+        $phone =  $request->input('phone');
+        $email =  $request->input('email');
+        $title2='Kontakt - '.$title;
+        $data=array('title' => $title, 'content' => $content, 'name'=> $name, 'phone'=>$phone, 'email'=>$email, 'title2'=>$title2);
+        Mail::send('emails.send', $data, function ($message) use ($data)
+        {
+
+            $message->from('psi@itradionica.com','Kontakt forma');
+
+            $message->to('psi@itradionica.com');
+            $message->subject($data['title2']);
+        });
+        flash('Your message has been sent to out staff.');
+        return back();
+    }

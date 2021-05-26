@@ -1,0 +1,29 @@
+/**
+* Listu interno implementiranu kao jednostruku usnimiti u fajl.
+*
+*/
+
+public function saveAdvert(Request $request) {
+        DB::table('advertisment')->insert(
+            [
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'image' => $request->input('image'),
+                'start_time' => $request->input('start'),
+                'end_time' => $request->input('end')
+            ]
+        );
+        DB::table('published')->insert(
+            [
+                'customer_id' => Auth::id(),
+                'advert_id' => DB::select('SELECT MAX(advertisment.advert_id) AS max FROM advertisment')[0]->max
+            ]
+        );
+        DB::table('belongs_to')->insert(
+            [
+                'category_id' => $request->input('cat'),
+                'advert_id' => DB::select('SELECT MAX(advertisment.advert_id) AS max FROM advertisment')[0]->max
+            ]
+        );
+        return redirect('/profil');
+}

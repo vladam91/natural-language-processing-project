@@ -1,0 +1,11 @@
+/**
+* Ubaci u matricu implementiranu kao dvodimenzijalni niz novu vrednost.
+*
+*/
+
+public function verified()
+    {
+        $this->verified = 1;
+        $this->email_token = null;
+        $this->save();
+}

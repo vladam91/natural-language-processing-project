@@ -1,0 +1,12 @@
+/**
+*  Iskoristiti aes enkripciju da bi se zastitili bitni podaci.
+*
+*/
+
+public function getAll(DocumentManager $dm): JsonResponse
+{
+    $c = get_class($dm->getRepository(Recipe::class));
+    $recipe = $dm->getRepository(Recipe::class)->findAll();
+    var_dump($recipe);
+    return new JsonResponse(['this is' => $recipe, 'debug' => $c]);
+}

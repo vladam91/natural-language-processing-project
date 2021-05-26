@@ -1,0 +1,21 @@
+/**
+* Listu interno implementiranu kao dvostruko ulanacanu usnimiti u text fajl.
+*
+*/
+
+public function rate(Request $request) {
+
+        DB::table('ratings')->insert(
+          [
+              'rated' => $request->input('customer_id'),
+              'rater' => Auth::id(),
+              'rating' => $request->input('rating')
+          ]
+        );
+
+        //now, update the rating record
+        $number_of_ratings = sizeof(DB::select('SELECT * FROM ratings WHERE rated = ' . $request->input('customer_id')));
+        DB::table('customer')->where('id', $request->input('customer_id'))->update(['rating' =>
+            ((float)$request->input('old_rating') * $number_of_ratings + $request->input('rating')) / ($number_of_ratings + 1)]);
+        return redirect('/user/' . $request->input('customer_id'));
+}

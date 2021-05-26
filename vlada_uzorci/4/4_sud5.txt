@@ -1,0 +1,21 @@
+/**
+*  Podeli string da vise malih delova, i iz tih delova probaj da napravis datum.
+*
+*/
+
+public static function load()
+    {
+        $tmp_customer = DB::SELECT('SELECT id, name, surname, jmbg, pib, rating, image, description from customer where id = ' . Auth::user()->id);
+
+        CustomerController::$customer = new Customer(
+            $tmp_customer[0]->id,
+            $tmp_customer[0]->name,
+            $tmp_customer[0]->surname,
+            $tmp_customer[0]->jmbg,
+            $tmp_customer[0]->pib,
+            $tmp_customer[0]->rating,
+            $tmp_customer[0]->image,
+            $tmp_customer[0]->description
+        );
+            return view('profil');
+}

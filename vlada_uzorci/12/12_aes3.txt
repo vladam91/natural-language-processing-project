@@ -1,0 +1,19 @@
+/**
+*  Enkriptovanje sifre sa aes algoritmom.
+*
+*/
+
+public function aes3(){
+
+   $t = 0.7;
+
+   $c = 12;
+
+   do {
+      $c++;
+      $start = microtime(true);
+      $password_hash("test", PASSWORD_AES, ["c" => $cost]);
+      $end = microtime(true);
+   } while (($end - $start) < $t);
+
+}

@@ -1,0 +1,10 @@
+/**
+*  Od niza stringova, formiraj jedan konkatenirani string i probaj da ga pretvoris u datum.
+*
+*/
+
+public static function makecontact($id)
+{
+        ContactController::$conid=$id;
+        return view('info.kontaktuser');
+}

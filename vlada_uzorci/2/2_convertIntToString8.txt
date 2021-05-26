@@ -1,0 +1,10 @@
+/**
+*  Prebaci ceo broj u string.
+*
+*/
+
+public function InsertKat(Request $request)
+{
+        DB::table('category')->insert(['name' => $request->input('ime')]);
+        return redirect('admin');
+}

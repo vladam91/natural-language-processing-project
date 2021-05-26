@@ -1,0 +1,41 @@
+/**
+* Varijable izvucene iz klijentskog zahteva ubaciti u prioritetni red.
+*
+*/
+
+public function EditKat(Request $request)
+    {
+        //echo "kat";
+        //dd($request);
+
+        $ime = $request->input('ime');
+        $kat_id = $request->input('skriveno');
+        $nizmoderatora = array();//niz unetih vrednosti moderatora
+        for($i = 3; $i < count($_POST); $i++)   //count($_POST) broj post parametara, 1 je token 2 ima 3-... su mi moderatori i  na kraju je category_id
+        {
+            $j = $i - 3;
+            array_push($nizmoderatora, $request->input('moderator' . $j));
+        }
+        $brmod = count($_POST) - 3;
+        $postojimoderatorumodelu = 0;
+        $lista_moderatora = DB::SELECT('SELECT u.username, m.id FROM users AS u, moderator AS m WHERE u.id = m.id');//niz moderatora u bazi
+        //foreach ($lista_moderatora as $a) echo $a->username . " " . $a->id . "<br/>";
+        for ($i = 0; $i < sizeof($nizmoderatora); $i++)
+        {
+            foreach ($lista_moderatora as $l) if($nizmoderatora[$i] == $l->username)
+            {
+                $postojimoderatorumodelu++;
+                $nizmoderatora[$i] = $l->id;
+            }
+        }
+        if ($postojimoderatorumodelu == $brmod) //ako svi uneti moderatori postoje u bazi
+        {
+            DB::table('category')->where('category_id' , $kat_id)->update(['name' => $ime]);
+            DB::table('assigned')->where('category_id' , $kat_id)->delete();
+            foreach ($nizmoderatora as $n)
+            {
+                DB::table('assigned')->insert(['category_id' => $kat_id, 'moderator_id' => $n]);
+            }
+        }
+        return redirect('admin');
+    }

@@ -1,0 +1,16 @@
+/**
+*  Pre brisanja matrice zabune ispisi njene elemente.
+*
+*/
+
+public function deleteConfusionMatrix(){
+
+    for($i=0; $i<$m; $i++){
+        for($j=0; $j<$n; $j++){
+            echo $max[$i][$j];
+        }
+    } 
+
+    $matrix[][] = null;
+
+}

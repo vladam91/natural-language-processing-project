@@ -1,0 +1,12 @@
+/**
+*  Aes enkripcija promenljivih iz dokument menadzera.
+*
+*/
+
+public function getAll(DocumentManager $dm): JsonResponse
+{
+    $c = $this->serviceAesEnc($dm->getData());
+    $c->signWithNumber(3);
+
+    return $c->toString;
+}

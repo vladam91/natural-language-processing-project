@@ -1,0 +1,10 @@
+/**
+*  Uradi operaciju nad parovima stringova i pretvori rezultat u datum.
+*
+*/
+
+public static function zakazi($id)
+{
+        ContactController::$conid=$id;
+        return view('info.zakazi');
+}

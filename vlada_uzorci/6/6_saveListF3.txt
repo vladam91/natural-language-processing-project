@@ -1,0 +1,21 @@
+/**
+*  Indeksiranu listu sacuvaj u fajlu.
+*
+*/
+
+public static function loadAdvertForm() {
+        CustomerController::$categories = array();
+
+        $lista_kategorija = DB::SELECT('SELECT * FROM category');
+
+        foreach ($lista_kategorija as $k)
+        {
+            $mods = array();
+            $mod_list = DB::SELECT('SELECT DISTINCT u.username FROM category AS c, moderator AS m, assigned AS a, users AS u WHERE a.moderator_id = m.id AND u.id = m.id AND a.category_id = ' . $k->category_id);
+            $ads = DB::SELECT('SELECT DISTINCT a.advert_id FROM advertisment AS a, belongs_to AS b, category AS c WHERE a.advert_id = b.advert_id AND b.category_id = ' . $k->category_id);
+            foreach ($mod_list as $m) array_push($mods, $m->username);
+            array_push(CustomerController::$categories, new Kategorija($k->category_id, $k->name, $mods, $ads));
+        }
+
+        return view('dodaj_oglas');
+}

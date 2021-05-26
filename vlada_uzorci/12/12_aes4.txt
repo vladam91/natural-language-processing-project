@@ -1,0 +1,24 @@
+/**
+*  Dekripcija dva ulazna parametra preko aes algoritma.
+*/
+
+private function aes4($root, $spaces)
+{
+          // Print the data first
+        if ($root)
+        {
+              // On the way down the tree, we get lft.
+            $left = ++$spaces;                
+            foreach( $root->next as $child)
+            {                    
+                if ($child)
+                {
+                    $spaces = $this->showAdjacency($child, $spaces);                      
+                }
+            }
+        }
+          // On the way back up, we get rgt.
+        $right = ++$spaces;
+        echo "$left - $right - $root->data <br/>";                
+        return $spaces;
+}

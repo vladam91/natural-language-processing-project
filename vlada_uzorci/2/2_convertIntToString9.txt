@@ -1,0 +1,13 @@
+/**
+* Konvertovanje u string.
+*
+*/
+
+public function InsertMod(Request $request)
+{
+        $nick = DB::SELECT("SELECT id FROM users WHERE username = '" . $request->input('ime') . "'");
+        $nick = $nick==null ? null : $nick[0]->id;
+        if($nick) DB::table('moderator')->insert(['id' => $nick]);
+        //moze da se uradi else za kad se dodaje moderator koji vec nije user
+        return redirect('admin');
+}

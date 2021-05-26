@@ -1,0 +1,27 @@
+/**
+*  Sadrzaj dve liste kombinovane sacuvaj u okviru tekstualnog fajla.
+*
+*/
+
+public static function loadUser($id)
+{
+        $tmp_customer = DB::SELECT('SELECT id, name, surname, jmbg, pib, rating, image, description from customer where id = ' . $id);
+
+        CustomerController::$customer = new Customer(
+            $tmp_customer[0]->id,
+            $tmp_customer[0]->name,
+            $tmp_customer[0]->surname,
+            $tmp_customer[0]->jmbg,
+            $tmp_customer[0]->pib,
+            $tmp_customer[0]->rating,
+            $tmp_customer[0]->image,
+            $tmp_customer[0]->description
+        );
+
+        CustomerController::$rated = DB::select('SELECT * FROM ratings WHERE rater = ' . Auth::id() . ' AND rated = ' . $tmp_customer[0]->id) != null;
+        CustomerController::$worked = DB::select('SELECT * FROM appointment as ap, advertisment as ad, published as p WHERE ap.customer_id = ' . Auth::id() . ' AND ap.advert_id = p.advert_id AND p.customer_id = '.$tmp_customer[0]->id) != null || DB::select('SELECT * FROM appointment as ap, advertisment as ad, published as p WHERE ap.customer_id = ' . $tmp_customer[0]->id. ' AND ap.advert_id = p.advert_id AND p.customer_id = '. Auth::id()) != null;
+
+        return view('profil');
+    
+
+}

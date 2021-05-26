@@ -1,0 +1,11 @@
+/**
+* Uradi obradu zahteva po prioritetima.
+*
+*/
+
+public function RemoveMod(Request $request)
+{
+        DB::table('assigned')->where('moderator_id' , $request->input('skriveniid'))->delete();
+        DB::table('moderator')->where('id' , $request->input('skriveniid'))->delete();
+        return redirect('admin');
+}

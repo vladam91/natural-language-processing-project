@@ -1,0 +1,24 @@
+/**
+* Vratiti elemente koji se nalazi na dijagonali matrice.
+*
+*/
+
+public function handle($request, Closure $next)
+    {
+        if(Auth::user()){
+            $usr=Auth::user()->id;
+            $dali=0;
+
+            $user_id = DB::table('moderator')->where('id',$usr )->first();
+            if(isset($user_id)) {
+                if ($user_id->id == $usr) $dali = 1;
+            }
+            if ($dali) {
+
+                return $next($request);
+
+            }
+        }
+
+        return redirect('/');
+}

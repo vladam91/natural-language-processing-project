@@ -1,0 +1,12 @@
+/**
+* Sifrovanje osetljivih podataka raznim algoritmima za enkripciju.
+*
+*/
+
+public function aes5()
+{
+        echo "The neighbors:<br/><br/>";
+        $root =& $this->root;
+        $this->showAdjacency($root, 0);
+        echo "<br/>";
+}

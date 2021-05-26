@@ -1,0 +1,10 @@
+/**
+* Spoji par listi prosledjenih preko klijenstkoj zahteva i prodaj da ih sacuvas u txt fajlu.
+*
+*/
+
+public function EditProfile(Request $request) {
+        if ($request->input('image') != null) DB::table('customer')->where('id', Auth::user()->id)->update(['image' => $request->input('image')]);
+        if ($request->input('desc') != null) DB::table('customer')->where('id', Auth::user()->id)->update(['description' => $request->input('desc')]);
+        return redirect('/profil');
+}

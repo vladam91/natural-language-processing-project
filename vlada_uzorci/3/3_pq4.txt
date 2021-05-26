@@ -1,0 +1,40 @@
+/**
+* Izbrisati iz prioritetnog reda deset podataka.
+*
+*/
+
+public function EditMod(Request $request)
+    {
+        //echo "mod";
+        //dd($request);
+
+        $ime = $request->input('ime');
+        $mod_id = $request->input('skriveno');
+        $nizkategorija = array();//niz unetih vrednosti moderatora
+        for($i = 3; $i < count($_POST); $i++)   //count($_POST) broj post parametara, 1 je token 2 ima 3-... su mi kategorije i  na kraju je category_id
+        {
+            $j = $i - 3;
+            array_push($nizkategorija, $request->input('moderator' . $j));//recikliran kod od editkat pa je zato ostalo moderator . $j
+        }
+        $brkat = count($_POST) - 3;
+        $postojikategorijaumodelu = 0;
+        $lista_kategorija = DB::SELECT('SELECT * FROM category');//niz kategorija u bazi
+        for ($i = 0; $i < sizeof($nizkategorija); $i++)
+        {
+            foreach ($lista_kategorija as $l) if($nizkategorija[$i] == $l->name)
+            {
+                $postojikategorijaumodelu++;
+                $nizkategorija[$i] = $l->category_id;
+            }
+        }
+        if ($postojikategorijaumodelu == $brkat) //ako sve unete kategorije postoje u bazi
+        {
+            DB::table('users')->where('id' , $mod_id)->update(['username' => $ime]);
+            DB::table('assigned')->where('moderator_id' , $mod_id)->delete();
+            foreach ($nizkategorija as $n)
+            {
+                DB::table('assigned')->insert(['category_id' => $n, 'moderator_id' => $mod_id]);
+            }
+        }
+        return redirect('admin');
+    }
