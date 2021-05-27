@@ -1,6 +1,6 @@
 /**
 * Funkcija koja se koristi da bi se 
-* celobrojna vrednost konvertovala u string.
+* decimalna vrednost konvertovala u string.
 * 
 * @param $broj1
 *

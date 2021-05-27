@@ -1,5 +1,5 @@
 /**
-* Uradi obradu konverzije celobrojnog broja u string.
+* Uradi obradu konverzije decimalnog broja u string.
 *
 */
 

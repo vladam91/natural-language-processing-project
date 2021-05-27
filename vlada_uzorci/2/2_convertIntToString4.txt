@@ -1,5 +1,5 @@
 /**
-*  Funkcija koja od dve celobroje vrednosti
+*  Funkcija koja od dve decimalne vrednosti
 *  pravi stringove i zatim ih nadovezuje i ispisuje na izlazu.
 *
 */

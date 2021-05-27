@@ -1,6 +1,6 @@
 /**
 * Funkcija koja se koristi da bi se 
-* tri celobrojne vrednosti konvertovale
+* tri decimalne vrednosti konvertovale
 * u stringove i zatim nadovezale.
 * 
 * @param $broj1

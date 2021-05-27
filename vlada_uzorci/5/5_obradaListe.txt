@@ -1,5 +1,5 @@
 /**
-*  Ispisuje listu stringova
+*  Ispisuje sortiranu listu stringova
 *  @param $lista
 */
 
