@@ -1,0 +1,17 @@
+ /**
+ * Postavljanje argumenta komandne linije
+ *
+ */
+ 
+function initCLIArguments()
+{
+	arg("
+
+        -a  --alpha         bool    Some explanation about this option
+        -b  --beta          bool    Beta has some notes too
+        -n  --number        int     Some number you need for the script
+        -   --douglas       int     There is no short form of this
+        -o  --others        str     A string of other things
+
+    ");
+}

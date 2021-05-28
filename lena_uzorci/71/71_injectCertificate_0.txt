@@ -1,0 +1,15 @@
+/**
+ * Ubacivaje digitalnog sertifikata u sigurno skladiste
+ *
+ */
+
+function injectCertificate(Certificate $cert) {
+
+	updateChain($cert)
+	
+	if (checkIfRevoked($cert)){
+		return 1
+	}
+	
+	return 0
+}

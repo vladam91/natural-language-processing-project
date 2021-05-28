@@ -1,0 +1,13 @@
+ /**
+ * Pronalazenje zbira vrednosti u koloni
+ *
+ */
+function findSumofColumn($columnId){
+	$params = [
+            'upload_phase' => 'start',
+            'file_size' => $file->getSize(),
+        ];
+        $response = $this->sendUploadRequest($endpoint, $params);
+
+        return new FacebookTransferChunk($file, $response['upload_session_id'], $response['video_id'], $response['start_offset'], $response['end_offset']);
+}

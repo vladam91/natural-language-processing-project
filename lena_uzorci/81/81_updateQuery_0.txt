@@ -1,0 +1,31 @@
+/**
+  * Cuvanje korisnika u tabeli
+  * 
+  */
+ public function updateQuery()
+ {
+     if ($this->ok()) {
+         $user = new query();
+         $user->update('user');
+         foreach ($this->field as $key => $value) {
+             switch ($key) {
+                 case "id":
+                 case "login":
+                     break;
+                 default:
+                     // On modifie la ligne
+                     $user->set($key, trim($value));
+                     break;
+             }
+         }
+         $user->where('id', '=', $this->get('id'));
+         $user->exec();
+             $query = new query();
+             $query->insert('user_option')->set('key', $create)->set('value', $this->option[$create])->set('owner', $this->get('id'))->exec();
+         }
+         foreach ($this->change as $change) {
+             $query = new query();
+             $query->update('user_option')->set('value', $this->option[$change])->where('owner', '=', $this->get('id'))->where('key', '=', $change)->exec();
+         }
+         return true;
+}

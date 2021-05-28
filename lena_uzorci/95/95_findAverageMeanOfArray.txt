@@ -1,0 +1,9 @@
+ /**
+ * Pronalazenje srednje vrednosti niza
+ *
+ */
+function findAverageMeanOfArray($array_1, $array_2){
+	$a = array_filter($a, function($x) { return $x !== ''; });
+	$average = array_sum($a) / count($a);
+	return $average
+}

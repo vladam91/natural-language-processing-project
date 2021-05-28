@@ -1,0 +1,10 @@
+/**
+ * Ekstrakcija body html elementa i ispis rezultata
+ *
+ */
+
+function getBody() {
+
+	$result = $htmlContent.find("<body>")
+	printf("%s", result)
+}

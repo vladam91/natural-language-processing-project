@@ -1,0 +1,11 @@
+/**
+ * Azuriranje deskripcije http koda
+ *
+ */
+ 
+function updateHttpCodeDescription($description, $newDescription){
+	$code = findDescription($description)
+	
+	setDescription($code, $newDescription)
+	
+ }

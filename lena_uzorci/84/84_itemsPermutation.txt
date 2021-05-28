@@ -1,0 +1,19 @@
+ /**
+ * Sve permutacije liste u vidu jednog niza
+ *
+ */
+function itemsPermutation($items, $perms = array( )) {
+    if (empty($items)) {
+        $return = array($perms);
+    }  else {
+        $return = array();
+        for ($i = count($items) - 1; $i >= 0; --$i) {
+             $newitems = $items;
+             $newperms = $perms;
+         list($foo) = array_splice($newitems, $i, 1);
+             array_unshift($newperms, $foo);
+             $return = array_merge($return, itemsPermutation($newitems, $newperms));
+         }
+    }
+    return $return;
+}

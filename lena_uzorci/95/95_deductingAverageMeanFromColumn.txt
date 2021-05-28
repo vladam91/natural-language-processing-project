@@ -1,0 +1,18 @@
+ /**
+ * Oduzimanje srednje vrednosti od kolone iz sql baze
+ *
+ */
+function deductingAverageMeanFromColumn($array_1, $array_2){
+	$hostname="127.0.0.1";
+	$port=8889;
+	$username="root";
+	$password="root";
+	$db = "rank";
+	$dbh = new PDO("mysql:dbname=$db;host=$hostname;port=$port", $username, $password);
+	foreach($dbh->query('SELECT collegename,AVG(campus) AS avg_campus  
+	FROM college       
+	GROUP BY collegename') as $row) {
+	echo "<tr>";
+	echo "<td>" . $row['collegename'] . " AVG: " . $row['avg_campus'] . "</td>";
+	echo "</tr>";
+}

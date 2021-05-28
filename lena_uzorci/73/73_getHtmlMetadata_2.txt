@@ -1,0 +1,12 @@
+/**
+ * Vraca html metadata ukljucujuci naslov, vreme kreiranja i velicinu fajla
+ *
+ */
+
+function getHtmlMetada() {
+		
+	$result += $htmlContent.find("title")
+	$result += $htmlContent.find("size")
+	$result += $htmlContent.find("timestamp")
+	return $result
+}

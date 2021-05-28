@@ -1,0 +1,12 @@
+ /**
+ * Dobijanje fajlova iz zip arhive
+ *
+ */
+function getFilesFromZip($filePath) {
+
+    $res = $zip->open($filePath);
+	if ($res === TRUE) {
+	  $zip->extractTo('/myzips/extract_path/');
+	  $zip->close();
+	}
+}

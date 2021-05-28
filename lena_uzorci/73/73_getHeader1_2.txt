@@ -1,0 +1,10 @@
+/**
+ * Ekstrakcija h1 html elementa na kog se prvo naidje
+ *
+ */
+
+function getHeader1() {
+
+	$result = $htmlContent.find("<h1>")
+	return $result[0]
+}

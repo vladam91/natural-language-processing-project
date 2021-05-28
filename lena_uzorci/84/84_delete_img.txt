@@ -1,0 +1,19 @@
+ /**
+ * Brisanje slike iz tabele post_food
+ *
+ */
+public function delete_img($id){
+        try {
+            $stmt = $this->con->prepare("SELECT `image` FROM `post_food` WHERE id = :id");
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            if(isset($data['image'])){
+                unlink('../uploads/'.$data['image']);
+            }
+
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+}

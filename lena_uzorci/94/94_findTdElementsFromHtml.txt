@@ -1,0 +1,21 @@
+ /**
+ * Pronalazenje td elemenata u html fajlu
+ *
+ */
+function findTdElementsFromHtml($file) {
+	$data = file_get_contents('http://mytemporalbucket.s3.amazonaws.com/code.txt');
+
+	$dom = new domDocument;
+
+	@$dom->loadHTML($data);
+	$dom->preserveWhiteSpace = false;
+	$tables = $dom->getElementsByTagName('table');
+
+	$rows = $tables->item(1)->getElementsByTagName('tr');
+
+	foreach ($rows as $row) {
+			$cols = $row->getElementsByTagName('td');
+			echo $cols[2];
+	}
+
+}

@@ -1,0 +1,27 @@
+ /**
+  * Dohvatanje argumenata sa komandne linije i priprema za njihovu upotrebu
+  *
+  */
+ protected static function initArguments(CommandEvent $event = null)
+ {
+     // Check for retrieving arguments from Composer event ...
+     if ($event !== null) {
+         $arguments = $event->getArguments();
+     } else {
+         $arguments = $_SERVER['argv'];
+     }
+     // Check for strict mode
+     $strict = in_array('--strict', $arguments);
+     $arguments = new \cli\Arguments(compact('strict'), $arguments);
+     $arguments->addFlag(array('verbose', 'v'), 'Turn on verbose output');
+     $arguments->addFlag(array('version', 'V'), 'Display the version');
+     $arguments->addFlag(array('quiet', 'q'), 'Disable all output');
+     $arguments->addFlag(array('help', 'h'), 'Show this help screen');
+     // Parse the arguments
+     $arguments->parse();
+     // Store arguments ...
+     self::$arguments = $arguments;
+     if (isset(self::$arguments['help']) === true) {
+         self::showHelp();
+     }
+ }

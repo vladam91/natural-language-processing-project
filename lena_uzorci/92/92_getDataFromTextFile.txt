@@ -1,0 +1,19 @@
+ /**
+ * Ekstrakcija podataka liniju po liniju iz tekstualnog fajla
+ *
+ */
+function getDataFromTextFile($myfile) {
+	$lines = file($myFile);
+	var_dump($lines);
+
+	unset($lines[0]);
+	unset($lines[1]); // we do not need these lines.
+
+	foreach($lines as $line) 
+	{
+		$var = explode(':', $line, 2);
+		$arr[$var[0]] = $var[1];
+	}
+
+	print_r($arr);
+}

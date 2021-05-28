@@ -1,0 +1,17 @@
+ /**
+ * Vraca html elemente u vidu niza
+ *
+ */
+function readingElementsFromHtmlAsArray($file) {
+	$x=file_get_contents("city.html");
+	$x=array($x);
+	$html = preg_replace('#<script[^>]*?.*?</script>#', '', $x);
+	$str = str_replace(', ', ',', $html);
+	$x = explode(',',trim($str[0]));
+	$remove[] = "'";
+	$result = str_replace( $remove, "", $x );
+	foreach($result as $cities)
+	{
+	   echo $cities . "<br>";
+	}
+}

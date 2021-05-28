@@ -1,0 +1,44 @@
+ /**
+ * Plotiranje koordinate sa datom latitudom i longitudom  
+ *
+ */
+function plotCoordinates($lat, $long) {
+	var map_options = {
+		center: new google.maps.LatLng(33.84659,-84.35686),
+		zoom: 14,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	var google_map = new google.maps.Map(document.getElementById("map_canvas"), map_options);
+
+	var info_window = new google.maps.InfoWindow({
+		content: 'loading'
+	});
+
+	var t = [];
+	var x = [];
+	var y = [];
+	var h = [];
+
+	t.push('Location Name 1');
+	x.push($lat);
+	y.push($long);
+	h.push('<p><strong>Location Name 1</strong><br/>Address 1</p>');
+
+	var i = 0;
+	for ( item in t ) {
+		var m = new google.maps.Marker({
+			map:       google_map,
+			animation: google.maps.Animation.DROP,
+			title:     t[i],
+			position:  new google.maps.LatLng(x[i],y[i]),
+			html:      h[i]
+		});
+
+		google.maps.event.addListener(m, 'click', function() {
+			info_window.setContent(this.html);
+			info_window.open(google_map, this);
+		});
+		i++;
+	}
+}

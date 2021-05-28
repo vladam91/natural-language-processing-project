@@ -1,0 +1,10 @@
+ /**
+ * Ekstrakcija podataka iz cvora
+ *
+ */
+function extractData($nodeId) {
+
+    $parentNode = $xpath->query('//Category[Id=$nodeId]/../..')->item(0);
+	
+	return $parentNode
+}

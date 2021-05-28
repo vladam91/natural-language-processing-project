@@ -1,0 +1,11 @@
+/**
+* Konstruktor parsera
+* @param array $options Niz opcija
+*/
+ public function construct(array $options = array())
+ {
+     $this->options = array_merge(array("extractContainer" => false), $options);
+     if (!isset($this->options["uniqueNode"])) {
+         throw new Exception("Required option 'uniqueNode' not set");
+     }
+ }

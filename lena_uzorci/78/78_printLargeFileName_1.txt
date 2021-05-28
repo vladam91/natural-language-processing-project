@@ -1,0 +1,12 @@
+ /**
+ * Ispisi ime velikog fajla
+ *
+ */
+function printLargeFileName($labelId) {
+
+    if ($labelId.contains("l")){
+		$labelName = findLabel($labelId).getName()
+		$newName = underline($labelName)
+		findLabel($labelId).setName($newName)
+	}
+}

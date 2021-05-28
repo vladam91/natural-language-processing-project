@@ -1,0 +1,8 @@
+ /**
+ * Otvori zip arhivu
+ *
+ */
+function openZipFile($filePath) {
+
+    $res = $zip->open($filePath);
+}

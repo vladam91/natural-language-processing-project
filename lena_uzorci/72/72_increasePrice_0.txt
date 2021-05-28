@@ -1,0 +1,10 @@
+/**
+ * Povecaj cenu za odredjeni procenat
+ *
+ */
+
+function increasePrice(int $percentage, double $price) {
+
+	$price = $price + $percentage/100*$price
+	return $price
+}

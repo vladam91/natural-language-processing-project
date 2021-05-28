@@ -1,0 +1,12 @@
+ /**
+ * Podvuci tekst u nazivu vidzeta
+ *
+ */
+function underlineWidget($widgetId) {
+
+    if ($widgetId.contains("l")){
+		$widgetName = findWidget($widgetId).getName()
+		$newName = underline($widgetName)
+		findWidget($widgetId).setName($newName)
+	}
+}

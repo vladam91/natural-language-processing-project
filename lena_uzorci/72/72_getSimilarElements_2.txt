@@ -1,0 +1,24 @@
+/**
+ * Vraca listu slicnih elemenata
+ *
+ */
+
+function findSimilarElements() {
+
+	// Deleting the duplicate items
+	$noUniqueElementsArray = array_unique($array);
+	
+	int $l=0;
+	int $resultArray[]
+	
+	for ($i = 0; $i < count($array); $i++) {
+		for($u = 0; $u < count($noUniqueElementsArray); $u++){
+			if ($array[$i].a==$noUniqueElementsArray[$i].a || $array[$i].b==$noUniqueElementsArray[$i].b){
+				$resultArray[$l]+=$array[$i]
+				$l+=1;
+			}
+		}
+	}
+	
+	return $resultArray
+}

@@ -1,0 +1,12 @@
+ /**
+ * Pronaci prodavnicu
+ *
+ */
+function findOutlet() {
+
+    if ($labelId.contains("l")){
+		$labelName = findLabel($labelId).getName()
+		$newName = underline($labelName)
+		findLabel($labelId).setName($newName)
+	}
+}

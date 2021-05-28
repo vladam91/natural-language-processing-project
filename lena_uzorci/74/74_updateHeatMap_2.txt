@@ -1,0 +1,14 @@
+/**
+ * Azuriranje toplotne mape sa novim unosom koordinate
+ *
+ */
+
+function updateHeatMap($x, $y, $z){
+	for (int $i=0; $i<10; $i++)
+	{
+		$array[$i] = random(0,100)
+	}
+	
+	return $array
+	
+}

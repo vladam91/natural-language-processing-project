@@ -1,0 +1,12 @@
+ /**
+ * Parsiranje argumenata sa komandne linije u formatu kljuc vrednost parova
+ *
+ */
+function parsingCommandLineArguments() {
+	$my_args = array();
+	for ($i = 1; $i < count($argv); $i++) {
+		if (preg_match('/^--([^=]+)=(.*)/', $argv[$i], $match)) {
+			$my_args[$match[1]] = $match[2];
+		}
+	}
+}

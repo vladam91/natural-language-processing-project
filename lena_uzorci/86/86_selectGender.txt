@@ -1,0 +1,8 @@
+ /**
+ * Odabrati jedno od polja za selekciju pola. Opcije su 0-zenski, 1-muski, 2-neodredjeno
+ *
+ */
+function selectGender($choice) {
+  checkboxes = document.getElementsByName('pol')
+  checkboxes[$choice].check();
+}

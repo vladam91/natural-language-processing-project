@@ -1,0 +1,17 @@
+/**
+ * Ispis atributa modela
+ *
+ */
+
+function printModelAttribute(int $attrId, int $modelId) {
+
+	$model = getModel($id)
+	
+	$attribute = model.findAttributeName($attrId)
+	
+	$attrValue = model.findAttributeValue($attrId)
+	
+	printf("Attribute %s has value %d", $attribute, $attrValue)
+	
+	return $info
+}

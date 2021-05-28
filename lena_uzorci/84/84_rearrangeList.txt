@@ -1,0 +1,10 @@
+ /**
+ * Nasumicna permutacija liste i njen ispis
+ *
+ */
+function rearrangeList($array) {
+    shuffle($array);
+	foreach ($array as $elem) {
+		echo "$elem ";
+	}
+}

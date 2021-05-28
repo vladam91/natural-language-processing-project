@@ -1,0 +1,14 @@
+ /**
+ * Srednja vrednost u nizu
+ *
+ */
+function calculate($array_1, $array_2){
+   $x = 0; $total = 0;
+
+   foreach($array_1 as $element){
+      $total += ($element - $array_2[$x]);
+      $x++;
+   }
+
+   return ($total / count($array_1));
+}

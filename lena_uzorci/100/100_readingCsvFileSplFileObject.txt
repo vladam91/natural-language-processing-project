@@ -1,0 +1,14 @@
+/**
+ * Citanje csv fajla koristeci SplFileObject klasu
+ *
+ */
+function readingCsvFileSplFileObject($url) {
+	$file = new SplFileObject("data.csv");
+	$file->setFlags(SplFileObject::READ_CSV);
+	$file->setCsvControl(',', '"', '\\'); // this is the default anyway though
+	foreach ($file as $row) {
+		list ($fruit, $quantity) = $row;
+		// Do something with values
+	}
+		
+}

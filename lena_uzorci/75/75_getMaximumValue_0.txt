@@ -1,0 +1,13 @@
+ /**
+ * Dobiti maximum vrednost iz niza
+ *
+ */
+function getMaximum($node, $offset) {
+
+    foreach ($array as $k => $v) {
+		$tArray[$k] = $v['Weight'];	
+	}
+	$max_value = max($tArray);
+	
+	return $max_value
+}

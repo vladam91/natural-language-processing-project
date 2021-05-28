@@ -1,0 +1,10 @@
+ /**
+ * Parsiranje select upita iz url-a
+ *
+ */
+function parseSelectQueryFromUrl($url) {
+	$url =  $_SERVER['SCRIPT_NAME'];
+	preg_match('/\/([-/])$/', $url, $m);
+	$city = $m[0];
+	$res = mysql_query("SELECT * FROM tableA WHERE city='".$city."'");
+}

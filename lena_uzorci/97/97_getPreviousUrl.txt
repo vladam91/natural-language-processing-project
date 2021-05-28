@@ -1,0 +1,11 @@
+ /**
+ * Vraca prethodni url
+ *
+ */
+function getPreviousUrl() {
+	if (!isset($_SESSION)) {
+    session_start();
+	}
+	$lastpage = $_SESSION['lastpage'];
+	
+}

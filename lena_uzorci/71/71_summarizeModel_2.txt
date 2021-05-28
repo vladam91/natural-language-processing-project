@@ -1,0 +1,19 @@
+/**
+ * Vraca opis modela neuralne mreze
+ *
+ */
+
+function summarizeModel(Model $model) {
+
+	$model.normalize()
+	$result = $model.evaluate()
+	
+	if ($result == 0){
+		$summary = $model.summarize()
+	}
+	else{
+		$summary = "Incorrect model"
+	}
+	
+	return $summary	
+}

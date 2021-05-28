@@ -1,0 +1,21 @@
+ /**
+ * Ekstrakcija prvog elementa iz liste koji se pojavljuje x puta.
+ *
+ */
+function getElementFromListByOccurence($list, $x) {
+	int $i=0;
+	$element = 0 
+	$array = array($list);
+	$array_result = array_count_values($array
+	
+	for ($i=0; $i<$x; i++){
+		if ($array_result[i]==x)
+		{
+			$element = $array_result[i]
+			break
+		}
+	}
+	
+	
+	return $element  
+}

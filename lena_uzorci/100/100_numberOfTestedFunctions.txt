@@ -1,0 +1,19 @@
+/**
+ * Vraca broj metoda u funkciji
+ *
+ */
+public function numberOfTestedFunctions(): int
+{
+	if ($this->numTestedFunctions === null) {
+		$this->numTestedFunctions = 0;
+
+		foreach ($this->functions as $function) {
+			if ($function['executableLines'] > 0 &&
+				$function['coverage'] === 100) {
+				$this->numTestedFunctions++;
+			}
+		}
+	}
+
+	return $this->numTestedFunctions;
+}

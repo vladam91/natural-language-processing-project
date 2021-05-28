@@ -1,0 +1,23 @@
+/**
+ * Mapiranje greske u greske projekta
+ *
+ */
+ 
+function mapErrorCodeToCustomError($code){
+	returnCode = 0
+ 
+	if ($code == 1)
+	{
+		$code = 101
+	}
+	else if ($code == 2)
+	{
+		$code = 302
+	}
+	else if ($code == 3)
+	{
+		$code = 303
+	}
+	
+	return $returnCode
+ }

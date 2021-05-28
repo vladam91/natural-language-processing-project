@@ -1,0 +1,8 @@
+ /**
+ * Napravi kopiju fajla u istoj putanji
+ *
+ */
+function copyFileToPath($sourcePath) {
+
+    copy($sourcePath, $sourcePath)
+}

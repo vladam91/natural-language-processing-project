@@ -1,0 +1,11 @@
+ /**
+ * Vraca N nasumicnih permutacija niza
+ *
+ */
+function nRandomPermutations($array, $n) {
+    $permutations = iterator_to_array(permute($array));
+
+	shuffle($permutations);
+
+	$result = array_slice($permutations, 0, $n);
+}

@@ -1,0 +1,14 @@
+/**
+ * Vraca sve elemente liste
+ *
+ */
+
+function findAllElements() {
+
+	// Deleting the duplicate items
+	$noUniqueElementsArray = array_unique($array);
+	
+	for ($i = 0; $i < count($array); $i++) {
+		printf("%d \n", $array[i]);
+	}
+}

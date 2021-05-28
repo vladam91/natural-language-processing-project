@@ -1,0 +1,12 @@
+ /**
+ * Provera odabrane vrednosti polja za selektovanje
+ *
+ */
+ public function getDefaultItem()
+ {
+     return function ($index, $label, $name, $checked, $value) {
+         $inputOptions = $this->inputOptions;
+         $inputOptions['value'] = ArrayHelper::getValue($inputOptions, 'value', $value);
+         return Html::tag('div', Checkbox::widget(['name' => $name, 'label' => $label, 'checked' => $checked, 'inputOptions' => $inputOptions, 'labelOptions' => $this->labelOptions]), ['class' => 'field']);
+     };
+ }

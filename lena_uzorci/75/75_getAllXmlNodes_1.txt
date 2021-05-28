@@ -1,0 +1,13 @@
+ /**
+ * Uzeti sve xml cvorove
+ *
+ */
+function getAllXmlNodes($node, $offset) {
+
+    $xml = simplexml_load_string( $xml);
+	foreach( $xml->xpath( '//widget') as $el) {
+		$attributes = $el->attributes();
+		$children = $el->children(); 
+		echo $attributes['id'] . ' ' . $children[0] . "\n";
+	}
+}

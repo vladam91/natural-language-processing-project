@@ -1,0 +1,15 @@
+ /**
+ * Citanje .gz fajla sa datom putanjom
+ *
+ */
+public function gz_get_contents($path){
+    $file = @gzopen($path, 'rb', false);
+    if($file) {
+        $data = '';
+        while (!gzeof($file)) {
+            $data .= gzread($file, 1024);
+        }
+        gzclose($file);
+    }
+    return $data;
+}

@@ -1,0 +1,15 @@
+ /**
+ * Spajanje pdf fajlova iz liste fajlova
+ *
+ */
+function pdfFileConcatenation($files) {
+	$datadir = "save_path/";
+	$outputName = $datadir."merged.pdf";
+
+	$cmd = "gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$outputName ";
+	//Add each pdf file to the end of the command
+	foreach($fileArray as $file) {
+		$cmd .= $file." ";
+	}
+	$result = shell_exec($cmd);
+}

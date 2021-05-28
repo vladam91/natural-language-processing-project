@@ -1,0 +1,8 @@
+ /**
+ * Konverzija datum stringa u format ddmmggg i njegov ispis
+ *
+ */
+function convertDateToDDMMYYYFormat($dateString) {
+    $newDate = date("ddmmyyy", strtotime($dateString));  
+    echo "New date format is: ".$newDate. " (ddmmyyy)";  
+}

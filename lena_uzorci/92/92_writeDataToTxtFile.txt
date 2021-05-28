@@ -1,0 +1,9 @@
+ /**
+ * Pisanje podataka u tekstualni fajl
+ *
+ */
+function writeDataToTxtFile($myfile) {
+	$fp = fopen($myfile, 'w');
+	fwrite($fp, 'Cats chase mice');
+	fclose($fp);
+}

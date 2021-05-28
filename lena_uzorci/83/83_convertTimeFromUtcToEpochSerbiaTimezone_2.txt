@@ -1,0 +1,13 @@
+ /**
+ * Ispis utc vremena u vremensku zonu za Srbiju
+ *
+ */
+function convertTimeFromUtcToEpochSerbianTimezone($utcTime) {
+    date_default_timezone_set('UTC');  // optional
+	mktime ( $hour, $minute, $second, $month, $day, $year );
+	$dt = new DateTime($utc);
+	$tz = new DateTimeZone('Serbia'); //
+
+	$dt->setTimezone($tz);
+	echo $dt->format('Y-m-d H:i:s');
+}

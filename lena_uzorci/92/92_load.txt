@@ -1,0 +1,12 @@
+ /**
+ * Dovlaci tekstualni fajl u memoriju
+ *
+ */
+protected static function load($filePath)
+ {
+     try {
+         return File::read($filePath);
+     } catch (FileSystemException $e) {
+         throw new FileReaderException($e);
+     }
+ }

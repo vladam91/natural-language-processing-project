@@ -1,0 +1,9 @@
+/**
+ * Promena imena toplotne mape
+ *
+ */
+ 
+function changeMapName($newName) {
+  newName += "heat map"
+  $mymap.name = newName
+}

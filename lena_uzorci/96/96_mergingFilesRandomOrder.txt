@@ -1,0 +1,9 @@
+ /**
+ * Spajanje fajlova u nasumicnom redu
+ *
+ */
+function mergingFilesRandomOrder($files) {
+	$document->loadHTMLFile($file);
+	$element = $document->getElementByType("<body>");
+	return $element
+}

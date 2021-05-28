@@ -1,0 +1,20 @@
+/**
+ * Vraca informaciju o modelu sa datim indeksom
+ *
+ */
+
+function getModelInfo(int $id) {
+
+	$model = getModel($id)
+	
+	$info = "Model summary" + $model.name + ":" + $model.shortDescription
+	
+	if ($model.isSequential){
+		$info += model.partA
+	}
+	else {
+		$info += model.partB
+	}
+	
+	return $info
+}

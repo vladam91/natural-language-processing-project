@@ -1,0 +1,11 @@
+/**
+ * Konverzija word fajla tako da je izlaz funkcije html fajl
+ *
+ */
+function convertWordToHtml($source_word) {
+	$output_folder="MyFolder";
+
+		if (!file_exists($output_folder)) { mkdir($output_folder, 0777, true);}
+	$a= passthru("pdftohtml $source_word $output_folder/new_file_name",$b);
+	var_dump($a);
+}

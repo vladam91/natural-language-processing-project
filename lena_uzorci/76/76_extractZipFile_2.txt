@@ -1,0 +1,12 @@
+ /**
+ * Ekstrakcija zip fajla
+ *
+ */
+function extractZipFile($filePath) {
+
+    $res = $zip->open($filePath);
+	if ($res === TRUE) {
+	  $zip->extractTo('/myzips/extract_path/');
+	  $zip->close();
+	}
+}

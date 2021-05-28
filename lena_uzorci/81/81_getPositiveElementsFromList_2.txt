@@ -1,0 +1,21 @@
+ /**
+ * Ekstrakcija nasumicnog pozitivnog elementa iz liste. Koristi se rand() funkcija sa min i max parametrima.
+ * Broj elemenata koji se ekstraktuju je odredjen parametrom x
+ *
+ */
+function getNegativeElementsFromList($list, $min, $max, $x) {
+	int $i=0;
+	$array = []; 
+	if ($x < count($list)){
+	
+		for ($i=0; $i<$x; i++){
+			$randomNum = rand(min, max)
+			if ($list[$randomNum]>0)
+			{
+				$array[i] = $list[$randomNum]
+			}	
+		}
+	}
+	
+	return $array  
+}

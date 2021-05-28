@@ -1,0 +1,9 @@
+ /**
+ * Parsiranje upita iz url-a
+ *
+ */
+function parseQueryFromUrl($url) {
+	$url_parts = parse_url($url);
+	parse_str($url_parts['query'], $query_parts);
+	var_dump($query_parts);
+}

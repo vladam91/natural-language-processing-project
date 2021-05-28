@@ -1,0 +1,19 @@
+ /**
+ * Nadovezivanje svih fajlova iz liste fajlova a pritom se brisu zaglavlja i footer
+ *
+ */
+function removeHeaderAndFooterFileMerge($files) {
+	$content = ob_get_contents();
+   ob_clean();
+
+   mb_internal_encoding('UTF-8');
+
+
+
+   echo str_replace(
+     '<div id="footer">This is custom footer</div>
+	</body>',
+	'', 
+	$content
+	   );
+}

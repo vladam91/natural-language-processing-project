@@ -1,0 +1,10 @@
+ /**
+ * Vraca ime vidzeta
+ *
+ */
+function getWidgetName($widgetId) {
+
+    if ($widgetId.contains("w")){
+		return findWidget($widgetId).getName
+	}
+}

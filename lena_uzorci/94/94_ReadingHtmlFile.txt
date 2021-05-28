@@ -1,0 +1,8 @@
+ /**
+ * Citanje html fajla
+ *
+ */
+function readingHtmlFile($htmlFile) {
+	$text= file_get_contents($htmlFile);
+	echo $text;
+}

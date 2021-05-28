@@ -1,0 +1,20 @@
+ /**
+ * Provera da li je polje za selekciju sa checkboxName odabran
+ *
+ */
+function checkIfACheckboxIsChecked($checkbox) {
+  if( strtolower( $_SERVER[ 'REQUEST_METHOD' ] ) == 'post' )
+	{
+		foreach( $checkboxes as $key => $checkbox )
+		{
+			if( isset( $_POST[ 'checkbox' ][ $key ] ) && $_POST[ 'checkbox' ][ $key ] == $checkbox[ 'checked' ] )
+			{
+				echo $checkbox[ 'label' ] . ' is checked, so we use value: ' . $checkbox[ 'checked' ] . '<br>';
+			}
+			else
+			{
+				echo $checkbox[ 'label' ] . ' is not checked, so we use value: ' . $checkbox[ 'unchecked' ] . '<br>';
+			}
+		}
+	}
+}

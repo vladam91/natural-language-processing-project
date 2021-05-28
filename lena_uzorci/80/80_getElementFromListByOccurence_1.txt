@@ -1,0 +1,18 @@
+/**
+ * Vraca html element dat identifikatorom. Proverava se validnost identifikatora
+ *
+ */
+
+function getElementFromListByOccurence(int $num) {
+	
+	$acceptableIds[5] = ["naslov", "zaglavlje", "lista", "slika", "glavniNaslov"]
+	
+	if ($id in $acceptableIds){
+		$result = $htmlContent.findById($id)
+	}
+	else
+	{
+		$result = "Identifikator nije dozvoljen"
+	}
+	return $result
+}

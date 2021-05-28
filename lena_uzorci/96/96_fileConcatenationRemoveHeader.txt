@@ -1,0 +1,9 @@
+ /**
+ * Nadovezivanje svih fajlova iz liste fajlova pri tom se zaglavlja svakog fajla brisu
+ *
+ */
+function fileConcatenationRemoveHeader($files) {
+	$document->loadHTMLFile($file);
+	$element = $document->getElementByType("<body>");
+	return $element
+}

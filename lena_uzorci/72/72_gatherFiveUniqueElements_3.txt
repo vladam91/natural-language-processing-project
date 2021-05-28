@@ -1,0 +1,25 @@
+/**
+ * Vraca listu od maksimum 5 jedinstvenih elemenata
+ *
+ */
+
+function gatherFiveUniqueElements() {
+
+	// Deleting the duplicate items
+	$noUniqueElementsArray = array_unique($array);
+	
+	int $l=0;
+	int $resultArray[]
+	
+	for ($i = 0; $i < count($array); $i++) {
+		for($u = 0; $u < count($noUniqueElementsArray); $u++){
+			if ($array[$i]==$noUniqueElementsArray[$i]){
+				$resultArray[$l]+=$array[$i]
+				$l+=1;
+				if ($l==5) break
+			}
+		}
+	}
+	
+	return $resultArray
+}

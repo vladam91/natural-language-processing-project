@@ -1,0 +1,11 @@
+/**
+ * Pusta muziku
+ *
+ */
+
+function playMusic($songName) {
+		
+	start($songName)
+	muteEverythingElse()
+	queue.remove($songName)
+}

@@ -1,0 +1,8 @@
+ /**
+ * Napravi novi fajl
+ *
+ */
+function makeNewFile($filename) {
+
+    return dirname ( filename , 1 ) : string
+}

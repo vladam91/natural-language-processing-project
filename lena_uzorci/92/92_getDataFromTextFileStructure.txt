@@ -1,0 +1,70 @@
+ /**
+ * Ekstracija informacije iz tekstualnog fajla baziranog na sledecoj strukturi: Datum, Naslov, Tekst:vrednost, Tekst:vrednost, Tekst:vrednost
+ *
+ */
+function getDataFromTextFileStructure($myfile) {
+	// source - we use 'read-ahead' as it makes life easier
+	$sourceFile = fopen(__DIR__ . $myfile, 'rb');
+
+	$currentLine = readNextLine($sourceFile); // read-ahead
+
+	while (!empty($currentLine)) { // process until eof...
+
+		// start of a date group...
+		$currentGroupDate = $currentLine; // ignore this group if less than CUTOFF_DATE
+		$currentLine = readNextLine($sourceFile); // read ahead
+
+		while (!empty($currentGroupDate) && $currentGroupDate < $CUTOFF_DATE) { // find next date_group record
+			while (!empty($currentLine) && datePosition($currentLine) !== 0) { // read to end of current group
+				$currentLine = readNextLine($sourceFile);
+			}
+			$currentGroupDate = $currentLine;
+			$currentLine = readNextLine($sourceFile); // read ahead
+	   }
+
+		$htmlCurrentDate = $currentGroupDate; // only print the date once
+
+		$html = '';
+		// display all the rows for this 'date group' -- look for next 'date'
+		while (!empty($currentLine) && datePosition($currentLine) !== 0) {
+
+			$html = '<tr>';
+
+			$html .= '<td>'. $htmlCurrentDate .'</td>';
+			$htmlCurrentDate = ''; // only display the date once
+
+			$html .= '<td>'. $currentLine .'</td>'; // store
+			$currentLine = readNextLine($sourceFile);
+
+			// process the price
+			 $lineParts = explode(':', $currentLine); // need the price...
+			 $html .= '<td>'. $lineParts[1] .'</td>';
+			 $currentLine = readNextLine($sourceFile);
+
+			// now process the group of dates - look for a line
+			// that starts with 'text' and must contain a date
+			while (   !empty($currentLine)
+					&& isTextLine($currentLine)
+					&& datePosition($currentLine) >= 1) {
+
+				$lineParts = explode(':', $currentLine); // need the date...
+				$html .= '<td>'. $lineParts[1] .'</td>';
+				$currentLine = readNextLine($sourceFile); // read next
+			}
+
+			// end of this group...
+			$html .= '</tr>';
+
+			$outHtml .= $html;
+
+		} // end of 'dateGroup'
+	} // end of data file...
+
+	$outHtml .= '</table>';
+	fclose($sourceFile);
+
+
+	// display output
+	echo $outHtml;
+	exit;
+}

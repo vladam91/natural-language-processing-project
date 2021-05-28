@@ -1,0 +1,13 @@
+ /**
+ * Ekstrakcija geografske sirine i duzine iz kml fajla
+ *
+ */
+function extractLatitudeAndLongitudeFromKmlFile($filename) {
+	$kml = new SimpleXMLElement(file_get_contents('filename'));
+
+	foreach ($kml->xpath('//Placemark/Point/coordinates') as $kml_coordinates) {
+    sscanf((string) $kml_coordinates, '%f,%f,%f', $latitude, $longitude, $altitude);
+    $coords[] = array($latitude, $longitude, $altitude);
+    $coords[] = explode(',', (string) $kml_coordinates);
+	return $coords
+}

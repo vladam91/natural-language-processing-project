@@ -1,0 +1,7 @@
+/**
+ * Citanje csv fajla u mapu niza
+ *
+ */
+function readingCsvFileArrayMap($url) {
+	$csv = array_map('str_getcsv', file('data.csv'));
+}

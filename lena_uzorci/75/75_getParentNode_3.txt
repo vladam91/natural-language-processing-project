@@ -1,0 +1,10 @@
+ /**
+ * Uzeti roditeljski cvor od cvora sa nodeId
+ *
+ */
+function getParentNode($nodeId) {
+
+    $parentNode = $xpath->query('//Category[Id=$nodeId]/../..')->item(0);
+	
+	return $parentNode
+}

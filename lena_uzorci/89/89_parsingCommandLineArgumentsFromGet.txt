@@ -1,0 +1,7 @@
+ /**
+ * Parsiranje argumenata sa komandne linije od GET metode
+ *
+ */
+function parsingCommandLineArgumentsFromGet($argv) {
+	parse_str(implode('&', array_slice($argv, 1)), $_GET);
+}

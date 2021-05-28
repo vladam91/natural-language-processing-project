@@ -1,0 +1,8 @@
+ /**
+ * Konverzija datuma iz formata ggggmmdd u format dd-mm-gggg i njegov ispis
+ *
+ */
+function 82_convertDateFromYYYYMMDDtoDD-MM-YYYY_1.txt($dateString) {
+    $newDate = date("yyyymmdd", strtotime($dateString));  
+    echo "New date format is: ".$newDate. " (yyyymmdd)";  
+}

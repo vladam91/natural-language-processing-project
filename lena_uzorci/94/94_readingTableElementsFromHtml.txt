@@ -1,0 +1,7 @@
+ /**
+ * Citanja elemenata tabele iz html fajla
+ *
+ */
+function readingTableElementsFromHtml($file) {
+	return $this->fromExtension(pathinfo($filename, PATHINFO_EXTENSION));
+}

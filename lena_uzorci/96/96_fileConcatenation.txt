@@ -1,0 +1,28 @@
+ /**
+ * Nadovezivanje svih fajlova iz liste fajlova
+ *
+ */
+function fileConcatenation($files) {
+	$dest = fopen($outputPath,"a");
+
+    foreach ($arrayOfFiles as $f) {
+
+        $FH = fopen($f,"r");
+
+        $line = fgets($FH);
+
+        while ($line !== false) {
+
+            fputs($dest,$line);
+
+            $line = fgets($FH);
+
+        }
+
+        fclose($FH);
+
+    }
+
+    fclose($dest);
+
+}

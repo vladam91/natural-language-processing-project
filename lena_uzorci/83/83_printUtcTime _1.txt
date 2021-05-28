@@ -1,0 +1,8 @@
+ /**
+ * Ispis trenutnog utc vremena
+ *
+ */
+function convertTimeFromUtcToEpoch($utcTime) {
+    date_default_timezone_set('UTC');  // optional
+	mktime ( $hour, $minute, $second, $month, $day, $year );
+}

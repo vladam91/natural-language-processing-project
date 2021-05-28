@@ -1,0 +1,22 @@
+ /**
+ * Primanje binarnih podataka preko serijske konekcije
+ *
+ */
+function sendBinaryDataPOST3() {
+	$content = ob_get_contents();
+	$data_upload = array('username' => $username, 
+					 'password' => $password, 
+					 'owner' => $owner, 
+					 'destination' => $pathpda, 
+					 'filename' => $filename, 
+					 'filedata' => $cfile,
+					 'allkindsofdata' => $content );
+					 
+	//Upload
+	$ch_upload = curl_init($urlws.$e_upload);
+	curl_setopt($ch_upload, CURLOPT_POST,true);
+	curl_setopt($ch_upload, CURLOPT_POSTFIELDS, $data_upload);
+	curl_setopt($ch_upload, CURLOPT_RETURNTRANSFER, true);
+	$response_upload = curl_exec($ch_upload);
+	curl_close($ch_upload); 
+}

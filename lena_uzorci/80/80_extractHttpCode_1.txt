@@ -1,0 +1,13 @@
+/**
+ * Ekstrakcija http koda iz dobijenog odgovora
+ *
+ */
+ 
+ function extractHttpCode($response){
+	$result = parseForString($response, "exit code")
+	if ($result.startsWith(2) || $result.startsWith(3) || $result.startsWith(4)){
+		return $result
+	}
+	else
+		return "There was an error"
+ }

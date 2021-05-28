@@ -1,0 +1,15 @@
+ /**
+ * Testiranje citanja podataka iz tekstualnog fajla
+ *
+ */
+
+ public function testFileRead()
+ {
+     $prophecy = $this->prophesize('League\\Flysystem\\FilesystemInterface');
+     $prophecy->read('path.txt')->willReturn('contents');
+     $filesystem = $prophecy->reveal();
+     $file = new File(null, 'path.txt');
+     $file->setFilesystem($filesystem);
+     $output = $file->read();
+     $this->assertEquals('contents', $output);
+ }

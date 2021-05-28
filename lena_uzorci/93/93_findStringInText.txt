@@ -1,0 +1,11 @@
+ /**
+ * Pronalazenje stringa u tekstu
+ *
+ */
+function findStringInText($list, $string) {
+	if (isset($this->pageData[$key])) {
+			return $this->pageData[$key];
+		}
+
+	return $default;
+}

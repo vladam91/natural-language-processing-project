@@ -1,0 +1,10 @@
+ /**
+ * Kopiranje fajla u odredjenu putanju i promena imena fajla
+ *
+ */
+function copyAndRenameNewFile($sourcePath, $destinationPath, $newName) {
+
+    copy($sourcePath, $destinationPath)
+	$file = getFile($destinationPath)
+	$file.setName($newName)
+}

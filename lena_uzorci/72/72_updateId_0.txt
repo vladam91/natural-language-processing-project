@@ -1,0 +1,15 @@
+/**
+ * Azuriraj Identifikator
+ *
+ */
+
+function updateId($newId) {
+
+	$idStatement = "Stari id: "+ $model.id + ", novi id: ";
+
+	$model.id = newId
+	
+	$idStatement +=newId
+	
+	printf("%s", idStatement)
+}

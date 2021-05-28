@@ -1,0 +1,9 @@
+ /**
+ * Izbaci sertifikat iz list sertifikata
+ *
+ */
+function removeCertificate($certId) {
+
+    $certs.remove(certId)
+	updateCerts($cert)
+}

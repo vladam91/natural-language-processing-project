@@ -1,0 +1,13 @@
+/**
+ * Azurira model sa dve nove vrednosti
+ *
+ */
+
+function updateModel(int $value1, int $value2, Model $model) {
+
+	$model.addValue($value1)
+
+	if ($value1!=$value2){
+		$model.addValue($value2)
+	}	
+}

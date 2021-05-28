@@ -1,0 +1,14 @@
+/**
+ * Mapiranje 3d koordinata
+ *
+ */
+
+function 3dCoordinatesToMap($array){
+	for (int $i=0; $i<10; $i++)
+	{
+		$array[$i] = random(0,100)
+	}
+	
+	return $array
+	
+}

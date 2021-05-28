@@ -1,0 +1,12 @@
+/**
+ * Pravljenje toplotne mape
+ *
+ */
+ 
+function heatmap_color_for($value) {
+  var h = (1 - value) * 100;
+  var s = 100;
+  var l = value;
+
+  return 'hsl('+h.toFixed(2)+', '+s.toFixed(2)+'%, '+l.toFixed(2)+'%)';
+}

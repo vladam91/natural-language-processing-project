@@ -1,0 +1,22 @@
+/**
+ * Pronalazenje konteksta
+ *
+ */
+function findContext() {
+	if (isset($this->functionCoverageData[$key]['paths'])) {
+            $methodData['executablePaths'] = count(
+                $this->functionCoverageData[$key]['paths']
+            );
+
+            $methodData['executedPaths'] = count(
+                array_filter(
+                    $this->functionCoverageData[$key]['paths'],
+                    static function (array $path) {
+                        return (bool) $path['hit'];
+                    }
+                )
+            );
+        }
+
+        return $methodData;
+}

@@ -1,0 +1,8 @@
+ /**
+ * Kopiranje foldera sa sourcePath u putanju definisanu destinationPath parametrom
+ *
+ */
+function copyFolderToPath($sourcePath, $destinationPath) {
+
+    copy($sourcePath, $destinationPath)
+}

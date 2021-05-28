@@ -1,0 +1,7 @@
+ /**
+ * Provera da li je polje za selekciju izabrano
+ *
+ */
+function checkIfACheckboxIsChecked($checkbox) {
+  return isset($_POST[$checkbox])
+}

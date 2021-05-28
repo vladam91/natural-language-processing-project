@@ -1,0 +1,12 @@
+ /**
+ * Ekstrakcija podataka iz velikog fajla
+ *
+ */
+function extractLargeFile($labelId) {
+
+    if ($labelId.contains("l")){
+		$labelName = findLabel($labelId).getName()
+		$newName = underline($labelName)
+		findLabel($labelId).setName($newName)
+	}
+}

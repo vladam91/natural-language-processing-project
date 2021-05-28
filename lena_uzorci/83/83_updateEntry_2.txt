@@ -1,0 +1,9 @@
+ /**
+ * Azuriranje tabele Event sa novim vremenom. Vrsi se i konverzija vremena iz utc vremenskog formata u epoh vremenski format
+ *
+ */
+function updateEntry($eventId, $time) {
+    date_default_timezone_set('UTC');  // optional
+	$newTime = mktime ( $hour, $minute, $second, $month, $day, $year );
+	mysql_query("UPDATE event SET time = '$newTime' WHERE id = $eventid");
+}

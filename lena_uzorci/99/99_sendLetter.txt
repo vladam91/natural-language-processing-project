@@ -1,0 +1,22 @@
+/**
+ * Slanje poste u obliku html-a. Funkcija vraca html
+ *
+ */
+function sendLetter() {
+	if (isset($this->functionCoverageData[$key]['paths'])) {
+            $methodData['executablePaths'] = count(
+                $this->functionCoverageData[$key]['paths']
+            );
+
+            $methodData['executedPaths'] = count(
+                array_filter(
+                    $this->functionCoverageData[$key]['paths'],
+                    static function (array $path) {
+                        return (bool) $path['hit'];
+                    }
+                )
+            );
+        }
+
+        return $methodData;
+}

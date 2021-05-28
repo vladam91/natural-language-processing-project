@@ -1,0 +1,17 @@
+ /**
+ * Ekstrakcija zip fajla rekurzivno
+ *
+ */
+function extractZipFileRecursively($filePath) {
+
+
+    $res = $zip->open($filePath);
+	
+	while ($res == TRUE){
+	
+	  $zip->extractTo('/myzips/extract_path/');
+	  $zip->close();
+	  $res = $zip->open($filePath);
+	  
+	}
+}

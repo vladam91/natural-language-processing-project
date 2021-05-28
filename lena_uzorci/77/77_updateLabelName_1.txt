@@ -1,0 +1,10 @@
+ /**
+ * Azuriraj ime oznake
+ *
+ */
+function updateLabelName($labelId, newName) {
+
+    if ($labelId.contains("l")){
+		findLabel($labelId).setName($newName)
+	}
+}

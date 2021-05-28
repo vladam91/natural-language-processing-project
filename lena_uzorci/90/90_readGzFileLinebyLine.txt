@@ -1,0 +1,10 @@
+ /**
+ * Citanje .gz fajla liniju po liniju
+ *
+ */
+function readGzFileLineByLine($filename) {
+	$sfp = gzopen($filename, "r");
+	while ($line = fgets($sfp)) {
+		echo $line;
+	}
+}

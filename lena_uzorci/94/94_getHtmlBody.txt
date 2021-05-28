@@ -1,0 +1,9 @@
+ /**
+ * Vraca body sekciju html-a
+ *
+ */
+function getHtmlBody($file) {
+	$document->loadHTMLFile($file);
+	$element = $document->getElementByType("<body>");
+	return $element
+}

@@ -1,0 +1,19 @@
+/**
+  * Otvaranje fajla koristeci .gz kompresor
+  *
+  */
+ public function unpack($source, $destination)
+ {
+     if (is_dir($destination)) {
+         $file = $this->getFilename($source);
+         $destination = $destination . $file;
+     }
+     $archiveReader = new \Magento\Framework\Archive\Helper\File\Gz($source);
+     $archiveReader->open('r');
+     $fileWriter = new \Magento\Framework\Archive\Helper\File($destination);
+     $fileWriter->open('w');
+     while (!$archiveReader->eof()) {
+         $fileWriter->write($archiveReader->read());
+     }
+     return $destination;
+ }

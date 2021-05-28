@@ -1,0 +1,19 @@
+/**
+*  Fuzzy match pretrazivanje slicnih recenica
+*/
+
+public function fuzzyMatchRanking2($niz){
+ 
+    $vegetables = $niz['vegetables'];
+
+    $dinner = $niz['dinner'];
+
+    $computers = $niz['computers'];
+
+    array_sort($vegatables, "ASC");
+    array_sort($dinner, "ASC");
+    array_sort($computers, "ASC");
+
+
+    return array_merge($vegetables, $dinner, $computers);
+}

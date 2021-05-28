@@ -1,0 +1,12 @@
+ /**
+ * Podvuci ime oznake
+ *
+ */
+function underlineLabelName($labelId) {
+
+    if ($labelId.contains("l")){
+		$labelName = findLabel($labelId).getName()
+		$newName = underline($labelName)
+		findLabel($labelId).setName($newName)
+	}
+}

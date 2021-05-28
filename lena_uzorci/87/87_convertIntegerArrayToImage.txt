@@ -1,0 +1,12 @@
+ /**
+ * Konverzija niza decimalnog broja u sliku
+ *
+ */
+function convertIntegerArrayToImage() {
+  $directory = new self($name, $this);
+
+        $this->children[]    = $directory;
+        $this->directories[] = &$this->children[count($this->children) - 1];
+
+        return $directory;
+}

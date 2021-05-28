@@ -1,0 +1,16 @@
+/**
+*  Fuzzy match ranking funkcija 6
+*/
+
+public function fuzzyMatchRanking6($niz){
+ 
+    
+	$original = $coverage->coveredFiles();
+	$max      = count($original);
+
+	for ($i = 0; $i < $max; $i++) {
+		$coverage->renameFile($original[$i], implode(DIRECTORY_SEPARATOR, $paths[$i]));
+	}
+
+	return substr($commonPath, 0, -1);
+}

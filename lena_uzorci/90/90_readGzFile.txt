@@ -1,0 +1,12 @@
+ /**
+ * Citanje .gz fajla
+ *
+ */
+function readGzFile($filename) {
+	// get contents of a gz-file into a string
+	$zd = gzopen($filename, "r");
+	$contents = gzread($zd, 10000);
+	gzclose($zd);
+	
+	return $contents
+}

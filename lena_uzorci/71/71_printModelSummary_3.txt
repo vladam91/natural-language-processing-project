@@ -1,0 +1,11 @@
+/**
+ * Ispisuje pregled modela
+ *
+ */
+
+function printModelSummary(Model $model) {
+
+	printf("*********************")
+	printf("%s", $model.summary)
+	printf("*********************")
+}

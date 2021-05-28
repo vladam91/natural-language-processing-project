@@ -1,0 +1,10 @@
+/**
+ * Vraca html info element
+ *
+ */
+
+function getHtmlInfo() {
+		
+	$result = $htmlContent.find("info")
+	return $result
+}

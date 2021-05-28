@@ -1,0 +1,8 @@
+ /**
+ * Vraca putanju fajla
+ *
+ */
+function getPathFromFile($filename) {
+
+    return dirname ( filename , 1 ) : string
+}

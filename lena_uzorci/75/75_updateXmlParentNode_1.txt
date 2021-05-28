@@ -1,0 +1,10 @@
+ /**
+ * Azurirati ime roditelja cvora sa nodeId
+ *
+ */
+function updateXmlParentNode($oldName, $newName, $xmlStr) {
+ 
+    $xml = new SimpleXMLElement($xmlStr);
+	$foo = $xml->xpath('//string[@name=$oldName]')[0];
+	$foo[0] = $newName;
+}

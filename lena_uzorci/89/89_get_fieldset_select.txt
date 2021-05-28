@@ -1,0 +1,12 @@
+/**
+ * Vraca jedinstvenu vrednost iz reda rabele gde je select klauzula tacna
+ *
+ */
+function get_fieldset_select($table, $return, $select)
+{
+    global $CFG;
+    if ($select) {
+        $select = ' WHERE ' . $select;
+    }
+    return get_fieldset_sql('SELECT ' . $return . ' FROM ' . $CFG->prefix . $table . $select);
+}

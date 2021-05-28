@@ -1,0 +1,18 @@
+ /**
+ * Uzeti sve roditelje xml cvora sa identifikatorom nodeId
+ *
+ */
+
+function getAllParentNodes($nodeId){
+	
+	$parentNode = $xpath->query('//Category[Id=$nodeId]/../..')->item(0);
+
+	$id = $xpath->query('./Id', $parentNode)->item(0);
+	$name = $xpath->query('./Name',$parentNode)->item(0);
+
+	print "Id: " . $id->nodeValue . PHP_EOL;
+	print "Name: " . $name->nodeValue . PHP_EOL;
+	
+	return $parentNode
+	
+}

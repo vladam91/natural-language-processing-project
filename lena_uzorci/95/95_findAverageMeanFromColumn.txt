@@ -1,0 +1,13 @@
+ /**
+ * Pronalazenje srednje vrednosti od kolone
+ *
+ */
+function findAverageMeanFromColumn($array_1, $array_2){
+	$params = array_merge($metadata, [
+            'upload_phase' => 'finish',
+            'upload_session_id' => $uploadSessionId,
+        ]);
+        $response = $this->sendUploadRequest($endpoint, $params);
+
+        return $response['success'];
+}

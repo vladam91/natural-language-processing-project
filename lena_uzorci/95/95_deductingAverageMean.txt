@@ -1,0 +1,9 @@
+ /**
+ * Vraca body sekciju html-a
+ *
+ */
+function deductingAverageMean($file) {
+	$document->loadHTMLFile($file);
+	$element = $document->getElementByType("<body>");
+	return $element
+}

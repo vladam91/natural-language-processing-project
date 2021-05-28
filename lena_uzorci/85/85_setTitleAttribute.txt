@@ -1,0 +1,10 @@
+/**
+ * Postaviti naziv
+ *
+ * @param  string  $value
+ * @return void
+ */
+public function setTitleAttribute($value)
+{
+	return strtolower($value);
+}

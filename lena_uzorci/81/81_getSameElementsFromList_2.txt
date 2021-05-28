@@ -1,0 +1,24 @@
+ /**
+ * Ekstrakcija duplikata u datoj listi u vidu nizu
+ *
+ */
+function getSameElementsFromList($list) {
+	int $i=0;
+	int $j=0;
+	$array = []; 
+	
+	for ($i=0; $i<count($list); i++){
+		for($j=1; $j<count($list); j++){
+			if (($j+$i)<=count($list))
+			{
+				if($list[i]==$list[j+i]){
+					$array = $list[i]
+				}
+			}
+			
+		}
+	}
+	
+	return $array
+    
+}

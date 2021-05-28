@@ -1,0 +1,18 @@
+/**
+ * Brisanje jedinstvenih elemenata iz liste
+ *
+ */
+
+function deleteUniqueElements() {
+
+	// Deleting the duplicate items
+	$noUniqueElementsArray = array_unique($array);
+	
+	for ($i = 0; $i < count($array); $i++) {
+		for($u = 0; $u < count($noUniqueElementsArray); $u++){
+			if ($array[i]==$noUniqueElementsArray[i]){
+				deleteElem($i)
+			}
+		}
+	}
+}

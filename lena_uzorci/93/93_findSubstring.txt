@@ -1,0 +1,9 @@
+ /**
+ * Pronalazenje pod stringa u datom stringu i ispis ako postoji
+ *
+ */
+function findSubstringPosition($string, $substring) {
+	if(stristr($string, $substring)){
+    echo 'Our string contains: ' . $substring;
+	}
+}

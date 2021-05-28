@@ -1,0 +1,9 @@
+ /**
+ * Pisanje u .gz fajl sa imenom filename
+ *
+ */
+function writeCompressedFile($filename) {
+	$zh = gzopen('filename','w') or die("can't open: $php_errormsg"); 
+	if (-1 == gzwrite($zh,$s)) { die("can't write: $php_errormsg"); } 
+	gzclose($zh) or die("can't close: $php_errormsg"); 
+}

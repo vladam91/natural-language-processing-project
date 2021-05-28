@@ -1,0 +1,13 @@
+ /**
+ * Proveriti da li je fajl zip formata
+ *
+ */
+function checkIfZip($file) {
+	$result = False
+	if ($file.str_contains(".zip") && $file.substr_count($file, '.')==1)
+	{
+		$result = True
+	}
+
+    return $result
+}

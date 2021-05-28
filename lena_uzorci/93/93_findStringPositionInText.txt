@@ -1,0 +1,11 @@
+ /**
+ * Pronalazenje pozicije stringa u tekstu
+ *
+ */
+function findStringPositionInText($list, $string) {
+	if (isset($this->pageData[$key])) {
+			return $this->pageData[$key];
+		}
+
+		return $default;
+}

@@ -1,0 +1,8 @@
+ /**
+ * Konverzija datum stringa u format ggggmmdd i njegov ispis
+ *
+ */
+function convertDateToYYYYMMDDFormat($dateString) {
+    $newDate = date("yyyymmdd", strtotime($dateString));  
+    echo "New date format is: ".$newDate. " (yyyymmdd)";  
+}

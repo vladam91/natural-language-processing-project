@@ -1,0 +1,13 @@
+ /**
+ * Parsiranje td elementa iz html fajla.
+ *
+ */
+function readingTdElementsFromHtml($htmlFile, tableId) {
+	$document->loadHTMLFile($htmlFile);
+	$tableElement = $document->getElementById($tableId);
+	$allTableRows = $tableElement->getElementsByTagName("tr");
+	foreach($allTableRows as $tableRow) {
+		$allTableCellsInThisRow = $tableRow->getElementsByTagName("td");
+		$firstCell = $allTableCellsInThisRow->item(0);
+		$secondCell = $allTableCellsInThisRow->item(1);
+}

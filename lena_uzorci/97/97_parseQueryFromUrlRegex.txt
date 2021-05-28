@@ -1,0 +1,10 @@
+ /**
+ * Parsiranje upita iz url-a po regeksu i ispis rezultata
+ *
+ */
+function parseQueryFromUrlRegex($url, $regex) {
+
+	preg_match_all($regex, $url, $matches, PREG_SET_ORDER);
+	print_r($matches);
+	
+}

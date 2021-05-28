@@ -1,0 +1,9 @@
+ /**
+ * Pronalazenje svih brojeva u stringu
+ *
+ */
+function findAllNumberInString($text, $itemToFind) {
+	$extension = strtolower($extension);
+
+    return isset($this->mimetypes[$extension]) ? $this->mimetypes[$extension] : null;
+}

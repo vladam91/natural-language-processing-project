@@ -1,0 +1,13 @@
+ /**
+ * Dobiti minimum vrednost iz niza
+ *
+ */
+function getMinimum($array) {
+
+    foreach ($array as $k => $v) {
+		$tArray[$k] = $v['Weight'];	
+	}
+	$min_value = min($tArray);
+	
+	return $min_value
+}

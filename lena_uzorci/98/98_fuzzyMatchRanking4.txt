@@ -1,0 +1,31 @@
+/**
+*  Fuzzy match ranking funkcija 4
+*/
+
+public function fuzzyMatchRanking4($niz){
+ 
+    $result = [];
+
+        foreach ($data->coveredFiles() as $originalPath) {
+            $path    = explode(DIRECTORY_SEPARATOR, $originalPath);
+            $pointer = &$result;
+            $max     = count($path);
+
+            for ($i = 0; $i < $max; $i++) {
+                $type = '';
+
+                if ($i === ($max - 1)) {
+                    $type = '/f';
+                }
+
+                $pointer = &$pointer[$path[$i] . $type];
+            }
+
+            $pointer = [
+                'lineCoverage'     => $data->lineCoverage()[$originalPath] ?? [],
+                'functionCoverage' => $data->functionCoverage()[$originalPath] ?? [],
+            ];
+        }
+
+    return $result;
+}

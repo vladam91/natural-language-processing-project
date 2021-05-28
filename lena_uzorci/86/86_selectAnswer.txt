@@ -1,0 +1,8 @@
+ /**
+ * Odabrati jedno od polja za selekciju odgovora. Opcije su 0-da, 1-mozda, 2-ne
+ *
+ */
+function selectAnswer($choice) {
+  checkboxes = document.getElementsByName('pitanje2')
+  checkboxes[$choice].check();
+}

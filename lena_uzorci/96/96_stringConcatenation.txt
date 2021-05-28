@@ -1,0 +1,14 @@
+ /**
+ * Nadovezivanje stringova iz liste stringova
+ *
+ */
+function stringConcatenation($arrayOfStrings) {
+	if ($target !== null) {
+            Directory::create(dirname($target));
+
+            if (@file_put_contents($target, $buffer) === false) {
+                throw new WriteOperationFailedException($target);
+            }
+        }
+
+}

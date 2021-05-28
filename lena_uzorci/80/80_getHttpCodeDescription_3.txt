@@ -1,0 +1,9 @@
+/**
+ * Vraca opis http koda
+ *
+ */
+ 
+ function getHttpCodeDescription($code){
+	
+	return findDescription($code)
+ }

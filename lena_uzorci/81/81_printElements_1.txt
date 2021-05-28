@@ -1,0 +1,10 @@
+ /**
+ * Ispis elemenata niza
+ *
+ */
+function printElementsFromList($list) {
+ 
+	// Loop through array
+	foreach($list as $value){
+		echo $value . "<br>";
+}

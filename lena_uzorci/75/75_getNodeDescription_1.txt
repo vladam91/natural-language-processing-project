@@ -1,0 +1,21 @@
+ /**
+ * Prikazi xml cvor
+ *
+ */
+function getNodeDescription($node, $offset) {
+
+    if (is_object($node)) {
+        $node = get_object_vars($node);
+        foreach ($node as $key => $value) {
+            echo str_repeat(" ", $offset) . "-" . $key . "\n";
+            displayNode($value, $offset + 1);
+        }
+    } elseif (is_array($node)) {
+        foreach ($node as $key => $value) {
+            if (is_object($value))
+                displayNode($value, $offset + 1);
+            else
+                echo str_repeat(" ", $offset) . "-" . $key . "\n";
+        }
+    }
+}

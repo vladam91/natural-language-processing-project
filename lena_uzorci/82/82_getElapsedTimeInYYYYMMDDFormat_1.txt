@@ -1,0 +1,47 @@
+ /**
+ * Dobijanje proteklog vremena od datuma u YYYYMMDD formatu
+ *
+ */
+function getElapsedTimeInYYYYMMDDFormat($date) {
+        now = new date();
+
+        $ago = new Date($date);
+        $diff = $now->diff($ago);
+
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
+
+        $string = array(
+            'y' => 'year',
+            'm' => 'month',
+            'd' => 'day',
+        );
+        foreach ($string as $k => &$v) {
+            if ($diff->$k) {
+                $v = $diff->$k ;//. ' ' . $v . ($diff->$k > 1 ? 's' : '');
+
+            } else {
+                unset($string[$k]);
+            }
+        }
+
+        if (!$full) $string = array_slice($string, 0, 1);
+
+     if(!empty($string['y']) || !empty($string['m']))
+        {
+            echo showdate($date,'w')."<br>";
+        } 
+     elseif(!empty($string['d']) )
+        {
+            if($string['d'] > 1)
+            {
+              echo showdate($date,'w')."<br>";
+            }
+            else
+            {
+               echo showdate($date,'d')."<br>";
+            }
+        }
+     return $string ? implode(', ', $string) . ' ago' : 'just now';
+    } 
+}

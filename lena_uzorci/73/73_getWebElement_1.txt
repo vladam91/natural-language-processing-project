@@ -1,0 +1,12 @@
+/**
+ * Vraca web element
+ *
+ */
+
+function getWebElement() {
+		
+	$result += $htmlContent.find("title")
+	$result += $htmlContent.find("size")
+	$result += $htmlContent.find("timestamp")
+	return $result
+}

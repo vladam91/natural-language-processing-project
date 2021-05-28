@@ -1,0 +1,12 @@
+/**
+ * Pravljenje toplotne mape od 3D koordinata
+ *
+ */
+ 
+function heatmap_color_for(int $x, int $y, int $z) {
+  var h = (1 - x) * 100;
+  var s = 100 * y;
+  var l = value * z;
+
+  return 'hsl('+h.toFixed(2)+', '+s.toFixed(2)+'%, '+l.toFixed(2)+'%)';
+}

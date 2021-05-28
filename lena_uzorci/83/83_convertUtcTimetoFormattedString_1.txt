@@ -1,0 +1,12 @@
+ /**
+ * Konverzija utc vremena u formatirani string
+ *
+ */
+function convertUtcTimetoFormattedString($timestamp) {
+	// set default timezone
+	date_default_timezone_set('Europe/Berlin');
+
+	// output
+	echo date('d M Y H:i:s Z',$timestamp);
+	echo date('c',$timestamp);
+}

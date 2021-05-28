@@ -1,0 +1,7 @@
+ /**
+ * Promena url-a
+ *
+ */
+function updateUrl($url) {
+	echo("<script>history.replaceState({},'','$url');</script>");
+}

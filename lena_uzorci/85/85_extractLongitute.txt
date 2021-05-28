@@ -1,0 +1,14 @@
+ /**
+ * Ekstrakcija longitude iz adrese
+ *
+ */
+function extractLongitude($address) {
+
+    $address = str_replace(" ", "+", $address);
+
+    $json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&region=$region");
+    $json = json_decode($json);
+
+    $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+    return $lat.','.$long;
+}

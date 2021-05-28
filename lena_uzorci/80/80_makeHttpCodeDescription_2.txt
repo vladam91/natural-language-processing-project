@@ -1,0 +1,11 @@
+/**
+ * Sastavi opis html koda
+ *
+ */
+ 
+ function makeHttpCodeDescription($code){
+ 
+	$Description = "codeDescription: " + $code;
+	
+	return $description
+ }

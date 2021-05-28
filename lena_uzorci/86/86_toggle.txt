@@ -1,0 +1,10 @@
+ /**
+ * Ako je odabrano polje za potvrdu source odaberi i sva polja od x
+ *
+ */
+function toggle($source) {
+  checkboxes = document.getElementsByName('x');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = $source.checked;
+  }
+}

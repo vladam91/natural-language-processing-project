@@ -1,0 +1,8 @@
+ /**
+ * Konverzija vremena iz utc vremenskog formata u epoh vremenski format
+ *
+ */
+function convertTimeFromUtcToEpoch($utcTime) {
+    date_default_timezone_set('UTC');  // optional
+	mktime ( $hour, $minute, $second, $month, $day, $year );
+}

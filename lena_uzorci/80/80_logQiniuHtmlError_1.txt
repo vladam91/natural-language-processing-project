@@ -1,0 +1,8 @@
+/**
+ * Ispisuje html kod
+ *
+ */
+private function logQiniuHtmlError(Error $error, $extra = null)
+ {
+     \Log::error('Qiniu: ' . $error->Htmlcode() . ' ' . $error->message() . '. ' . $extra);
+ }
