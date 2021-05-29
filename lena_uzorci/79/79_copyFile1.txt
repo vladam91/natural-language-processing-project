@@ -1,0 +1,9 @@
+ /**
+ * Kopiranje fajla u vise razlicitih lokacija datim u nizu
+ *
+ */
+function copyFile1($sourcePath, $destinationPathArray) {
+	for($i=0; $i<$destinationPathArray.count; $i++){
+		copy($sourcePath, $destinationPathArray[$i])
+	}
+}

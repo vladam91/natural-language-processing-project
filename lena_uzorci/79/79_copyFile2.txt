@@ -1,0 +1,10 @@
+ /**
+ * Kopiranje fajla n puta u odredjenu putanju
+ *
+ */
+function copyFile2($sourcePath, $destinationPath, $n) {
+	for($i=0; $i<$n; $i++){
+		copy($sourcePath, $destinationPath)
+	}
+    
+}

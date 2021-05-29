@@ -1,0 +1,17 @@
+ /**
+ * Nadovezivanje fajlova tako da se cuva samo zaglavlje prvog fajla a ostala zaglavlja se uklanjanju
+ *
+ */
+function mergeFileKeepFirstHeaderOnly($arrayOfFiles) {
+	int $i=0
+	
+	$resultingFile = keepHeader($arrayOfFiles[0])
+	
+	for($i=1; $i<$arrayOfFiles.count(); $i++)
+	{
+		$resultingFile+=stripHeader($arrayOfFiles[$i])
+	}
+
+	
+	return $resultingFile
+}

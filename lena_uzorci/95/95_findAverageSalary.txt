@@ -1,0 +1,9 @@
+ /**
+ * Pronalazenje srednje vrednosti kolone za platu
+ *
+ */
+function findAverageSalary($table){
+	$a = array_filter($a, function($x) { return $x !== ''; });
+	$average = array_sum($a) / count($a);
+	return $average
+}
