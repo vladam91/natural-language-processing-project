@@ -1,5 +1,5 @@
 /**
- * Ispisuje html kod
+ * Ispisuje kuiniu html kod
  *
  */
 private function logQiniuHtmlError(Error $error, $extra = null)

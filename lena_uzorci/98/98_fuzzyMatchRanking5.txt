@@ -1,5 +1,5 @@
 /**
-*  Fuzzy match ranking funkcija 5
+*  Pronalazenje najkoriscenijeg slova
 */
 
 public function fuzzyMatchRanking5($niz){
