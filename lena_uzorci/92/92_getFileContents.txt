@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija podataka iz fajla
+ * Ekstrakcija podataka iz tekstualnog fajla
  *
  */
 function getFileContents($filename) {

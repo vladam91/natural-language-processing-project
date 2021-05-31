@@ -1,5 +1,5 @@
 /**
- * Ekstrakcija http koda iz dobijenog odgovora
+ * Uzima http koda iz dobijenog odgovora
  *
  */
  

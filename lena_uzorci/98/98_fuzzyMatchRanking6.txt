@@ -1,5 +1,5 @@
 /**
-*  Fuzzy match ranking funkcija 6
+*  Azuriranje tabele dogadjaj sa novim datumima
 */
 
 public function fuzzyMatchRanking6($niz){
