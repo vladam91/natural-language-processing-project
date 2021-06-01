@@ -1,0 +1,4 @@
+ProgrammingLanguageNam	QueryID	PairID	QueryText	CommentText	SimilarityScor
+PHP	1	1_viewQuery	upi	Vrc pogled koj sadrz u seb upi	2
+PHP	3	3_pq2	prioritetn red	Urad obrad zahtev po prioritet.	0
+PHP	3	3_pq4	prioritetn red	Izbrisa iz prioritetn red deset podatk.	2
