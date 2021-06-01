@@ -1,5 +1,5 @@
 /**
-*  Fuzzy match ranking funkcija 3
+*  Funkcija za rangiranje
 */
 
 public function fuzzyMatchRanking3($niz){
