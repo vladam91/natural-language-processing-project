@@ -1,5 +1,5 @@
  /**
- * Azuriranje tabele Event sa novim vremenom. Vrsi se i konverzija vremena iz utc vremenskog formata u epoh vremenski format
+ * Azuriranje tabele Event sa novim vremenom. Vrsi se i konvertovanje vremena iz utc vremenskog formata u epoh vremenski format
  *
  */
 function updateEntry($eventId, $time) {

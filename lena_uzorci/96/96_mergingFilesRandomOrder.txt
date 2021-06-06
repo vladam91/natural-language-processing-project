@@ -1,5 +1,5 @@
  /**
- * Spajanje fajlova u nasumicnom redu
+ * Nadovezi nekoliko fajlova u nasumicnom redu
  *
  */
 function mergingFilesRandomOrder($files) {

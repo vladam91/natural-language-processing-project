@@ -1,5 +1,5 @@
  /**
- * Vraca podatke iz velikog fajla
+ * Ekstrakcija i vracanje podataka iz velikog fajla
  *
  */
 function getContentsLargeFile($labelId) {

@@ -1,5 +1,5 @@
  /**
- * Ekstracija informacije iz tekstualnog fajla baziranog na sledecoj strukturi: Datum, Naslov, Tekst:vrednost, Tekst:vrednost, Tekst:vrednost
+ * Ekstrakcija informacija iz tekstualnog fajla baziranog na sledecoj strukturi: Datum, Naslov, Tekst:vrednost, Tekst:vrednost, Tekst:vrednost
  *
  */
 function getDataFromTextFileStructure($myfile) {

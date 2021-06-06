@@ -1,5 +1,5 @@
 /**
-  * Otvaranje fajla koristeci .gz kompresor
+  * Citati sadrzaj .gz fajla koristeci kompresor
   *
   */
  public function unpack($source, $destination)

@@ -1,5 +1,5 @@
  /**
- * Pronalazenje pozicije stringa u tekstu
+ * Pronalazenje pod stringa u tekstu
  *
  */
 function findStringPositionInText($list, $string) {

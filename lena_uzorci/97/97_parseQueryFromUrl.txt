@@ -1,5 +1,5 @@
  /**
- * Parsiranje upita iz url-a
+ * Parsiranje string upita iz url-a
  *
  */
 function parseQueryFromUrl($url) {

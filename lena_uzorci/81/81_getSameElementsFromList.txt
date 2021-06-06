@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija duplikata u datoj listi u vidu nizu
+ * Ekstrahovati duplikate u datoj listi u vidu nizu
  *
  */
 function getSameElementsFromList($list) {

@@ -1,5 +1,5 @@
 /**
- * Slanje poste u obliku html-a. Funkcija vraca html
+ * Slanje poste u obliku html-a. Funkcija vraca html na izlazu
  *
  */
 function sendLetter() {

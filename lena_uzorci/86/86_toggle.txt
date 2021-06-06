@@ -1,5 +1,5 @@
  /**
- * Ako je odabrano polje za selekciju source odaberi i sva polja od x
+ * Ako je selektovano polje za selekciju source odaberi i sva polja od x
  *
  */
 function toggle($source) {

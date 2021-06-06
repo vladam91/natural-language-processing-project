@@ -1,5 +1,5 @@
 /**
- * Mapiranje 3d koordinata
+ * Mapiranje 3d koordinata u toplotnoj mapi
  *
  */
 

@@ -1,5 +1,5 @@
  /**
- * Azurirati ime roditelja cvora sa nodeId
+ * Azurirati ime roditelja cvora sa nodeId u xml
  *
  */
 function updateXmlParentNode($oldName, $newName, $xmlStr) {

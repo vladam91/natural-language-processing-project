@@ -1,5 +1,5 @@
 /**
- * Vraca html metadata ukljucujuci naslov, vreme kreiranja i velicinu fajla
+ * Radi se ekstrakcija html metadata ukljucujuci naslov, vreme kreiranja i velicinu fajla
  *
  */
 

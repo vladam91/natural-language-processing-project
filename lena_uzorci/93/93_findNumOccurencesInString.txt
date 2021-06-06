@@ -1,5 +1,5 @@
  /**
- * Pronalazenje koliko puta se substring pojavljuje u stringu
+ * Pronalazenje koliko puta se substring pojavljuje u stringu i pozicija
  *
  */
 function findNumOccurencesInString($string, $substring) {

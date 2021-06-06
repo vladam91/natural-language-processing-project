@@ -1,5 +1,5 @@
  /**
- * Nadovezivanje svih fajlova iz liste fajlova
+ * Nadovezivanje nekoliko fajlova iz liste fajlova
  *
  */
 function fileConcatenation($files) {

@@ -1,5 +1,5 @@
  /**
- * Slanje binarnih podataka serijskom konekcijom
+ * Slanje binarnih podataka preko serijske konekcije
  *
  */
 function sendBinaryDataPOST1() {

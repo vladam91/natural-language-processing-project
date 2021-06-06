@@ -1,5 +1,5 @@
  /**
- * Spajanje pdf fajlova iz liste fajlova
+ * Nadovezi dva pdf fajlova iz liste fajlova i izbrisi zaglavlja
  *
  */
 function pdfFileConcatenation($files) {

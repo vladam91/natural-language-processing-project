@@ -1,5 +1,5 @@
  /**
- * Dobijanje fajlova iz zip arhive
+ * Ekstrakcija fajlova iz zip arhive
  *
  */
 function getFilesFromZip($filePath) {

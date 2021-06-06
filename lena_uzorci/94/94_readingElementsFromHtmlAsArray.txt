@@ -1,5 +1,5 @@
  /**
- * Vraca html elemente u vidu niza
+ * Citanja html elemenata u vidu niza
  *
  */
 function readingElementsFromHtmlAsArray($file) {

@@ -1,5 +1,5 @@
  /**
- * Pronalazenje td elemenata u html fajlu
+ * Citanje <td> elemenata u html
  *
  */
 function findTdElementsFromHtml($file) {

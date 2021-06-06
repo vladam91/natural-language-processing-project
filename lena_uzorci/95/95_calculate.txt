@@ -1,5 +1,5 @@
  /**
- * Srednja vrednost u nizu
+ * Nalazenje i oduzimanje srednje vrednosti od kolone
  *
  */
 function calculate($array_1, $array_2){

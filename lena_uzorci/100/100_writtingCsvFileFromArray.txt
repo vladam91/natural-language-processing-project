@@ -1,5 +1,5 @@
 /**
- * Kreiranje csv fajla iz niza
+ * Citati par csv fajla na efikasan nacin i poslati nazad rezultat
  *
  */
 function writtingCsvFileFromArray($array) {

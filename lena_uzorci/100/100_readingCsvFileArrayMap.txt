@@ -1,5 +1,5 @@
 /**
- * Citanje csv fajla u mapu niza
+ * Citanje csv fajla u mapu niza na efikasan nacin
  *
  */
 function readingCsvFileArrayMap($url) {

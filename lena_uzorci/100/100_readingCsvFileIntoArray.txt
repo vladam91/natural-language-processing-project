@@ -1,5 +1,5 @@
 /**
- * Citanje csv fajla u niz
+ * Citanje csv fajla u niz na efikasan nacin
  *
  */
 function readingCsvFileIntoArray($array) {

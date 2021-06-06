@@ -1,5 +1,5 @@
 /**
- * Citanje csv fajla koristeci SplFileObject klasu
+ * Citati csv fajla koristeci SplFileObject klasu na efikasan nacin
  *
  */
 function readingCsvFileSplFileObject($url) {

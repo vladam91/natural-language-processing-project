@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija podataka iz velikog fajla
+ * Ekstrakcija podataka iz velikih fajlova
  *
  */
 function extractLargeFile($labelId) {

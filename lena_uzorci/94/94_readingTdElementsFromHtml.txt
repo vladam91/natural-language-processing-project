@@ -1,5 +1,5 @@
  /**
- * Parsiranje td elementa iz html fajla.
+ * Parsiranje i citanje td elementa iz html fajla.
  *
  */
 function readingTdElementsFromHtml($htmlFile, tableId) {

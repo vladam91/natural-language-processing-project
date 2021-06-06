@@ -1,5 +1,5 @@
  /**
-  * Dohvatanje argumenata sa komandne linije i priprema za njihovu upotrebu
+  * Dohvatanje argumenata sa komandne linije i vrsi parsiranje
   *
   */
  protected static function initArguments(CommandEvent $event = null)

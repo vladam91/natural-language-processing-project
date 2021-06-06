@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija nasumicnog pozitivnog elementa iz liste. Koristi se rand() funkcija sa min i max parametrima.
+ * Ekstrahovati nasumicnog pozitivnog elementa iz liste. Koristi se rand() funkcija sa min i max parametrima.
  * Broj elemenata koji se ekstraktuju je odredjen parametrom x
  *
  */

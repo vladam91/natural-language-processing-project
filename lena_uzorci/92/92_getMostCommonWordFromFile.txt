@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija najcesce koriscene reci u tekstualnom fajlu
+ * Ekstrakcija najcesce koriscene reci iz tekstualnog fajla
  *
  */
 function getMostCommonWordFromFile($myfile) {

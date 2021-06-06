@@ -1,5 +1,5 @@
  /**
- * Konverzija niza brojeva u sliku
+ * Konverzija niza uint8 brojeva u sliku
  *
  */
 function convertIntegerArrayToImage() {

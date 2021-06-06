@@ -1,5 +1,5 @@
 /**
- * Konverzija excel fajla tako da je izlaz funkcije html fajl
+ * Konverzija excel fajla tako da je izlaz funkcija html fajla
  *
  */
 function convertWordToHtml($source_excel) {

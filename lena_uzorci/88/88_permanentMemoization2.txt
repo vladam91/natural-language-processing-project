@@ -1,5 +1,5 @@
  /**
- * Privremena memoizacija na disku
+ * Privremeno pamcenje na disku ili na stalnom skladistu
  *
  */
 function permanentMemoization() {

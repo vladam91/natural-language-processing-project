@@ -1,5 +1,5 @@
  /**
- * Nadovezivanje svih fajlova iz liste fajlova pri tom se zaglavlja svakog fajla brisu
+ * Nadovezivanje par fajlova iz liste fajlova pri tom izbrisi zaglavlje
  *
  */
 function fileConcatenationRemoveHeader($files) {

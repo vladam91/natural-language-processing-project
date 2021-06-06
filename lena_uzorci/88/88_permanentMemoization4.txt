@@ -1,5 +1,5 @@
  /**
- * Cuvanje podataka na disku
+ * Pamcenje odredjenih podataka na disku
  *
  */
 function permanentMemoization() {
