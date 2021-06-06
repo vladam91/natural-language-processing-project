@@ -548,203 +548,203 @@ PHP	100	100_readingCsvFileIntoArray	kako citati .csv fajl na efikasan nacin	Cita
 PHP	100	100_readingCsvFileArrayMap	kako citati .csv fajl na efikasan nacin	Citanje csv fajla u mapu niza	2
 PHP	100	100_readingCsvFile	kako citati .csv fajl na efikasan nacin	Citanje csv fajla i ispis	2
 PHP	100	100_parsingCsvFileToCustomClass	kako citati .csv fajl na efikasan nacin	Parsiranje csv fajla u posebnu klasu	1
-PHP	41	41_addPaper	kodiranje url	  Dodavanje stranice zavrsnom papiru sto omogucava visestruke  gsms uz koriscenje kodiranja i dekodiranja url   	2
-PHP	41	41_add	kodiranje url	  Ova funkcija ce nakon kodiranja url pozvati parentxcontent kontroler  kako bi popunila prikaz dok se salje kroz tip sadrzaja koji je ujedno i paper_id  koji ce se koristiti za automatsko dopunjavanje combo boxa tacnim rezultatom   	2
-PHP	41	41_buildTree	kodiranje url	  Formira narno stablo pocevsi od prosledjenog roditeljskog  cvora sa datim poljima   	0
-PHP	41	41_cr_post	kodiranje url	  Precizna implementacija kodiranje parametara iz niza  bez indeksiranja 	1
-PHP	41	41_delete	kodiranje url	  Metoda koja brise hartije sa datim id ukoliko je  pristup tom objektu dozvoljen u odgovarajucu poruku i  redirekciju kodiranjem url   	1
-PHP	41	41_handleRequest	kodiranje url	  Metoda za uniformnu obradu http zahteva koristeci kodiranje  url uz redirekciju na zeljenu stranicu   	1
-PHP	41	41_loadView	kodiranje url	  Ucitavanje prikaza za odgovarajucu prosledjenu rutu  u zavisnosti od prethodne akcije    	0
-PHP	42	42_SetCartId	kreiranje kolacica	  Cuvanje id korpe za kupovinu i kreiranjem kolacica  i cuvanjem u sesiji za naredne zahteve i pozive  ukoliko se tamo vec nije nalazio  	2
-PHP	42	42_addCookiesToHeader	kreiranje kolacica	  Kreiranje kolacica i dodavanje u postojeca zaglavlja ukoliko  je postavljen odgovarajuci replace flag   	1
-PHP	42	42_checkUser	kreiranje kolacica	  Provera identiteta korisnika i ako postoji validan token  cuva se u kolacic i token se cuvaju u sesiji   	2
-PHP	42	42_login	kreiranje kolacica	  Funkicija za login uz kreiranje kolacica i njihovo cuvanje  uz odgovarajuci vremenski marker   	1
-PHP	42	42_logout	kreiranje kolacica	  Metoda za brisanje kolacica i postavljanje vrednosti  na nevalidne za naredne pokusaje logovanja bez tokena   	1
-PHP	42	42_onAppExit	kreiranje kolacica	  Logovanje potrebnih stvari po zatvaranju aplikacije  i uklanjanje nepotrebnog sadrzaja uz ispis poruke   	0
-PHP	42	42_setCookies	kreiranje kolacica	  Funkcija za kreiranje kolacica i postavljanje potrebnih  vrednosti polja kolacica kao sto su vreme isteka  jezik itd  	3
-PHP	43	43_cleanArray	kako ukloniti elemente niza	  Uz proveru validnosti prosledjenog objekta ova funkcija  ce ukloniti elemente datog niza   	3
-PHP	43	43_cleanup	kako ukloniti elemente niza	  Funkcija ce nakon provere regularnim izrazom  obrisati elemente niza pozivom funkcije apcuDelete  	1
-PHP	43	43_deleteThenSortArrayKeys	kako ukloniti elemente niza	  Nakon sto ce ukloniti elemente niza sortirace ih u zavisnosti  od prosledjenih parametara textArray1 textArray2  	1
-PHP	43	43_extra_info	kako ukloniti elemente niza	  Nakon sto ukloni sve elemente niza vraca nastavljen  prosledjeni niz sa podrazumevanim vrednostima   	2
-PHP	43	43_prepare	kako ukloniti elemente niza	  Priprema stringa da se njegovi delovi ubace u indeks za pretragu   	0
-PHP	43	43_remove	kako ukloniti elemente niza	  Ako je odgovarajuci uslov ispunjen za proces za  dobijeni id onda ce ukloniti elemente niza vezanog  za taj proces   	1
-PHP	44	44_date	kako dohvatiti trenutni datum	  Funkcija vraca dohvata trenutni datum formatiran  i po potrebi konvretovan u zavisnosti od parametra $convert   	3
-PHP	44	44_delrole	kako dohvatiti trenutni datum	  Proverava da li je uloga validna i ako jeste  kreira upit nad bazom za brisanje postojece uloge   	0
-PHP	44	44_hookDateDefaultArgAlter	kako dohvatiti trenutni datum	  Ako datum nije postavljen postavlja se na trenutni datum  sa prosledjenim vrednostima za formatiranje   	2
-PHP	44	44_jdate	kako dohvatiti trenutni datum	  Dohvata trenutni datum podrazumevano postavljen ako nije prosldjen  drugi i pravi ga u zahtevanom formatu   	3
-PHP	44	44_refresh_session	kako dohvatiti trenutni datum	  Obnavlja vreme trajanja sesije dohvatanjem trenutnog  datuma i postavljanjem u odgovarajuce polje   	2
-PHP	44	44_upload_img	kako dohvatiti trenutni datum	  Ova funkcija salje sliku kroz http odgovor  postavljanjem trenutnog datuma kao markera za  enkriptovanje    	1
-PHP	45	45_addOption	kako obeleziti polje za potvrdu	  Dodaje novu opciju u polje za potvrdu uz proveru  da li treba da bude obelezeno i stavlja ga u niz   	1
-PHP	45	45_checkboxList	kako obeleziti polje za potvrdu	  Na osnovu jednog obelezenog polja za potvrdu  za odredjene opcije postavlja i pravi novo polje  za potvrdu u okviru iste forme   	2
-PHP	45	45_getCheckboxRule	kako obeleziti polje za potvrdu	  Dohvata obelezno polje za potvrdu i poruku smesta u niz  uz dodatnu proveru u zavisnosti od opcije   	2
-PHP	45	45_inlineRadio	kako obeleziti polje za potvrdu	  Pravi dugme za odabir jedne opcije sa datom labelom  i prosledjenim vrednostima opcija za biranje   	0
-PHP	45	45_option_checkbox	kako obeleziti polje za potvrdu	  Za prosledjeni naziv textove za prikaz i poruke  pravi odgovarajuce obelezeno polje za potvrdu   	1
-PHP	45	45_render_field	kako obeleziti polje za potvrdu	  Pravi polje za potvrdu od prosledjenih  argumenata i prikazuje ga   	1
-PHP	46	46_dumpAndPrintArray	inicijalizacija niza	  Inicijalizuje niz datim vrednostima ispisuje  ih na izlaz i na kraju vraca niz kao povratnu vrednost   	2
-PHP	46	46_getPerimeterFunction	inicijalizacija niza	  Funkcija getPerimeterFunction vraca perimetar za trazeno  stanje u odnosu na mxConstants   	0
-PHP	46	46_initAndValidateArray	inicijalizacija niza	  Pravljenje i inicijalizacija niza nasumicnim vrednostima  i provera tih vrednosti za prosledjeni parametar i ispis   	1
-PHP	46	46_initArrayInRange	inicijalizacija niza	  Inicijalizacija niza izmedju minimalne i maksimalne  vrednosti indkesa kao priprema za sortiranje  i ispisivanje na izlaz   	2
-PHP	46	46_initContinents	inicijalizacija niza	  Popunjavanje niza dohvacenim objektima kontinenata  koji ce biti korisceni za prikaz mape   	1
-PHP	46	46_selectCountries	inicijalizacija niza	  Dodavanje zemalja u niz pod uslovom da imaju ocenu iznad trazene  a zatim im se dodaje filter za dalju statisticku obradu   	1
-PHP	47	47_bubbleSort	kako obrnuti redosled u stringu	  Sortiranje prosledjenog niza koriscenjem bubble sorta  i ispis niza na izlaz   	0
-PHP	47	47_filterList	kako obrnuti redosled u stringu	  Filtrira elemente liste kroz prosledjenu funkciju  koriscenjem obrtanja redosleda stringa i iteratora   	1
-PHP	47	47_getReversedString	kako obrnuti redosled u stringu	  Ispisuje obnuti redosled slova prosledjenog  stringa i baca izuzetak ako prosledjen parametar  nije string   	3
-PHP	47	47_reverseHalved	kako obrnuti redosled u stringu	  Vraca obrnuti redosled stringa njegovim polovljenjem  i obrtanjem elemenata obe polovine   	2
-PHP	47	47_reverseStrFromArr	kako obrnuti redosled u stringu	  Odredjuje obrnuti redosled slova u stringu njegovim  razlaganjem na reci u niz a zatim obrtanjem tog niza   	2
-PHP	47	47_reverseString	kako obrnuti redosled u stringu	  Ova funkcija vrsi obrtanje redosleda slova u stringu  iterativnom metodom   	3
-PHP	48	48_configure_environment	citaj fajl atributa	  Podesava okruzenje za testiranje  Radi sledece   Ucitava phpunit framework  Obnavlja izuzetak za obradjivace gresaka  Prijavljuje automatski ucitavac za testne fajlove 	0
-PHP	48	48_doFetchAll	citaj fajl atributa	  Cita verzije i atribute sacuvanog fajla  uz osnovne validacione provere   	1
-PHP	48	48_get_default_thresholds	citaj fajl atributa	  Gets the default thresholds  Cita podrazumevane granicne vrednosti koristeci fajlove atributa  Daje prednost nizovima sa ovim vrednostima u odnosu na  $groupedthreshold i $singlestepthreshold   	1
-PHP	48	48_outputProperties	citaj fajl atributa	  Ispisuje sve informacije u predefinisani html fajl  vezane za fajl atributa u vreme pokretanja   	1
-PHP	48	48_parse_properties	citaj fajl atributa	  Ova funkcija parsira fajl atributa i moze se koristiti za  kreiranje php klase atributa  Treablo bi da ima isto ponasanje kao odgovarajuce funkcije u javi  i moze da obradjuje znake navoda i kose crte za nove redove   	2
-PHP	48	48_selectPropertiesToDocument	citaj fajl atributa	  Citanje fajl atributa i perpisivanje u podrazumevani dokument  uz dodatne potrebne obrade i formatiranja   	2
-PHP	49	49_clipboardCopy	kopiraj u clipboard	  Kopira sacuvan sadrzaj i pravi imitaciju  kopije clipboarda od namenski kreiranog fajla 	1
-PHP	49	49_getCacheData	kopiraj u clipboard	  Kopira kesiran sadrzaj u fajl i formatira  u predefinisan oblik  Moze se koristiti kao clipboard 	1
-PHP	49	49_getSystemClipboardInfo	kopiraj u clipboard	  Dohvata i kopira sadrzaj sistemskog fajla u  niz koji obradjuje i vraca kao povratnu vrednost 	1
-PHP	49	49_getSystemMemContent	kopiraj u clipboard	  Usluzna funkcija koja dohvata preusmerava i kopira sadrzaj  zeljene sistemske memorije u fajl koji vraca korisniku   	1
-PHP	49	49_rcopy	kopiraj u clipboard	  Kopira sadrzaj iz prvog toka u drugi uz odgovarajuce provere  a ako se kopira u clipboard dohvati zaglavlje za dohvatanje iz  izvornog toka  	1
-PHP	49	49_sendUpdate	kopiraj u clipboard	  Slanje informativnog mejla krajnjem korisniku za dobijenom  identifikacijom i zeljenom porukom  Korisnik mora vec postojati u bazi 	0
-PHP	50	50_convertIfExists	konvertuj html u pdf	  Ako postoji definisana konverzija  pretrazi i generisi u prosledjen tip  za zadati html  	3
-PHP	50	50_generateColumn	konvertuj html u pdf	  Generise objekat kolone na osnovu tipa kolone  	0
-PHP	50	50_getDefaultValues	konvertuj html u pdf	  Dohvati vrednosti koje ce se koristiti  kao podrazumevane ulazne vrednosti  	0
-PHP	50	50_getPDFFromHtml	konvertuj html u pdf	  Konvretuj html u pdf ako je definisan za datu  kolonu   	2
-PHP	50	50_prepareDataForPDF	konvertuj html u pdf	  Pripremi tabele i podatke za generisanje pdf  u zavisnosti od definisanih parametara  	1
-PHP	51	51__constructXML	json u xml konverzija	  Generise xml fajl u zavisnosti od prosledjenih opcija  	2
-PHP	51	51__convertJSONtoXML	json u xml konverzija	  Generise konverzija json u xml fajl u zavisnosti od prosledjenih opcija  nekom konkretnom elementu   	3
-PHP	51	51_concurentJsonToXmlConv	json u xml konverzija	  Vrsi proveru validnosti ulaznog json fajla  i uz konverziju ga ispisuje u prosledjeni xml  uz podrzavanje konkurentnog izvrsavanja   	2
-PHP	51	51_formatAndConvert	json u xml konverzija	  Pravi novi xml dokument u koji upisuje sadrzaj konvertovanog  json objekta nakon unapred definisanog formatiranja   	3
-PHP	51	51_wdtListAllTables	json u xml konverzija	  Izlistaj sve tabele u json formatu  za trenutnog korisnika koji ima prava za izmene 	1
-PHP	51	51_wdtShowChartFromData	json u xml konverzija	  Izgenerisi i prikazi grafike tj chartove iz dostupnih podataka  u zavisnosti od zahtevanog chart tipa 	0
-PHP	52	52_generateRandomString	kako izabrati nasumican broj	  Generisanje nasumicnog stringa za neku zadatu duzinu  	1
-PHP	52	52_getColumnHeaderOffset	kako izabrati nasumican broj	  Dohvata potrebna zaglavlja kolona sa njihovim  pomerajima za genericko kreiranje upita   	0
-PHP	52	52_getRandomElementFromArray	kako izabrati nasumican broj	  Izaberi nasumican element iz zadatog niza  	1
-PHP	52	52_getRandomNumber	kako izabrati nasumican broj	  Ova funkcija vraca nasumican broj u opsegu  min i max prosledjenih parametara   	3
-PHP	52	52_get_new_salts	kako izabrati nasumican broj	  Kreira nove salt vrednosti za generisanje kljuceva  zasnovane na tako sto izabere sekvence nasumicnih brojeva  i slova   	2
-PHP	52	52_groupByColumn	kako izabrati nasumican broj	  Sortiraj i grupisi raspored i elemente kolona  na osnovu zadatog kljuca elementa za grupisanje   	0
-PHP	52	52_intCodeRandom	kako izabrati nasumican broj	  Dohvati nasumican broj izmedju minimalne i maksimalne vrednosti  za zadati broj cifara  	2
-PHP	53	53_buildGraphNode	normalna raspodela	  Pravi cvor za dodavanje u graf za ispis  i iscrtavanje zeljene raspodele  Moguce je proslediti i modifikovati postojeci  ako je podrzan  	1
-PHP	53	53_createGaussGraph	normalna raspodela	  Formira i vraca graf za normalnu gausovu raspodelu  po unapred postavljenim parametrima  	1
-PHP	53	53_find_youtube_link	normalna raspodela	  Pronalazi link ka nekom video snimku na youtube  sajtu za prosledjeni identifikator postavljenog  sadrzaja   	0
-PHP	53	53_getAllActiveVideos	normalna raspodela	  Dohvata sve video sadrzaje prema godini  ispita tako sto kreira upit za dohvatanje podataka  iz same baze   	0
-PHP	53	53_getGaussData	normalna raspodela	  Ispisuje Gausovu normalnu raspodelu za prosledjene parametre  za odeljenje skolu godinu i nastavnika   	2
-PHP	53	53_normal	normalna raspodela	  Izracunava normalnu raspodelu za prosledjene parametre  po predefinisanoj formuli   	2
-PHP	53	53_normsdist	normalna raspodela	  Racunanje kumulativne normalne raspodele  za vrednost ulaznog parametra   	3
-PHP	54	54_doUnrar	nelder mead optimizacija	  Nakon obrade direktorijuma i putanje otpakovace fajl  ako je upis dozvoljen na lokaciji uz ispis gresaka po  potrebi   	0
-PHP	54	54_estimateQueueOpt	nelder mead optimizacija	  Veci broj elemenata ce biti optimizovan nelder mead  algoritmom ako ih je trenutno manje od K koeficijenta  uredjenosti niza koji se osvezava pri svakom  dodavanju i brisanju iz reda   	1
-PHP	54	54_extract	nelder mead optimizacija	  Ukoliko je dozvoljen upis na trazenu lokaciju pravi  novi direktorijum i vrsi otpakivanje prosledjenog fajla  uz dodatno formatiranje i obradu greske   	0
-PHP	54	54_optimizeAndCount	nelder mead optimizacija	  Vraca broj elemenata u redu i vrsi optimizaciju  nelder mead algoritmom ako vec nije optimizovan  i u zavisnosti od prioriteta   	2
-PHP	54	54_optimizeNelder	nelder mead optimizacija	  Vrsi optimizaciju nelder mead metodom  za odredjeni koeficijent manji od standardnog   	1
-PHP	54	54_optimizeQueueNelderMethod	nelder mead optimizacija	  Vrsi optimizaciju niza za cuvanje i prosledjivanje  takskova za obradu zadataka Nelder mead metodom  	1
-PHP	54	54_queueSystemOptimization	nelder mead optimizacija	  Vrsi poredjenje neuredjenog reda za cekanje i  reda sa optimizacijom Nelder Mead algoritmom i ispisuje  rezultate  	1
-PHP	55	55_classImplCmprInterface	hes set za brojanje jedinstvenih elemenata	  Koriscenjem hes seta izdvaja samo jedinstvene  interfejse koji su u listi i ispituje da li je  sadrzan trazeni interfejs   	1
-PHP	55	55_classSet	hes set za brojanje jedinstvenih elemenata	  Dohvata skup klasa koje se koriste u ovom interfejsu  koristeci hes set za dohvatanje jedinstvenih elemenata   	1
-PHP	55	55_countDistinct	hes set za brojanje jedinstvenih elemenata	  Stampa i pronalazi broj jedinstvenih elemenata u zadatom  nizu zadate duzine    	1
-PHP	55	55_count_items	hes set za brojanje jedinstvenih elemenata	  Broji ukupan broj elemenata uz zadati  podupit sa odredjenim uslovima   	1
-PHP	55	55_count_unique_items	hes set za brojanje jedinstvenih elemenata	  Izracunava ukupan broj jedinstvenih elemenata uz zadati  podupit sa odredjenim uslovima   	1
-PHP	55	55_get_class	hes set za brojanje jedinstvenih elemenata	  Vraca string koji zadrzi atribut html klase   	0
-PHP	55	55_get_separator	hes set za brojanje jedinstvenih elemenata	  Pronalazi separator koji odgovara primenjenom filteru   	0
-PHP	56	56_deleteIndexable	kako dohvatiti ime tabele u bazi podataka	   Brise sve SEO linkove za neki indexirani objekat  	0
-PHP	56	56_extractTableNamesToArray	kako dohvatiti ime tabele u bazi podataka	  Pretrazuje i upisuje imena svih tabela u bazi  u niz koji se vraca iz funkcije  	2
-PHP	56	56_fetchFields	kako dohvatiti ime tabele u bazi podataka	  Vraca niz objekata koji predstavljaju polja u skupu rezultata  a zatim ispisuje naziv polja tabele i najvecu duzinu   	2
-PHP	56	56_getColumnList	kako dohvatiti ime tabele u bazi podataka	  Dohvata nazive kolona tabele iz baze podataka   	1
-PHP	56	56_get_table_name	kako dohvatiti ime tabele u bazi podataka	  Pronalazi i dohvata ime tabele u bazi podataka iz konkretnog  upita nad tom bazom  	3
-PHP	56	56_printTableName	kako dohvatiti ime tabele u bazi podataka	  Ispisuje imena svih tabela u bazi podataka  	2
-PHP	57	57_createFromJson	deserijalizuj json	  Kreira JSON objekat od prosledjenog u zavisnosti od  tipa prosledjenog objekta   	1
-PHP	57	57_deserializeArray	deserijalizuj json	  Deserijalizuje JSON niz objekata   	2
-PHP	57	57_deserializeJsonToClass	deserijalizuj json	  Pretace jedan JSON objekat u instancu klase  radi i sa nizovima   	1
-PHP	57	57_deserialize	deserijalizuj json	  Deserijalizuje JSON objekat   	3
-PHP	57	57_jsonUnserialize	deserijalizuj json	  Kreira JSON objekat od prosledjenog niza  objekata klase Person   	1
-PHP	57	57_printJSVars	deserijalizuj json	  Metoda pomocne klase za prebacivanje PHP  promenljivih u JS promenljive  	0
-PHP	58	58_absoluteCoordinate	prona?i int u stringu	  Napravi apsolutne koordinate od zadatog stringa   	0
-PHP	58	58_countDigits	prona?i int u stringu	    Ispisuje broj pronadjenih brojeva u zadatom stringu   	1
-PHP	58	58_extractNumFromStr	prona?i int u stringu	    Pronalazi broj u okviru zadatog stringa  i vraca ga kao povratnu vrednost   	2
-PHP	58	58_extract_numbers	prona?i int u stringu	    Pronalazi poklapanje jednog broja unutar datog stringa   	3
-PHP	58	58_getAllNumsFromStr	prona?i int u stringu	    Pronalazi sve brojeve u zadatom stringu  i vraca niz pronadjenih brojeva   	1
-PHP	58	58_is_numeric	prona?i int u stringu	    Ispituje da li je zadati string broj i  ispisuje ga sa na standardni izlaz   	1
-PHP	59	59_findProcessByPid	dohvati id trenutnog procesa	  Pronadji proces za zadati ID procesa   	1
-PHP	59	59_isLocked	dohvati id trenutnog procesa	  Proveravanje da li je resurs zakljucan za trenutni proces   	1
-PHP	59	59_printAllProc	dohvati id trenutnog procesa	  Ispisuje PID i COMMAND svih pokrenutih procesa   	3
-PHP	59	59_set_pagination	dohvati id trenutnog procesa	  Postavljanje paginacije   Ukupan broj prikazanih elemenata je jednak onim koji se prikazuju   	0
-PHP	59	59_tryLock	dohvati id trenutnog procesa	  Pokusaj da zauzmes resurs za trenutni proces  ukoliko je slobodan  	1
-PHP	59	59_writeToFile	dohvati id trenutnog procesa	  Vrsi upis u fajl u zadatom direktorijumu  ako fajl postoji i otvoren je za trenutni proces   	1
-PHP	60	60_allWordsMatched	regularni izraz bez razlike velicine slova	  Ispituje da li su sve trazene reci nadjene u prosledjenom stringu   	1
-PHP	60	60_cleanSqlCommands	regularni izraz bez razlike velicine slova	  Pronalazi pojavljivanja kljucnih reci u upitu  bez obzira na velicinu slova i dodaje potrebne karaktere  na upit   	2
-PHP	60	60_fetchAllMovies	regularni izraz bez razlike velicine slova	  Pretrazuje sve fajlove i vraca listu filmova   	2
-PHP	60	60_generateColumn	regularni izraz bez razlike velicine slova	  Generates column object based on column type  Generise objekat kolone na osnovu zadatog  tipa kolone   	0
-PHP	60	60_removerSQLInjection	regularni izraz bez razlike velicine slova	  Uklanja potencijalne kljucne reci iz upita  koristeci regularni izraz nezavisno od velicine slova   	2
-PHP	60	60_replaceFileExtIfExists	regularni izraz bez razlike velicine slova	  Pronalazi pojavljivanja prosledjenog string parametra  bez uticaja velicine slova i zamenjuje ekstenziju odgovarajuceg fajla   	2
-PHP	61	61_ErrorHandler	proizvoljan http odgovor za greske	  Obrada svih gresaka bacenih u kodu koje ne koriste struktuiranu  obradu gresaka   	2
-PHP	61	61_catchExceptions	proizvoljan http odgovor za greske	  Hvatanje izuzetaka uz generisanje proizvoljne poruke  da bude prikazana u http odgovoru   	1
-PHP	61	61_checkMandatoryFields	proizvoljan http odgovor za greske	  Proverava da li su uneta obavezna polja i ukoliko nisu  baca odgovarajuci izuzetak   	0
-PHP	61	61_draw	proizvoljan http odgovor za greske	  Obrada uopstene greske sa serverske strane i prikaz  proizvoljne poruke prosledjene u http odgovoru   	1
-PHP	61	61_formatException	proizvoljan http odgovor za greske	  Funkcija koja formatira http odgovor u proizvoljan format   	1
-PHP	61	61_generateErrorForException	proizvoljan http odgovor za greske	  Generisanje formata odgovora na gresku za odgovarajuci  izuzetak koji je bacen   	1
-PHP	61	61_renderBody	proizvoljan http odgovor za greske	  Formatiranje i prikaz tela http odgovora i prilagodjavanje  proizvoljne poruke   	3
-PHP	62	62_assertWord	kako odrediti da je string validna rec	  Odredjuje da je prosledjeni string validno ime  odnosno rec   	3
-PHP	62	62_count_words	kako odrediti da je string validna rec	  Za prosledjeni string proverava validnost  reci i prebrojava ih   	3
-PHP	62	62_get_ignored_words	kako odrediti da je string validna rec	  Pronadji sve ignorisane reci u prosledjenom stringu   	1
-PHP	62	62_isNiceString	kako odrediti da je string validna rec	  Odredjuje da je string lepo uredjen po odredjenim pravilima   Ako se sastoji od para bilo koja dva slova koja se pojavljuju dva puta u stringu  bez preklapanja i ako sadrzi barem jedno slovo koje se ponovo pojavljuje tacno  sa jednim slovom pauze  	1
-PHP	62	62_sanitizeString	kako odrediti da je string validna rec	  Za prosledjeni tip i vrednost reformatira i normalizuje  fajl i odseca string odredjenog sadrzaja   	0
-PHP	62	62_validateWord	kako odrediti da je string validna rec	  Proveri da se zadati string nalazi u fajlu i  validiraj ga kao rec   	2
-PHP	63	63_checkPermission	html zamena entiteta	  Proverava da li je pristup omogucen za trenutni zahtev  i vraca odgovarajuci odgovor   	0
-PHP	63	63_convertToEdit	html zamena entiteta	  Menja html element sa postojecim id  konvertuje ga u edit polje i menja mu vrednost  zatim konvertuje u json   	1
-PHP	63	63_entityToHtmlString	html zamena entiteta	  Parsira i konvertuje html entitet u string koji  predstavlja html element   	1
-PHP	63	63_getHtmlLabel	html zamena entiteta	  Vraca HTML string labele za prosledjeni HTML entitet   	1
-PHP	63	63_replaceTitle	html zamena entiteta	  Vrsi zamenu naslova prosledjenog HTML entiteta  novim naslovom koji je prosledjen   	2
-PHP	63	63_swapHtmlEntities	html zamena entiteta	  Vrsi zamenu prosledjenih HTML entiteta  i dodaje novi prosledjeni atrubut a zatim vraca html element   	2
-PHP	64	64_eF_getDirContents	postavi skriveni atribut fajla	"  Ova funkcija prima naziv direktorijuma i pravi niz u kojima su  apsolutne putanje do fajla u njemu, rekurzivno U zavisnosti od ostalih  parametara razlicite vrenosti su postavljene kao i u zavisnosti od  postavljenih atributa fajla   "	1
-PHP	64	64_get_site_language_name	postavi skriveni atribut fajla	  Vraca puno ime sajta za izlistani i  preselektovani jezik na kom se prikazuje   	0
-PHP	64	64_readAccounts	postavi skriveni atribut fajla	  Cita sadrzaje naloga u zavisnosti od sadrzaja fajla  i postavljenih atributa za tekuci fajl   	1
-PHP	64	64_setAttrHidden	postavi skriveni atribut fajla	  Za odredjene akcije nad fajlom se postavljaju prosledjeni  atributi kao i niz vrednosti skrivenih atributa svih fajlova  u tekucem fajlu   	2
-PHP	64	64_setFileAttr	postavi skriveni atribut fajla	  Za prosledjenu putanju do fajla se postavljaju  zeljeni atributi uz dodatne obrade i provere   	2
-PHP	64	64_updateFilePermissions	postavi skriveni atribut fajla	  Za prosledjenu putanju menjaju se atributi  i permisije za operacije nad datim fajlom  po potrebi i hijerarhijske nizim   	1
-PHP	65	65_array_sort_by_column	sortiraj više nizova na osnovu sortiranja drugih nizova	  Sortira prosledjeni niz u zavisnosti od zadatog vrednosti  kolone drugog niza i prosledjenog parametra direction   	2
-PHP	65	65_check	sortiraj više nizova na osnovu sortiranja drugih nizova	  Vrsi proveru da li su pripremljeni podaci u redu za konkretan  fiskalni isecak  	0
-PHP	65	65_getHTMLFormatted	sortiraj više nizova na osnovu sortiranja drugih nizova	  Default HTML formatting implementation for error messages  Podrazumevano formatiranje html dokumenta za poruke greske  u zavisnosti od setovanih atributa u nizu config   	1
-PHP	65	65_getSortedArray	sortiraj više nizova na osnovu sortiranja drugih nizova	  Sortiranje niza u zavisnosti od dva konfiguraciona niza  filtera i niza u kom je definisan redosled sortiranja   	1
-PHP	65	65_setSort	sortiraj više nizova na osnovu sortiranja drugih nizova	  Ako je prosledjeni parametar niz onda vrsi sortiranje  po uzoru na vrednosti drugih nizova   	1
-PHP	65	65_showSinglestat	sortiraj više nizova na osnovu sortiranja drugih nizova	  Proverava stanje konekcije i kolikom brzinom se moze  izvrsiti neka operacija za prosldjenu metriku  	0
-PHP	65	65_sortModels	sortiraj više nizova na osnovu sortiranja drugih nizova	  Sortira niz modela podataka u zavisnosti od prosledjenog sort  niz parametra   	2
-PHP	66	66_correct_word	levestajn slicnost stringova	  Pretraga recnika na slicnost date reci  koristeci levestajnov algoritam za slicnost stringova   	2
-PHP	66	66_findClosest1	levestajn slicnost stringova	  Pronalazenje broja iz datog niza u odnosu na prosledjen broj  koristeci levestajnov algoritam za slicnost stringova   	2
-PHP	66	66_getParamByName	levestajn slicnost stringova	  Nalazi slicnost datog stringa naziva sa vrednoscu iz  niza koristeci levestajnov algoritam   	2
-PHP	66	66_handlePageNotFoundError	levestajn slicnost stringova	  handler for 404 page not found error  Obrada greske 404 stranica nije pronadjena  izracunavanje slicnosti url po levestajn algoritmu slicnosti  stringova   	3
-PHP	66	66_match	levestajn slicnost stringova	  Pronalazi string najblizi po levestajn racunanju  rastojanja za dati ulazni string   	3
-PHP	66	66_printCaption	levestajn slicnost stringova	  Vrsi prikaz naslova na ekranu  za predefinisane parametre algoritma   	0
-PHP	67	67_addSortStringForQuery	kako dohvatiti html vebsajta	  Proverava da je $sortString dobro formatiran i dodaje uslov  za sortiranje definisano u $query  Vraca i poruku http strani o nekorektnom formatu za sortiranje stringova   	0
-PHP	67	67_download_playlist	kako dohvatiti html vebsajta	  Preuzimanje liste pesama na osnovu dohvacenog  htmla linka pomocu id dobijenog kao ulaznog parametra   	1
-PHP	67	67_fetch_data_from_html	kako dohvatiti html vebsajta	  Na osnovu datog urla dohvata html vebsajta i na  osnovu dobijenih podataka kreira DOM   	2
-PHP	67	67_get_conversation	kako dohvatiti html vebsajta	  Ova funkcija dohvata format konverzacije na osnovu  dohvacene html strane   	1
-PHP	67	67_get_members	kako dohvatiti html vebsajta	  Dohvata html vebsajta za dati url i generise  dom svih dobijenih elemenata   	2
-PHP	67	67_parse_event_html	kako dohvatiti html vebsajta	  Priprema Javascript dogadjaj za obradu na osnovu  dohvatanja html sadrzaja dogadjaja   	1
-PHP	68	68_getEvents	fajl citac sa baferom cita tekst	  Dohvata dogadjaje sa poslednjim datumom  tako sto cita podatke iz fajla pomocu fajl citaca   	1
-PHP	68	68_getPhingVersion	fajl citac sa baferom cita tekst	  Dohvata verziju phing biblioteke pomocu fajl citaca  sa baferom   	2
-PHP	68	68_loadFromStream	fajl citac sa baferom cita tekst	  Cita podatke iz fajla pomocu fajl citaca  sa baferom stringova  Putanja do fajla moze biti relativna   	2
-PHP	68	68_parseFileWithBuffering	fajl citac sa baferom cita tekst	"  Creates the ExpatParser, sets root handler and kick off parsing  process  Kreira ExpatParser  Postavlja koreni obradjivac i pocinje sa procesom citanja teksta  koriscenjem fajl citaca sa bufferom   "	3
-PHP	68	68_parseFile	fajl citac sa baferom cita tekst	  Tekstualna obrada fajla koriscenjem fajl citaca  bez bafera uz obradu izuzetaka   	1
-PHP	69	69_create	enkriptovanje aes ctr mod	  Vraca jedinstveni objekat baze podataka   	0
-PHP	69	69_encrypt	enkriptovanje aes ctr mod	  Enkriptovanje stringa aes ctr algoritmom   	3
-PHP	69	69_findLCA	enkriptovanje aes ctr mod	  Funkcija pronalazi najranijeg zajednickog pretka dva cvora  u stablu   	8
-PHP	69	69_generateUserAccessToken	enkriptovanje aes ctr mod	  Kreiranje tokena za pristup enkriptovanog aes ctr  algoritmom   	2
-PHP	69	69_sendResetPasswordEmail	enkriptovanje aes ctr mod	  Slanje mejla za resetovanje lozinke  Lozinka je enkriptovana aes ctr algoritmom   	2
-PHP	69	69_send	enkriptovanje aes ctr mod	  Sigurnosna enkripcija i slanje male kolicine podataka  funkciji za dekodovanje i preuzimanje koristeci  enkriptovanje aes ctr algoritmom   	2
-PHP	69	69_validateAccessTokenInner	enkriptovanje aes ctr mod	  Interno validiranje tokena za pristup  koriscenjem aes ctr algoritma za enkriptovanje   	1
-PHP	70	70_M_mult	mnozenje matrica	  Funkcija izvrsava mnozenje prosledjenih matrica A i B  Vraca rezultat mnozenja kao matricu oblika AB   	3
-PHP	70	70_mpMatrix	mnozenje matrica	  Mnozenje matrica   Ova funkcija ce izvrsiti mnozenje trenutne matrice sa prosledjenom matricom  Ako trenutnu matricu obelezimo sa A a dobijenu sa B onda ce proizvod biti AB   	2
-PHP	70	70_mpScalar	mnozenje matrica	"  Mnozenje trenutne matrice skalarom   Mnozenje matrice skalarom intfloatetc constant, npr 2   "	1
-PHP	70	70_multiply	mnozenje matrica	  Mnozenje matrice predefinisanom matricom   	2
-PHP	70	70_outerProduct	mnozenje matrica	  Konstrukcija matrice mnozenjem dva vektora  od kojih je jedan predefinisan a drugi dobijen  kao parametar   	1
-PHP	70	70_readExcel	mnozenje matrica	  Adapter za PHPExcel  Citanje excel fajla od pocetka do kraja definisanih  kolona i prebacivanje u php format excela   	0
-PHP	40	40_addCollector	dohvati ime za enum vrednost	  Dodaje zadati sakupljac u prioritetni red uz  dodatne provere i bacanje izuzetaka  	0
-PHP	40	40_addPath	dohvati ime za enum vrednost	  Dodaje putanju u predefinisani niz koja ce  moci da se koristi nakon upisa u fajl  	0
-PHP	40	40_attachCallback	dohvati ime za enum vrednost	  Postavlja callback funkciju u prioritetni red  u zavisnosti od zadatog prioriteta ako nije podrazumevani  	0
-PHP	40	40_check_credentials	dohvati ime za enum vrednost	  Proverava kredencijale korisnickog imena i lozinke  i inicijalizuje i postavlja sesiju za dalje koriscenje  u kukije  	0
-PHP	40	40_entityToString	dohvati ime za enum vrednost	  Pretvara dati objekat u niz stringova razdvojenih  postavljenim separatorom  	0
-PHP	40	40_extractEnumFromArray	dohvati ime za enum vrednost	  Pronalazi ime za enum u nizu vrednosti  za zadati parametar u zavisnosti od korisnika   	2
-PHP	40	40_findInternal	dohvati ime za enum vrednost	  Pronalazi listu unutrasnjih klasa definisanih unutar  prosledjene okruzujuce klase  	0
-PHP	40	40_findValueTypeName	dohvati ime za enum vrednost	  Ova funkcija dohvata tip po zadataoj  vrednosti enum ako je ona validno definisana  	1
-PHP	40	40_getAllEnumTags	dohvati ime za enum vrednost	  Pronalazi sve tagove za odredjeni enum po njegovom id  	1
-PHP	40	40_getDynamicFunc	dohvati ime za enum vrednost	  Pronalazi dinamicki definisane funkcije i smesta  ih u listu za dalju obradu u klasama  	0
-PHP	40	40_getEnumByID	dohvati ime za enum vrednost	  Dohvata ime enum za zadati ID polja koje mu  pripada ukoliko je definisano  	2
-PHP	40	40_getEnumName	dohvati ime za enum vrednost	  Vraca ime enum tipa za zadatu vrednost proizvoda  kao jedinog parametra funkcije   	3
-PHP	40	40_getThemeConfig	dohvati ime za enum vrednost	  Uzima podesavanja za odredjenu temu i uz odredjene provere  pronalazi putanju do trazenog fajla  	0
+PHP	40	40_addCollector	dohvati ime za enum vrednost	Dodaje zadati sakupljac u prioritetni red uz   dodatne provere i bacanje izuzetaka	0
+PHP	40	40_addPath	dohvati ime za enum vrednost	Dodaje putanju u predefinisani niz koja ce   moci da se koristi nakon upisa u fajl	0
+PHP	40	40_attachCallback	dohvati ime za enum vrednost	Postavlja callback funkciju u prioritetni red   u zavisnosti od zadatog prioriteta ako nije podrazumevani	0
+PHP	40	40_check_credentials	dohvati ime za enum vrednost	Proverava kredencijale korisnickog imena i lozinke   i inicijalizuje i postavlja sesiju za dalje koriscenje   u kukije	0
+PHP	40	40_entityToString	dohvati ime za enum vrednost	Pretvara dati objekat u niz stringova razdvojenih   postavljenim separatorom	0
+PHP	40	40_extractEnumFromArray	dohvati ime za enum vrednost	Pronalazi ime za enum u nizu vrednosti  za zadati parametar u   zavisnosti od korisnika	2
+PHP	40	40_findInternal	dohvati ime za enum vrednost	Pronalazi listu unutrasnjih klasa definisanih unutar   prosledjene okruzujuce klase	0
+PHP	40	40_findValueTypeName	dohvati ime za enum vrednost	Ova funkcija dohvata tip po zadataoj   vrednosti enum ako je ona validno definisana	1
+PHP	40	40_getAllEnumTags	dohvati ime za enum vrednost	Pronalazi sve tagove za odredjeni enum po njegovom id	1
+PHP	40	40_getDynamicFunc	dohvati ime za enum vrednost	Pronalazi dinamicki definisane funkcije i smesta   ih u listu za dalju obradu u klasama	0
+PHP	40	40_getEnumByID	dohvati ime za enum vrednost	Dohvata ime enum za zadati ID polja koje mu   pripada ukoliko je definisano	2
+PHP	40	40_getEnumName	dohvati ime za enum vrednost	Vraca ime enum tipa za zadatu vrednost proizvoda   kao jedinog parametra funkcije	3
+PHP	40	40_getThemeConfig	dohvati ime za enum vrednost	Uzima podesavanja za odredjenu temu i uz odredjene provere   pronalazi putanju do trazenog fajla	0
+PHP	41	41_addPaper	kodiranje url	Dodavanje stranice zavrsnom papiru sto omogucava visestruke   gsms uz kodiranje i dekodiranje url	3
+PHP	41	41_add	kodiranje url	Ova funkcija ce nakon kodiranja url pozvati parentxcontent kontroler   kako bi popunila prikaz dok se salje kroz tip sadrzaja koji je ujedno i paper_id    koji ce se koristiti za automatsko dopunjavanje combo boxa tacnim rezultatom	2
+PHP	41	41_buildTree	kodiranje url	Formira narno stablo pocevsi od prosledjenog roditeljskog   cvora sa datim poljima	0
+PHP	41	41_cr_post	kodiranje url	Precizna implementacija za kodiranje parametara iz niza u   url bez indeksiranja	3
+PHP	41	41_delete	kodiranje url	Metoda koja brise hartije sa datim id ukoliko je   pristup tom objektu dozvoljen u odgovarajucu poruku i    redirekciju uz kodiranje url	2
+PHP	41	41_handleRequest	kodiranje url	Metoda za uniformnu obradu http zahteva koristeci kodiranje   url uz redirekciju na zeljenu stranicu	2
+PHP	41	41_loadView	kodiranje url	Ucitavanje prikaza za odgovarajucu prosledjenu rutu   u zavisnosti od prethodne akcije	0
+PHP	42	42_SetCartId	kreiranje kolacica	Cuvanje id korpe za kupovinu kreiranje kolacica   i cuvanjem u sesiji za naredne zahteve i pozive   ukoliko se tamo vec nije nalazio	2
+PHP	42	42_addCookiesToHeader	kreiranje kolacica	Kreiranje kolacica i dodavanje u postojeca zaglavlja ukoliko   je postavljen odgovarajuci replace flag	3
+PHP	42	42_checkUser	kreiranje kolacica	Provera identiteta korisnika i ako postoji validan token   cuva se u kolacic i token se cuvaju u sesiji	1
+PHP	42	42_login	kreiranje kolacica	Funkicija za login uz kreiranje kolacica i njihovo cuvanje    uz odgovarajuci vremenski marker	3
+PHP	42	42_logout	kreiranje kolacica	Metoda za brisanje kolacica i postavljanje vrednosti   na nevalidne za naredne pokusaje logovanja bez tokena	1
+PHP	42	42_onAppExit	kreiranje kolacica	Logovanje potrebnih stvari po zatvaranju aplikacije   i uklanjanje nepotrebnog sadrzaja uz ispis poruke	0
+PHP	42	42_setCookies	kreiranje kolacica	Funkcija za kreiranje kolacica i postavljanje potrebnih    vrednosti polja kolacica kao sto su vreme isteka   jezik itd	3
+PHP	43	43_cleanArray	kako ukloniti elemente niza	Uz proveru validnosti prosledjenog objekta ova funkcija    ce ukloniti elemente datog niza	3
+PHP	43	43_cleanup	kako ukloniti elemente niza	Funkcija ce nakon provere regularnim izrazom   ukloniti elemente niza pozivom funkcije apcuDelete	2
+PHP	43	43_deleteThenSortArrayKeys	kako ukloniti elemente niza	Nakon sto ce ukloniti elemente niza sortirace ih u zavisnosti   od prosledjenih parametara textArray1 textArray2	2
+PHP	43	43_extra_info	kako ukloniti elemente niza	Nakon sto ukloni sve elemente niza vraca nastavljen    prosledjeni niz sa podrazumevanim vrednostima	2
+PHP	43	43_prepare	kako ukloniti elemente niza	Priprema stringa da se njegovi delovi ubace u indeks za pretragu	0
+PHP	43	43_remove	kako ukloniti elemente niza	Ako je odgovarajuci uslov ispunjen za proces za   dobijeni id onda ce ukloniti elemente niza vezanog   za taj proces	2
+PHP	44	44_date	kako dohvatiti trenutni datum	Funkcija vraca dohvata trenutni datum formatiran   i po potrebi konvretovan u zavisnosti od parametra convert	3
+PHP	44	44_delrole	kako dohvatiti trenutni datum	Proverava da li je uloga validna i ako jeste   kreira upit nad bazom za brisanje postojece uloge	0
+PHP	44	44_hookDateDefaultArgAlter	kako dohvatiti trenutni datum	Ako datum nije postavljen postavlja se na trenutni datum   sa prosledjenim vrednostima za formatiranje	2
+PHP	44	44_jdate	kako dohvatiti trenutni datum	Dohvata trenutni datum podrazumevano postavljen ako nije prosledjen   drugi i pravi ga u zahtevanom formatu	2
+PHP	44	44_refresh_session	kako dohvatiti trenutni datum	Obnavlja vreme trajanja sesije dohvatanjem trenutnog   datuma i postavljanjem u odgovarajuce polje	2
+PHP	44	44_upload_img	kako dohvatiti trenutni datum	Ova funkcija salje sliku kroz http odgovor   postavljanjem trenutnog datuma kao markera za    enkriptovanje	2
+PHP	45	45_addOption	kako obeleziti polje za potvrdu	Dodaje novu opciju u polje za potvrdu uz proveru   da li treba da bude obelezeno i stavlja ga u niz	2
+PHP	45	45_checkboxList	kako obeleziti polje za potvrdu	Na osnovu jednog obelezenog polja za potvrdu   za odredjene opcije postavlja i pravi novo polje   za potvrdu u okviru iste forme	2
+PHP	45	45_getCheckboxRule	kako obeleziti polje za potvrdu	Dohvata obelezno polje za potvrdu i poruku smesta u niz   uz dodatnu proveru u zavisnosti od opcije	2
+PHP	45	45_inlineRadio	kako obeleziti polje za potvrdu	Pravi dugme za odabir jedne opcije sa datom labelom   i prosledjenim vrednostima opcija za biranje	0
+PHP	45	45_option_checkbox	kako obeleziti polje za potvrdu	Za prosledjeni naziv textove za prikaz i poruke   pravi odgovarajuce obelezeno polje za potvrdu	2
+PHP	45	45_render_field	kako obeleziti polje za potvrdu	Pravi polje za potvrdu od prosledjenih    argumenata i prikazuje ga	2
+PHP	46	46_dumpAndPrintArray	inicijalizacija niza	Inicijalizacija niza datim vrednostima ispisuje   ih na izlaz i na kraju vraca niz kao povratnu vrednost	3
+PHP	46	46_getPerimeterFunction	inicijalizacija niza	Funkcija getPerimeterFunction vraca perimetar za trazeno   stanje u odnosu na mxConstants	0
+PHP	46	46_initAndValidateArray	inicijalizacija niza	Pravljenje i inicijalizacija niza nasumicnim vrednostima   i provera tih vrednosti za prosledjeni parametar i ispis	2
+PHP	46	46_initArrayInRange	inicijalizacija niza	Inicijalizacija niza izmedju minimalne i maksimalne   vrednosti indkesa kao priprema za sortiranje   i ispisivanje na izlaz	2
+PHP	46	46_initContinents	inicijalizacija niza	Popunjavanje i inicijalizacija niza dohvacenim objektima kontinenata   koji ce biti korisceni za prikaz mape	2
+PHP	46	46_selectCountries	inicijalizacija niza	Inicijalizacija niza zemljama pod uslovom da imaju ocenu iznad trazene   a zatim im se dodaje filter za dalju statisticku obradu	2
+PHP	47	47_bubbleSort	kako obrnuti redosled u stringu	Sortiranje prosledjenog niza koriscenjem bubble sorta    i ispis niza na izlaz	0
+PHP	47	47_filterList	kako obrnuti redosled u stringu	Filtrira elemente liste kroz prosledjenu funkciju   koriscenjem obrtanja redosleda stringa i iteratora	2
+PHP	47	47_getReversedString	kako obrnuti redosled u stringu	Ispisuje obnuti redosled slova prosledjenog   stringa i baca izuzetak ako prosledjen parametar   nije string	2
+PHP	47	47_reverseHalved	kako obrnuti redosled u stringu	Vraca obrnuti redosled stringa njegovim polovljenjem   i obrtanjem elemenata obe polovine	2
+PHP	47	47_reverseStrFromArr	kako obrnuti redosled u stringu	Odredjuje obrnuti redosled slova u stringu njegovim   razlaganjem na reci u niz a zatim obrtanjem tog niza	3
+PHP	47	47_reverseString	kako obrnuti redosled u stringu	Ova funkcija vrsi obrtanje redosleda slova u stringu   iterativnom metodom	3
+PHP	48	48_configure_environment	citaj fajl atributa	Podesava okruzenje za testiranje   Radi sledece      Ucitava phpunit framework   Obnavlja izuzetak za obradjivace gresaka   Prijavljuje automatski ucitavac za testne fajlove	0
+PHP	48	48_doFetchAll	citaj fajl atributa	Cita verzije i atribute sacuvanog fajla   uz osnovne validacione provere	2
+PHP	48	48_get_default_thresholds	citaj fajl atributa	Cita podrazumevane granicne vrednosti koristeci fajlove atributa   Daje prednost nizovima sa ovim vrednostima u odnosu na   groupedthreshold i singlestepthreshold	2
+PHP	48	48_outputProperties	citaj fajl atributa	Ispisuje sve informacije u predefinisani html fajl    vezane za fajl atributa u vreme pokretanja	2
+PHP	48	48_parse_properties	citaj fajl atributa	Ova funkcija parsira fajl atributa i moze se koristiti za    kreiranje php klase atributa   Treablo bi da ima isto ponasanje kao odgovarajuce funkcije u javi   i moze da obradjuje znake navoda i kose crte za nove redove	2
+PHP	48	48_selectPropertiesToDocument	citaj fajl atributa	Citaj fajl sa atributima i prepisivanje u podrazumevani dokument   uz dodatne potrebne obrade i formatiranja	2
+PHP	49	49_clipboardCopy	kopiraj u clipboard	Kopira sacuvan sadrzaj i pravi imitaciju   kopije clipboard od namenski kreiranog fajla	2
+PHP	49	49_getCacheData	kopiraj u clipboard	Kopira kesiran sadrzaj u fajl i formatira   u predefinisan oblik   Moze se koristiti kao clipboard	2
+PHP	49	49_getSystemClipboardInfo	kopiraj u clipboard	Dohvata i kopira sadrzaj sistemskog fajla u    niz koji obradjuje i vraca kao povratnu vrednost	0
+PHP	49	49_getSystemMemContent	kopiraj u clipboard	Usluzna funkcija koja dohvata preusmerava i kopira clipboard sadrzaj    zeljene sistemske memorije u fajl koji vraca korisniku	1
+PHP	49	49_rcopy	kopiraj u clipboard	Kopira sadrzaj iz prvog toka u drugi uz odgovarajuce provere   a ako se kopira u clipboard dohvati zaglavlje za dohvatanje iz   izvornog toka	2
+PHP	49	49_sendUpdate	kopiraj u clipboard	Slanje informativnog mejla krajnjem korisniku za dobijenom   identifikacijom i zeljenom porukom   Korisnik mora vec postojati u bazi	0
+PHP	50	50_convertIfExists	konvertuj html u pdf	Ako postoji definisana konverzija konvertuj   pretrazi i generisi u prosledjen tip   za zadati html	2
+PHP	50	50_generateColumn	konvertuj html u pdf	Generise objekat kolone na osnovu tipa kolone i konvertuje u pdf	2
+PHP	50	50_getDefaultValues	konvertuj html u pdf	Dohvati vrednosti koje ce se koristiti   kao podrazumevane ulazne vrednosti i konvertuje u pdf	2
+PHP	50	50_getPDFFromHtml	konvertuj html u pdf	Konvretuj html u pdf ako je definisan za datu   kolonu	3
+PHP	50	50_prepareDataForPDF	konvertuj html u pdf	Pripremi tabele i podatke za generisanje pdf   u zavisnosti od definisanih parametara i konvertuje u pdf	2
+PHP	51	51__constructXML	json u xml konverzija	Generise xml fajl u zavisnosti od prosledjenih opcija	1
+PHP	51	51__convertJSONtoXML	json u xml konverzija	Generise konverzija json u xml fajl u zavisnosti od prosledjenih opcija   nekom konkretnom elementu	3
+PHP	51	51_concurentJsonToXmlConv	json u xml konverzija	Vrsi proveru validnosti ulaznog json fajla   i uz konverziju ga ispisuje u prosledjeni xml   uz podrzavanje konkurentnog izvrsavanja	2
+PHP	51	51_formatAndConvert	json u xml konverzija	Pravi novi xml dokument u koji upisuje sadrzaj konvertovanog   json objekta nakon unapred definisanog formatiranja	2
+PHP	51	51_wdtListAllTables	json u xml konverzija	Izlistaj sve tabele u json formatu   za trenutnog korisnika koji ima prava za izmene	0
+PHP	51	51_wdtShowChartFromData	json u xml konverzija	Izgenerisi i prikazi grafike tj chartove iz dostupnih podataka   u zavisnosti od zahtevanog chart tipa	0
+PHP	52	52_generateRandomString	kako izabrati nasumican broj	Generisanje nasumicnog stringa za neku zadatu duzinu	1
+PHP	52	52_getColumnHeaderOffset	kako izabrati nasumican broj	Dohvata potrebna zaglavlja kolona sa njihovim   pomerajima za genericko kreiranje upita	0
+PHP	52	52_getRandomElementFromArray	kako izabrati nasumican broj	Izaberi nasumican element iz zadatog niza	1
+PHP	52	52_getRandomNumber	kako izabrati nasumican broj	Ova funkcija vraca nasumican broj u opsegu   min i max prosledjenih parametara	3
+PHP	52	52_get_new_salts	kako izabrati nasumican broj	Kreira nove salt vrednosti za generisanje kljuceva   zasnovane na tako sto izabere sekvence nasumicnih brojeva    i slova	2
+PHP	52	52_groupByColumn	kako izabrati nasumican broj	Sortiraj i grupisi raspored i elemente kolona   na osnovu zadatog kljuca elementa za grupisanje	0
+PHP	52	52_intCodeRandom	kako izabrati nasumican broj	Dohvati nasumican broj izmedju minimalne i maksimalne vrednosti   za zadati broj cifara	2
+PHP	53	53_buildGraphNode	normalna raspodela	Pravi cvor za dodavanje u graf za ispis    i iscrtavanje zeljene raspodele    Moguce je proslediti i modifikovati postojeci   ako je podrzan	1
+PHP	53	53_createGaussGraph	normalna raspodela	Formira i vraca graf za normalnu gausovu raspodelu   po unapred postavljenim parametrima	2
+PHP	53	53_find_youtube_link	normalna raspodela	Pronalazi link ka nekom video snimku na youtube    sajtu za prosledjeni identifikator postavljenog   sadrzaja	0
+PHP	53	53_getAllActiveVideos	normalna raspodela	Dohvata sve video sadrzaje prema godini   ispita tako sto kreira upit za dohvatanje podataka   iz same baze	0
+PHP	53	53_getGaussData	normalna raspodela	Ispisuje Gausovu normalnu raspodelu za prosledjene parametre   za odeljenje skolu godinu i nastavnika	2
+PHP	53	53_normal	normalna raspodela	Izracunava normalnu raspodelu za prosledjene parametre   po predefinisanoj formuli	3
+PHP	53	53_normsdist	normalna raspodela	Racunanje kumulativne normalne raspodele   za vrednost ulaznog parametra	3
+PHP	54	54_doUnrar	nelder mead optimizacija	Nakon obrade direktorijuma i putanje otpakovace fajl   ako je upis dozvoljen na lokaciji uz ispis gresaka po   potrebi	0
+PHP	54	54_estimateQueueOpt	nelder mead optimizacija	Veci broj elemenata ce biti optimizovan nelder mead   algoritmom ako ih je trenutno manje od K koeficijenta   uredjenosti niza koji se osvezava pri svakom   dodavanju i brisanju iz reda	3
+PHP	54	54_extract	nelder mead optimizacija	Ukoliko je dozvoljen upis na trazenu lokaciju pravi   novi direktorijum i vrsi otpakivanje prosledjenog fajla   uz dodatno formatiranje i obradu greske	0
+PHP	54	54_optimizeAndCount	nelder mead optimizacija	Vraca broj elemenata u redu i vrsi optimizaciju   nelder mead algoritmom ako vec nije optimizovan   i u zavisnosti od prioriteta	2
+PHP	54	54_optimizeNelder	nelder mead optimizacija	Vrsi optimizaciju nelder mead metodom   za odredjeni koeficijent manji od standardnog	2
+PHP	54	54_optimizeQueueNelderMethod	nelder mead optimizacija	Vrsi optimizaciju niza za cuvanje i prosledjivanje    takskova za obradu zadataka Nelder mead metodom	2
+PHP	54	54_queueSystemOptimization	nelder mead optimizacija	Vrsi poredjenje neuredjenog reda za cekanje i    reda sa optimizacijom Nelder Mead algoritmom i ispisuje   rezultate	2
+PHP	55	55_classImplCmprInterface	hes set za brojanje jedinstvenih elemenata	Koriscenjem hes seta izdvaja samo jedinstvene    interfejse koji su u listi i ispituje da li je   sadrzan trazeni interfejs	2
+PHP	55	55_classSet	hes set za brojanje jedinstvenih elemenata	Dohvata skup klasa koje se koriste u ovom interfejsu   koristeci hes set za dohvatanje jedinstvenih elemenata	2
+PHP	55	55_countDistinct	hes set za brojanje jedinstvenih elemenata	Stampa i pronalazi broj jedinstvenih elemenata u zadatom   nizu zadate duzine	1
+PHP	55	55_count_items	hes set za brojanje jedinstvenih elemenata	Broji ukupan broj elemenata uz zadati   podupit sa odredjenim uslovima	0
+PHP	55	55_count_unique_items	hes set za brojanje jedinstvenih elemenata	Izracunava ukupan broj jedinstvenih elemenata uz zadati   podupit sa odredjenim uslovima	1
+PHP	55	55_get_class	hes set za brojanje jedinstvenih elemenata	Vraca string koji zadrzi atribut html klase	0
+PHP	55	55_get_separator	hes set za brojanje jedinstvenih elemenata	Pronalazi separator koji odgovara primenjenom filteru	2
+PHP	56	56_deleteIndexable	kako dohvatiti ime tabele u bazi podataka	Brise sve SEO linkove za neki indexirani objekat	0
+PHP	56	56_extractTableNamesToArray	kako dohvatiti ime tabele u bazi podataka	Pretrazuje i dohvata imena svih kolona u    tabeli u bazi podataka	2
+PHP	56	56_fetchFields	kako dohvatiti ime tabele u bazi podataka	Vraca niz objekata koji predstavljaju polja u skupu rezultata   a zatim a zatim dohvata ime tabele i ispisuje	2
+PHP	56	56_getColumnList	kako dohvatiti ime tabele u bazi podataka	Dohvatiti nazive kolona tabele sa datim imenom iz baze podataka	2
+PHP	56	56_get_table_name	kako dohvatiti ime tabele u bazi podataka	Pronalazi i dohvata ime tabele u bazi podataka iz konkretnog    upita nad tom bazom	3
+PHP	56	56_printTableName	kako dohvatiti ime tabele u bazi podataka	Ispisuje imena svih tabela u bazi podataka	2
+PHP	57	57_createFromJson	deserijalizuj json	Kreira JSON objekat od prosledjenog u zavisnosti od   tipa prosledjenog objekta	1
+PHP	57	57_deserializeArray	deserijalizuj json	Deserijalizuje JSON niz objekata	3
+PHP	57	57_deserializeJsonToClass	deserijalizuj json	Konvertuje jedan JSON objekat u instancu klase   radi i sa nizovima	0
+PHP	57	57_deserialize	deserijalizuj json	Deserijalizuje JSON objekat	3
+PHP	57	57_jsonUnserialize	deserijalizuj json	Kreira json objekat od deserijalivanog stringa   objekata klase Person	2
+PHP	57	57_printJSVars	deserijalizuj json	Metoda pomocne klase za prebacivanje PHP    promenljivih u JS promenljive	0
+PHP	58	58_absoluteCoordinate	prona?i int u stringu	Napravi apsolutne koordinate od zadatog stringa	0
+PHP	58	58_countDigits	prona?i int u stringu	Ispisuje int brojeva pronadjenih u zadatom stringu	3
+PHP	58	58_extractNumFromStr	prona?i int u stringu	Pronaci int broj u okviru zadatog stringa   i vraca ga kao povratnu vrednost	2
+PHP	58	58_extract_numbers	prona?i int u stringu	Pronaci poklapanje jednog int broja unutar datog stringa	2
+PHP	58	58_getAllNumsFromStr	prona?i int u stringu	Pronalazi sve int brojeve u zadatom stringu   i vraca niz pronadjenih brojeva	2
+PHP	58	58_is_numeric	prona?i int u stringu	Ispituje da li je zadati string broj i   ispisuje ga sa na standardni izlaz	0
+PHP	59	59_findProcessByPid	dohvati id trenutnog procesa	Pronadji proces za zadati ID procesa	3
+PHP	59	59_isLocked	dohvati id trenutnog procesa	Proveravanje da li je resurs zakljucan za trenutni proces	1
+PHP	59	59_printAllProc	dohvati id trenutnog procesa	Ispisuje PID i COMMAND svih pokrenutih procesa	0
+PHP	59	59_set_pagination	dohvati id trenutnog procesa	Postavljanje paginacije     Ukupan broj prikazanih elemenata je jednak onim koji se prikazuju	0
+PHP	59	59_tryLock	dohvati id trenutnog procesa	Pokusaj da zauzmes resurs za trenutni proces preko id   ukoliko je slobodan	2
+PHP	59	59_writeToFile	dohvati id trenutnog procesa	Vrsi upis u fajl u zadatom direktorijumu   ako fajl postoji i otvoren je za trenutni proces	1
+PHP	60	60_allWordsMatched	regularni izraz bez razlike velicine slova	Ispituje da li su sve trazene reci nadjene u prosledjenom stringu   sa regularnim izrazom	2
+PHP	60	60_cleanSqlCommands	regularni izraz bez razlike velicine slova	Pronalazi pojavljivanja kljucnih reci u upitu    bez obzira na velicinu slova i dodaje potrebne karaktere   na upit	1
+PHP	60	60_fetchAllMovies	regularni izraz bez razlike velicine slova	Pretrazuje sve fajlove i vraca listu filmova	0
+PHP	60	60_generateColumn	regularni izraz bez razlike velicine slova	Proverava sa regularnim izrazom slova na ulazu	3
+PHP	60	60_removerSQLInjection	regularni izraz bez razlike velicine slova	Uklanja potencijalne kljucne reci iz upita   koristeci regularni izraz nezavisno od velicine slova	2
+PHP	60	60_replaceFileExtIfExists	regularni izraz bez razlike velicine slova	Pronalazi pojavljivanja prosledjenog string parametra    bez uticaja velicine slova i zamenjuje ekstenziju odgovarajuceg fajla	2
+PHP	61	61_ErrorHandler	proizvoljan http odgovor za greske	Obrada svih gresaka bacenih u kodu koje ne koriste struktuiranu   obradu gresaka	0
+PHP	61	61_catchExceptions	proizvoljan http odgovor za greske	Hvatanje izuzetaka uz generisanje proizvoljne poruke    da bude prikazana u http odgovoru	2
+PHP	61	61_checkMandatoryFields	proizvoljan http odgovor za greske	Proverava da li su uneta obavezna polja i ukoliko nisu   baca odgovarajuci izuzetak	0
+PHP	61	61_draw	proizvoljan http odgovor za greske	Obrada uopstene greske sa serverske strane i prikaz   proizvoljne poruke prosledjene u http odgovoru	2
+PHP	61	61_formatException	proizvoljan http odgovor za greske	Funkcija koja formatira http odgovor u proizvoljan format	2
+PHP	61	61_generateErrorForException	proizvoljan http odgovor za greske	Generisanje formata http odgovora na gresku za odgovarajuci   izuzetak koji je bacen	2
+PHP	61	61_renderBody	proizvoljan http odgovor za greske	Formatiranje i prikaz tela http odgovora i prilagodjavanje   proizvoljne poruke	3
+PHP	62	62_assertWord	kako odrediti da je string validna rec	Odredjuje da je prosledjeni string validno ime   odnosno rec	2
+PHP	62	62_count_words	kako odrediti da je string validna rec	Za prosledjeni string proverava validnost   reci i prebrojava ih	2
+PHP	62	62_get_ignored_words	kako odrediti da je string validna rec	Pronadji sve ignorisane reci u prosledjenom stringu	0
+PHP	62	62_isNiceString	kako odrediti da je string validna rec	Odredjuje da je string lepo uredjen po odredjenim pravilima      Ako se sastoji od para bilo koja dva slova koja se pojavljuju dva puta u stringu   bez preklapanja i ako sadrzi barem jedno slovo koje se ponovo pojavljuje tacno    sa jednim slovom pauze	1
+PHP	62	62_sanitizeString	kako odrediti da je string validna rec	Za prosledjeni tip i vrednost reformatira i normalizuje   fajl i odseca string odredjenog sadrzaja	0
+PHP	62	62_validateWord	kako odrediti da je string validna rec	Proveri da se zadati string nalazi u fajlu i    validiraj ga kao rec	2
+PHP	63	63_checkPermission	html zamena entiteta	Proverava da li je pristup omogucen za trenutni zahtev   i vraca odgovarajuci odgovor	0
+PHP	63	63_convertToEdit	html zamena entiteta	Vrsi se zamena html entita sa postojecim id i prikazuje   ga u edit polje i menja mu vrednost   zatim konvertuje u json	2
+PHP	63	63_entityToHtmlString	html zamena entiteta	Parsira se i vrsi zamena html entiteta u string koji   predstavlja html element	3
+PHP	63	63_getHtmlLabel	html zamena entiteta	Vraca HTML string labele za prosledjeni HTML entitet	1
+PHP	63	63_replaceTitle	html zamena entiteta	Vrsi zamenu naslova prosledjenog HTML entiteta   novim naslovom koji je prosledjen	3
+PHP	63	63_swapHtmlEntities	html zamena entiteta	Vrsi zamenu prosledjenih HTML entiteta   i dodaje novi prosledjeni atrubut a zatim vraca html element	3
+PHP	64	64_eF_getDirContents	postavi skriveni atribut fajla	"Ova funkcija prima naziv direktorijuma i pravi niz u kojima su   apsolutne putanje do fajla u njemu, rekurzivno  U zavisnosti od ostalih   parametara razlicite vrenosti su postavljene kao i u zavisnosti od   postavljenih atributa fajla"	2
+PHP	64	64_get_site_language_name	postavi skriveni atribut fajla	Vraca puno ime sajta za izlistani i   preselektovani jezik na kom se prikazuje	0
+PHP	64	64_readAccounts	postavi skriveni atribut fajla	Cita sadrzaje naloga u zavisnosti od sadrzaja fajla   i postavljenih atributa za tekuci fajl	2
+PHP	64	64_setAttrHidden	postavi skriveni atribut fajla	Za odredjene akcije nad fajlom se postavljaju prosledjeni   atributi kao i niz vrednosti skrivenih atributa svih fajlova   u tekucem fajlu	2
+PHP	64	64_setFileAttr	postavi skriveni atribut fajla	Za prosledjenu putanju do fajla se postavljaju   zeljeni skriveni atributi uz dodatne obrade i provere	2
+PHP	64	64_updateFilePermissions	postavi skriveni atribut fajla	Za prosledjenu putanju menjaju se atributi   i permisije za operacije nad datim fajlom   po potrebi i hijerarhijske nizim	0
+PHP	65	65_array_sort_by_column	sortiraj više nizova na osnovu sortiranja drugih nizova	Sortira prosledjeni niz u zavisnosti od zadatog vrednosti    kolone drugog niza i prosledjenog parametra direction	2
+PHP	65	65_check	sortiraj više nizova na osnovu sortiranja drugih nizova	Vrsi proveru da li su pripremljeni podaci u redu za konkretan   fiskalni isecak	2
+PHP	65	65_getHTMLFormatted	sortiraj više nizova na osnovu sortiranja drugih nizova	Default HTML formatting implementation for error messages   Podrazumevano formatiranje html dokumenta za poruke greske   u zavisnosti od setovanih atributa u nizu config	0
+PHP	65	65_getSortedArray	sortiraj više nizova na osnovu sortiranja drugih nizova	Sortiranje niza u zavisnosti od dva konfiguraciona niza   filtera i niza u kom je definisan redosled sortiranja	3
+PHP	65	65_setSort	sortiraj više nizova na osnovu sortiranja drugih nizova	Ako je prosledjeni parametar niz onda vrsi sortiranje   po uzoru na vrednosti drugih nizova	2
+PHP	65	65_showSinglestat	sortiraj više nizova na osnovu sortiranja drugih nizova	Proverava stanje konekcije i kolikom brzinom se moze   izvrsiti neka operacija za prosldjenu metriku	0
+PHP	65	65_sortModels	sortiraj više nizova na osnovu sortiranja drugih nizova	Sortira niz modela podataka u zavisnosti od prosledjenog sort   niz parametra	2
+PHP	66	66_correct_word	levestajn slicnost stringova	Pretraga recnika na slicnost date reci   koristeci levestajn algoritam za slicnost stringova	3
+PHP	66	66_findClosest1	levestajn slicnost stringova	Pronalazenje broja iz datog niza u odnosu na prosledjen broj   koristeci levestajn algoritam za slicnost stringova	2
+PHP	66	66_getParamByName	levestajn slicnost stringova	Nalazi slicnost datog stringa naziva sa vrednoscu iz   niza koristeci levestajn algoritam	3
+PHP	66	66_handlePageNotFoundError	levestajn slicnost stringova	handler for 404 page not found error   Obrada greske 404 stranica nije pronadjena   izracunavanje slicnosti url po levestajn algoritmu slicnosti   stringova	2
+PHP	66	66_match	levestajn slicnost stringova	Pronalazi string najblizi po levestajn racunanju    rastojanja za dati ulazni string	2
+PHP	66	66_printCaption	levestajn slicnost stringova	Vrsi prikaz naslova na ekranu    za predefinisane parametre algoritma	0
+PHP	67	67_addSortStringForQuery	kako dohvatiti html vebsajta	Proverava da je sortString dobro formatiran i dodaje uslov   za sortiranje definisano u query   Vraca i poruku http strani o nekorektnom formatu za sortiranje stringova	0
+PHP	67	67_download_playlist	kako dohvatiti html vebsajta	Preuzimanje liste pesama na osnovu dohvacenog   htmla  linka pomocu id dobijenog kao ulaznog parametra	1
+PHP	67	67_fetch_data_from_html	kako dohvatiti html vebsajta	Na osnovu datog urla dohvata html vebsajta i na   osnovu dobijenih podataka kreira DOM	3
+PHP	67	67_get_conversation	kako dohvatiti html vebsajta	Ova funkcija dohvata format konverzacije na osnovu   dohvacene html strane vebsajta	3
+PHP	67	67_get_members	kako dohvatiti html vebsajta	Dohvata html vebsajta za dati url i generise   dom svih dobijenih elemenata	2
+PHP	67	67_parse_event_html	kako dohvatiti html vebsajta	Priprema Javascript dogadjaj za obradu na osnovu   dohvatanja html sadrzaja vebsajta dogadjaja	2
+PHP	68	68_getEvents	fajl citac sa baferom cita tekst	Dohvata dogadjaje sa poslednjim datumom    tako sto cita podatke iz fajla pomocu fajl citaca	2
+PHP	68	68_getPhingVersion	fajl citac sa baferom cita tekst	Dohvata verziju phing biblioteke pomocu fajl citaca   sa baferom	2
+PHP	68	68_loadFromStream	fajl citac sa baferom cita tekst	Cita podatke iz fajla pomocu fajl citaca    sa baferom stringova   Putanja do fajla moze biti relativna	2
+PHP	68	68_parseFileWithBuffering	fajl citac sa baferom cita tekst	Kreira ExpatParser   Postavlja koreni obradjivac i pocinje sa procesom citanja teksta   koriscenjem fajl citaca sa bufferom	2
+PHP	68	68_parseFile	fajl citac sa baferom cita tekst	Tekstualna obrada fajla koriscenjem fajl citaca    bez bafera uz obradu izuzetaka	1
+PHP	69	69_create	enkriptovanje aes ctr mod	Vraca jedinstveni objekat baze podataka	0
+PHP	69	69_encrypt	enkriptovanje aes ctr mod	Enkriptovanje stringa aes ctr algoritmom	3
+PHP	69	69_findLCA	enkriptovanje aes ctr mod	Funkcija pronalazi najranijeg zajednickog pretka dva cvora   u stablu	0
+PHP	69	69_generateUserAccessToken	enkriptovanje aes ctr mod	Kreiranje tokena za pristup enkriptovanog aes ctr   algoritmom	3
+PHP	69	69_sendResetPasswordEmail	enkriptovanje aes ctr mod	Slanje mejla za resetovanje lozinke   Lozinka je enkriptovana aes ctr algoritmom	2
+PHP	69	69_send	enkriptovanje aes ctr mod	Sigurnosna enkripcija i slanje male kolicine podataka    funkciji za dekodovanje i preuzimanje koristeci    enkriptovanje aes ctr algoritmom	2
+PHP	69	69_validateAccessTokenInner	enkriptovanje aes ctr mod	Interno validiranje tokena za pristup   koriscenjem aes ctr algoritma za enkriptovanje	2
+PHP	70	70_M_mult	mnozenje matrica	Funkcija izvrsava mnozenje prosledjenih matrica A i B   Vraca rezultat mnozenja kao matricu oblika AB	3
+PHP	70	70_mpMatrix	mnozenje matrica	Mnozenje matrica      Ova funkcija ce izvrsiti mnozenje trenutne matrice sa prosledjenom matricom   Ako trenutnu matricu obelezimo sa A a dobijenu sa B onda ce proizvod biti AB	3
+PHP	70	70_mpScalar	mnozenje matrica	Mnozenje trenutne matrice skalarom      Mnozenje matrice skalarom intfloatetc constant npr 2	2
+PHP	70	70_multiply	mnozenje matrica	Mnozenje matrice predefinisanom matricom	3
+PHP	70	70_outerProduct	mnozenje matrica	Konstrukcija matrice mnozenjem dva vektora   od kojih je jedan predefinisan a drugi dobijen   kao parametar	2
+PHP	70	70_readExcel	mnozenje matrica	Adapter za PHPExcel   Citanje excel fajla od pocetka do kraja definisanih   kolona i prebacivanje u php format excela	0

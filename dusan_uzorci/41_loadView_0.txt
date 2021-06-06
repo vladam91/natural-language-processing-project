@@ -1,0 +1,16 @@
+/**
+ * Ucitavanje prikaza za odgovarajucu prosledjenu rutu
+ * u zavisnosti od prethodne akcije  
+ *
+ * @param string $route
+ */
+
+function loadView($route)
+{
+     $layout = 'default';
+     if (isset($route->action['Layout'])) {
+         $layout = $route->action['Layout'];
+     }
+     $view = new View();
+     $view->load($route->action['View'], $layout);
+}

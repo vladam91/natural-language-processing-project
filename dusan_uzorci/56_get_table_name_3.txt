@@ -1,0 +1,63 @@
+/**
+ * Pronalazi i dohvata ime tabele u bazi podataka iz konkretnog 
+ * upita nad tom bazom
+ *
+ */
+
+function get_table_name($query) {
+
+    $query = trim(str_replace(PHP_EOL, ' ', $query));
+
+    $table = '';
+
+    if(strtolower(substr($query, 0, 12)) == 'create table') {
+        $start = stripos($query, 'CREATE TABLE') + 12;
+        $end = strpos($query, '(');
+        $length = $end - $start;
+        $table = substr($query, $start, $length);
+    }
+    elseif(strtolower(substr($query, 0, 6)) == 'update') {
+        $end = stripos($query, 'SET');
+        $table = substr($query, 6, $end);
+    }
+    elseif(strtolower(substr($query, 0, 11)) == 'alter table') {
+        $parts = explode(' ', $query);
+        $table = $parts[2];
+    }
+    elseif(strtolower(substr($query, 0, 11)) == 'insert into') {
+        $parts = explode(' ', $query);
+        $table = $parts[2];
+    }
+    elseif(strtolower(substr($query, 0, 12)) == 'create index') {
+        $parts = explode(' ', $query);
+        $table = $parts[4];
+    }
+    elseif(strtolower(substr($query, 0, 6)) == 'select') {
+        $parts = explode(' ', $query);
+        foreach($parts as $i => $part) {
+            if(trim(strtolower($part)) == 'from') {
+                $table = $parts[$i + 1];
+                break;
+            }
+        }
+    }
+    elseif(strtolower(substr($query, 0, 29)) == 'create unique clustered index') {
+        $parts = explode(' ', $query);
+        $table = $parts[6];
+    }
+    elseif(strtolower(substr($query, 0, 22)) == 'create clustered index') {
+        $parts = explode(' ', $query);
+        $table = $parts[5];
+    }
+    elseif(strtolower(substr($query, 0, 15)) == 'exec sp_columns') {
+        $parts = explode(' ', $query);
+        $table = str_replace("'", '', $parts[2]);
+    }
+    elseif(strtolower(substr($query, 0, 11)) == 'delete from') {
+        $parts = explode(' ', $query);
+        $table = str_replace("'", '', $parts[2]);
+    }
+
+    return trim(str_replace(['`', '[', ']'], ['', '', ''], $table));
+
+}

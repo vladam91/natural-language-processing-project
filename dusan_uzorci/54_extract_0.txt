@@ -1,0 +1,25 @@
+/**
+ * Ukoliko je dozvoljen upis na trazenu lokaciju pravi
+ * novi direktorijum i vrsi otpakivanje prosledjenog fajla
+ * uz dodatno formatiranje i obradu greske
+ *
+ * @param string $file
+ * @param string $target
+ * @param $format
+ * @return bool
+ */
+
+public function extract($file, $target, Format\FormatInterface $format)
+{
+     $this->checkSupport($format);
+     $rar = @\RarArchive::open($file);
+     if (false === $rar) {
+         throw new FileCorruptedException($file, FileCorruptedException::SEVERITY_HIGH);
+     }
+     $this->getFilesystem()->mkdir($target);
+     foreach ($rar->getEntries() as $entry) {
+         $entry->extract($target);
+     }
+     $rar->close();
+     return true;
+}

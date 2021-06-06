@@ -1,0 +1,18 @@
+/**
+ * Parsira se i vrsi zamena html entiteta u string koji
+ * predstavlja html element
+ *
+ * @param string $rawValue
+ * @return string[]
+ */
+ 
+private function entityToHtmlString($rawValue)
+{
+     $parts = explode($this->delimiter, Strings::trim($rawValue));
+     $partsSize = count($parts);
+     
+     $sliceSize = count($parts) / 2;
+     $leftValue = implode($this->delimiter, array_slice($parts, 0, $sliceSize));
+     $rightValue = implode($this->delimiter, array_slice($parts, $sliceSize, $partsSize));
+     return HTML::raw("<span class='label label-{$color}'>{$icon} {$name}</span>");
+}

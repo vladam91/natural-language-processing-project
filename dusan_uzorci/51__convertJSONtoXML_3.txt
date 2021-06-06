@@ -1,0 +1,20 @@
+/**
+ * Generise konverzija json u xml fajl u zavisnosti od prosledjenih opcija
+ * nekom konkretnom elementu
+ *
+ * @param $xmlReader
+ * @param $options trenutne opcije za izmenu
+ */
+
+public function __convertJSONtoXML($xmlReader, $options)
+{
+    $this->xmlReader = $xmlReader;
+    $this->shouldPreserveEmptyRows = $options->shouldPreserveEmptyRows();
+    $this->cellValueFormatter = new CellValueFormatter($options->shouldFormatDates());
+
+    // Register all callbacks to process different nodes when reading the XML file
+    $this->xmlProcessor = new XMLProcessor($this->xmlReader);
+    $this->xmlProcessor->registerCallback(self::XML_NODE_ROW, XMLProcessor::NODE_TYPE_START, [$this, 'processRowStartingNode']);
+    $this->xmlProcessor->registerCallback(self::XML_NODE_CELL, XMLProcessor::NODE_TYPE_START, [$this, 'processCellStartingNode']);
+    $this->xmlProcessor->registerCallback(self::XML_NODE_ROW, XMLProcessor::NODE_TYPE_END, [$this, 'processRowEndingNode']);
+}

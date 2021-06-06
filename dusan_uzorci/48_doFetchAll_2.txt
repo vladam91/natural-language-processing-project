@@ -1,0 +1,24 @@
+/**
+ * Cita verzije i atribute sacuvanog fajla
+ * uz osnovne validacione provere
+ *
+ * @return VersionInterface[]
+ */
+
+protected function doFetchAll()
+{
+    $contents = $this->file->read();
+    $lines = explode("\n", $contents);
+    $collection = new Migrated();
+    foreach ($lines as $line) {
+      $line = trim($line);
+       if (!empty($line)) {
+            // skip empty lines
+            $version = new Version($line);
+            $version->setMigrated(true);
+            // if its in storage its because it has been migrated
+            $collection->add($version);
+        }
+    }
+    return $collection;
+}

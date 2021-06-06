@@ -1,0 +1,36 @@
+/**
+ * Sortiranje niza u zavisnosti od dva konfiguraciona niza
+ * filtera i niza u kom je definisan redosled sortiranja
+ *
+ * @param $siteId
+ * @param array $arFilter Niz po kom se filtrira
+ * @param array $arOrder Niz redosleda sortiranja
+ * @return $arResult array Sortiran i filtriran html
+ */
+
+public static function getSortedArray($siteId, $arFilter = array(), $arOrder = array())
+{
+     if (empty($siteId)) {
+         throw new ArgumentNullException("siteId");
+     }
+     $arUrlRewrite = static::loadRules($siteId);
+     $arResult = array();
+     $arResultKeys = self::filterRules($arUrlRewrite, $arFilter);
+     foreach ($arResultKeys as $key) {
+         $arResult[] = $arUrlRewrite[$key];
+     }
+     if (!empty($arOrder) && !empty($arResult)) {
+         $arOrderKeys = array_keys($arOrder);
+         $orderBy = array_shift($arOrderKeys);
+         $orderDir = $arOrder[$orderBy];
+         $orderBy = strtoupper($orderBy);
+         $orderDir = strtoupper($orderDir);
+         $orderDir = $orderDir == "DESC" ? SORT_DESC : SORT_ASC;
+         $ar = array();
+         foreach ($arResult as $key => $row) {
+             $ar[$key] = $row[$orderBy];
+         }
+         array_multisort($ar, $orderDir, $arResult);
+     }
+     return $arResult;
+}

@@ -1,0 +1,17 @@
+/**
+ * Ako je odgovarajuci uslov ispunjen za proces za
+ * dobijeni id onda ce ukloniti elemente niza vezanog
+ * za taj proces 
+ *
+ * @param int @id
+ */
+
+public function remove($id)
+{
+     $id = $this->_processId($id);
+     $ret = true;
+     if (php_sapi_name() == 'cli') {
+         $ret = Kwf_Util_Apc::callClearCacheByCli(array('cacheIds' => $id));
+     }
+     return $ret && apcu_delete($id);
+}

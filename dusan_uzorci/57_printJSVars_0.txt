@@ -1,0 +1,17 @@
+/**
+ * Metoda pomocne klase za prebacivanje PHP 
+ * promenljivih u JS promenljive
+ *
+ */
+
+public static function printJSVars()
+{
+    if (!empty(self::$jsVars)) {
+        $jsBlock = '<script type="text/javascript">';
+        foreach (self::$jsVars as $varName => $jsVar) {
+            $jsBlock .= "var {$varName} = " . json_encode($jsVar) . ";";
+        }
+        $jsBlock .= '</script>';
+        echo $jsBlock;
+    }
+}

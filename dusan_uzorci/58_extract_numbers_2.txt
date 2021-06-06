@@ -1,0 +1,13 @@
+/**
+ *  
+ * Pronaci poklapanje jednog int broja unutar datog stringa
+ *
+ * @param $string
+ */
+
+function extract_numbers($string)
+{
+   preg_match_all('/([\d]+)/', $string, $match);
+
+   return $match[0];
+}

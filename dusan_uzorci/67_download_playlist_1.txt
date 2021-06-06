@@ -1,0 +1,20 @@
+/**
+ * Preuzimanje liste pesama na osnovu dohvacenog
+ * htmla  linka pomocu id dobijenog kao ulaznog parametra
+ *
+ * @param  array $tracks - niz identifikatora pesama
+ * @return void
+ */
+
+function download_playlist($tracks)
+{
+    foreach ($tracks as $id) {
+        if (!is_integer($id)) {
+            continue;
+        }
+        $data = get_html('http://youtube.com/watch?v=' . $id);
+        if ($data != '') {
+             $this->download_track($data);
+        }
+    }
+}

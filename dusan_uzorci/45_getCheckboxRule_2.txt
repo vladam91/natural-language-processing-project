@@ -1,0 +1,21 @@
+/**
+ * Dohvata obelezno polje za potvrdu i poruku smesta u niz
+ * uz dodatnu proveru u zavisnosti od opcije
+ *
+ * @param $checkbox
+ * @param string $operation
+ * @param array $message
+ * @return void
+ */
+
+public function getCheckboxRule($checkbox, $operation, $message = NULL)
+{
+	if($checkbox.selected) {
+		$element->getChecked();
+		$this->message[] = $element;
+	}
+    if ($operation === ':filled' and is_null($message)) {
+        $message = 'Check %label';
+    }
+    return parent::addRule($operation, $message, $arg);
+}

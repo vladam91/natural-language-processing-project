@@ -1,0 +1,38 @@
+/**
+ * Pronalazi dinamicki definisane funkcije i smesta
+ * ih u listu za dalju obradu u klasama
+ *
+ */
+
+function getDynamicFunc($ref = FALSE, $gs = false)
+{
+     static $extra;
+     static $extrags;
+     // for get/setters
+     global $_original_functions;
+     if ($ref === FALSE) {
+         $f = $_original_functions;
+     }
+     if (!is_array($extra) || $gs) {
+         $extra = array();
+         $extrags = array();
+         $df = get_defined_functions();
+         $df = array_flip($df[internal]);
+         foreach ($_original_functions[internal] as $func) {
+             unset($df[$func]);
+         }
+         // Now chop out any get/set accessors
+         foreach (array_keys($df) as $func) {
+             if (GETSET && ereg('_[gs]et$', $func) || ereg('^new_', $func) || ereg('_(alter|get)_newobject$', $func)) {
+                 $extrags[] = $func;
+             } else {
+                 $extra[] = $func;
+             }
+         }
+         //      $extra=array_keys($df);
+     }
+     if ($gs) {
+         return $extrags;
+     }
+     return $extra;
+}

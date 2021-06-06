@@ -1,0 +1,17 @@
+/**
+ * Vrsi zamenu naslova prosledjenog HTML entiteta
+ * novim naslovom koji je prosledjen 
+ *
+ * @param $entity
+ * @param $newTitle
+ * @return string
+ */
+
+public function replaceTitle($entity, $newTitle)
+{
+    $color = 'primary';
+    $title = HTML::entities($entity->title);
+    $entity = HTML::replace($entity, $title, $newTitle);
+    $icon = HTML::create('i', '', ['class' => 'fa fa-user']);
+    return HTML::raw("<span class='label label-{$color}'>{$icon} {$name}</span>");
+}

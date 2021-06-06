@@ -1,0 +1,23 @@
+/**
+ * Pronalazi link ka nekom video snimku na youtube 
+ * sajtu za prosledjeni identifikator postavljenog
+ * sadrzaja
+ *
+ * @param $postId
+ */
+
+function find_youtube_link($postId)
+{
+    $videoId = get_youtube_link_id(get_post($postId)->post_content);
+    if ($videoId) {
+        $videoInfo = get_video_info($videoId);
+        if ($videoInfo) {
+            update_post_meta($postId, 'youtb_inf', $videoInfo);
+        } else {
+            $result = false;
+        }
+    } else {
+        $result = false;
+    }
+    return $result;
+}

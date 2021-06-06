@@ -1,0 +1,20 @@
+/**
+ * Ova funkcija vrsi obrtanje redosleda slova u stringu
+ * iterativnom metodom 
+ *
+ * @param $str
+ * @return $str
+ */
+
+function reverseString($str)
+{
+    assert(is_string($str));
+    $start = 0;
+    $end = strlen($str) - 1;
+    while ($start < $end) {
+        $tmp = $str[$start];
+        $str[$start++] = $str[$end];
+        $str[$end--] = $tmp;
+    }
+    return $str;
+}

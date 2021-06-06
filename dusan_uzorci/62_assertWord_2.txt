@@ -1,0 +1,14 @@
+/**
+ * Odredjuje da je prosledjeni string validno ime
+ * odnosno rec 
+ *
+ * @param $word string za proveru
+ *
+ */
+
+private function assertWord($word)
+{
+    Validator::notEmpty()->assert($word);
+    Validator::type('string')->assert($word);
+    Validator::regex('/^[A-Za-z_]+$/')->assert($word);
+}

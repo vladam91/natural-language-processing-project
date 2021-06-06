@@ -1,0 +1,25 @@
+/**
+ * Dohvati vrednosti koje ce se koristiti
+ * kao podrazumevane ulazne vrednosti i konvertuje u pdf
+ * @return array
+ */
+
+public function getDefaultValues()
+{
+    /** @var WPDataTable $parentTable */
+    $parentTable = $this->getParentTable();
+    $values = array();
+
+    if (!in_array($this->getDataType(), array('date', 'datetime', 'time', 'formula'), true) && $this->getDataType() != '' && empty($this->_formula)) {
+
+
+        foreach ($parentTable->getDataRows() as $row) {
+            $values[] = $row[$this->getOriginalHeader()];
+        }
+        $values = array_unique($values);
+
+
+    }
+
+    return $values;
+}

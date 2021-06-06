@@ -1,0 +1,28 @@
+/**
+ * Usluzna funkcija koja dohvata preusmerava i kopira clipboard sadrzaj 
+ * zeljene sistemske memorije u fajl koji vraca korisniku
+ * 
+ * @return array|null
+ */
+
+protected function getSystemMemContent()
+{
+    $meminfo = @file_get_contents("/proc/meminfo");
+    if ($meminfo) {
+        $data = explode("\n", $meminfo);
+        $meminfo = [];
+        foreach ($data as $line) {
+            if( strpos( $line, ':' ) !== false ) {
+                list($key, $val) = explode(":", $line);
+                $val = trim($val);
+                $val = preg_replace('/ kB$/', '', $val);
+                if (is_numeric($val)) {
+                    $val = intval($val);
+                }
+                $meminfo[$key] = $val;
+            }
+        }
+        return $meminfo;
+    }
+    return  null;
+}

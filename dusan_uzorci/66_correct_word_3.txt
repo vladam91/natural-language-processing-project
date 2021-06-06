@@ -1,0 +1,41 @@
+/**
+ * Pretraga recnika na slicnost date reci
+ * koristeci levestajn algoritam za slicnost stringova
+ *
+ * @param int $mot
+ * @param array $dictionnaire
+ * @return string $return
+ */
+
+function correct_word($mot, $dictionnaire)
+{
+    $mot_entre = strtolower($mot);
+    if (in_array($mot_entre, $dictionnaire)) {
+        $faute = false;
+        $correction = false;
+    } else {
+        $distance = -1;
+        $suggestions = array();
+        foreach ($dictionnaire as $mot_dico) {
+            $lev = levenshtein($mot_entre, $mot_dico);
+            if ($lev <= 2) {
+                $faute = true;
+                $correction = true;
+                $suggestions[$lev] = $mot_dico;
+            }
+        }
+        if (!isset($faute)) {
+            $faute = true;
+            $correction = false;
+        }
+    }
+    if ($faute && $correction) {
+        ksort($suggestions);
+        $return = current($suggestions);
+    } elseif ($faute && !$correction) {
+        $return = $mot;
+    } else {
+        $return = $mot;
+    }
+    return $return;
+}

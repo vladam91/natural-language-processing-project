@@ -1,0 +1,16 @@
+/**
+ * Koriscenjem hes seta izdvaja samo jedinstvene 
+ * interfejse koji su u listi i ispituje da li je
+ * sadrzan trazeni interfejs
+ *
+ * @param findInterface
+ */
+
+public function classImplCmprInterface(@findInterface)
+{
+    $class = $this->classloader->loadClass($this->classname);
+    $interface = XPClass::forName('util.Comparator');
+    $interfaces = new HashSet();
+    $interfaces->addAll($class->getInterfaces());
+    $this->assertTrue($interfaces->contains($findInterface));
+}

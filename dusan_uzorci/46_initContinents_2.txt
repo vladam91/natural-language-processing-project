@@ -1,0 +1,19 @@
+/**
+ * Popunjavanje i inicijalizacija niza dohvacenim objektima kontinenata
+ * koji ce biti korisceni za prikaz mape
+ *
+ * @param array $continents
+ * @return array $continents
+ */
+
+public function initContinents($continents) {
+	$prot = [];
+	$continents = getContinents($prot);
+
+	$len = count($continents);
+
+	for ($i = 0; $i < $len; $i++) {
+	    echo $continents[$i], "\n";   
+	}
+	return $continents;
+}

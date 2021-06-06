@@ -1,0 +1,19 @@
+/**
+ *
+ * Brise sve SEO linkove za neki indexirani objekat
+ * @param Indexable $indexable The indexable.
+ *
+ * @return void
+ */
+
+public function deleteIndexable( $indexable ) {
+	$links = ( $this->seo_links_repository->find_all_by_indexable_id( $indexable->id ) );
+	$this->seo_links_repository->delete_all_by_indexable_id( $indexable->id );
+
+	$linked_indexable_ids = [];
+	foreach ( $links as $link ) {
+		$linked_indexable_ids[] = $link->target_indexable_id;
+	}
+
+	$this->update_incoming_links_for_related_indexables( $linked_indexable_ids );
+}

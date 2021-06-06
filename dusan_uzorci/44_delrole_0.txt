@@ -1,0 +1,19 @@
+/**
+ * Proverava da li je uloga validna i ako jeste
+ * kreira upit nad bazom za brisanje postojece uloge
+ *
+ * @param string $contextname
+ * @param string $rolename
+ *
+ * @return void
+ */
+
+public function delrole($contextname, $rolename)
+{
+     $cname = R::findOne('rolecontext', 'name=?', array($contextname));
+     $rname = R::findOne('rolename', 'name=?', array($rolename));
+     $bn = R::findOne('role', 'rolecontext_id=? and rolename_id=? and user_id=? and start <= UTC_TIMESTAMP() and (end is NULL or end >= UTC_TIMESTAMP())', array($cname->getID(), $rname->getID(), $this->bean->getID()));
+     if (is_object($bn)) {
+         R::trash($bn);
+     }
+}

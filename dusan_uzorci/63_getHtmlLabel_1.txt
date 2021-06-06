@@ -1,0 +1,14 @@
+/**
+ * Vraca HTML string labele za prosledjeni HTML entitet
+ * 
+ * @param $entity
+ * @return string
+ */
+
+public function getHtmlLabel($entity)
+{
+    $color = 'primary';
+    $name = HTML::entities($entity->name);
+    $icon = HTML::create('i', '', ['class' => 'fa fa-user']);
+    return HTML::raw("<span class='label label-{$color}'>{$icon} {$name}</span>");
+}

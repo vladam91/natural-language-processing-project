@@ -1,0 +1,32 @@
+/**
+ * Slanje informativnog mejla krajnjem korisniku za dobijenom
+ * identifikacijom i zeljenom porukom
+ * Korisnik mora vec postojati u bazi
+ */
+
+public static function sendUpdate($personId, $message)
+{
+     //       error_reporting(E_ALL);
+     // ini_set('display_errors', '1');
+     $person = Person::getById($personId);
+     $person = recast("Person", $person);
+     $list = Favorites::getFavoritesByPerson($person->id);
+     unset($to);
+     foreach ($list as $individual) {
+         $user = User::getUserById($individual->user_id);
+         if (!empty($user->email) && $user->rights == "medium") {
+             if (isset($to)) {
+                 $to .= ", " . $user->email;
+             } else {
+                 $to = $user->email;
+             }
+         }
+         # code...
+     }
+     $subject = "Update message for " . $person->displayName();
+     $from = "noreply@familyhistorydatabase.org";
+     $headers = 'MIME-Version: 1.0' . "\r\n";
+     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+     $headers .= "From:" . $from;
+     mail($to, $subject, $message, $headers);
+}

@@ -1,0 +1,11 @@
+/**
+ * Funkcija vraca dohvata trenutni datum formatiran
+ * i po potrebi konvretovan u zavisnosti od parametra convert
+ *
+ * @return jDateTime
+ */
+ 
+public static function date($format, $stamp = false, $convert = null, $jalali = null, $timezone = null)
+{
+   return jDateTime::date($format, $stamp, $convert, $jalali, $timezone);
+}

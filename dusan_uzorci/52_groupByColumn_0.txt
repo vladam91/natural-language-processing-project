@@ -1,0 +1,27 @@
+/**
+ * Sortiraj i grupisi raspored i elemente kolona
+ * na osnovu zadatog kljuca elementa za grupisanje
+ *
+ * @param $key
+ *
+ * @return arrayObject
+ */
+
+public function groupByColumn($key)
+{
+    if (!isset($this->_wdtIndexedColumns[$key])
+        && !isset($this->_wdtNamedColumns[$key])
+    ) {
+        throw new WDTException('Column not found!');
+    }
+
+    if (!is_numeric($key)) {
+        $key = array_search(
+            $key,
+            array_keys($this->_wdtNamedColumns)
+        );
+    }
+
+    $this->enableGrouping();
+    $this->_wdtColumnGroupIndex = $key;
+}

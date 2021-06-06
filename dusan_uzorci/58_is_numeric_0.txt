@@ -1,0 +1,18 @@
+/**
+ *  
+ * Ispituje da li je zadati string broj i
+ * ispisuje ga sa na standardni izlaz
+ *
+ * @param $checkString
+ *
+ */
+
+public static function is_numeric($checkString){
+	foreach ($tests as $element) {
+	    if (is_numeric($element)) {
+	        echo var_export($element, true) . " is numeric", PHP_EOL;
+	    } else {
+	        echo var_export($element, true) . " is NOT numeric", PHP_EOL;
+	    }
+	}
+}

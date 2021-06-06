@@ -1,0 +1,14 @@
+/**
+ * Hvatanje izuzetaka uz generisanje proizvoljne poruke 
+ * da bude prikazana u http odgovoru
+ *
+ * @param Exception $err
+ */
+
+function catchExceptions($err)
+{
+    global $config;
+    echo "Error with your request!  Please try again later.  " . "If the problem persists contact <a href=\"" . $config['contact'] . "\">" . $config['contact'] . "</a>.";
+    error_log($err->__toString(), 0);
+    exit(1);
+}

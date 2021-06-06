@@ -1,0 +1,28 @@
+/**
+ * Formira i vraca graf za normalnu gausovu raspodelu
+ * po unapred postavljenim parametrima
+ *
+ */
+
+public function createGaussGraph()
+ {
+     $graph = new Image_GraphViz();
+     $attributes = array('rankdir' => "LR");
+     $graph->addAttributes($attributes);
+     $graph->addNode($this->title);
+     foreach ($this->members as $member) {
+         $this->addAndLinkNodeForRemoteObject($graph, $member, "A comme membre", "member");
+     }
+     foreach ($this->definitions as $definition) {
+         $this->addAndLinkNodeForRemoteObject($graph, $definition, "A comme définition", "definition");
+     }
+     foreach ($this->ingredients as $ingredient) {
+         $this->addAndLinkNodeForRemoteObject($graph, $ingredient, "A comme ingrédient", "ingredient");
+     }
+     foreach ($this->projects as $project) {
+         $this->addAndLinkNodeForRemoteObject($graph, $project, "A comme projet", "project");
+     }
+     $this->linkWithString($graph, $this->theme, "A comme theme", "theme");
+     //$graph->image();
+     return $graph;
+ }

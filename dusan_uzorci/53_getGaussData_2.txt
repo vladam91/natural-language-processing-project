@@ -1,0 +1,27 @@
+/**
+ * Ispisuje Gausovu normalnu raspodelu za prosledjene parametre
+ * za odeljenje skolu godinu i nastavnika
+ * 
+ * @param 	string		$class
+ * @param 	string		$school_year
+ * @param 	boolean		$admin_id
+ * @return	array
+ */
+
+public function getGaussData($class = FALSE, $school_year = FALSE, $admin_id = FALSE)
+{
+    $this->db->select('ROUND(SUM(user_vote) / SUM(max_vote) * 10, 0) AS percentage');
+    $this->db->join('projects', 'projects.id = results.project_id', 'left');
+    $this->db->where('projects.is_activated', TRUE);
+
+    if($class) $this->db->where('class', $class);
+    if($school_year) $this->db->where('school_year', $school_year);
+    if($admin_id) $this->db->where('admin_id', $admin_id);
+
+    $this->db->group_by('user_id');
+    $this->db->order_by('percentage', 'ASC');
+    $result = $this->db->get('results')->result();
+
+    $this->load->helper('graph');
+    return gauss($result, 'percentage');
+}

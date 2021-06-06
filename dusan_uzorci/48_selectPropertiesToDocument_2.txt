@@ -1,0 +1,43 @@
+/**
+ * Citaj fajl sa atributima i prepisivanje u podrazumevani dokument
+ * uz dodatne potrebne obrade i formatiranja
+ * 
+ * @param Model\Document $document
+ * @throws \Zend_Json_Exception
+ */
+
+protected function selectPropertiesToDocument(Model\Document $document)
+{
+     // properties
+     if ($this->getParam("properties")) {
+         $properties = array();
+         // assign inherited properties
+         foreach ($document->getProperties() as $p) {
+             if ($p->isInherited()) {
+                 $properties[$p->getName()] = $p;
+             }
+         }
+         $propertiesData = \Zend_Json::decode($this->getParam("properties"));
+         if (is_array($propertiesData)) {
+             foreach ($propertiesData as $propertyName => $propertyData) {
+                 $value = $propertyData["data"];
+                 try {
+                     $property = new Property();
+                     $property->setType($propertyData["type"]);
+                     $property->setName($propertyName);
+                     $property->setCtype("document");
+                     $property->setDataFromEditmode($value);
+                     $property->setInheritable($propertyData["inheritable"]);
+                     $properties[$propertyName] = $property;
+                 } catch (\Exception $e) {
+                     \Logger::warning("Can't add " . $propertyName . " to document " . $document->getFullPath());
+                 }
+             }
+         }
+         if ($document->isAllowed("properties")) {
+             $document->setProperties($properties);
+         }
+     }
+     // force loading of properties
+     $document->getProperties();
+}

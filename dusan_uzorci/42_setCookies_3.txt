@@ -1,0 +1,34 @@
+/**
+ * Funkcija za kreiranje kolacica i postavljanje potrebnih 
+ * vrednosti polja kolacica kao sto su vreme isteka
+ * jezik itd
+ *
+ */
+
+public function setCookies()
+{
+     $cookieStr = "un=" . $this->userName;
+     $cookieStr .= "&dn=" . $this->displayName;
+     $cookieStr .= "&uid=" . $this->uid;
+     $cookieExpire = 0;
+     if ($this->rememberMe) {
+         $cookieExpire = time() + 60 * 60 * 24 * 30;
+     }
+     $domainName = $_SERVER['SERVER_NAME'];
+     if (!$domainName) {
+         $domainName = $_SERVER['HTTP_HOST'];
+     }
+     if ($domainName == 'localhost') {
+         $domainName = false;
+     }
+     setcookie("SymbiotaBase", $cookieStr, $cookieExpire, $GLOBALS["clientRoot"] ? $GLOBALS["clientRoot"] : '/', $domainName, false, true);
+     //Set admin cookie
+     if ($this->userRights) {
+         $cookieStr = '';
+         foreach ($this->userRights as $name => $vArr) {
+             $vStr = implode(',', $vArr);
+             $cookieStr .= $name . ($vStr ? '-' . $vStr : '') . '&';
+         }
+         setcookie("SymbiotaRights", trim($cookieStr, "&"), $cookieExpire, $GLOBALS["clientRoot"] ? $GLOBALS["clientRoot"] : '/', $domainName, false, true);
+     }
+}

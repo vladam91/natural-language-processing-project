@@ -1,0 +1,15 @@
+/**
+ * Enkriptovanje stringa aes ctr algoritmom
+ * 
+ * @param string $strValue
+ * @return string $strEncrypted
+ */
+
+public function encrypt($strValue)
+{
+    if ($strValue == '' || $this->strEncryptionKey == '') {
+        return '';
+    }
+    $strEncrypted = AesCtr::encrypt($strValue, $this->strEncryptionKey, 256);
+    return $strEncrypted;
+}

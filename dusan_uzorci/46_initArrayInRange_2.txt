@@ -1,0 +1,21 @@
+/**
+ * Inicijalizacija niza izmedju minimalne i maksimalne
+ * vrednosti indkesa kao priprema za sortiranje
+ * i ispisivanje na izlaz 
+ *
+ * @param array $array
+ * @param array $min
+ * @param array $max
+ */
+
+public function initArrayInRange($array, $min, $max) {
+	$array = [];
+	$array_with_range = range($min, $max);
+
+	for ($i = $min; $i <= $max; $i++) {
+	    $array[] = $i;
+	}
+	    
+	print_r($array);
+	print_r($array_with_range);
+}

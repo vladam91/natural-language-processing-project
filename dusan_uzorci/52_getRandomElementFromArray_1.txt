@@ -1,0 +1,12 @@
+/**
+ * Izaberi nasumican element iz zadatog niza
+ * @param $array
+ *
+ * @return arrayObject
+ */
+
+private function getRandomElementFromArray($array)
+{
+	$elementKey = array_rand($array);
+	return $array[$elementKey];
+}	

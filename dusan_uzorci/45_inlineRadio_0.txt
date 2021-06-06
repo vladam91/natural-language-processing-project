@@ -1,0 +1,21 @@
+/**
+ * Pravi dugme za odabir jedne opcije sa datom labelom
+ * i prosledjenim vrednostima opcija za biranje
+ *
+ * @param string $name
+ * @param string $value
+ * @param string $label
+ * @param string $checked
+ * @param array $options
+ */
+
+public function inlineRadio($name, $value = null, $label = null, $checked = null, $options = [])
+{
+     //Capture label
+     $label = $this->getLabel($name, $options, false);
+     //Capture Bootstrap classes
+     $class = $this->getClasses($name, $options);
+     $class = $this->appendClassToOptions('radio-inline', $class);
+     $object = parent::radio($name, $value, $checked, $options);
+     return $this->wrapCheckable($label, $class, $object);
+}

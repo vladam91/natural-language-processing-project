@@ -1,0 +1,24 @@
+/**
+ *  
+ * Ispisuje int brojeva pronadjenih u zadatom stringu
+ *
+ * @param $str
+ *
+ */
+
+function countDigits($str)
+{
+	$NumberArray = array();
+	$noDigits=0;
+	for ($i=0;$i<strlen($message);$i++) {
+			
+		if (is_numeric($message($i))) {
+			$noDigits++;
+			array_push($NumberArray,$message($i));
+		}
+		//return $noDigits;
+	}
+	echo"<pre>";
+	print_r($NumberArray);
+	echo"</pre>";
+}

@@ -1,0 +1,33 @@
+/**
+ * Na osnovu datog urla dohvata html vebsajta i na
+ * osnovu dobijenih podataka kreira DOM 
+ *
+ * @param string $url
+ * @return bool
+ */
+
+function fetch_data_from_html($remote_page)
+{
+    // Returns an array of products and ratings
+    $product_rating_arr = array();
+    $html = get_html($remote_page);
+    $dom = new domDocument();
+    $dom->loadHTML($html);
+    $dom->preserveWhiteSpace = false;
+    $tables = $dom->getElementsByTagName('table');
+    $table = $tables->item(0);
+    $rows = $table->getElementsByTagName('tr');
+    $i = 0;
+    foreach ($rows as $row) {
+        if ($i != 0) {
+            $columns = $row->getElementsByTagName('td');
+            $product = $columns->item(0)->textContent;
+            $rating = $columns->item(1)->textContent;
+            $image = $columns->item(2)->textContent;
+            $var = $product . "__" . $image;
+            $product_rating_arr[$var] = $rating;
+        }
+        $i += 1;
+    }
+    return $product_rating_arr;
+}

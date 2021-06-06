@@ -1,0 +1,50 @@
+/**
+ * Ova funkcija prima naziv direktorijuma i pravi niz u kojima su
+ * apsolutne putanje do fajla u njemu, rekurzivno. U zavisnosti od ostalih
+ * parametara razlicite vrenosti su postavljene kao i u zavisnosti od
+ * postavljenih atributa fajla
+ *
+ * @param bool $dir
+ * @param bool $ext
+ * @param bool $get_dir
+ * @param bool $recurse
+ * @return void
+ */
+
+function eF_getDirContents($dir = false, $ext = false, $get_dir = true, $recurse = true)
+{
+    if ($dir) {
+        $handle = opendir($dir);
+    } else {
+        $handle = opendir(getcwd());
+    }
+    $filelist = array();
+    while (false !== ($file = readdir($handle))) {
+        if ($file != "." and $file != ".." and $file != '.svn') {
+            if (is_dir($dir . $file) && $recurse) {
+                //echo "!$dir . $file@<br>";
+                $temp = eF_getDirContents($dir . $file . '/', $ext, $get_dir);
+                $get_dir ? $filelist[] = $dir . $file . '/' : ($filelist[] = $file . '/');
+                if (!$ext) {
+                    //It is put here for empty directories (when $ext is not specified), or, if $ext is specified, to not return directories
+                    $filelist = array_merge($filelist, $temp);
+                }
+            } else {
+                if ($ext) {
+                    if (is_array($ext)) {
+                        if (in_array(pathinfo($file, PATHINFO_EXTENSION), $ext)) {
+                            $get_dir ? $filelist[] = $dir . $file : ($filelist[] = $file);
+                        }
+                    } else {
+                        if (pathinfo($file, PATHINFO_EXTENSION) == $ext) {
+                            $get_dir ? $filelist[] = $dir . $file : ($filelist[] = $file);
+                        }
+                    }
+                } else {
+                    $get_dir ? $filelist[] = $dir . $file : ($filelist[] = $file);
+                }
+            }
+        }
+    }
+    return $filelist;
+}

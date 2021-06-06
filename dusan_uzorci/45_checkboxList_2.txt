@@ -1,0 +1,31 @@
+/**
+ * Na osnovu jednog obelezenog polja za potvrdu
+ * za odredjene opcije postavlja i pravi novo polje
+ * za potvrdu u okviru iste forme
+ *
+ * @param array $items
+ * @param array $options
+ */
+
+public function checkboxList($items, $options = [])
+{
+     if ($this->inline) {
+         if (!isset($options['template'])) {
+             $this->template = $this->inlineCheckboxListTemplate;
+         } else {
+             $this->template = $options['template'];
+             unset($options['template']);
+         }
+         if (!isset($options['itemOptions'])) {
+             $options['itemOptions'] = ['labelOptions' => ['class' => 'checkbox-inline']];
+         }
+     } elseif (!isset($options['item'])) {
+         $itemOptions = isset($options['itemOptions']) ? $options['itemOptions'] : [];
+         $options['item'] = function ($index, $label, $name, $checked, $value) use($itemOptions) {
+             $options = array_merge(['label' => $label, 'value' => $value], $itemOptions);
+             return '<div class="checkbox">' . Html::checkbox($name, $checked, $options) . '</div>';
+         };
+     }
+     parent::checkboxList($items, $options);
+     return $this;
+}

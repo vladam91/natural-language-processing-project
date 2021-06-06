@@ -1,0 +1,31 @@
+/**
+ * Proveri da se zadati string nalazi u fajlu i 
+ * validiraj ga kao rec
+ *
+ * @param string $file
+ * @param string $word
+ * @return bool | void
+ */
+
+function validateWord($file, $word)
+{
+    $file = stripslashes($file);
+    $code = validate_file($file, $allowed_files);
+    if (!$code) {
+        return $file;
+    } else {
+    	$code = validate_word($word);
+    }
+
+    if($code) {
+    	return true;
+    }
+    switch ($code) {
+        case 1:
+            wp_die(__('Sorry, can&#8217;t edit files with ".." in the name. If you are trying to edit a file in your WordPress home directory, you can just type the name of the file in.'));
+        case 2:
+            wp_die(__('Sorry, can&#8217;t call files with their real path.'));
+        case 3:
+            wp_die(__('Sorry, that file cannot be edited.'));
+    }
+}

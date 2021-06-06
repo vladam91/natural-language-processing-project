@@ -1,0 +1,17 @@
+/**
+ * Postavlja callback funkciju u prioritetni red
+ * u zavisnosti od zadatog prioriteta ako nije podrazumevani
+ *
+ */
+
+public function attachCallback($callback, $priority = self::DEFAULT_PRIORITY)
+{
+     if (!is_callable($callback)) {
+         if (!$callback instanceof FilterInterface) {
+             throw new Exception\InvalidArgumentException(sprintf('Expected a valid PHP callback; received "%s"', is_object($callback) ? get_class($callback) : gettype($callback)));
+         }
+         $callback = array($callback, 'filter');
+     }
+     $this->filters->insert($callback, $priority);
+     return $this;
+}

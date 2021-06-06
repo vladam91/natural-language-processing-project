@@ -1,0 +1,31 @@
+/**
+ * Precizna implementacija za kodiranje parametara iz niza u
+ * url bez indeksiranja
+ */
+
+function cr_post($a,$b='',$c=0)
+{
+    if (!is_array($a)) return false;
+    foreach ((array)$a as $k=>$v)
+    {
+        if ($c)
+        {
+            if( is_numeric($k) )
+                $k=$b."[]";
+            else
+                $k=$b."[$k]";
+        }
+        else
+        {   if (is_int($k))
+                $k=$b.$k;
+        }
+
+        if (is_array($v)||is_object($v))
+        {
+            $r[]=cr_post($v,$k,1);
+                continue;
+        }
+        $r[]=urlencode($k)."=".urlencode($v);
+    }
+    return implode("&",$r);
+}

@@ -1,0 +1,39 @@
+/**
+ * Vraca jedinstveni objekat baze podataka
+ *
+ * @param string $type  Citanje ili pisanje
+ * @param string $app   Aplikacija
+ * @param mixed $dtype  Tip i ako je niz koristi se kao konfiguracija
+ *
+ * @return DB  Jedinstveni objekat baze podataka
+ */
+
+public function create($type = 'rw', $app = 'horde', $dtype = null)
+{
+     global $registry;
+     $sig = hash('sha1', serialize($type . '|' . $app . '|' . $dtype));
+     if (isset($this->_instances[$sig])) {
+         return $this->_instances[$sig];
+     }
+     $pushed = $app == 'horde' ? false : $registry->pushApp($app);
+     $config = is_array($dtype) ? $dtype : $this->getConfig($dtype);
+     if ($type == 'read' && !empty($config['splitread'])) {
+         $config = array_merge($config, $config['read']);
+     }
+     Horde::assertDriverConfig($config, 'sql', array('charset', 'phptype'));
+     /* Connect to the SQL server using the supplied parameters. */
+     $db = DB::connect($config, array('persistent' => !empty($config['persistent']), 'ssl' => !empty($config['ssl'])));
+     if ($db instanceof PEAR_Error) {
+         if ($pushed) {
+             $registry->popApp();
+         }
+         throw new Horde_Exception($db);
+     }
+     // Set DB portability options.
+     $db->setOption('portability', DB_PORTABILITY_LOWERCASE | DB_PORTABILITY_ERRORS);
+     if ($pushed) {
+         $registry->popApp();
+     }
+     $this->_instances[$sig] = $db;
+     return $db;
+}

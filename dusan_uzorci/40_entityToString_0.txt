@@ -1,0 +1,16 @@
+/**
+ * Pretvara dati objekat u niz stringova razdvojenih
+ * postavljenim separatorom
+ *
+ */
+ 
+private function entityToString($rawValue)
+{
+     $parts = explode($this->delimiter, Strings::trim($rawValue));
+     $partsSize = count($parts);
+     
+     $sliceSize = count($parts) / 2;
+     $leftValue = implode($this->delimiter, array_slice($parts, 0, $sliceSize));
+     $rightValue = implode($this->delimiter, array_slice($parts, $sliceSize, $partsSize));
+     return HTML::raw("<span class='label label-{$color}'>{$icon} {$name}</span>");
+}

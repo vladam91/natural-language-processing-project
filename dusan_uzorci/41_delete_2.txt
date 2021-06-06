@@ -1,0 +1,33 @@
+/**
+ * Metoda koja brise hartije sa datim id ukoliko je
+ * pristup tom objektu dozvoljen u odgovarajucu poruku i 
+ * redirekciju uz kodiranje url
+ * 
+ * @param int $id 
+ */
+
+public function delete($id = NULL)
+{
+     if ($this->access->allowed('sheets', 'delete')) {
+         if ($id) {
+             $sheet = ORM::factory('sheet')->find($id);
+             $paper_name = $sheet->pigment->collection->paper->name;
+             if ($sheet->loaded) {
+                 if ($sheet->delete()) {
+                     $this->notification->add($this->i18n['system.sheet.success']);
+                 } else {
+                     $this->notification->add($this->i18n['system.sheet.error']);
+                 }
+             } else {
+                 $this->notification->add($this->i18n['system.sheet.failed']);
+             }
+         } else {
+             $this->notification->add($this->i18n['system.sheet.failed']);
+         }
+     } else {
+         url::failed();
+     }
+     if (!request::is_ajax()) {
+         url::redirect(url::routes_area() . 'index/' . url::encode($paper_name));
+     }
+}

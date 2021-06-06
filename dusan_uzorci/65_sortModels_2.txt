@@ -1,0 +1,18 @@
+/**
+ * Sortira niz modela podataka u zavisnosti od prosledjenog sort
+ * niz parametra
+ *
+ * @param array $models modeli koji se sortiraju
+ * @param array \yii\data\Sort  $sort   definicija sortiranja
+ *
+ * @return array sortirani niz modela
+ */
+
+protected function sortModels($models, $sort)
+{
+    $orders = $sort->getOrders();
+    if (!empty($orders)) {
+        ArrayHelper::multisort($models, array_keys($orders), array_values($orders));
+    }
+    return $models;
+}

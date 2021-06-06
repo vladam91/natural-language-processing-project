@@ -1,0 +1,28 @@
+/**
+ * Dohvata verziju phing biblioteke pomocu fajl citaca
+ * sa baferom
+ *
+ * @return $phingVersion
+ */
+
+function getPhingVersion()
+{
+     $versionPath = self::getResourcePath("phing/etc/VERSION.TXT");
+     if ($versionPath === null) {
+         $versionPath = self::getResourcePath("etc/VERSION.TXT");
+     }
+     try {
+         // try to read file
+         $buffer = null;
+         $file = new PhingFile($versionPath);
+         $reader = new FileReader($file);
+         $reader->readInto($buffer);
+         $buffer = trim($buffer);
+         //$buffer = "PHING version 1.0, Released 2002-??-??";
+         $phingVersion = $buffer;
+     } catch (IOException $iox) {
+         print "Can't read version information file\n";
+         throw new BuildException("Build failed");
+     }
+     return $phingVersion;
+}

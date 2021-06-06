@@ -1,0 +1,14 @@
+/**
+ * Uklanja potencijalne kljucne reci iz upita
+ * koristeci regularni izraz nezavisno od velicine slova
+ *
+ * @param string $strTexto
+ *
+ */
+
+public function removerSQLInjection($strTexto)
+{
+	@($strTexto = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|\\*|--|\\\\)/"), "", $strTexto));
+	@($strTexto = trim($strTexto));
+	return $strTexto;
+}

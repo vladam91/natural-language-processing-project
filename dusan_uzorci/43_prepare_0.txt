@@ -1,0 +1,20 @@
+/**
+ * Priprema stringa da se njegovi delovi ubace u indeks za pretragu
+ * 
+ * @param string $string
+ * @return array $prepared
+ */
+
+public function prepare($string)
+{
+     $string = strtolower($this->stripPunctuation($string));
+     $string = str_replace("-", " ", $string);
+     $terms = explode(" ", $string);
+     $prepared = [];
+     foreach ($terms as &$t) {
+         if (!$this->isStopWord($t) and strlen($t) >= 3) {
+             $prepared[] = metaphone($t);
+         }
+     }
+     return $prepared;
+}

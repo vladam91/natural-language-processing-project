@@ -1,0 +1,39 @@
+/**
+ * Provera identiteta korisnika i ako postoji validan token
+ * cuva se u kolacic i token se cuvaju u sesiji
+ *
+ * @return bool
+ */
+
+public function checkUser()
+ {
+     if (isset($_REQUEST['code'])) {
+         $keys = array();
+         $keys['code'] = $_REQUEST['code'];
+         $keys['redirect_uri'] = U('public/Widget/displayAddons', array('type' => $_REQUEST['type'], 'addon' => 'Login', 'hook' => 'no_register_display'));
+         try {
+             $token = $this->_oauth->getAccessToken('code', $keys);
+         } catch (OAuthException $e) {
+             $token = null;
+         }
+     } else {
+         $keys = array();
+         $keys['refresh_token'] = $_REQUEST['code'];
+         try {
+             $token = $this->_oauth->getAccessToken('token', $keys);
+         } catch (OAuthException $e) {
+             $token = null;
+         }
+     }
+     if ($token) {
+         setcookie('weibojs_' . $this->_oauth->client_id, http_build_query($token));
+         $_SESSION['sina']['access_token']['oauth_token'] = $token['access_token'];
+         $_SESSION['sina']['access_token']['oauth_token_secret'] = $token['refresh_token'];
+         $_SESSION['sina']['expire'] = time() + $token['expires_in'];
+         $_SESSION['sina']['uid'] = $token['uid'];
+         $_SESSION['open_platform_type'] = 'sina';
+         return $token;
+     } else {
+         return false;
+     }
+ }

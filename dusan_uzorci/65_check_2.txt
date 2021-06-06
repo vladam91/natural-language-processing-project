@@ -1,0 +1,16 @@
+/**
+ * Vrsi proveru da li su pripremljeni podaci u redu za konkretan
+ * fiskalni isecak
+ *
+ */
+  
+public function check()
+{
+    $calculator = new Calculator($this->subject, array('omocodiaLevel' => $this->omocodiaLevel));
+    if ($this->omocodiaLevel == self::ALL_OMOCODIA_LEVELS) {
+        $values = $calculator->calculateAllPossibilities();
+    } else {
+        $values = array($calculator->calculate());
+    }
+    return in_array($this->codiceFiscaleToCheck, $values);
+}

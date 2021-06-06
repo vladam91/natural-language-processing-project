@@ -1,0 +1,33 @@
+/**
+ * Ako je prosledjeni parametar niz onda vrsi sortiranje
+ * po uzoru na vrednosti drugih nizova
+ *
+ * @param array $value niz za sortiranje
+ */
+
+public function setSort($value)
+{
+     if (is_array($value)) {
+         $config = ['class' => Sort::className(), 'enableMultiSort' => $this->enableMultiSort];
+         $this->_sort = Yii::createObject(array_merge($config, $value));
+     } elseif ($value instanceof Sort || $value === false) {
+         $this->_sort = $value;
+     } else {
+         throw new InvalidParamException('Only Sort instance, configuration array or false is allowed.');
+     }
+     if (($sort = $this->getSort()) !== false && $this->query instanceof ActiveQueryInterface) {
+         /* @var $model Model */
+         $model = new $this->query->modelClass();
+         if (empty($sort->attributes)) {
+             foreach ($model->attributes() as $attribute) {
+                 $sort->attributes[$attribute] = ['asc' => [$attribute => SORT_ASC], 'desc' => [$attribute => SORT_DESC], 'label' => $model->getAttributeLabel($attribute)];
+             }
+         } else {
+             foreach ($sort->attributes as $attribute => $config) {
+                 if (!isset($config['label'])) {
+                     $sort->attributes[$attribute]['label'] = $model->getAttributeLabel($attribute);
+                 }
+             }
+         }
+     }
+}

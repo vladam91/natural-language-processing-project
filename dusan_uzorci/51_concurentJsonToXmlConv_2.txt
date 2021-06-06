@@ -1,0 +1,76 @@
+/**
+ * Vrsi proveru validnosti ulaznog json fajla
+ * i uz konverziju ga ispisuje u prosledjeni xml
+ * uz podrzavanje konkurentnog izvrsavanja
+ *
+ * @param $cachedData
+ * @param $xml
+ * @return $result
+ */
+
+public static function concurentJsonToXmlConv($cachedData, $xml)
+{
+    if (!is_array($cachedData) || empty($cachedData) || time() - $cachedData['creation'] > $this->dsParamCACHE * 60) {
+        if (Mutex::acquire($cache_id, $timeout, TMP)) {
+            $start = precision_timer();
+            $ch = new Gateway();
+            $ch->init();
+            $ch->setopt('URL', $this->dsParamURL);
+            $ch->setopt('TIMEOUT', $timeout);
+            $xml = $ch->exec();
+            $writeToCache = true;
+            $end = precision_timer('STOP', $start);
+            $info = $ch->getInfoLast();
+            Mutex::release($cache_id, TMP);
+            // check to see if it is JSON and convert it to XML
+            if (preg_match('/(json|javascript)/i', $info['content_type'])) {
+                require_once EXTENSIONS . '/dynamic_json/lib/class.json_to_xml.php';
+                $xml = Json_to_xml::convert($xml);
+            }
+            $xml = trim($xml);
+            if ((int) $info['http_code'] != 200 || !preg_match('/(xml|plain|text|json|javascript)/i', $info['content_type'])) {
+                $writeToCache = false;
+                if (is_array($cachedData) && !empty($cachedData)) {
+                    $xml = trim($cachedData['data']);
+                    $valid = false;
+                    $creation = DateTimeObj::get('c', $cachedData['creation']);
+                } else {
+                    $result = new XMLElement($this->dsParamROOTELEMENT);
+                    $result->setAttribute('valid', 'false');
+                    if ($end > $timeout) {
+                        $result->appendChild(new XMLElement('error', sprintf('Request timed out. %d second limit reached.', $timeout)));
+                    } else {
+                        $result->appendChild(new XMLElement('error', sprintf('Status code %d was returned. Content-type: %s', $info['http_code'], $info['content_type'])));
+                    }
+                    return $result;
+                }
+            } elseif (strlen($xml) > 0 && !General::validateXML($xml, $errors, false, new XsltProcess())) {
+                $writeToCache = false;
+                if (is_array($cachedData) && !empty($cachedData)) {
+                    $xml = trim($cachedData['data']);
+                    $valid = false;
+                    $creation = DateTimeObj::get('c', $cachedData['creation']);
+                } else {
+                    $result = new XMLElement($this->dsParamROOTELEMENT);
+                    $result->setAttribute('valid', 'false');
+                    //$result->appendChild(new XMLElement('error', __('XML returned is invalid.')));
+                    $result->appendChild(new XMLElement('error', __('<![CDATA[' . $xml . ']]>')));
+                }
+            } elseif (strlen($xml) == 0) {
+                $this->_force_empty_result = true;
+            }
+        } elseif (is_array($cachedData) && !empty($cachedData)) {
+            $xml = trim($cachedData['data']);
+            $valid = false;
+            $creation = DateTimeObj::get('c', $cachedData['creation']);
+            if (empty($xml)) {
+                $this->_force_empty_result = true;
+            }
+        } else {
+            $this->_force_empty_result = true;
+        }
+    } else {
+        $xml = trim($cachedData['data']);
+        $creation = DateTimeObj::get('c', $cachedData['creation']);
+    }
+}

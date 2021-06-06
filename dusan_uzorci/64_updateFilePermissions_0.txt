@@ -1,0 +1,80 @@
+/**
+ * Za prosledjenu putanju menjaju se atributi
+ * i permisije za operacije nad datim fajlom
+ * po potrebi i hijerarhijske nizim
+ *
+ * @param string $RelativePath
+ * @param array $Parent
+ * @return void
+ */
+
+function updateFilePermissions($RelativePath, &$Parent)
+{
+    global $FileName;
+    global $CCSLocales;
+    global $DefaultDateFormat;
+    $this->Visible = true;
+    $this->Parent =& $Parent;
+    $this->RelativePath = $RelativePath;
+    $this->Errors = new clsErrors();
+    $this->ErrorBlock = "Record roleForm/Error";
+    $this->DataSource = new clsroleFormDataSource($this);
+    $this->ds =& $this->DataSource;
+    $this->InsertAllowed = true;
+    $this->UpdateAllowed = true;
+    $this->DeleteAllowed = true;
+    $this->ReadAllowed = true;
+    if ($this->Visible) {
+        $this->ComponentName = "roleForm";
+        $this->Attributes = new clsAttributes($this->ComponentName . ":");
+        $CCSForm = explode(":", CCGetFromGet("ccsForm", ""), 2);
+        if (sizeof($CCSForm) == 1) {
+            $CCSForm[1] = "";
+        }
+        list($FormName, $FormMethod) = $CCSForm;
+        $this->EditMode = $FormMethod == "Edit";
+        $this->FormEnctype = "application/x-www-form-urlencoded";
+        $this->FormSubmitted = $FormName == $this->ComponentName;
+        $Method = $this->FormSubmitted ? ccsPost : ccsGet;
+        $this->Button_Insert = new clsButton("Button_Insert", $Method, $this);
+        $this->Button_Update = new clsButton("Button_Update", $Method, $this);
+        $this->Button_Delete = new clsButton("Button_Delete", $Method, $this);
+        $this->Button_Cancel = new clsButton("Button_Cancel", $Method, $this);
+        $this->attribut_type = new clsControl(ccsTextBox, "attribut_type", "Code", ccsText, "", CCGetRequestParam("attribut_type", $Method, NULL), $this);
+        $this->attribut_type->Required = true;
+        $this->p_user_attribut_id = new clsControl(ccsHidden, "p_user_attribut_id", "p_user_attribut_id", ccsFloat, "", CCGetRequestParam("p_user_attribut_id", $Method, NULL), $this);
+        $this->created_by = new clsControl(ccsTextBox, "created_by", "Created By", ccsText, "", CCGetRequestParam("created_by", $Method, NULL), $this);
+        $this->creation_date = new clsControl(ccsTextBox, "creation_date", "Creation Date", ccsDate, array("dd", "-", "mmm", "-", "yyyy"), CCGetRequestParam("creation_date", $Method, NULL), $this);
+        $this->updated_by = new clsControl(ccsTextBox, "updated_by", "Updated By", ccsText, "", CCGetRequestParam("updated_by", $Method, NULL), $this);
+        $this->updated_date = new clsControl(ccsTextBox, "updated_date", "Updated Date", ccsDate, array("dd", "-", "mmm", "-", "yyyy"), CCGetRequestParam("updated_date", $Method, NULL), $this);
+        $this->user_name = new clsControl(ccsTextBox, "user_name", "Created By", ccsText, "", CCGetRequestParam("user_name", $Method, NULL), $this);
+        $this->p_user_attribute_type_id = new clsControl(ccsHidden, "p_user_attribute_type_id", "p_user_attribute_type_id", ccsText, "", CCGetRequestParam("p_user_attribute_type_id", $Method, NULL), $this);
+        $this->p_user_id = new clsControl(ccsHidden, "p_user_id", "p_user_id", ccsText, "", CCGetRequestParam("p_user_id", $Method, NULL), $this);
+        $this->p_user_id->Required = true;
+        $this->attribut_list_code = new clsControl(ccsTextBox, "attribut_list_code", "Code", ccsText, "", CCGetRequestParam("attribut_list_code", $Method, NULL), $this);
+        $this->attribut_list_code->Required = true;
+        $this->p_user_attribute_list_id = new clsControl(ccsHidden, "p_user_attribute_list_id", "p_user_attribute_list_id", ccsText, "", CCGetRequestParam("p_user_attribute_list_id", $Method, NULL), $this);
+        $this->user_attribute_value = new clsControl(ccsTextBox, "user_attribute_value", "Code", ccsText, "", CCGetRequestParam("user_attribute_value", $Method, NULL), $this);
+        $this->user_attribute_value->Required = true;
+        $this->valid_from = new clsControl(ccsTextBox, "valid_from", "Code", ccsDate, array("dd", "-", "mmm", "-", "yyyy"), CCGetRequestParam("valid_from", $Method, NULL), $this);
+        $this->valid_from->Required = true;
+        $this->valid_to = new clsControl(ccsTextBox, "valid_to", "Code", ccsDate, array("dd", "-", "mmm", "-", "yyyy"), CCGetRequestParam("valid_to", $Method, NULL), $this);
+        $this->description = new clsControl(ccsTextArea, "description", "description", ccsText, "", CCGetRequestParam("description", $Method, NULL), $this);
+        $this->DatePicker_valid_from1 = new clsDatePicker("DatePicker_valid_from1", "roleForm", "valid_from", $this);
+        $this->DatePicker_valid_to1 = new clsDatePicker("DatePicker_valid_to1", "roleForm", "valid_to", $this);
+        if (!$this->FormSubmitted) {
+            if (!is_array($this->created_by->Value) && !strlen($this->created_by->Value) && $this->created_by->Value !== false) {
+                $this->created_by->SetText(CCGetUserLogin());
+            }
+            if (!is_array($this->creation_date->Value) && !strlen($this->creation_date->Value) && $this->creation_date->Value !== false) {
+                $this->creation_date->SetValue(time());
+            }
+            if (!is_array($this->updated_by->Value) && !strlen($this->updated_by->Value) && $this->updated_by->Value !== false) {
+                $this->updated_by->SetText(CCGetUserLogin());
+            }
+            if (!is_array($this->updated_date->Value) && !strlen($this->updated_date->Value) && $this->updated_date->Value !== false) {
+                $this->updated_date->SetValue(time());
+            }
+        }
+    }
+}

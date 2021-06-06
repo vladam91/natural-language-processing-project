@@ -1,0 +1,17 @@
+/**
+ * Ispisuje obnuti redosled slova prosledjenog
+ * stringa i baca izuzetak ako prosledjen parametar
+ * nije string
+ * 
+ * @param $randomString
+ * @return reversedString
+ */
+
+function getReversedString($randomString)
+{
+    if (is_string($randomString)) {
+        return strrev($randomString);
+    } else {
+        throw new Exception("The value is no string");
+    }
+}

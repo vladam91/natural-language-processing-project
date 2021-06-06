@@ -1,0 +1,23 @@
+/**
+ * Cuvanje id korpe za kupovinu kreiranje kolacica
+ * i cuvanjem u sesiji za naredne zahteve i pozive
+ * ukoliko se tamo vec nije nalazio
+ *
+ */
+
+public static function SetCartId()
+{
+     if (self::$_mCartId == '') {
+         if (isset($_SESSION['cart_id'])) {
+             self::$_mCartId = $_SESSION['cart_id'];
+         } elseif (isset($_COOKIE['cart_id'])) {
+             self::$_mCartId = $_COOKIE['cart_id'];
+             $_SESSION['cart_id'] = self::$_mCartId;
+             setcookie('cart_id', self::$_mCartId, time() + 604800);
+         } else {
+             self::$_mCartId = md5(uniqid(rand(), TRUE));
+             $_SESSION['cart_id'] = self::$_mCartId;
+             setcookie('cart_id', self::$_mCartId, time() + 604800);
+         }
+     }
+}

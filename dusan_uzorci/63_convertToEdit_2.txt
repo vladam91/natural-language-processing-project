@@ -1,0 +1,29 @@
+/**
+ * Vrsi se zamena html entita sa postojecim id i prikazuje
+ * ga u edit polje i menja mu vrednost
+ * zatim konvertuje u json
+ *
+ * @param string $id
+ * @param string $value
+ * @return void
+ */
+
+public function convertToEdit($id, $value)
+ {
+     $value = Strings::trim($value);
+     if (!$value) {
+         $this->sendJson(['status' => 'error', 'message' => 'Status can not be empty']);
+     }
+     $state = $this->states->findOneBy(['label' => $value]);
+     if ($state) {
+         $this->sendJson(['status' => 'error', 'message' => 'Country already exists' . $value]);
+     }
+     /** @var State $state */
+     $state = $this->states->find($id);
+     if (!$state) {
+         $this->sendJson(['status' => 'error', 'message' => 'Defined state is not present']);
+     }
+     $state->label = $value;
+     $this->states->save($state);
+     $this->sendJson(['status' => 'success', 'pk' => $pk, 'new label' => $value]);
+ }

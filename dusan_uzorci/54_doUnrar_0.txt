@@ -1,0 +1,29 @@
+/**
+ * Nakon obrade direktorijuma i putanje otpakovace fajl
+ * ako je upis dozvoljen na lokaciji uz ispis gresaka po
+ * potrebi
+ *
+ * @param $path
+ */
+
+function doUnrar($path)
+{
+    $rarName = basename($path);
+    $dirName = nameWithoutExtension($rarName);
+    $parentPath = dirname($path);
+    $rar = RarArchive::open($path);
+    if ($rarName != $dirName) {
+        $destination = $parentPath . DIRECTORY_SEPARATOR . $dirName;
+        if (!file_exists($destination)) {
+            mkdir($destination);
+            foreach ($rar->getEntries() as $entry) {
+                $entry->extract($destination);
+            }
+        } else {
+            $warning = "Impossible de d&eacute;compresser l'archive <b>" . $rarName . "</b>, un dossier du m&ecirc;me nom existe d&eacute;j&agrave;.";
+        }
+    } else {
+        $warning = "Impossible de traiter le fichier <b>" . $rarName . "</b>, il n'a pas d'extension.";
+    }
+    $rar->close();
+}

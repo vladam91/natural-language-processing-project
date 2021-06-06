@@ -1,0 +1,25 @@
+/**
+ * Ova funkcija dohvata format konverzacije na osnovu
+ * dohvacene html strane vebsajta
+ *
+ * @param  array $convoArr - niz koji sadrzi konverzaciju
+ * @return array $convoArr
+ */
+
+function get_conversation($convoArr)
+{
+    $conversation = get_conversation_to_display($convoArr);
+    runDebug(__FILE__, __FUNCTION__, __LINE__, "Processing conversation as " . $convoArr['conversation']['format'], 4);
+    switch ($convoArr['conversation']['format']) {
+        case "html":
+            $convoArr = get_html($convoArr, $conversation);
+            break;
+        case "json":
+            $convoArr = get_json($convoArr, $conversation);
+            break;
+        case "xml":
+            $convoArr = get_xml($convoArr, $conversation);
+            break;
+    }
+    return $convoArr;
+}

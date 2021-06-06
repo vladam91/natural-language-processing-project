@@ -1,0 +1,16 @@
+/**
+ * Dohvata potrebna zaglavlja kolona sa njihovim
+ * pomerajima za genericko kreiranje upita  
+ *
+ */
+
+public static function getColumnHeaderOffset()
+{
+     $_fields = array();
+     $_result = mssql_query($this->SelectCommand, $this->_Link);
+     while ($_prop = mssql_fetch_field($_result)) {
+         $_field = array("Name" => $_prop->name, "Type" => $_prop->type, "Not_Null" => 0);
+         array_push($_fields, $_field);
+     }
+     return $_fields;
+}

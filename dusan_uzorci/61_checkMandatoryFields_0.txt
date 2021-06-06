@@ -1,0 +1,24 @@
+/**
+ * Proverava da li su uneta obavezna polja i ukoliko nisu
+ * baca odgovarajuci izuzetak
+ *
+ * @param Command $command
+ *
+ * @throws InvalidArgumentException
+ */
+
+public function checkMandatoryFields($command)
+{
+    $missingFields = [];
+
+    foreach ($this->mandatoryFields as $field) {
+        if ($command->getField($field) === null) {
+            $missingFields[] = $field;
+        }
+    }
+    if (!empty($missingFields)) {
+        throw new InvalidArgumentException(
+            'Mandatory fields not passed! Missing: ' . implode(', ', $missingFields)
+        );
+    }
+}

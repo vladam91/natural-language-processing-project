@@ -1,0 +1,24 @@
+/**
+ * Pravljenje i inicijalizacija niza nasumicnim vrednostima
+ * i provera tih vrednosti za prosledjeni parametar i ispis
+ *
+ * @param array $array
+ * @param array $min
+ * @param array $max
+ * @param array $checkValid
+ */
+
+public function initAndValidateArray($array, $min, $max, $checkValid) {
+	$array = [];
+	$array_with_range = range($min, $max);
+
+	for ($i = $min; $i <= $max; $i++) {
+	    $array[] = $i;
+	}
+
+	foreach( $array as $b => $param)
+	   if ( $array[$min] < $checkValid )
+	      $result .= print_array( $b );
+	   else
+	      $result .= "$b => $param<br/>";
+}

@@ -1,0 +1,20 @@
+/**
+ * Ispituje da li su sve trazene reci nadjene u prosledjenom stringu
+ * sa regularnim izrazom
+ * @param string $searchTerms Reci koje se traze.
+ * @param string $textToSearch String koji treba pretraziti.
+ *
+ * @return bool $allMatched
+ */
+
+public function allWordsMatched( $searchTerms, $textToSearch ) {
+
+	$allMatched = true;
+	foreach ($searchTerms as $searchTerm) {
+	  if ( preg_match('~'.$searchTerm.'~',$text_to_search) == false )  {
+    	$allMatched = false;
+    	break;
+ 	  }
+	}
+	return $allMatched;
+}

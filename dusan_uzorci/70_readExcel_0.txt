@@ -1,0 +1,30 @@
+/**
+ * Adapter za PHPExcel
+ * Citanje excel fajla od pocetka do kraja definisanih
+ * kolona i prebacivanje u php format excela
+ *
+ * @param  string  $filename -
+ * @param  integer $startRow -
+ * @param  integer $endRow   -
+ * @param  array   $columns  -
+ *
+ * @return array
+ */
+ 
+static function readExcel($filename, $startRow, $endRow, $columns)
+{
+     $root = f3()->get('ROOT') . f3()->get('BASE');
+     // include_once $root . f3()->get('vendors') . 'PHPExcel/IOFactory.php';
+     $inputFileName = $root . '' . $filename;
+     $filterSubset = new XlsReadFilter($startRow, $endRow, $columns);
+     try {
+         $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+         $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+         $objReader->setReadDataOnly(true);
+         $objReader->setReadFilter($filterSubset);
+         $objPHPExcel = $objReader->load($inputFileName);
+         return $objPHPExcel->getActiveSheet()->toArray(null, true, true, true);
+     } catch (PHPExcel_Reader_Exception $e) {
+         Reaction::_return("2005", str_replace($root, '', $e->getMessage()));
+     }
+}

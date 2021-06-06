@@ -1,0 +1,20 @@
+/**
+ * Uzima podesavanja za odredjenu temu i uz odredjene provere
+ * pronalazi putanju do trazenog fajla
+ *
+ */
+
+public function getThemeConfig($theme)
+{
+     $theme = $this->cleanThemeName($theme);
+     $path_iterator = $this->themePaths->getIterator();
+     $config = null;
+     $n = $path_iterator->count();
+     while (!$config && $n-- > 0) {
+         $path = $path_iterator->extract();
+         if (file_exists($path . $theme . '/config.php')) {
+             $config = (include $path . $theme . '/config.php');
+         }
+     }
+     return $config;
+}

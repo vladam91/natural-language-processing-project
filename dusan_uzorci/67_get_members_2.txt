@@ -1,0 +1,38 @@
+/**
+ * Dohvata html vebsajta za dati url i generise
+ * dom svih dobijenih elemenata
+ *
+ * @param string $url
+ * @return bool
+ */
+
+function get_members($url)
+{
+    $html = get_html($url);
+    if ($html === false) {
+        echo 'connection error';
+    } else {
+        $oldSetting = libxml_use_internal_errors(true);
+        libxml_clear_errors();
+        $dom = new DOMDocument();
+        $dom->loadHtml($html);
+        $tbody = $dom->getElementsByTagName('tbody');
+        $trs = $tbody[0]->getElementsByTagName('tr');
+        global $parteinameFilter;
+        $members = array();
+        foreach ($trs as $tr) {
+            $tds = $tr->getElementsByTagName('td');
+            $link = $tds[0]->getElementsByTagName('a');
+            $member = array('name' => $link[0]->nodeValue, 'link' => $link[0]->getAttribute('href'), 'partei' => str_replace($parteinameFilter, '', $tds[1]->nodeValue));
+            $aze = str_replace('&nbsp;', '', htmlentities($tds[2]->nodeValue));
+            if ($aze) {
+                $member['amtszeitende'] = $aze;
+            }
+            $members[] = $member;
+        }
+        libxml_clear_errors();
+        libxml_use_internal_errors($oldSetting);
+        return $members;
+    }
+    return false;
+}

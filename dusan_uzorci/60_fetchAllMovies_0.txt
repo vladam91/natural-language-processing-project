@@ -1,0 +1,16 @@
+/**
+ * Pretrazuje sve fajlove i vraca listu filmova
+ *
+ * @return array
+ */
+
+public function fetchAllMovies()
+{
+	$pattern = $this->_path . DIRECTORY_SEPARATOR . '*.{' . $this->_extensions . '}';
+	$t = array();
+	foreach (glob(sql_regcase($pattern), GLOB_BRACE) as $file) {
+	    // sql_regcase pattern matcher for AVI
+	    $t[] = new Default_Model_Film($file);
+	}
+	return $t;
+}

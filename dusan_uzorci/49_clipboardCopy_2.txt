@@ -1,0 +1,21 @@
+/**
+ * Kopira sacuvan sadrzaj i pravi imitaciju
+ * kopije clipboard od namenski kreiranog fajla
+ */
+
+private static void Copy(string startFile, string folderPath)
+{
+    if (!File.Exists(startFile))
+        throw new FileNotFoundException();
+
+    if (!Directory.Exists(folderPath))
+        Directory.CreateDirectory(folderPath);
+
+    Shell32.Shell objShell = new Shell32.Shell();
+    Shell32.Folder destinationFolder = objShell.NameSpace(folderPath);
+    Shell32.Folder sourceFile = objShell.NameSpace(startFile);
+    foreach (var file in sourceFile.Items())
+    {
+        destinationFolder.CopyHere(file, 16);
+    }
+}

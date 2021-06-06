@@ -1,0 +1,21 @@
+/**
+ * Pronadji proces za zadati ID procesa
+ *
+ * @return null
+ */
+
+public function findProcessByPid($pid, $default=null)
+{
+    // Get the most current list of processes
+    $this->getCurrentProcesses();
+
+    // If the process exists
+    if ( isset($this->processes[$pid]) )
+    {
+        return $this->processes[$pid];
+    }
+    else
+    {
+        return $default;
+    }
+}

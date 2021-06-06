@@ -1,0 +1,23 @@
+/**
+ * Dohvata sve video sadrzaje prema godini
+ * ispita tako sto kreira upit za dohvatanje podataka
+ * iz same baze
+ *
+ * @param $examyear
+ */
+
+function getAllActiveVideos($examyear)
+{
+    $conn = getConnection();
+    $query = "SELECT * FROM video WHERE examyear = '" . $examyear . "' AND activeflag = 1 ORDER BY ID DESC";
+    $result = mysql_query($query);
+    $list = array();
+    while ($member = mysql_fetch_array($result)) {
+        $temp = getVideo($member['ID']);
+        array_push($list, $temp);
+    }
+    if (count($list) != 0) {
+        return $list;
+    }
+    return NULL;
+}

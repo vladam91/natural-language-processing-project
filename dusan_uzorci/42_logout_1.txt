@@ -1,0 +1,19 @@
+/**
+ * Metoda za brisanje kolacica i postavljanje vrednosti
+ * na nevalidne za naredne pokusaje logovanja bez tokena
+ * 
+ * @param Response $response
+ * @return Response
+ */
+
+public function logout(Response $response)
+{
+     if ($this->isAuthenticated()) {
+         $this->_cookies->set("session_token", ["value" => "", "expires" => time() - 3600]);
+         $this->getUser()->storeRememberToken(null);
+         $this->_user = null;
+         $this->_authenticated = false;
+         return $response->withHeader('Set-Cookie', $this->_cookies->toHeaders());
+     }
+     return $response;
+}

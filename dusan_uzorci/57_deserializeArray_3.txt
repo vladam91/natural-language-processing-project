@@ -1,0 +1,15 @@
+/**
+ * Deserijalizuje JSON niz objekata
+ *
+ * @param string $json
+ * @return $this[]
+ */
+
+public static function deserializeArray($json)
+{
+    $json = json_decode($json);
+    $items = [];
+    foreach ($json as $item)
+        $items[] = self::Deserialize($item);
+    return $items;
+}

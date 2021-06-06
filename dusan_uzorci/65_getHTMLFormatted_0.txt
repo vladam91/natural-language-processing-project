@@ -1,0 +1,44 @@
+/**
+ * Default HTML formatting implementation for error messages
+ * Podrazumevano formatiranje html dokumenta za poruke greske
+ * u zavisnosti od setovanih atributa u nizu config
+ *
+ * @param $config Konfiguracioni niz kljucan za izlazni html
+ * @return string Formatiran html
+ */
+
+function getHTMLFormatted($config)
+{
+     $ret = array();
+     $errors = $this->errors;
+     // sort error array by line
+     // line numbers are enabled if they aren't explicitly disabled
+     if ($config->get('Core', 'MaintainLineNumbers') !== false) {
+         $has_line = array();
+         $lines = array();
+         $original_order = array();
+         foreach ($errors as $i => $error) {
+             $has_line[] = (int) (bool) $error[0];
+             $lines[] = $error[0];
+             $original_order[] = $i;
+         }
+         array_multisort($has_line, SORT_DESC, $lines, SORT_ASC, $original_order, SORT_ASC, $errors);
+     }
+     foreach ($errors as $error) {
+         list($line, $severity, $msg) = $error;
+         $string = '';
+         $string .= '<strong>' . $this->locale->getErrorName($severity) . '</strong>: ';
+         $string .= $this->generator->escape($msg);
+         if ($line) {
+             // have javascript link generation that causes
+             // textarea to skip to the specified line
+             $string .= $this->locale->formatMessage('ErrorCollector: At line', array('line' => $line));
+         }
+         $ret[] = $string;
+     }
+     if (empty($errors)) {
+         return '<p>' . $this->locale->getMessage('ErrorCollector: No errors') . '</p>';
+     } else {
+         return '<ul><li>' . implode('</li><li>', $ret) . '</li></ul>';
+     }
+}

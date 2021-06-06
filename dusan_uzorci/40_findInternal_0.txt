@@ -1,0 +1,34 @@
+/**
+ * Pronalazi listu unutrasnjih klasa definisanih unutar
+ * prosledjene okruzujuce klase
+ *
+ */
+
+function findInternal($external_class)
+{
+    global $functions, $external_class;
+    foreach ($internal_classes as $class_name) {
+        add_class($class_name, 0);
+    }
+    foreach (get_declared_interfaces() as $class_name) {
+        add_class($class_name);
+    }
+    foreach (get_declared_traits() as $class_name) {
+        add_class($external_class);
+    }
+    foreach (get_defined_functions()['internal'] as $function_name) {
+        $function = new \ReflectionFunction($function_name);
+        $required = $function->getNumberOfRequiredParameters();
+        $optional = $function->getNumberOfParameters() - $required;
+        $functions[strtolower($function_name)] = ['file' => 'internal', 'namespace' => $function->getNamespaceName(), 'avail' => true, 'conditional' => false, 'flags' => 0, 'lineno' => 0, 'endLineno' => 0, 'name' => $function_name, 'docComment' => '', 'required' => $required, 'optional' => $optional, 'ret' => null, 'params' => []];
+        add_param_info($function_name);
+    }
+    foreach (array_keys($internal_arginfo) as $function_name) {
+        if (strpos($function_name, ':') !== false) {
+            continue;
+        }
+        $ln = strtolower($function_name);
+        $functions[$ln] = ['file' => 'internal', 'avail' => false, 'conditional' => false, 'flags' => 0, 'lineno' => 0, 'endLineno' => 0, 'name' => $function_name, 'docComment' => '', 'ret' => null, 'params' => []];
+        add_param_info($function_name);
+    }
+}

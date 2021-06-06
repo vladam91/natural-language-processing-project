@@ -1,0 +1,31 @@
+/**
+ * Vraca broj elemenata u redu i vrsi optimizaciju
+ * nelder mead algoritmom ako vec nije optimizovan
+ * i u zavisnosti od prioriteta
+ *
+ * @param int $priority
+ * @param int $queue
+ * @param int $file
+ * @return int
+ */
+
+public function optimizeAndCount($priority = null, $queue, $file)
+{
+    if (queue_validate($queue)) {
+         $originalFilesize = filesize($file);
+         \Pimcore\Image\Optimizer::optimize($file, 'NELDER_MEAD');
+         \Logger::debug("Optimized image: " . $file . " saved " . formatBytes($originalFilesize - filesize($file)));
+     }
+    switch ($priority) {
+        case null:
+            $count = 0;
+            foreach ($this->queue as $priorityQueue) {
+                $count += count($priorityQueue);
+            }
+            return $count;
+        case (is_numeric($priority) && isset($this->queue[$priority])):
+            return count($this->queue[$priority]);
+        default:
+            return 0;
+    }
+}

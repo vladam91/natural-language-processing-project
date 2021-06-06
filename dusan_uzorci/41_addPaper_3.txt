@@ -1,0 +1,26 @@
+/**
+ * Dodavanje stranice zavrsnom papiru sto omogucava visestruke
+ * gsms uz kodiranje i dekodiranje url
+ *
+ * @param string $paper_name naziv papira koje ce biti korisceno 
+ * za skup vrednosti za automatsko dopunjavanje listbox
+ */
+
+public function addPaper($paper_name = NULL)
+{
+     $paper_name = url::decode($paper_name);
+     if ($this->access->allowed('sheets', 'create')) {
+         $this->template->title = 'Add Sheet';
+         $view = new view(url::routes_area() . 'add');
+         $view->post = $this->post;
+         $this->breadcrumbs->add()->url('products/papers/edit/' . url::encode($paper_name))->title($paper_name);
+         $this->breadcrumbs->add()->url(url::routes_area() . 'index/' . url::encode($paper_name))->title('Sheets');
+         $this->breadcrumbs->add()->url(false)->title('Add Sheet');
+         $view->paper_name = $paper_name;
+         $view->papers = ORM::factory('paper')->where('status !=', 'deleted')->find_all();
+         $view->finishes = ORM::factory('finish')->find_all();
+         $this->template->content = $view;
+     } else {
+         url::failed();
+     }
+}

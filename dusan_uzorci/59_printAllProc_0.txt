@@ -1,0 +1,13 @@
+/**
+ * Ispisuje PID i COMMAND svih pokrenutih procesa
+ * 
+ */
+
+function printAllProc() {
+	require('ProcessList.phpclass');
+	$ps = new ProcessList();
+    foreach  ( $ps  as  $process )
+		echo ( "PID : {$process -> ProcessId},
+			    COMMAND : {$this -> Command}" 
+			) ;
+}

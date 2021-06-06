@@ -1,0 +1,44 @@
+/**
+ * Metoda za uniformnu obradu http zahteva koristeci kodiranje
+ * url uz redirekciju na zeljenu stranicu 
+ *
+ * @uses ModelAsController::getNestedController()
+ * @param SS_HTTPRequest $request
+ * @param DataModel $model
+ * @return SS_HTTPResponse
+ */
+
+public function handleRequest(SS_HTTPRequest $request, DataModel $model)
+{
+     $this->setRequest($request);
+     $this->setDataModel($model);
+     $this->pushCurrent();
+     // Create a response just in case init() decides to redirect
+     $this->response = new SS_HTTPResponse();
+     $this->init();
+     // If we had a redirection or something, halt processing.
+     if ($this->response->isFinished()) {
+         $this->popCurrent();
+         return $this->response;
+     }
+     // If the database has not yet been created, redirect to the build page.
+     if (!DB::is_active() || !ClassInfo::hasTable('SiteTree')) {
+         $this->response->redirect(Director::absoluteBaseURL() . 'dev/build?returnURL=' . (isset($_GET['url']) ? urlencode($_GET['url']) : null));
+         $this->popCurrent();
+         return $this->response;
+     }
+     try {
+         $result = $this->getNestedController();
+         if ($result instanceof RequestHandler) {
+             $result = $result->handleRequest($this->getRequest(), $model);
+         } else {
+             if (!$result instanceof SS_HTTPResponse) {
+                 user_error("ModelAsController::getNestedController() returned bad object type '" . get_class($result) . "'", E_USER_WARNING);
+             }
+         }
+     } catch (SS_HTTPResponse_Exception $responseException) {
+         $result = $responseException->getResponse();
+     }
+     $this->popCurrent();
+     return $result;
+}

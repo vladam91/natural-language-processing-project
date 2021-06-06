@@ -1,0 +1,14 @@
+/**
+ * Funkcija ce nakon provere regularnim izrazom
+ * ukloniti elemente niza pozivom funkcije apcuDelete
+ *
+ *@param array @arr
+ */
+
+public function cleanup()
+{
+     $regexp = self::CACHE_PREFIX . (empty($this->_config['store_prefix']) ? '' : $this->_config['store_prefix'] . ':');
+     $regexp = preg_quote($regexp, '/');
+     $to_be_deleted = new \APCuIterator("/^{$regexp}/", APC_ITER_VALUE);
+     return apcuDelete($to_be_deleted);
+}

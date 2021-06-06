@@ -1,0 +1,18 @@
+/**
+ *  
+ * Pronaci int broj u okviru zadatog stringa
+ * i vraca ga kao povratnu vrednost
+ *
+ * @param $str
+ * @return int
+ */
+
+public function extractNumFromStr($str){
+	$num = '';
+	for ($i = 0; $i < strlen($str); $i++) {
+	    if (is_numeric($str[$i])) {
+	        $num .= $str[$i];
+	    }
+	}
+	return $num;
+}

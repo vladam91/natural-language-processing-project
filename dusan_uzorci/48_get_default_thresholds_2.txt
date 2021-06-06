@@ -1,0 +1,29 @@
+/**
+ * Cita podrazumevane granicne vrednosti koristeci fajlove atributa
+ * Daje prednost nizovima sa ovim vrednostima u odnosu na
+ * groupedthreshold i singlestepthreshold
+ *
+ * @return array Format
+ */
+
+protected function get_default_thresholds()
+{
+     // Read values from the properties file.
+     $vars = array('groupedthreshold', 'singlestepthreshold', 'thresholds');
+     $properties = properties_reader::get($vars);
+     // There will always be a value in defaults.properties.
+     if (empty($properties['groupedthreshold']) || empty($properties['singlestepthreshold'])) {
+         die('Error: defaults.properties thresholds values can not be found' . PHP_EOL);
+     }
+     // Preference to $thresholds.
+     if (!empty($properties['thresholds'])) {
+         return json_decode($properties['thresholds'], true);
+     }
+     // Generate the default thresholds array.
+     $thresholds = array('bystep' => array(), 'total' => array());
+     foreach (test_plan_run::$runvars as $var) {
+         $thresholds['bystep'][$var] = $properties['singlestepthreshold'];
+         $thresholds['total'][$var] = $properties['groupedthreshold'];
+     }
+     return $thresholds;
+}

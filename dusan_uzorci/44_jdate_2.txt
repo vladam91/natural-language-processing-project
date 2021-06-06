@@ -1,0 +1,14 @@
+/**
+ * Dohvata trenutni datum podrazumevano postavljen ako nije prosledjen
+ * drugi i pravi ga u zahtevanom formatu
+ *
+ * @param $format
+ * @param $timestamp
+ * @param $persian_number
+ */
+ 
+function jdate($format, $timestamp = 'now', $persian_number = true)
+{
+    $jdate = new jDateTime(true, true, 'Asia/Tehran');
+    return $jdate->date($format, $timestamp, $persian_number);
+}

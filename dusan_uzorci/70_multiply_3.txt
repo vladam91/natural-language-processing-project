@@ -1,0 +1,27 @@
+/**
+ * Mnozenje matrice predefinisanom matricom
+ *
+ * @param Matrix $matrix
+ * @return Matrix
+ *
+ * @throws InvalidArgumentException
+ */
+
+public function multiply(Matrix $matrix)
+{
+     if ($this->columns != $matrix->getRows()) {
+         throw InvalidArgumentException::inconsistentMatrixSupplied();
+     }
+     $product = [];
+     $multiplier = $matrix->toArray();
+     for ($i = 0; $i < $this->rows; ++$i) {
+         $columns = $matrix->getColumns();
+         for ($j = 0; $j < $columns; ++$j) {
+             $product[$i][$j] = 0;
+             for ($k = 0; $k < $this->columns; ++$k) {
+                 $product[$i][$j] += $this->matrix[$i][$k] * $multiplier[$k][$j];
+             }
+         }
+     }
+     return new self($product, false);
+}

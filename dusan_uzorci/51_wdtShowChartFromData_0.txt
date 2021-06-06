@@ -1,0 +1,20 @@
+/**
+ * Izgenerisi i prikazi grafike tj chartove iz dostupnih podataka
+ * u zavisnosti od zahtevanog chart tipa
+ */
+
+function wdtShowChartFromData($chartType)
+{
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_POST['wdtNonce'], 'wdtChartWizardNonce')) {
+        exit();
+    }
+
+    if(!typeExists($chartType) {
+        exit();
+    }
+    $chartData = $_POST['chart_data'];
+    $wpDataChart = WPDataChart::factory($chartData, false);
+
+    echo json_encode($wpDataChart->returnData());
+    exit();
+}

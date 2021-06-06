@@ -1,0 +1,18 @@
+/**
+ * Proverava sa regularnim izrazom slova na ulazu
+ *
+ * @param string $wdtColumnType
+ * @param array $properties
+ * @return mixed
+ */
+ 
+public static function generateColumn($wdtColumnType = 'string', $properties = array())
+{
+    if (!$wdtColumnType) {
+        $wdtColumnType = 'string';
+    }
+    $columnObj = ucfirst($wdtColumnType) . 'WDTColumn';
+    $columnFormatterFileName = 'class.' . strtolower($wdtColumnType) . '.wpdatacolumn.php';
+    require_once($columnFormatterFileName);
+    return new $columnObj($properties);
+}

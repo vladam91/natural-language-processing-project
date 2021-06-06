@@ -1,0 +1,45 @@
+/**
+ * Obrada svih gresaka bacenih u kodu koje ne koriste struktuiranu
+ * obradu gresaka
+ *
+ * @param int $errno
+ * @param string $errstr
+ * @param string $errfile
+ * @param int $errline
+ * @param array $errcontext
+ */
+
+public function ErrorHandler($errno, $errstr, $errfile, $errline, array $errcontext)
+{
+    $additional_info = array('File' => $errfile, 'Line' => $errline, 'Context' => $errcontext);
+    $e = new Exception($errstr, $errno);
+    switch ($e->getCode()) {
+        # Not serious, ignore
+        case E_STRICT:
+            break;
+            # Not serious, log and carry on unless on a WordPress page.
+            # WordPress developers don't fix these, so if this is a WordPress page ignore it.
+        # Not serious, log and carry on unless on a WordPress page.
+        # WordPress developers don't fix these, so if this is a WordPress page ignore it.
+        case E_NOTICE:
+        case E_USER_NOTICE:
+            if (!function_exists('wp')) {
+                $this->Publish($e, $additional_info);
+            }
+            break;
+            # Not serious, log and carry on
+        # Not serious, log and carry on
+        case E_WARNING:
+        case E_USER_WARNING:
+            $this->Publish($e, $additional_info);
+            break;
+            # Serious, log and die
+        # Serious, log and die
+        default:
+            $this->Publish($e, $additional_info);
+            if (!headers_sent()) {
+                header("HTTP/1.1 500 Internal Server Error");
+            }
+            die('<p class="validationSummary">Sorry, there\'s a problem with this page. Please try again later.</p>');
+    }
+}

@@ -1,0 +1,31 @@
+/**
+ * Postavljanje paginacije
+ *
+ * Ukupan broj prikazanih elemenata je jednak onim koji se prikazuju
+ *
+ * @param int $total_items Ukupan broj elemenata.
+ */
+
+protected function set_pagination( $total_items ) {
+
+	// Calculate items per page.
+	$per_page = $this->get_items_per_page( 'wpseo_posts_per_page', 10 );
+	$paged    = esc_sql( sanitize_text_field( filter_input( INPUT_GET, 'paged' ) ) );
+
+	if ( empty( $paged ) || ! is_numeric( $paged ) || $paged <= 0 ) {
+		$paged = 1;
+	}
+
+	$this->set_pagination_args(
+		[
+			'total_items' => $total_items,
+			'total_pages' => ceil( $total_items / $per_page ),
+			'per_page'    => $per_page,
+		]
+	);
+
+	$this->pagination = [
+		'per_page' => $per_page,
+		'offset'   => ( ( $paged - 1 ) * $per_page ),
+	];
+}

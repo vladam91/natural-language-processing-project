@@ -1,0 +1,15 @@
+/**
+ * Obnavlja vreme trajanja sesije dohvatanjem trenutnog
+ * datuma i postavljanjem u odgovarajuce polje
+ * 
+ * @param ind $uid
+ */
+
+function refresh_session($uid = "")
+{
+     if ($uid == "") {
+         $uid = $this->user;
+     }
+     global $db;
+     $db->set($this->users_table, array($this->last_session_key => date_now()), $this->primary_key . " = '{$uid}'", FALSE);
+}

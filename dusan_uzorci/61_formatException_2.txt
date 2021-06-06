@@ -1,0 +1,33 @@
+/**
+ * Funkcija koja formatira http odgovor u proizvoljan format
+ *
+ * @param \Exception $exception
+ * @return \Illuminate\Http\JsonResponse
+ */
+
+public function formatException($exception)
+{
+     // Define the response
+     $result = ['errors' => trans('messages.sorry')];
+     // Default response of 400
+     $statusCode = 400;
+     $addDebugData = $this->isDebugEnabled();
+     switch (true) {
+         case $exception instanceof HttpException:
+             $statusCode = $exception->getStatusCode();
+             $result['errors'] = $exception->getMessage();
+             break;
+         case $exception instanceof ValidationException:
+             $result['errors'] = $exception->errors();
+             $addDebugData = false;
+             break;
+     }
+     // Prepare response
+     $response = ['success' => false, 'result' => $result, 'meta' => ['version' => config('app.version.api'), 'request' => \Request::method() . ' ' . \Request::url(), 'debug' => $this->isDebugEnabled()]];
+     // If the app is in debug mode && not Validation exception
+     if ($addDebugData) {
+         $response['debug'] = ['exception' => get_class($exception), 'message' => $exception->getMessage(), 'file' => $exception->getFile(), 'line' => $exception->getLine(), 'trace' => $exception->getTrace()];
+     }
+     // Return a JSON response with the response array and status code
+     return response()->json($response, $statusCode);
+}

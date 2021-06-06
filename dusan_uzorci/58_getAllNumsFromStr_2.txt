@@ -1,0 +1,17 @@
+/**
+ *  
+ * Pronalazi sve int brojeve u zadatom stringu
+ * i vraca niz pronadjenih brojeva
+ *
+ * @param $checkString
+ * @return array $matches
+ */
+
+public function getAllNumsFromStr($checkString){
+	//Extract the numbers
+	preg_match_all('!\d+\.*\d*!', $checkString, $matches);
+
+	//var_dump the result
+	var_dump($matches);
+	return $matches;
+}

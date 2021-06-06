@@ -1,0 +1,44 @@
+/**
+ * handler for 404 (page not found) error
+ * Obrada greske 404 (stranica nije pronadjena)
+ * izracunavanje slicnosti url po levestajn algoritmu slicnosti
+ * stringova
+ *
+ * @param string $sUrl url koji je dat, ne moze uvek biti dat
+ *
+ * @return void
+ */
+
+public function handlePageNotFoundError($sUrl = '')
+{
+     // module active?
+     if (!oxRegistry::getConfig()->getConfigParam("psRedirect404_status")) {
+         return parent::handlePageNotFoundError($sUrl = '');
+     }
+     $iShortest = -1;
+     $iHeaderType = 302;
+     $sSearchString = $this->_clearUrl($sUrl);
+     // psRedirect404
+     // checks based on levenshtein algorithm closest url from
+     // oxid seo urls (oxseo) and redirect with header 302 to this page
+     try {
+         foreach ($this->_getSeoUrls() as $value) {
+             $sUrl = $this->_clearUrl($value[0]);
+             $sLevRes = levenshtein($sSearchString, $sUrl);
+             #echo $sLevRes." - ".$sUrl." (".$value[0].")<br>";
+             if ($sLevRes <= $iShortest || $iShortest < 0) {
+                 $sClosest = $value[0];
+                 $iShortest = $sLevRes;
+                 if ($sLevRes <= 10 && oxRegistry::getConfig()->getConfigParam("psRedirect404_redirecttype") == "auto") {
+                     $iHeaderType = 301;
+                 }
+             }
+         }
+         if (!oxRegistry::getConfig()->getConfigParam("psRedirect404_redirecttype") == "301") {
+             $iHeaderType = 301;
+         }
+         oxRegistry::getUtils()->redirect(oxRegistry::getConfig()->getShopUrl() . $sClosest, false, $iHeaderType);
+     } catch (Exception $e) {
+     }
+     $this->showMessageAndExit("Found");
+}

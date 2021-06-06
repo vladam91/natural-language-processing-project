@@ -1,0 +1,21 @@
+/**
+ * Pravi cvor za dodavanje u graf za ispis 
+ * i iscrtavanje zeljene raspodele 
+ * Moguce je proslediti i modifikovati postojeci
+ * ako je podrzan
+ *
+ */
+
+protected function buildGraphNode(Image_GraphViz $graph, $nodes, $parent = null)
+{
+   foreach($nodes as $node => $children)
+   {
+     $node_array = explode('\\', $node);
+     $graph->addNode(md5($node), array('label' => end($node_array), 'shape' => 'box'));
+     if ($parent !== null)
+     {
+       $graph->addEdge(array(md5($node) => md5($parent)), array('arrowhead' => 'empty', 'minlen' => '2'));
+     }
+     $this->buildGraphNode($graph, $children, $node);
+   }
+}

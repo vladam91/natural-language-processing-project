@@ -1,0 +1,35 @@
+/**
+ * Generisanje formata http odgovora na gresku za odgovarajuci
+ * izuzetak koji je bacen
+ *
+ * @param \Exception $exception
+ * @return \Illuminate\Http\JsonResponse
+ */
+
+private function generateErrorForException(\Exception $exception)
+{
+     if ($exception instanceof CommandInvalidException) {
+         $formError = $exception->getForm()->getErrors(true)->current();
+         $path = $formError->getOrigin()->getPropertyPath();
+         if ($path !== null) {
+             // We got PropertyPathInterface or maybe even a string (undocumented).
+             $path = (string) $path;
+         }
+         return new E\Api\BadRequest($formError->getMessage(), $path);
+     } elseif ($exception instanceof ConstraintViolationException) {
+         return $exception->getError();
+     } elseif ($exception instanceof UsernameNotFoundException) {
+         return new E\Security\BadCredentials();
+     } elseif ($exception instanceof AccessDeniedException) {
+         $token = $this->tokenStorage->getToken();
+         if ($token && $this->tokenStorage->getToken()->getRoles()) {
+             return new E\Security\NotAuthorized();
+         } else {
+             return new E\Security\NotAuthenticated();
+         }
+     } elseif ($exception instanceof ProtocolException) {
+         return $this->getErrorForOxygenProtocolException($exception);
+     } else {
+         return new E\Api\UnexpectedError();
+     }
+}

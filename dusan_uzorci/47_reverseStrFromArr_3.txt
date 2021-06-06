@@ -1,0 +1,13 @@
+/**
+ * Odredjuje obrnuti redosled slova u stringu njegovim
+ * razlaganjem na reci u niz a zatim obrtanjem tog niza
+ * 
+ * @param $str
+ */
+
+public function reverseStrFromArr($str)
+{
+    $arrayA = str_split($str);
+    $reversearray = array_reverse($arrayA);
+    return implode('', $reversearray);
+}

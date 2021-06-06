@@ -1,0 +1,32 @@
+/**
+ * Konvretuj html u pdf ako je definisan za datu
+ * kolonu
+ *
+ * @return StdClass
+ */
+
+public function getPDFFromHtml($columnID)
+{
+    $colJsDefinition = new StdClass();
+    $colJsDefinition->sType = $this->_jsDataType;
+    $colJsDefinition->wdtType = $this->_dataType;
+    $colJsDefinition->className = $this->getCSSClasses() . ' column-' . sanitize_html_class(strtolower(str_replace(' ', '-', $this->_orig_header)));
+    $colJsDefinition->bVisible = $this->isVisible();
+    $colJsDefinition->orderable = $this->getSorting();
+    $colJsDefinition->searchable = $this->_searchable && $this->_globalSearchColumn;
+    $colJsDefinition->InputType = $this->_inputType;
+    $colJsDefinition->name = $this->_orig_header;
+    $colJsDefinition->origHeader = $this->_orig_header;
+    $colJsDefinition->notNull = $this->_notNull;
+    $colJsDefinition->conditionalFormattingRules = $this->getConditionalFormattingData();
+    if (sanitize_html_class(strtolower(str_replace(' ', '-', $this->_orig_header)))) {
+        $colJsDefinition->className = $this->getCSSClasses() . ' column-' . sanitize_html_class(strtolower(str_replace(' ', '-', $this->_orig_header)));
+    } else {
+        $colJsDefinition->className = $this->getCSSClasses() . ' column-' . $columnID;
+    }
+    if ($this->_width != '') {
+        $colJsDefinition->sWidth = $this->_width;
+    }
+    $colJsDefinition = apply_filters('wpdatatables_filter_column_js_definition', $colJsDefinition, $this->_title);
+    return $colJsDefinition;
+}

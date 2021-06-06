@@ -1,0 +1,35 @@
+/**
+ * Pronadji sve ignorisane reci u prosledjenom stringu
+ *
+ * @param string $lang
+ *
+ * @return array
+ */
+
+private function get_ignored_words($lang)
+{
+     if (null == $this->ignored_words) {
+         // Require the lang file
+         $relative_path = '/ignored-words/' . $lang . '.php';
+         // Validate the file path to prevent traversal attacks
+         if (0 !== validate_file($relative_path)) {
+             return array();
+         }
+         $filename = dirname(__FILE__) . $relative_path;
+         // Check if file exists
+         if (!file_exists($filename)) {
+             return array();
+         }
+         // Require the file
+         $ignored_words = (require $filename);
+         // Check if the the $ignored_words are set
+         if (is_null($ignored_words) || !is_array($ignored_words)) {
+             return array();
+         }
+         // add extra ignored words (setting)
+         $ignored_words = array_merge($ignored_words, $this->get_extra_ignored_words());
+         // Words to ignore
+         $this->ignored_words = apply_filters('rp4wp_ignored_words', $ignored_words);
+     }
+     return $this->ignored_words;
+}

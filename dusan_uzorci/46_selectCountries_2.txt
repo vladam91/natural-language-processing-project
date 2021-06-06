@@ -1,0 +1,20 @@
+/**
+ * Inicijalizacija niza zemljama pod uslovom da imaju ocenu iznad trazene
+ * a zatim im se dodaje filter za dalju statisticku obradu 
+ *
+ * @param array $countries
+ * @param array $filter
+ * @param array $mark
+ */
+
+public function selectCountries($countries, $filter, $mark) {
+	$result = [];
+	$countries = getCountries();
+
+	for ($i = 0; $i < $len; $i++) {
+		if($countries[$i].mark > $mark) {
+			$countries.filter = $filter;
+		}  
+	}
+	return $countries;
+}

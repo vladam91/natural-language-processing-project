@@ -1,0 +1,38 @@
+/**
+ * Funkicija za login uz kreiranje kolacica i njihovo cuvanje 
+ * uz odgovarajuci vremenski marker
+ *
+ * @param $user
+ * @param string $pass
+ * @return bool
+ */
+
+function login($user, $pass)
+{
+    $con = new db();
+    $conc = $con->c();
+    $kcook = intval($_POST["remember"]);
+    $q = mysqli_query($conc, "SELECT `id`,`user`,`name`,`email`,`img1`,`img2`,`img3`,`bgcolor` FROM `users` WHERE (`user` = '{$user}' OR `email` ='{$user}') AND pass = '{$pass}'");
+    if (mysqli_num_rows($q) == 1) {
+        $r = mysqli_fetch_array($q);
+        setcookie("u", $r[1], time() + 52 * 60 * 60 * 24 * 7);
+        $_SESSION["uid"] = $r[0];
+        $_SESSION["user"] = $r[1];
+        $_SESSION["name"] = $r[2];
+        $_SESSION["email"] = $r[3];
+        $_SESSION["p"] = $pass;
+        $_SESSION["color"] = $r[7];
+        $_SESSION["img1"] = $r[4];
+        $_SESSION["img2"] = $r[5];
+        $_SESSION["img3"] = $r[6];
+        $_SESSION["ula"] = md5("{$r['1']} {$pass} {$r['0']}");
+        $con->close_db_con($conc);
+        if ($kcook == 1) {
+            setcookie("u", $r[1], time() + 2 * 60 * 60 * 24 * 7);
+            setcookie("p", $pass, time() + 2 * 60 * 60 * 24 * 7);
+        }
+        return true;
+    } else {
+        return false;
+    }
+}

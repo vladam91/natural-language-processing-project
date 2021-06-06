@@ -1,0 +1,14 @@
+/**
+ * Pronalazi separator koji odgovara primenjenom filteru.
+ *
+ * @return string separatora
+ */
+ 
+protected function get_separator() {
+	if ( ! $this->separator ) {
+		$this->separator = \apply_filters( 'wpseo_breadcrumb_separator', $this->helpers->options->get( 'breadcrumbs-sep' ) );
+		$this->separator = ' ' . $this->separator . ' ';
+	}
+
+	return $this->separator;
+}

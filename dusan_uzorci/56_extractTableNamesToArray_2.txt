@@ -1,0 +1,14 @@
+/**
+ * Pretrazuje i dohvata imena svih kolona u 
+ * tabeli u bazi podataka
+ *
+ */
+
+protected function extractTableNamesToArray() {
+	mysql_connect($server, $login, $password);
+	$res = mysql_query("SHOW TABLES FROM $db");
+	$tables = array();
+	while($row = mysql_fetch_array($res, MYSQL_NUM)) {
+	    $tables[] = "$row[0]";
+	}
+}

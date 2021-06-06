@@ -1,0 +1,18 @@
+/**
+ * Konvertuje jedan JSON objekat u instancu klase
+ * radi i sa nizovima
+ *
+ * @param string|array $json
+ * @return $this
+ */
+
+public static function deserializeJsonToClass($json)
+{
+    foreach ($json as $key => $value) {
+        if (!property_exists($classInstance, $key)) continue;
+
+        $classInstance->{$key} = $value;
+    }
+
+    return $classInstance;
+}

@@ -1,0 +1,15 @@
+/**
+ * Pronalazi sve tagove za odredjeni enum po njegovom id
+ *
+ */
+
+function getAllEnumTags($enumID)
+{
+     global $dbh;
+     $sql = "SELECT TagID FROM fac_DeviceTags WHERE DeviceID=" . intval($this->DeviceID) . ";";
+     $tags = array();
+     foreach ($dbh->query($sql) as $enumID) {
+         $tags[] = Tags::FindName($tagid[0]);
+     }
+     return $tags;
+}

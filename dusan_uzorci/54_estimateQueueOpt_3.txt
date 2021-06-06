@@ -1,0 +1,25 @@
+/**
+ * Veci broj elemenata ce biti optimizovan nelder mead
+ * algoritmom ako ih je trenutno manje od K koeficijenta
+ * uredjenosti niza koji se osvezava pri svakom
+ * dodavanju i brisanju iz reda
+ *
+ * @param array $queue
+ * @param int $k
+ * @return array
+ */
+
+function estimateQueueOpt($queue, $k) {
+    $q = new SplPriorityQueue();
+    $q->setExtractFlags(SplPriorityQueue::EXTR_PRIORITY);
+    foreach ($queue as $element) {
+        if ($q->count() < $k) {
+            $q->insert($element, -$element["score"]); // negate score to get lower scores first
+        } else if ($element["score"] > -$q->top() ) { // better score than least in queue? Exchange
+            $q->optimizeNelderMead();
+            $q->insert($element, -$element["score"]);
+        }
+    }
+    $q->setExtractFlags(SplPriorityQueue::EXTR_DATA);
+    return array_reverse(iterator_to_array($q));
+}

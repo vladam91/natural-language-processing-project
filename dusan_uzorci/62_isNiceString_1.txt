@@ -1,0 +1,16 @@
+/**
+ * Odredjuje da je string lepo uredjen po odredjenim pravilima
+ * 
+ * Ako se sastoji od para bilo koja dva slova koja se pojavljuju dva puta u stringu
+ * bez preklapanja i ako sadrzi barem jedno slovo koje se ponovo pojavljuje tacno 
+ * sa jednim slovom pauze
+ *
+ */
+
+public static function isNiceString($string)
+{
+    if (Validator::regex('/(\\w\\w).*\\1+/')->validate($string) && Validator::regex('/(\\w)\\w\\1/')->validate($string)) {
+        return true;
+    }
+    return false;
+}

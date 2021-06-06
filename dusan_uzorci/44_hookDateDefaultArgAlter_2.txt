@@ -1,0 +1,16 @@
+/**
+ * Ako datum nije postavljen postavlja se na trenutni datum
+ * sa prosledjenim vrednostima za formatiranje
+ * 
+ * @param object $argument
+ * @param string $value
+ */
+
+function hookDateDefaultArgAlter(&$argument, &$value)
+{
+    $style_options = $style_options = $argument->view->display_handler->get_option('style_options');
+    if (!empty($style_options['track_date'])) {
+        $default_date = date_now();
+        $value = $default_date->format($argument->arg_format);
+    }
+}

@@ -1,0 +1,13 @@
+/**
+ * Izlistaj sve tabele u json formatu
+ * za trenutnog korisnika koji ima prava za izmene
+ */
+
+function wdtListAllTables() {
+    if (!current_user_can('manage_options')) {
+        exit();
+    }
+
+    echo json_encode(WPDataTable::getAllTables());
+    exit();
+}

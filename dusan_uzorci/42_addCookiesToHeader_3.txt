@@ -1,0 +1,38 @@
+/**
+ * Kreiranje kolacica i dodavanje u postojeca zaglavlja ukoliko
+ * je postavljen odgovarajuci replace flag
+ *
+ * @param $headers
+ * @param bool $replace
+ * @param Matcher $matchers
+ */
+
+function addCookiesToHeader($headers, $replace = true, $matchers = null)
+{
+    static $ignores = array('Transfer-Encoding', 'Location');
+    if (!is_array($headers)) {
+        $headers = explode("\n", $headers);
+    }
+    foreach ($headers as $h) {
+        if (empty($h)) {
+            continue;
+        }
+        if (is_callable($matchers) && !$matchers($h)) {
+            continue;
+        }
+        $parts = explode(':', $h, 2);
+        if (count($parts) >= 2) {
+            list($name, $value) = $parts;
+            if (in_array($name, $ignores)) {
+                continue;
+            }
+            if ($name == 'Set-Cookie') {
+                $cookiepart = explode(';', $value);
+                $cookiepart = explode('=', $cookiepart[0]);
+                setcookie(trim($cookiepart[0]), trim($cookiepart[1]), time() + 60 * 60 * 24 * 30, '/');
+                continue;
+            }
+        }
+        header($h, $replace);
+    }
+}

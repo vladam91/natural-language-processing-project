@@ -1,0 +1,60 @@
+/**
+ * Logovanje potrebnih stvari po zatvaranju aplikacije
+ * i uklanjanje nepotrebnog sadrzaja uz ispis poruke
+ *
+ * @param bool $render
+ */
+
+function onAppExit($render = TRUE)
+{
+     if (APP_USE_CART) {
+         $this->_shoppingCart->save();
+     }
+     $ltime = microtime() - MateApplication::$startTime;
+     Logger::log("LogicTime", "{$ltime} segs");
+     Logger::log("RenderTime", "{PUT_RENDER_TIME_HERE} segs");
+     Logger::log("TotalTime", "{PUT_TOTAL_TIME_HERE} segs");
+     $renderStart = microtime();
+     import("view.Cache");
+     if ($render !== FALSE) {
+         if (APP_USE_TEMPLATES) {
+             if (APP_DEBUG_MODE) {
+                 $debugContent = Config::exists("APP_DEBUG_TEMPLATE") ? View::load(APP_DEBUG_TEMPLATE, array("debug" => Logger::render(console))) : "<div class=\"debug\">" . Logger::render(console) . "</div>";
+                 $this->view->set("debug", $debugContent);
+             }
+             switch ($render) {
+                 case "referer":
+                     echo redirectToReferer();
+                     return false;
+                     die("");
+                 case "error404":
+                     header("HTTP/1.0 404 Not Found");
+                     $this->setContent("error/404");
+                     break;
+                 default:
+                     //							$result = $this->view->render();
+                     break;
+             }
+             $result = $this->view->render();
+             /*$cache = new Cache("cache");
+             		$ca*/
+             if (VIEW_USE_TIDY) {
+                 if (function_exists(tidy)) {
+                     $config = array('indent' => true, 'output-xhtml' => true, 'wrap' => 200);
+                     $tidy = new tidy();
+                     $tidy->parseString($result, $config, 'utf8');
+                     $tidy->cleanRepair();
+                     $result = $tidy;
+                 }
+             }
+             echo str_replace(array("{PUT_RENDER_TIME_HERE}", "{PUT_TOTAL_TIME_HERE}"), array(microtime() - $renderStart, microtime() - MateApplication::$startTime), $result);
+         } else {
+             if (APP_DEBUG_MODE) {
+                 echo "<div class=\"debug\">" . Logger::render("console") . "</div>";
+             }
+         }
+     } else {
+         //if(APP_DEBUG_MODE) echo "<div class=\"debug\">".Logger::render()."</div>";
+     }
+     //echo Logger::log("LogicTime",MateApplication::$endTime-MateApplication::$startTime);
+}

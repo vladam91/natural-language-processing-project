@@ -1,0 +1,20 @@
+/**
+ * Generisanje nasumicnog stringa za neku zadatu duzinu
+ * @param int $length
+ *
+ * @return false|string
+ */
+
+public function generateRandomString($length = 10)
+{
+    return substr(
+        str_shuffle(
+            str_repeat(
+                $x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                ceil($length / strlen($x))
+            )
+        ),
+        1,
+        $length
+    );
+}

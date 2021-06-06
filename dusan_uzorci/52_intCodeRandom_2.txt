@@ -1,0 +1,17 @@
+/**
+ * Dohvati nasumican broj izmedju minimalne i maksimalne vrednosti
+ * za zadati broj cifara
+ * @param $array
+ *
+ * @return arrayObject
+ */
+
+private function intCodeRandom($length = 8)
+{
+  $intMin = (10 ** $length) / 10;
+  $intMax = (10 ** $length) - 1;
+
+  $codeRandom = mt_rand($intMin, $intMax);
+
+  return $codeRandom;
+}

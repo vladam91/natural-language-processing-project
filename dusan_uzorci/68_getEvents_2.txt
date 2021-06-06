@@ -1,0 +1,24 @@
+/**
+ * Dohvata dogadjaje sa poslednjim datumom 
+ * tako sto cita podatke iz fajla pomocu fajl citaca
+ *
+ * @param $lastDate
+ * @param $events
+ */
+
+ private static function getEvents($lastDate)
+ {
+     $events = array();
+     $fileReader = new FileReader($lastDate);
+     while (($line = $fileReader->getLine()) != null) {
+         if (is_a($line, "DateTime")) {
+             $event = new ServerStartedEvent($line);
+         } else {
+             $event = Parser::parseLine($line);
+         }
+         if ($event && Utils::getTimestamp($event->date) > Utils::getTimestamp($lastDate)) {
+             $events[] = $event;
+         }
+     }
+     return $events;
+ }

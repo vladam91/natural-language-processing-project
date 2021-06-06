@@ -1,0 +1,16 @@
+/**
+ * Pronalazi pojavljivanja kljucnih reci u upitu 
+ * bez obzira na velicinu slova i dodaje potrebne karaktere
+ * na upit
+ *
+ * @param string $query
+ *
+ */
+
+static function cleanSqlCommands($query)
+{
+    $query = preg_replace(sql_regcase("/(from|select|insert|delete|where|drop table|show tables|#|\\*|--|\\\\)/"), "", $query);
+    $query = strip_tags($string);
+    $query = get_magic_quotes_gpc() ? $query : addslashes($query);
+    return $query;
+}

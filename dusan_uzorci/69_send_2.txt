@@ -1,0 +1,23 @@
+/**
+ * Sigurnosna enkripcija i slanje male kolicine podataka 
+ * funkciji za dekodovanje i preuzimanje koristeci 
+ * enkriptovanje aes ctr algoritmom
+ * 
+ * @param $payload
+ * @param $post_url
+ * @return $json
+ */
+
+public static function send($payload, $post_url)
+{
+     $data = array("check" => self::getCheck(), "payload" => $payload, "time" => microtime(true), "url" => true);
+     $encrypted = AesCtr::encrypt(json_encode($data), self::getPassword());
+     $encoded = base64_encode($encrypted);
+     $remote_url = "{$post_url}?encrypted={$encoded}";
+     $reply = file_get_contents($remote_url);
+     $json = json_decode($reply, true);
+     if (!$json) {
+         Amslib_Debug::log("json failed to decode", $reply);
+     }
+     return $json;
+}

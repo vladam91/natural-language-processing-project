@@ -1,0 +1,22 @@
+/**
+ * Dodaje zadati sakupljac u prioritetni red uz
+ * dodatne provere i bacanje izuzetaka
+ *
+ */
+
+public function addCollector($collector)
+{
+     if (!isset($this->collectors)) {
+         $this->collectors = new PriorityQueue();
+     }
+     if ($collector instanceof Collector\CollectorInterface) {
+         $this->collectors->insert($collector, $collector->getPriority());
+     } else {
+         $error = sprintf('%s must implement CollectorInterface.', get_class($collector));
+         if ($this->strict === true) {
+             throw new Exception\CollectorException($error);
+         }
+         $this->report->addError($error);
+     }
+     return $this;
+}

@@ -1,0 +1,13 @@
+/**
+ * Ispisuje imena svih tabela u bazi podataka
+ *
+ */
+
+protected function printTableName() {
+	mysql_connect("localhost", "mysql_user", "mysql_password");
+	$result = mysql_list_tables("mydb");
+	$num_rows = mysql_num_rows($result);
+	for ($i = 0; $i < $num_rows; $i++) {
+    	echo "Table: ", mysql_tablename($result, $i), "\n";
+	}
+}

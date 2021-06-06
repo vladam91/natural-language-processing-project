@@ -1,0 +1,18 @@
+/**
+ * Inicijalizacija niza datim vrednostima ispisuje
+ * ih na izlaz i na kraju vraca niz kao povratnu vrednost
+ *
+ * @param array $array
+ * @param array $values
+ */
+
+public function dumpAndPrintArray($array, $values) {
+  $result = '';
+  foreach( $array as $b => $param)
+   if ( is_array($param) )
+      $result .= print_array( $b );
+   else
+      $result .= "$b => $param<br/>";
+  
+  return $result;
+}

@@ -1,0 +1,23 @@
+/**
+ * Broji ukupan broj elemenata uz zadati
+ * podupit sa odredjenim uslovima
+ *
+ * @param string $subquery         SQL FROM deo.
+ * @param string $all_states       SQL IN deo.
+ * @param string $post_type_clause
+ *
+ * @return mixed
+ */
+
+protected function count_items( $subquery, $all_states, $post_type_clause ) {
+	global $wpdb;
+	$total_items = $wpdb->get_var(
+		"
+			SELECT COUNT(ID)
+			FROM {$subquery}
+			WHERE post_status IN ({$all_states}) $post_type_clause
+		"
+	);
+
+	return $total_items;
+}

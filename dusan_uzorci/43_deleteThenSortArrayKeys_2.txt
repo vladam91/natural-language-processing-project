@@ -1,0 +1,36 @@
+/**
+ * Nakon sto ce ukloniti elemente niza sortirace ih u zavisnosti
+ * od prosledjenih parametara textArray1 textArray2
+ *
+ *@param int @id
+ */
+
+function deleteThenSortArrayKeys($textArray1, $textArray2)
+{
+    $keys = array();
+    $textArray2 = cleanArray($textArray2, true);
+    for ($i = 0; $i < count($textArray1); $i++) {
+        if (!$textArray1[$i] == '') {
+            $keys[] = array_keys($textArray2, trim($textArray1[$i], ','));
+        }
+    }
+    $tempArray = makeArrayOfValues($keys);
+    //var_dump($tempArray,$keys,$textArray1);
+    foreach ($keys as $value => $key) {
+        if ($key == null) {
+            $keys[$value] = false;
+        } else {
+            $temp = getTrueValue($key, $tempArray);
+            //var_dump($temp);
+            if ($temp === 0 or !$temp === false) {
+                //var_dump($temp);
+                $keys[$value] = $temp;
+                $tempArray = array_slice($tempArray, 1);
+            } else {
+                $keys[$value] = false;
+            }
+        }
+    }
+    //var_dump($keys);
+    return $keys;
+}

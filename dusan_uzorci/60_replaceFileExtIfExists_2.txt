@@ -1,0 +1,17 @@
+/**
+ * Pronalazi pojavljivanja prosledjenog string parametra 
+ * bez uticaja velicine slova i zamenjuje ekstenziju odgovarajuceg fajla
+ * 
+ * @param string $searchFor
+ *
+ */
+
+public function replaceFileExtIfExists( $searchFor ) {
+	foreach (glob(sql_regcase("*{$searchFor}*")) as $file) {
+	    if (stristr($file, $searchFor) && !stristr('RunTest.php,TestIncludes.php', $file)) {
+	        $name = str_replace('.php', '', $file);
+	        echo "<a href=\"RunTest.php?test={$name}\">{$name}</a> ";
+	        echo "<small>(<a href=\"RunTest.php?source={$name}\">view unit test source</a>)</small><br />";
+	    }
+	}
+}

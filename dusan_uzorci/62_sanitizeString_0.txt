@@ -1,0 +1,21 @@
+/**
+ * Za prosledjeni tip i vrednost reformatira i normalizuje
+ * fajl i odseca string odredjenog sadrzaja
+ *
+ * @param $type
+ * @param $value
+ *
+ */
+
+ private static function sanitizeString($type, $value)
+ {
+     if ($type === Form::DATA_TEXT) {
+         return is_scalar($value) ? Strings::normalizeNewLines($value) : NULL;
+     } elseif ($type === Form::DATA_LINE) {
+         return is_scalar($value) ? Strings::trim(strtr($value, "\r\n", '  ')) : NULL;
+     } elseif ($type === Form::DATA_FILE) {
+         return $value instanceof Nette\Http\FileUpload ? $value : NULL;
+     } else {
+         throw new Nette\InvalidArgumentException('Unknown data type');
+     }
+ }

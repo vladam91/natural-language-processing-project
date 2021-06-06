@@ -1,0 +1,26 @@
+/**
+ * Vrsi prikaz naslova na ekranu 
+ * za predefinisane parametre algoritma
+ *
+ * @return void
+ */
+
+protected function printCaption()
+{
+     // Create a list of labels
+     $labelList = array();
+     foreach ($this->percent as $percent) {
+         list($percent, $point) = $percent;
+         $label = $point->getX();
+         array_push($labelList, $label);
+     }
+     // Create the caption
+     $caption = new Caption();
+     $caption->setPlot($this->plot);
+     $caption->setLabelList($labelList);
+     $palette = $this->plot->getPalette();
+     $pieColorSet = $palette->pieColorSet;
+     $caption->setColorSet($pieColorSet);
+     // Render the caption
+     $caption->render();
+}

@@ -1,0 +1,24 @@
+/**
+ * Kreira JSON objekat od prosledjenog u zavisnosti od
+ * tipa prosledjenog objekta
+ *
+ * @param string $json
+ * @return $this[]
+ */
+
+public static function createFromJson($json){
+    //if you pass in a string, decode it to an object
+    $json = is_string($json) ? json_decode($json) : $json;
+
+    foreach($json as $key=>$value){
+        $object = new self();
+        if(is_object($value)){
+            $object->{$key} = parent::createFromJson($json);
+        }
+        else{
+            $object->{$key} = $value;
+        }
+    }
+
+    return $object;
+}

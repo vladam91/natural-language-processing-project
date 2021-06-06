@@ -1,0 +1,17 @@
+/**
+ * Kopira kesiran sadrzaj u fajl i formatira
+ * u predefinisan oblik
+ * Moze se koristiti kao clipboard
+ */
+
+public function getCacheData()
+{
+     $out = 'Handler      : Shared memory (' . ShlCache_Manager::getHandler() . ')<br />';
+     // collect data from cache manager
+     $stats = ShlCache_Manager::getCacheStats(self::CACHE_FILE_NAME);
+     $this->_urlCacheMisses = $stats->read - $stats->hits;
+     $this->_urlCacheHits = $stats->hits;
+     // have parent method format that
+     $out .= parent::getCacheStats();
+     return $out;
+}

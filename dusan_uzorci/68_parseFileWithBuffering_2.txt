@@ -1,0 +1,25 @@
+/**
+ * Kreira ExpatParser
+ * Postavlja koreni obradjivac i pocinje sa procesom citanja teksta
+ * koriscenjem fajl citaca sa bufferom 
+ *
+ * @throws BuildException ako postoji bilo kakav izuzetak prilikom
+ * procesa obrade teksta
+ * @access private
+ */
+
+protected function parseFileWithBuffering()
+{
+    try {
+        $reader = new BufferedReader(new FileReader($this->buildFile));
+        $reader->open();
+        $parser = new ExpatParser($reader);
+        $parser->parserSetOption(XML_OPTION_CASE_FOLDING, 0);
+        $parser->setHandler(new RootHandler($parser, $this));
+        $this->project->log("parsing buildfile " . $this->buildFile->getName(), PROJECT_MSG_VERBOSE);
+        $parser->parse();
+        $reader->close();
+    } catch (Exception $exc) {
+         throw new BuildException("Error reading project file", $exc);
+    }
+}

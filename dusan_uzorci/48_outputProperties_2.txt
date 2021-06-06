@@ -1,0 +1,33 @@
+/**
+ * Ispisuje sve informacije u predefinisani html fajl 
+ * vezane za fajl atributa u vreme pokretanja
+ * 
+ * @return string HTML
+ */
+
+protected function outputProperties()
+{
+    if (!$this->report->get_runs()) {
+        return false;
+    }
+    // Is the web interface read only?.
+    $properties = properties_reader::get('readonlyweb');
+    $runsinfo = array();
+    foreach ($this->report->get_runs() as $run) {
+        // Run vars.
+        $runinfo = $run->get_run_info();
+        $filenamestr = 'filename=' . $run->get_filename(false);
+        // Link to download the run.
+        $runinfo->downloadlink = '<a href="download_run.php?' . $filenamestr . '">Download</a>';
+        // Only if the web is read/write.
+        if (empty($properties['readonlyweb'])) {
+            // Link to delete the run.
+            $returnurlstr = 'returnurl=' . urlencode('timestamps[]=' . implode('&timestamps[]=', $_GET['timestamps']));
+            $runinfo->deletelink = '<a href="delete_run.php?' . $filenamestr . '&' . $returnurlstr . '" class="delete-run">Delete</a>';
+        }
+        $runsinfo[] = $this->get_info_container($runinfo);
+    }
+    $output = '<div id="confirm-delete-dialog" title="Delete" class=""><p>Are you sure you want to delete this run?</p></div>';
+    $output .= $this->create_table('Runs information', $runsinfo, count($runsinfo), '', 'runs-info');
+    return $output;
+}

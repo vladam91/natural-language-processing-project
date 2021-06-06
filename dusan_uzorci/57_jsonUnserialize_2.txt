@@ -1,0 +1,13 @@
+/**
+ * Kreira json objekat od deserijalivanog stringa
+ * objekata klase Person
+ *
+ * @param string $json
+ * @return $this[]
+ */
+
+public function jsonUnserialize(array $json)
+{
+    $this->name = $json['name'] ?? $this->name;
+    $this->dateOfBirth = $json['date_of_birth'] ?? $this->dateOfBirth;
+}

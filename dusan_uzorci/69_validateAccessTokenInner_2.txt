@@ -1,0 +1,25 @@
+/**
+ * Interno validiranje tokena za pristup
+ * koriscenjem aes ctr algoritma za enkriptovanje
+ *
+ * @param $accessToken
+ * @param $post_url
+ * @return $IceResponse
+ */
+
+private function validateAccessTokenInner($accessToken)
+{
+     $accessTokenTemp = AesCtr::decrypt($accessToken, APP_SEC, 256);
+     $parts = explode("|", $accessTokenTemp);
+     $user = new User();
+     $user->Load("id = ?", array($parts[0]));
+     if (empty($user->id) || $user->id != $parts[0] || empty($parts[0])) {
+         return new IceResponse(IceResponse::ERROR, -1);
+     }
+     $accessToken = AesCtr::decrypt($parts[1], $user->password, 256);
+     $data = json_decode($accessToken, true);
+     if ($data['userId'] == $user->id) {
+         return new IceResponse(IceResponse::SUCCESS, true);
+     }
+     return new IceResponse(IceResponse::ERROR, false);
+}

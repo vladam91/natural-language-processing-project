@@ -1,0 +1,30 @@
+/**
+ * Dohvatiti nazive kolona tabele sa datim imenom iz baze podataka
+ *
+ * @uses WP_List_Table::set_pagination_args()
+ *
+ * @access public
+ * @abstract
+ * @param $tableName
+ *
+ * @return array
+ */
+
+function getColumnList($tableName)
+{
+    $per_page = get_option('wdtTablesPerPage') ? get_option('wdtTablesPerPage') : 10;
+
+    $columns = $this->get_columns();
+    $hidden = array();
+    $sortable = $this->get_sortable_columns();
+    $this->_column_headers = array($columns, $tableName, $sortable);
+
+    $this->set_pagination_args(
+        array(
+            'total_items' => $this->getChartCount(),
+            'per_page' => $per_page
+        )
+    );
+
+    return ($columns);
+}

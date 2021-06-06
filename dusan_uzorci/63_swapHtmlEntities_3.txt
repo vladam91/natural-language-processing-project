@@ -1,0 +1,17 @@
+/**
+ * Vrsi zamenu prosledjenih HTML entiteta
+ * i dodaje novi prosledjeni atrubut a zatim vraca html element 
+ *
+ * @param $oldEntity
+ * @param $newEntity
+ * @param $attr
+ * @return string
+ */
+
+public function swapHtmlEntities($oldEntity, $newEntity, $attr)
+{
+    $title = HTML::swapEntities($oldEntity, $newEntity);
+    $entity = HTML::replace($newEntity, $attr);
+    $icon = HTML::create('i', '', ['class' => 'fa fa-user']);
+    return HTML::raw("<span class='label label-{$color}'>{$icon} {$name}</span>");
+}

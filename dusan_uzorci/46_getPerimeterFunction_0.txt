@@ -1,0 +1,23 @@
+/**
+ * Funkcija getPerimeterFunction vraca perimetar za trazeno
+ * stanje u odnosu na mxConstants
+ * 
+ * @return perimeter | null
+ */
+
+function getPerimeterFunction($state)
+{
+    $perimeter = mxUtils::getValue($state->style, mxConstants::$STYLE_PERIMETER);
+    // Converts string values to objects
+    if (is_string($perimeter)) {
+        $tmp = mxStyleRegistry::getValue($perimeter);
+        if ($tmp == null && strpos($perimeter, ".") !== false) {
+            $tmp = mxUtils::evaluate($perimeter);
+        }
+        $perimeter = $tmp;
+    }
+    if ($perimeter instanceof mxPerimeterFunction) {
+        return $perimeter;
+    }
+    return null;
+}

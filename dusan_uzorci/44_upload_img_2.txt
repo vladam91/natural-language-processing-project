@@ -1,0 +1,44 @@
+/**
+ * Ova funkcija salje sliku kroz http odgovor
+ * postavljanjem trenutnog datuma kao markera za 
+ * enkriptovanje  
+ *
+ * @return void
+ */
+
+public function upload_img()
+{
+     if (!$this->is_login()) {
+         $this->json_result(401);
+         return;
+     }
+     $upload_dir = $this->upload_dir;
+     if (!is_dir($upload_dir)) {
+         mkdir($upload_dir, 0644, TRUE);
+     }
+     $namelink = generate_name_link();
+     $config['upload_path'] = $upload_dir;
+     $config['allowed_types'] = 'gif|jpg|jpeg|png';
+     $config['max_size'] = 1024 * 5;
+     $config['file_name'] = $namelink['name'];
+     $func_num = $this->input->post_get('CKEditorFuncNum');
+     $this->load->library('upload', $config);
+     if (!$this->upload->do_upload('upload')) {
+         $error = $this->upload->display_errors();
+         ob_clean();
+         echo '<script type="text/javascript">';
+         echo 'window.parent.CKEDITOR.tools.callFunction(' . $func_num . ',"",' . '"' . strip_tags($error) . '");';
+         echo '</script>';
+     } else {
+         $upload_data = $this->upload->data();
+         $filename = $upload_data['file_name'];
+         $full_url = base_url($this->upload_dir . $filename);
+         $link = $namelink['link'];
+         $image = array('link' => $link, 'user_id' => $this->user_id, 'article_id' => NULL, 'size' => $upload_data['file_size'], 'width' => $upload_data['image_width'], 'height' => $upload_data['image_height'], 'upload_at' => date_now(), 'client_name' => $upload_data['client_name'], 'file_name' => $filename, 'ext' => strtolower($upload_data['file_ext']), 'local_path' => $upload_data['full_path'], 'local_url' => $full_url, 'transfered' => FALSE);
+         //            $rel_link = base_url().'article/image/'.$link;
+         $this->model->upload_image($image);
+         echo '<script type="text/javascript">';
+         echo 'window.parent.CKEDITOR.tools.callFunction(' . $func_num . ',"' . $full_url . '","")';
+         echo '</script>';
+     }
+}

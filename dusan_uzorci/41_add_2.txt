@@ -1,0 +1,18 @@
+/**
+ * Ova funkcija ce nakon kodiranja url pozvati parentxcontent kontroler
+ * kako bi popunila prikaz dok se salje kroz tip sadrzaja koji je ujedno i paper_id 
+ * koji ce se koristiti za automatsko dopunjavanje combo boxa tacnim rezultatom
+ *  
+ */
+
+public function add($paper_id = NULL)
+{
+     $paper = orm::factory('paper', $paper_id);
+     // load the paper so that we can get all the details required to populate the breadrumbs
+     if ($paper->loaded) {
+         $this->breadcrumbs->add()->url('products/papers/edit/' . url::encode($paper->name))->title(url::decode($paper->name));
+         $this->breadcrumbs->add()->url('products/papers/technicals/index/' . $paper->id)->title('Technicals');
+         $this->breadcrumbs->add()->url(false)->title('Add');
+     }
+     parent::add('technical', $paper->id);
+}

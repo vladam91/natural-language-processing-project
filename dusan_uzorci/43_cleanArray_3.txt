@@ -1,0 +1,17 @@
+/**
+ * Uz proveru validnosti prosledjenog objekta ova funkcija 
+ * ce ukloniti elemente datog niza 
+ *
+ *@param array @arr
+ */
+
+function cleanArray(&$arr)
+{
+     foreach ($arr as $k => $v) {
+         if (is_array($v)) {
+             cleanArray($arr[$k]);
+         } else {
+             $arr[$k] = stripslashes($v);
+         }
+     }
+}

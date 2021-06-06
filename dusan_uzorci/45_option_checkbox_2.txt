@@ -1,0 +1,39 @@
+/**
+ * Za prosledjeni naziv textove za prikaz i poruke
+ * pravi odgovarajuce obelezeno polje za potvrdu
+ *
+ * @param string $option_name
+ * @param string $tab_name
+ * @param string $section_name
+ * @param string $trailing_html
+ * @param array $args
+ * @return void
+ */
+
+function option_checkbox($option_name, $tab_name, $section_name, $hint_text = '', $trailing_html = '', $args = array())
+{
+     $return = array('in_scope' => false, 'no_storage' => false, 'disabled' => false, 'title' => '');
+     if (in_array($option_name, $this->form_options[$tab_name][$section_name])) {
+         if (empty($args['no_storage'])) {
+             $this->all_options[] = $option_name;
+         }
+         if (isset($args['val'])) {
+             $return['val'] = $args['val'];
+         } else {
+             $return['val'] = !empty($args['no_storage']) ? 0 : pp_get_option($option_name, $this->option_args);
+         }
+         $disabled_clause = !empty($args['disabled']) || $this->hide_network_option($option_name) ? "disabled='disabled'" : '';
+         $style = !empty($args['style']) ? $args['style'] : '';
+         $title = !empty($args['title']) ? " title='" . esc_attr($args['title']) . "'" : '';
+         echo "<div class='agp-vspaced_input'>" . "<label for='{$option_name}'{$title}><input name='{$option_name}' type='checkbox' {$disabled_clause} {$style} id='{$option_name}' value='1' " . checked('1', $return['val'], false) . " /> " . $this->option_captions[$option_name] . "</label>";
+         if ($hint_text && $this->display_hints) {
+             echo "<div class='pp-subtext'>" . $hint_text . "</div>";
+         }
+         echo "</div>";
+         if ($trailing_html) {
+             echo $trailing_html;
+         }
+         $return['in_scope'] = true;
+     }
+     return $return;
+}

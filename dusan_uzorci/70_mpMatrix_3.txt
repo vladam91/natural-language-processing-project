@@ -1,0 +1,42 @@
+/**
+ * Mnozenje matrica
+ * 
+ * Ova funkcija ce izvrsiti mnozenje trenutne matrice sa prosledjenom matricom
+ * Ako trenutnu matricu obelezimo sa A a dobijenu sa B onda ce proizvod biti AB
+ *
+ * @param Matrix $bMatrix Dobijena matrica B
+ * @return Matrix Rezultat mnozenja matrica
+ * @throws \Exception $msg poruka o opisu greske
+ */
+
+public function mpMatrix(Matrix $bMatrix)
+{
+     if (!$this->_verify() || !$bMatrix->_verify()) {
+         $eM1 = $this->toString();
+         $eM2 = $bMatrix->toString();
+         throw new \Exception("Either '{$eM1}' and/or '{$eM2}' is not a valid Matrix", Matrix::E_INVALID_MATRIX);
+     }
+     $aArray = $this->matrix;
+     $bArray = $bMatrix->getArray();
+     //The number of columns in A must match the number of rows in B
+     if (count($aArray[0]) != count($bArray)) {
+         $mA = $this->toString();
+         $mB = $bMatrix->toString();
+         throw new \Exception("Columns in '{$mA}' don't match Rows of '{$mB}'", Matrix::E_NOT_EQUAL);
+     }
+     $rArray = array();
+     //Loop through rows of Matrix A
+     for ($i = 0; $i < count($aArray); $i++) {
+         //Loop through the columns of Matrix B
+         for ($j = 0; $j < count($bArray[0]); $j++) {
+             $value = 0;
+             //loop through the rows of Matrix B
+             for ($k = 0; $k < count($bArray); $k++) {
+                 $value += $aArray[$i][$k] * $bArray[$k][$j];
+             }
+             $rArray[$i][$j] = $value;
+         }
+     }
+     $rMatrix = new Matrix($this->toString($rArray));
+     return $rMatrix;
+}

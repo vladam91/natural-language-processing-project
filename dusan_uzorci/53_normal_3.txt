@@ -1,0 +1,13 @@
+/**
+ * Izracunava normalnu raspodelu za prosledjene parametre
+ * po predefinisanoj formuli
+ *
+ * @param $x
+ * @param $mu
+ * @param $sigma
+ */
+
+function normal($x, $mu, $sigma) {
+	return exp(-0.5 * ($x - $mu) * ($x - $mu) / ($sigma*$sigma))
+    	/ ($sigma * sqrt(2.0 * M_PI));
+}

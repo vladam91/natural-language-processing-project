@@ -1,0 +1,38 @@
+/**
+ * Pronalazenje broja iz datog niza u odnosu na prosledjen broj
+ * koristeci levestajn algoritam za slicnost stringova
+ *
+ * @param int $input
+ * @param array $numbers
+ * @return void
+ */
+
+function findClosest1($input = 0, $numbers)
+{
+    // array of numbers to check
+    sort($numbers);
+    // no shortest distance found, yet
+    $shortest = -1;
+    // loop through numbers to find the closest
+    foreach ($numbers as $num) {
+        // calculate the distance between the input num,
+        // and the current num
+        $lev = levenshtein($input, $num);
+        // check for an exact match
+        if ($lev == 0) {
+            // closest num is this one (exact match)
+            $closest = $num;
+            $shortest = 0;
+            // break out of the loop; we've found an exact match
+            break;
+        }
+        // if this distance is less than the next found shortest
+        // distance, OR if a next shortest num has not yet been found
+        if ($lev <= $shortest || $shortest < 0) {
+            // set the closest match, and shortest distance
+            $closest = $num;
+            $shortest = $lev;
+        }
+    }
+    echo "Closest number is: " . $closest;
+}

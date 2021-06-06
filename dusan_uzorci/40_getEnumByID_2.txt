@@ -1,0 +1,24 @@
+/**
+ * Dohvata ime enum za zadati ID polja koje mu
+ * pripada ukoliko je definisano
+ *
+ */
+
+public function getEnumByID($fieldID)
+{
+     $Eis = new Eis();
+     if ($fieldID == 'all') {
+         if ($Eid == null) {
+             $result = $Eis->all();
+         } else {
+             $result = $Eis->find($fieldID);
+         }
+     } else {
+         if ($Eid == null) {
+             $result = $Eis->all();
+         } else {
+             $result = $Eis->getEisFromEid($Eid);
+         }
+     }
+     return response()->json($result);
+}

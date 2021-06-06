@@ -1,0 +1,15 @@
+/**
+ * Ova funkcija dohvata tip po zadataoj
+ * vrednosti enum ako je ona validno definisana
+ *
+ */
+
+private function findValueTypeName($enumValue)
+{
+     foreach (Enum::values($enumClass) as $value) {
+         if (!is_int($value)) {
+             return EnumType::ENUM_STRING;
+         }
+     }
+     return EnumType::ENUM_INT;
+}

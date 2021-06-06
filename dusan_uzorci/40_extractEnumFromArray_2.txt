@@ -1,0 +1,13 @@
+/**
+ * Pronalazi ime za enum u nizu vrednosti  za zadati parametar u
+ * zavisnosti od korisnika
+ * 
+ */
+
+function extractEnumFromArray($param)
+{
+    $func = get_defined_functions();
+    $user_func = array_flip($func['user']);
+    unset($func);
+    return isset($user_func[$param]);
+}

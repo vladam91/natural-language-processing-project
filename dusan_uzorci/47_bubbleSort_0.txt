@@ -1,0 +1,17 @@
+/**
+ * Sortiranje prosledjenog niza koriscenjem bubble sorta 
+ * i ispis niza na izlaz
+ *
+ * @param $sortArray
+ */
+
+public function bubbleSort($sortArray) {
+	$array = [];
+	for ($i = 0; $i < $rows; $i++) {
+	    $array[] = [];
+	    for ($j = 0; $j < $cols; $j++) {
+	        $array[$i][$j] = array_shift($newArray);
+	    }
+	}
+	print_r($array);
+}

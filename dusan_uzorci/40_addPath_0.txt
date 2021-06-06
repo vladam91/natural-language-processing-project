@@ -1,0 +1,21 @@
+/**
+ * Dodaje putanju u predefinisani niz koja ce
+ * moci da se koristi nakon upisa u fajl
+ *
+ */
+
+public function addPath($path)
+{
+     if (is_string($path)) {
+         $this->paths->insert($this->normalizePath($path), 1);
+         return;
+     }
+     if (!is_array($path) && !$path instanceof ArrayAccess) {
+         throw new Exception\InvalidArgumentException(sprintf('Provided path must be an array or an instance of ArrayAccess, %s given', is_object($path) ? get_class($path) : gettype($path)));
+     }
+     if (isset($path['priority']) && isset($path['path'])) {
+         $this->paths->insert($this->normalizePath($path['path']), $path['priority']);
+         return;
+     }
+     throw new Exception\InvalidArgumentException('Provided array must contain both keys "priority" and "path"');
+}

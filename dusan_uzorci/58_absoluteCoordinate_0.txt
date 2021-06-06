@@ -1,0 +1,33 @@
+/**
+ * Napravi apsolutne koordinate od zadatog stringa
+ *
+ * @param string $pCoordinateString npr. 'A1'
+ *
+ * @throws Exception
+ *
+ * @return string Apsolutne koordinate
+ */
+
+public static function absoluteCoordinate($pCoordinateString)
+{
+    if (self::coordinateIsRange($pCoordinateString)) {
+        throw new Exception('Cell coordinate string can not be a range of cells');
+    }
+
+    // Split out any worksheet name from the coordinate
+    $worksheet = '';
+    $cellAddress = explode('!', $pCoordinateString);
+    if (count($cellAddress) > 1) {
+        list($worksheet, $pCoordinateString) = $cellAddress;
+    }
+    if ($worksheet > '') {
+        $worksheet .= '!';
+    }
+
+    // Create absolute coordinate
+    list($column, $row) = self::coordinateFromString($pCoordinateString);
+    $column = ltrim($column, '$');
+    $row = ltrim($row, '$');
+
+    return $worksheet . '$' . $column . '$' . $row;
+}

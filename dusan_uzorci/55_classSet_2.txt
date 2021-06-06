@@ -1,0 +1,18 @@
+/**
+ * Dohvata skup klasa koje se koriste u ovom interfejsu
+ * koristeci hes set za dohvatanje jedinstvenih elemenata 
+ *
+ * @return remote.ClassReference[]
+ */
+
+public function classSet()
+{
+    $set = new HashSet();
+    foreach (array_keys($this->fields) as $name) {
+        if (!$this->fields[$name] instanceof ClassReference) {
+            continue;
+        }
+        $set->add($this->fields[$name]);
+    }
+    return $set->toArray();
+}

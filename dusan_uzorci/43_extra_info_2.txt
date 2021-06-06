@@ -1,0 +1,13 @@
+/**
+ * Nakon sto ukloni sve elemente niza vraca nastavljen 
+ * prosledjeni niz sa podrazumevanim vrednostima
+ *
+ * @param array [optional] $extra_info
+ * @return array 
+ */
+
+public static function extra_info($extra_info = array())
+{
+    $extra_info = array_clean($extra_info, array_keys(self::$EXTRA_INFO_DEFAULTS));
+    return array_merge_plus(self::$EXTRA_INFO_DEFAULTS, $extra_info);
+}

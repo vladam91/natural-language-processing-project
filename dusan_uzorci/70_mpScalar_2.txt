@@ -1,0 +1,29 @@
+/**
+ * Mnozenje trenutne matrice skalarom
+ * 
+ * Mnozenje matrice skalarom (int/float/etc) (constant npr 2)
+ *
+ * @link http://en.wikipedia.org/wiki/Scalar_multiplication
+ * @param float $k Skalar kojim se mnozi matrica
+ * @return Matrix Vraca novu instancu pomnozene matrice
+ * @throws \Exception ako objekat matrice nije validan
+ */
+
+public function mpScalar($k)
+{
+    //we'll verify a true matrix to ... help the user
+    if(!$this->_verify())
+        throw new \Exception("Matrix '{$this}' has varying column sizes", Matrix::E_INVALID_MATRIX);
+
+    $cArray = $this->getArray();
+    $rArray = array();
+    $rows = count($cArray);
+    $cols = count($cArray[0]);
+    for($i=0;$i<$rows;$i++) {
+        for($j=0;$j<$cols;$j++) {
+            $rArray[$i][$j] = $cArray[$i][$j] * $k;
+        }
+    }
+    $rMatrix = new Matrix($this->toString($rArray));
+    return $rMatrix;
+}

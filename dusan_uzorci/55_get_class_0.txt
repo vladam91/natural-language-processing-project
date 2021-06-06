@@ -1,0 +1,25 @@
+/**
+ * Vraca string koji zadrzi atribut html klase
+ *
+ * @return string Atribut klase
+ */
+
+protected function get_class() {
+	if ( ! $this->class ) {
+		/**
+		 * Filter: 'wpseo_breadcrumb_output_class' - Allow changing the HTML class on the Yoast SEO breadcrumbs wrapper element.
+		 *
+		 * @api string $unsigned Class to add to the wrapper element.
+		 */
+		$this->class = \apply_filters( 'wpseo_breadcrumb_output_class', '' );
+		if ( ! \is_string( $this->class ) ) {
+			return '';
+		}
+
+		if ( $this->class !== '' ) {
+			$this->class = ' class="' . \esc_attr( $this->class ) . '"';
+		}
+	}
+
+	return $this->class;
+}

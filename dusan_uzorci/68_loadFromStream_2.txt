@@ -1,0 +1,23 @@
+/**
+ * Cita podatke iz fajla pomocu fajl citaca 
+ * sa baferom stringova
+ * Putanja do fajla moze biti relativna
+ *
+ * @param $filename
+ */
+
+function loadFromStream($filename)
+{
+     $buffers = new StringBuffer();
+     $file = NULL;
+     if (File::validClass($filename)) {
+         $file = $filename;
+     } else {
+         $file = new File($filename);
+     }
+     $filereader = new FileReader($file);
+     while ($c = $filereader->read()) {
+         $buffers->append($c);
+     }
+     $this->str = $buffers->toString();
+}
