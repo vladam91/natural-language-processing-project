@@ -1,5 +1,5 @@
  /**
- * Citanje html fajla
+ * Citanje elemenata html fajla
  *
  */
 function readingHtmlFile($htmlFile) {

@@ -1,5 +1,5 @@
  /**
- * Konverzija utc vremena u formatirani string
+ * Konvertuj utc vremena u formatirani string
  *
  */
 function convertUtcTimetoFormattedString($timestamp) {

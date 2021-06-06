@@ -1,5 +1,5 @@
 /**
- * Vraca novi html file
+ * Vraca novi html file kao izlaz
  *
  */
 function returnHtmlFile($source_excel) {

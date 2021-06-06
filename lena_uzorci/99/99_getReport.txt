@@ -1,5 +1,5 @@
 /**
- * Vraca izvestaj u vidu html fajla
+ * Vraca izvestaj u vidu html fajla kao izlaza
  *
  */
 function getReport() {

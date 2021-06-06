@@ -1,5 +1,5 @@
  /**
- * Pronalazenje svih brojeva u stringu
+ * Pronalazenje pozicija svih brojeva u stringu
  *
  */
 function findAllNumberInString($text, $itemToFind) {

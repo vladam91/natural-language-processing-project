@@ -1,5 +1,5 @@
  /**
- * Vraca sliku napravljenu od niza decimalnih brojeva
+ * Vraca sliku napravljenu konverzijom od niza uint8 decimalnih brojeva
  *
  */
 function convertIntegerArrayToImage() {

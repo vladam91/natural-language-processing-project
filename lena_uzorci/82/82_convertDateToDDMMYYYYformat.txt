@@ -1,5 +1,5 @@
  /**
- * Konverzija datum stringa u format ddmmggg i njegov ispis
+ * Konvertuj datum stringa u oblik ddmmggg i njegov ispis
  *
  */
 function convertDateToDDMMYYYFormat($dateString) {

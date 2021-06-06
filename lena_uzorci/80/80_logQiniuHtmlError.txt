@@ -1,5 +1,5 @@
 /**
- * Ispisuje kuiniu html kod
+ * Ispisuje staticki opis html status koda
  *
  */
 private function logQiniuHtmlError(Error $error, $extra = null)

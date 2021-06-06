@@ -1,5 +1,5 @@
  /**
- * Vraca body sekciju html-a
+ * Citanje body sekcije kao elemenata html-a
  *
  */
 function getHtmlBody($file) {

@@ -1,5 +1,5 @@
  /**
- * Vraca N nasumicnih permutacija niza
+ * Vraca N nasumicnih permutacija liste
  *
  */
 function nRandomPermutations($array, $n) {

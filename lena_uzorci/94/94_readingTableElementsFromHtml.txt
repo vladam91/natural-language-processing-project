@@ -1,5 +1,5 @@
  /**
- * Citanja elemenata tabele iz html fajla
+ * Citanje elemenata tabele iz html fajla
  *
  */
 function readingTableElementsFromHtml($file) {

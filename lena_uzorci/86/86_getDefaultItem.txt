@@ -1,5 +1,5 @@
  /**
- * Provera odabrane vrednosti polja za selektovanje
+ * Proveriti polje selektovano za upis
  *
  */
  public function getDefaultItem()

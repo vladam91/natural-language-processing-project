@@ -1,9 +1,9 @@
 /**
- * Vraca pregled tj ispis modela neuralne mreze
+ * Vraca informaciju sa ispisom modelu sa datim indeksom
  *
  */
 
-function summarizeModel(Model $model) {
+function getModelInfo_($id) {
 
 	$model.normalize()
 	$result = $model.evaluate()
@@ -15,5 +15,5 @@ function summarizeModel(Model $model) {
 		$summary = "Incorrect model"
 	}
 	
-	return $summary	
+	return $modelInfo	
 }

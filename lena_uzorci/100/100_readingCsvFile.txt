@@ -1,5 +1,5 @@
 /**
- * Citanje csv fajla i ispis
+ * Citati nekoliko csv fajla i rezultat smestiti u niz
  *
  */
 function readingCsvFile($url) {

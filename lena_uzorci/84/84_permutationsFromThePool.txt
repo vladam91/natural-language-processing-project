@@ -1,5 +1,5 @@
  /**
- * Permutacija elemenata iz liste (pool). Funkcija vraca iterator. Moze se specificirati r - velicina permutacije
+ * Permutacija za sve elemente iz liste (pool). Funkcija vraca iterator. Moze se specificirati r - velicina permutacije
  *
  */
 function permutationsFromThePool($pool, $r = null) {

@@ -1,5 +1,5 @@
  /**
- * Plotiranje koordinate sa datom latitudom i longitudom  
+ * Ekstrakcija koordinate sa datom latitudom i longitudom  
  *
  */
 function plotCoordinates($lat, $long) {

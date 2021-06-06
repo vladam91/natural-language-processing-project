@@ -1,5 +1,5 @@
 /**
- * Vraca html info element
+ * Radi se ekstrakcija info podataka iz htmla
  *
  */
 

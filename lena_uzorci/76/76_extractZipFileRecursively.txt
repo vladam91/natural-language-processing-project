@@ -1,5 +1,5 @@
  /**
- * Ekstrakcija zip fajla rekurzivno
+ * Ekstraktovati zip fajla rekurzivno
  *
  */
 function extractZipFileRecursively($filePath) {

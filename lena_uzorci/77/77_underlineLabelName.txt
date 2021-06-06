@@ -1,5 +1,5 @@
  /**
- * Podvuci ime oznake
+ * Podvuci ime oznake u vidzetu
  *
  */
 function underlineLabelName($labelId) {

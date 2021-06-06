@@ -1,5 +1,5 @@
  /**
- * Konverzija datum stringa u format gggg-mm-dd i njegov ispis
+ * Konvertuj datum u oblik gggg-mm-dd i njegov ispis
  *
  */
 function convertDateToYYYY-MM-DDFormat($dateString) {

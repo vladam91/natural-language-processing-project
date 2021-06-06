@@ -1,5 +1,5 @@
  /**
- * Citanje .gz fajla liniju po liniju
+ * Citati sadrzaj .gz fajla liniju po liniju
  *
  */
 function readGzFileLineByLine($filename) {

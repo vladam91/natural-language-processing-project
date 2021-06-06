@@ -1,5 +1,5 @@
  /**
- * Optimizacija memoizacijom na disku
+ * Optimizacija za pamcenje na stalnom skladistu
  *
  */
 function permanentMemoization() {

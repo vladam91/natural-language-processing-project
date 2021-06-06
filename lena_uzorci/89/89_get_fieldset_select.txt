@@ -1,5 +1,5 @@
 /**
- * Vraca jedinstvenu vrednost iz reda rabele gde je select klauzula tacna
+ * VParsiranje argumenata dobijenih kao rezultat upita
  *
  */
 function get_fieldset_select($table, $return, $select)

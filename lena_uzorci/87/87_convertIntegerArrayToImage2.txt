@@ -1,5 +1,5 @@
  /**
- * Konverzija dva niza decimalnog broja u sliku
+ * Konverzija dva niza uint8 broja u sliku
  *
  */
 function convertIntegerArrayToImage() {

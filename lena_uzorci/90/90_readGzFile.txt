@@ -1,5 +1,5 @@
  /**
- * Citanje .gz fajla
+ * Citati .gz fajla
  *
  */
 function readGzFile($filename) {

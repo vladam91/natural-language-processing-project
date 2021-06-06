@@ -1,5 +1,5 @@
  /**
- * Dobijanje proteklog vremena od datuma u YYYYMMDD formatu
+ * Dobijanje proteklog vremena od datuma u YYYYMMDD obliku
  *
  */
 function getElapsedTimeInYYYYMMDDFormat($date) {

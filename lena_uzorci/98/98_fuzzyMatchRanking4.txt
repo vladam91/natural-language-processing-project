@@ -1,5 +1,5 @@
 /**
-*  Funkcija koja pretrazuje podatke iz klase Automobil koristeci fuzzy metode
+*  Funkcija koja pretrazuje podatke iz klase Automobil koristeci fuzzy ranking metode
 */
 
 public function fuzzyMatchRanking4($niz){
